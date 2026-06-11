@@ -89,7 +89,7 @@ The intended stack is:
 | Content | **MDX / CMS-backed content** | Publishing for reflections, devotionals, articles, pages, and product content. |
 | UI Components | **Custom React components** | Reusable cards, hero sections, album panels, quote blocks, and page layouts. |
 | Database/Auth/Storage | **Supabase** | User accounts, memberships, access control, uploaded files, and platform data. |
-| Payments | **Stripe** | Subscriptions, checkout, product purchases, billing, and digital license creation. |
+| Payments | **Stripe or PayPal** | Subscriptions, checkout, product purchases, donations, billing, and digital access licenses. |
 | Animation | **Framer Motion or CSS transitions** | Subtle glow, fade, and movement effects without making the site feel noisy. |
 | Deployment | **Vercel** | Simple deployment from GitHub with preview builds. |
 | Repository | **GitHub** | Source control, issue tracking, documentation, and project history. |
@@ -123,6 +123,7 @@ See the detailed design notes in [`docs/design-system.md`](docs/design-system.md
 | [`docs/project-overview.md`](docs/project-overview.md) | High-level description of the project and its goals. |
 | [`docs/platform-requirements.md`](docs/platform-requirements.md) | Full Substack/Shopify/WordPress-style platform requirements. |
 | [`docs/data-model.md`](docs/data-model.md) | Early conceptual data model for users, products, memberships, posts, licenses, and media. |
+| [`docs/payment-providers.md`](docs/payment-providers.md) | Payment provider options for Stripe, PayPal, memberships, purchases, and licenses. |
 | [`docs/site-architecture.md`](docs/site-architecture.md) | Planned pages, routes, sections, and user flow. |
 | [`docs/design-system.md`](docs/design-system.md) | Colors, typography, layout rules, visual language, and image usage. |
 | [`docs/technology-stack.md`](docs/technology-stack.md) | What tools are planned, why they are being used, and what each piece does. |
@@ -135,9 +136,9 @@ See the detailed design notes in [`docs/design-system.md`](docs/design-system.md
 
 ## Repository Status
 
-This repository is currently in the **planning and documentation phase**.
+This repository is currently in the **planning and early scaffold phase**.
 
-The next major step is to scaffold the actual website application and begin building the first version of the homepage using the blue/gold Quiet Light design system, while keeping the future membership, publishing, and commerce architecture in mind.
+The next major step is to finish the install manifest, run the project locally, and begin building the first version of the homepage using the blue/gold Quiet Light design system, while keeping the future membership, publishing, and commerce architecture in mind.
 
 ---
 
