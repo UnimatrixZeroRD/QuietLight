@@ -1,6 +1,6 @@
 # Quiet Light Documentation
 
-This folder contains the planning and technical documentation for the Quiet Light website.
+This folder contains the planning and technical documentation for the Quiet Light website and future platform.
 
 The purpose of these documents is to make the project clear before the first full build begins.
 
@@ -11,6 +11,8 @@ The purpose of these documents is to make the project clear before the first ful
 | Document | Purpose |
 | --- | --- |
 | [`project-overview.md`](project-overview.md) | Defines what the project is, who it is for, and what the website should accomplish. |
+| [`platform-requirements.md`](platform-requirements.md) | Defines the larger Substack/Shopify/WordPress-style platform vision for publishing, memberships, digital products, media, and scripture resources. |
+| [`data-model.md`](data-model.md) | Defines the early conceptual model for users, memberships, posts, pages, products, purchases, licenses, media, Daily Light entries, scripture, and embeds. |
 | [`site-architecture.md`](site-architecture.md) | Defines the planned pages, routes, homepage sections, and component structure. |
 | [`design-system.md`](design-system.md) | Defines the blue/gold visual identity, typography, image rules, and interface style. |
 | [`technology-stack.md`](technology-stack.md) | Explains the planned tools, what each one is for, and why it is being used. |
@@ -31,11 +33,19 @@ The Quiet Light website should become the central home for:
 - Sacred music and albums.
 - Daily Light posts.
 - Devotional writings.
+- Bible and scripture resources.
+- A blog and publishing system.
+- Memberships and supporter-only content.
+- Digital products such as e-books, music, videos, and downloadable files.
 - Joshua Eaton's Keeper persona and related creative work.
 
 The design direction is:
 
 > Deep blue stillness. Gold lantern light. Sacred reflection.
+
+The platform direction is:
+
+> A calm spiritual publishing, membership, media, and digital commerce platform — not a noisy store.
 
 ---
 
@@ -45,13 +55,15 @@ For someone new to the repository:
 
 1. Start with the root [`README.md`](../README.md).
 2. Read [`project-overview.md`](project-overview.md).
-3. Read [`design-system.md`](design-system.md).
-4. Read [`technology-stack.md`](technology-stack.md).
-5. Read [`site-architecture.md`](site-architecture.md).
-6. Read [`roadmap.md`](roadmap.md).
+3. Read [`platform-requirements.md`](platform-requirements.md).
+4. Read [`data-model.md`](data-model.md).
+5. Read [`design-system.md`](design-system.md).
+6. Read [`technology-stack.md`](technology-stack.md).
+7. Read [`site-architecture.md`](site-architecture.md).
+8. Read [`roadmap.md`](roadmap.md).
 
 ---
 
 ## Next Work Item
 
-The next major task is to scaffold the website application and begin building the first homepage draft.
+The next major task is to scaffold the website application and begin building the first homepage draft while keeping future memberships, products, content publishing, and media access control in mind.
