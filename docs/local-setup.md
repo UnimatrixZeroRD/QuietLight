@@ -1,42 +1,42 @@
 # Local Setup
 
-The application scaffold has started, but the install manifest still needs to be added before the project can run locally.
+The application scaffold now includes a package manifest and core Next.js configuration files.
 
-Recommended setup once the manifest is present:
+Recommended setup:
 
-```bash
-npm install
-npm run dev
-```
+- npm install
+- npm run dev
 
-Expected development server:
-
-```text
-http://localhost:3000
-```
+Expected development server: http://localhost:3000
 
 ---
 
-## Planned Dependencies
+## Dependencies
 
-The project is intended to use:
+The project currently uses:
 
 - Next.js
 - React
 - TypeScript
 - Tailwind CSS
 - Supabase client
-- Stripe and/or PayPal integration packages when payment work begins
+- ESLint with flat config
+- Stripe and/or PayPal integration packages later when payment work begins
 
 ---
 
 ## First Local Verification Steps
 
-After dependencies are installed:
+After dependencies are installed, run:
 
-```bash
-npm run typecheck
-npm run build
-```
+- npm run lint
+- npm run typecheck
+- npm run build
 
-The first build may need small corrections because the repository is currently being scaffolded through direct GitHub file creation rather than a local Next.js generator.
+If a package lockfile is generated locally, commit it so future installs can use npm ci.
+
+---
+
+## Notes
+
+This repository was scaffolded through direct GitHub file creation rather than the interactive Next.js generator, so the first few local runs may reveal small configuration or component issues to clean up.
