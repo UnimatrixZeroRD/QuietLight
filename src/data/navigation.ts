@@ -1,0 +1,33 @@
+export type NavItem = {
+  label: string;
+  href: string;
+};
+
+export const primaryNavigation: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "The Way", href: "/the-way" },
+  { label: "Book", href: "/keepers-lantern" },
+  { label: "Music", href: "/music" },
+  { label: "Daily Light", href: "/daily-light" },
+  { label: "Bible", href: "/bible" },
+  { label: "Store", href: "/store" },
+  { label: "Membership", href: "/membership" },
+  { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
+  { label: "Support", href: "/support" },
+];
+
+export const footerNavigation = {
+  explore: [
+    { label: "The Way", href: "/the-way" },
+    { label: "The Keeper's Lantern", href: "/keepers-lantern" },
+    { label: "Music", href: "/music" },
+    { label: "Daily Light", href: "/daily-light" },
+  ],
+  platform: [
+    { label: "Store", href: "/store" },
+    { label: "Membership", href: "/membership" },
+    { label: "Bible", href: "/bible" },
+    { label: "Blog", href: "/blog" },
+  ],
+};
