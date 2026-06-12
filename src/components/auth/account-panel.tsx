@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+import { hasSupabasePublicEnv } from "../../lib/supabase/env";
 
 type AccountState = {
   email: string | null;
@@ -9,13 +10,19 @@ type AccountState = {
 };
 
 export function AccountPanel() {
-  const [account, setAccount] = useState<AccountState>({ email: null, status: "loading" });
+  const [account, setAccount] = useState<AccountState>(() => ({
+    email: null,
+    status: hasSupabasePublicEnv() ? "loading" : "unconfigured",
+  }));
 
   useEffect(() => {
+    if (!hasSupabasePublicEnv()) {
+      return;
+    }
+
     const supabase = createSupabaseBrowserClient();
 
     if (!supabase) {
-      setAccount({ email: null, status: "unconfigured" });
       return;
     }
 
