@@ -67,6 +67,9 @@ export function MemberList() {
             <p className="gold-text text-xs uppercase tracking-[0.25em]">{profile.role}</p>
             <h3 className="mt-3 text-2xl">{profile.display_name ?? "Unnamed profile"}</h3>
             <p className="mt-2 text-sm text-[var(--muted-silver)]">{profile.handle ? `@${profile.handle}` : "No handle set"}</p>
+            <p className="mt-3 break-all rounded-xl border border-[rgba(216,168,79,0.18)] px-4 py-3 text-xs text-[var(--muted-silver)]">
+              User ID: {profile.id}
+            </p>
           </article>
         ))}
       </div>
