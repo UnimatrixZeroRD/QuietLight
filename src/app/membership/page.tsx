@@ -1,4 +1,8 @@
-export default function MembershipPage() {
+import { getPublicMembershipTiers } from "../../lib/supabase/public-content";
+
+export default async function MembershipPage() {
+  const tiers = await getPublicMembershipTiers();
+
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <p className="gold-text uppercase tracking-[0.3em]">Membership</p>
@@ -7,18 +11,12 @@ export default function MembershipPage() {
         Memberships will support free readers, supporters, and deeper devotional access.
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
-        <article className="lantern-panel rounded-3xl p-6">
-          <h2 className="gold-text text-2xl">Free Reader</h2>
-          <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">Free access to public reflections, Daily Light, and basic updates.</p>
-        </article>
-        <article className="lantern-panel rounded-3xl p-6">
-          <h2 className="gold-text text-2xl">Supporter</h2>
-          <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">A simple way to support the work and receive deeper reflections.</p>
-        </article>
-        <article className="lantern-panel rounded-3xl p-6">
-          <h2 className="gold-text text-2xl">Keeper</h2>
-          <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">Deeper devotional access, member writing, and special releases.</p>
-        </article>
+        {tiers.map((tier) => (
+          <article className="lantern-panel rounded-3xl p-6" key={tier.name}>
+            <h2 className="gold-text text-2xl">{tier.name}</h2>
+            <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{tier.description}</p>
+          </article>
+        ))}
       </div>
     </main>
   );
