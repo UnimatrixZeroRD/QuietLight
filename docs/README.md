@@ -14,6 +14,7 @@ The purpose of these documents is to make the project clear before the first ful
 | [`platform-requirements.md`](platform-requirements.md) | Defines the larger Substack/Shopify/WordPress-style platform vision for publishing, memberships, digital products, media, and scripture resources. |
 | [`data-model.md`](data-model.md) | Defines the early conceptual model for users, memberships, posts, pages, products, purchases, licenses, media, Daily Light entries, scripture, and embeds. |
 | [`database-architecture.md`](database-architecture.md) | Documents the Supabase schema areas, table responsibilities, access levels, and next database work. |
+| [`auth-admin-plan.md`](auth-admin-plan.md) | Tracks the magic-link sign-in layer, account area, admin placeholders, and future protected route work. |
 | [`payment-providers.md`](payment-providers.md) | Defines the Stripe and PayPal payment-provider direction. |
 | [`supabase-vercel.md`](supabase-vercel.md) | Documents the Supabase and Vercel connection and early database integration direction. |
 | [`public-core-build-plan.md`](public-core-build-plan.md) | Tracks the current public-site build stage before accounts, payments, and admin tools. |
@@ -62,16 +63,17 @@ For someone new to the repository:
 3. Read [`platform-requirements.md`](platform-requirements.md).
 4. Read [`data-model.md`](data-model.md).
 5. Read [`database-architecture.md`](database-architecture.md).
-6. Read [`payment-providers.md`](payment-providers.md).
-7. Read [`supabase-vercel.md`](supabase-vercel.md).
-8. Read [`public-core-build-plan.md`](public-core-build-plan.md).
-9. Read [`design-system.md`](design-system.md).
-10. Read [`technology-stack.md`](technology-stack.md).
-11. Read [`site-architecture.md`](site-architecture.md).
-12. Read [`roadmap.md`](roadmap.md).
+6. Read [`auth-admin-plan.md`](auth-admin-plan.md).
+7. Read [`payment-providers.md`](payment-providers.md).
+8. Read [`supabase-vercel.md`](supabase-vercel.md).
+9. Read [`public-core-build-plan.md`](public-core-build-plan.md).
+10. Read [`design-system.md`](design-system.md).
+11. Read [`technology-stack.md`](technology-stack.md).
+12. Read [`site-architecture.md`](site-architecture.md).
+13. Read [`roadmap.md`](roadmap.md).
 
 ---
 
 ## Next Work Item
 
-The next major task is to run the Supabase-backed public content pages locally, fix any build issues, then continue toward authentication and admin content management.
+The next major task is to run the authentication and admin preparation layer locally, fix any build issues, then add server-side route protection before any private data is exposed.
