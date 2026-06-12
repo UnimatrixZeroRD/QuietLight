@@ -43,6 +43,28 @@ export default function HomePage() {
           <Link className="gold-text mt-6 inline-block uppercase tracking-[0.18em]" href="/membership">View Memberships</Link>
         </div>
       </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <p className="gold-text uppercase tracking-[0.3em]">Music</p>
+        <h2 className="mt-4 text-4xl md:text-6xl">Music of the Quiet Light</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {['The Flame Remains', 'The Everlasting Light', 'Gloria Patri'].map((album) => (
+            <div className="lantern-panel rounded-3xl p-6" key={album}>
+              <div className="mb-5 flex h-36 items-center justify-center rounded-2xl border border-[var(--lantern-gold)] text-4xl">✦</div>
+              <h3 className="gold-text text-2xl">{album}</h3>
+              <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">Sacred music for prayer, reflection, and stillness.</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="lantern-panel rounded-3xl p-8 text-center md:p-12">
+          <p className="gold-text uppercase tracking-[0.3em]">Daily Light</p>
+          <blockquote className="mx-auto mt-6 max-w-3xl text-3xl italic leading-relaxed">I am not the light. I am only its keeper.</blockquote>
+          <p className="mx-auto mt-6 max-w-2xl text-[var(--muted-silver)]">Daily scripture, quiet reflection, and devotional writing will live here as the platform grows.</p>
+        </div>
+      </section>
     </main>
   );
 }
