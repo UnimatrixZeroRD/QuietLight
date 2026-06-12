@@ -65,6 +65,21 @@ export default function HomePage() {
           <p className="mx-auto mt-6 max-w-2xl text-[var(--muted-silver)]">Daily scripture, quiet reflection, and devotional writing will live here as the platform grows.</p>
         </div>
       </section>
+
+      <section className="mx-auto grid max-w-6xl gap-6 px-6 py-16 md:grid-cols-2">
+        <div className="lantern-panel rounded-3xl p-8">
+          <p className="gold-text uppercase tracking-[0.3em]">Store</p>
+          <h2 className="mt-4 text-4xl">Digital works and access.</h2>
+          <p className="mt-5 leading-8 text-[var(--muted-silver)]">The store will hold e-books, music, video, bundles, and other Quiet Light resources.</p>
+          <Link className="gold-text mt-6 inline-block uppercase tracking-[0.18em]" href="/store">Visit the Store</Link>
+        </div>
+        <div className="lantern-panel rounded-3xl p-8">
+          <p className="gold-text uppercase tracking-[0.3em]">Support</p>
+          <h2 className="mt-4 text-4xl">Help keep the lantern burning.</h2>
+          <p className="mt-5 leading-8 text-[var(--muted-silver)]">Supporters help the writing, music, scripture work, and public platform continue to grow.</p>
+          <Link className="gold-text mt-6 inline-block uppercase tracking-[0.18em]" href="/support">Support the Work</Link>
+        </div>
+      </section>
     </main>
   );
 }
