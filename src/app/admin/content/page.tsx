@@ -1,4 +1,5 @@
 import { ContentEditor } from "../../../components/admin/content-editor";
+import { ContentList } from "../../../components/admin/content-list";
 
 export default function AdminContentPage() {
   return (
@@ -9,6 +10,7 @@ export default function AdminContentPage() {
         Create posts and Daily Light entries for the Quiet Light database.
       </p>
       <ContentEditor />
+      <ContentList />
     </main>
   );
 }
