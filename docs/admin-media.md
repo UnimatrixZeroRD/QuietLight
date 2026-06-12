@@ -1,6 +1,6 @@
 # Admin Media
 
-The Quiet Light admin area now includes a first media page.
+The Quiet Light admin area now includes a media page with file upload support.
 
 Route:
 
@@ -8,6 +8,7 @@ Route:
 
 Components:
 
+- src/components/admin/media-uploader.tsx
 - src/components/admin/media-asset-editor.tsx
 - src/components/admin/media-asset-list.tsx
 - src/components/admin/embed-manager.tsx
@@ -20,23 +21,34 @@ Related planning:
 
 ## Current Capabilities
 
-The media page can register media asset records for images, audio, video, and documents.
+The media page can upload files to Supabase Storage and register matching media asset records.
 
-The page can also register embed records for services such as YouTube, Spotify, and Apple Music.
+Configured buckets:
+
+- public-media
+- private-media
+- product-files
+- member-files
+
+The page can also manually register media asset records for images, audio, video, and documents.
+
+The page can register embed records for services such as YouTube, Spotify, and Apple Music.
 
 ---
 
-## Current Limitations
+## Access Model
 
-This layer records media metadata only.
+Public media can be read publicly.
 
-It does not upload files yet.
+Admin users can manage files in the Quiet Light storage buckets.
+
+Private, product, and member files should later be delivered by server-side signed URLs after access checks.
 
 ---
 
 ## Next Media Work
 
-1. Add file upload controls.
-2. Connect media assets to posts, albums, tracks, and products.
-3. Add cover image selection.
-4. Add private or paid media access rules.
+1. Connect media assets to posts, albums, tracks, and products.
+2. Add cover image selection.
+3. Add private or paid media access rules.
+4. Add signed download delivery.
