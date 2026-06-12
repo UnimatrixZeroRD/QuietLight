@@ -1,8 +1,8 @@
-import { dailyLightEntries } from "../../data/daily-light-entries";
+import { getFeaturedDailyLightEntry } from "../../lib/supabase/public-content";
 
-const featuredEntry = dailyLightEntries[0];
+export default async function DailyLightPage() {
+  const featuredEntry = await getFeaturedDailyLightEntry();
 
-export default function DailyLightPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <p className="gold-text uppercase tracking-[0.3em]">Daily Light</p>
@@ -14,7 +14,9 @@ export default function DailyLightPage() {
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         <article className="lantern-panel rounded-3xl p-6">
           <h2 className="gold-text text-2xl">Scripture</h2>
-          <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">A short passage or reference for daily meditation.</p>
+          <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">
+            {featuredEntry.scriptureReference ?? "A short passage or reference for daily meditation."}
+          </p>
         </article>
         <article className="lantern-panel rounded-3xl p-6">
           <h2 className="gold-text text-2xl">Reflection</h2>
