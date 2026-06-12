@@ -10,6 +10,7 @@ Components:
 
 - src/components/admin/product-editor.tsx
 - src/components/admin/product-list.tsx
+- src/components/admin/public-image-picker.tsx
 
 ---
 
@@ -30,6 +31,8 @@ Products can be saved as:
 - Active.
 - Archived.
 
+Products can now select a public media asset as a cover image.
+
 The product list shows recent products and includes a safe archive action.
 
 ---
@@ -38,7 +41,7 @@ The product list shows recent products and includes a safe archive action.
 
 This layer creates product records only.
 
-It does not yet connect files, payment checkout, purchases, or license delivery.
+It does not yet connect product files, payment checkout, purchases, or license delivery.
 
 ---
 
@@ -46,7 +49,6 @@ It does not yet connect files, payment checkout, purchases, or license delivery.
 
 1. Add product editing.
 2. Add product file records.
-3. Add product cover image selection.
-4. Add PayPal or Stripe checkout.
-5. Add purchase records.
-6. Add license delivery.
+3. Add PayPal or Stripe checkout.
+4. Add purchase records.
+5. Add license delivery.
