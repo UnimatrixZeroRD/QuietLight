@@ -12,6 +12,7 @@ Components:
 - src/components/admin/album-list.tsx
 - src/components/admin/track-editor.tsx
 - src/components/admin/track-list.tsx
+- src/components/admin/public-image-picker.tsx
 
 ---
 
@@ -24,6 +25,8 @@ Albums can be saved as:
 - Draft.
 - Published.
 - Archived.
+
+Albums can now select a public media asset as a cover image.
 
 The album list shows recent albums and includes a safe archive action.
 
@@ -46,14 +49,13 @@ The track list shows recent tracks and includes a safe archive action.
 
 This layer manages album and track records only.
 
-Audio files, cover image selection, direct player integration, and product linking should be added later.
+Audio files, direct player integration, and product linking should be added later.
 
 ---
 
 ## Next Music Work
 
-1. Add album cover image selection.
-2. Add Spotify, Apple Music, and YouTube embed records.
-3. Add product links for purchasable music access.
-4. Add audio file access and licensing rules.
-5. Add track editing and reordering.
+1. Add Spotify, Apple Music, and YouTube embed records.
+2. Add product links for purchasable music access.
+3. Add audio file access and licensing rules.
+4. Add track editing and reordering.
