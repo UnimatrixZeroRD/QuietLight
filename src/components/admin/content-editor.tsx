@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+import { PublicImagePicker } from "./public-image-picker";
 
 type ContentType = "post" | "daily-light";
 type PublishStatus = "draft" | "published";
@@ -23,6 +24,7 @@ export function ContentEditor() {
   const [body, setBody] = useState("");
   const [prayer, setPrayer] = useState("");
   const [scriptureReference, setScriptureReference] = useState("");
+  const [coverImageUrl, setCoverImageUrl] = useState("");
   const [message, setMessage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
@@ -55,6 +57,7 @@ export function ContentEditor() {
             slug: finalSlug,
             excerpt: summary,
             body_md: body,
+            featured_image_url: coverImageUrl || null,
             status,
             access_level: "public",
             published_at: status === "published" ? new Date().toISOString() : null,
@@ -80,6 +83,7 @@ export function ContentEditor() {
       setBody("");
       setPrayer("");
       setScriptureReference("");
+      setCoverImageUrl("");
     }
 
     setIsSaving(false);
@@ -142,6 +146,7 @@ export function ContentEditor() {
             onChange={(event) => setSummary(event.target.value)}
             required
           />
+          <PublicImagePicker value={coverImageUrl} onChange={setCoverImageUrl} />
         </>
       ) : (
         <>
