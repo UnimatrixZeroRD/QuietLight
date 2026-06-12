@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+import { PublicImagePicker } from "./public-image-picker";
 
 type AlbumStatus = "draft" | "published" | "archived";
 
@@ -14,6 +15,7 @@ export function AlbumEditor() {
   const [subtitle, setSubtitle] = useState("");
   const [slug, setSlug] = useState("");
   const [description, setDescription] = useState("");
+  const [coverImageUrl, setCoverImageUrl] = useState("");
   const [status, setStatus] = useState<AlbumStatus>("draft");
   const [message, setMessage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
@@ -40,6 +42,7 @@ export function AlbumEditor() {
       subtitle: subtitle || null,
       slug: slug || toSlug(title),
       description,
+      cover_image_url: coverImageUrl || null,
       status,
       access_level: "public",
     });
@@ -52,6 +55,7 @@ export function AlbumEditor() {
       setSubtitle("");
       setSlug("");
       setDescription("");
+      setCoverImageUrl("");
       setStatus("draft");
     }
 
@@ -74,6 +78,8 @@ export function AlbumEditor() {
 
       <label className="mt-6 block text-sm uppercase tracking-[0.25em] text-[var(--soft-gold)]" htmlFor="album-description">Description</label>
       <textarea className="mt-4 min-h-32 w-full rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)] outline-none focus:border-[var(--lantern-gold)]" id="album-description" value={description} onChange={(event) => setDescription(event.target.value)} required />
+
+      <PublicImagePicker value={coverImageUrl} onChange={setCoverImageUrl} />
 
       <label className="mt-6 block text-sm uppercase tracking-[0.25em] text-[var(--soft-gold)]" htmlFor="album-status">Status</label>
       <select className="mt-4 w-full rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)] outline-none focus:border-[var(--lantern-gold)]" id="album-status" value={status} onChange={(event) => setStatus(event.target.value as AlbumStatus)}>
