@@ -25,6 +25,12 @@ export const adminSections: AdminSection[] = [
     status: "ready",
   },
   {
+    title: "Music",
+    description: "Create and manage albums for the Quiet Light music archive.",
+    href: "/admin/music",
+    status: "ready",
+  },
+  {
     title: "Members",
     description: "Review profiles, memberships, tiers, supporter status, and access levels.",
     href: "/admin/members",
