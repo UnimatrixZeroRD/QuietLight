@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type OrderIntent = {
@@ -25,7 +25,7 @@ export function OrderIntentList() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  async function loadOrders() {
+  const loadOrders = useCallback(async () => {
     setIsLoading(true);
     setMessage("");
 
@@ -49,7 +49,7 @@ export function OrderIntentList() {
     }
 
     setIsLoading(false);
-  }
+  }, []);
 
   async function updateStatus(orderId: string, status: "paid" | "fulfilled" | "cancelled") {
     const supabase = createSupabaseBrowserClient();
@@ -69,8 +69,10 @@ export function OrderIntentList() {
   }
 
   useEffect(() => {
-    loadOrders();
-  }, []);
+    void Promise.resolve().then(() => {
+      void loadOrders();
+    });
+  }, [loadOrders]);
 
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">
