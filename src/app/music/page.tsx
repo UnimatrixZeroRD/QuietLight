@@ -1,6 +1,8 @@
-const albums = ["The Flame Remains", "The Everlasting Light", "Gloria Patri"];
+import { getPublicAlbums } from "../../lib/supabase/public-content";
 
-export default function MusicPage() {
+export default async function MusicPage() {
+  const albums = await getPublicAlbums();
+
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <p className="gold-text uppercase tracking-[0.3em]">Music</p>
@@ -10,10 +12,10 @@ export default function MusicPage() {
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {albums.map((album) => (
-          <article className="lantern-panel rounded-3xl p-6" key={album}>
+          <article className="lantern-panel rounded-3xl p-6" key={album.title}>
             <div className="mb-5 flex h-44 items-center justify-center rounded-2xl border border-[var(--lantern-gold)] bg-[var(--deep-blue)] text-5xl">✦</div>
-            <h2 className="gold-text text-2xl">{album}</h2>
-            <p className="mt-3 leading-7 text-[var(--muted-silver)]">Album pages, embedded listening links, and release notes will be added here.</p>
+            <h2 className="gold-text text-2xl">{album.title}</h2>
+            <p className="mt-3 leading-7 text-[var(--muted-silver)]">{album.description}</p>
           </article>
         ))}
       </div>
