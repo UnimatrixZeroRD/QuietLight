@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HomePage() {
   return (
     <main>
@@ -7,6 +9,10 @@ export default function HomePage() {
         <p className="mx-auto mt-8 max-w-3xl text-xl leading-8 text-[var(--ivory)] md:text-2xl">
           A spiritual path of stillness, humility, sacred reflection, and the light that never fades.
         </p>
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <Link className="lantern-glow rounded-full border border-[var(--lantern-gold)] bg-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--midnight)]" href="/the-way">Enter the Quiet Light</Link>
+          <Link className="rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--ivory)]" href="/music">Listen to the Music</Link>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
