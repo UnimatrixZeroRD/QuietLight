@@ -25,7 +25,7 @@ It currently displays:
 - Role.
 - User ID.
 
-The access form can create a product access record for a user and product ID. This allows testing the account library and signed download flow before checkout automation is finished.
+The access form can now load member and product selectors from the protected admin API. This allows testing the account library and signed download flow before checkout automation is finished without copying raw IDs by hand.
 
 ---
 
@@ -35,7 +35,7 @@ The route is protected by middleware.
 
 Only signed-in users with profiles.role set to admin should be able to reach this page.
 
-The access API route also checks that the signed-in user is an admin before creating access records.
+The access API route also checks that the signed-in user is an admin before returning options or creating access records.
 
 ---
 
