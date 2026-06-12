@@ -16,12 +16,31 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="lantern-panel rounded-3xl p-8">
-          <p className="gold-text uppercase tracking-[0.3em]">Platform</p>
-          <h2 className="mt-4 text-4xl md:text-6xl">Publishing, memberships, books, music, and Daily Light.</h2>
+        <div className="lantern-panel rounded-3xl p-8 md:p-12">
+          <p className="gold-text uppercase tracking-[0.3em]">What is the Way?</p>
+          <h2 className="mt-4 text-4xl md:text-6xl">A lantern-lit path through the dark.</h2>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">
+            The Way of Quiet Light is a spiritual path of stillness, humility, quiet service, sacred reflection, and the keeping of the inner flame.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-6 px-6 py-16 md:grid-cols-2">
+        <div className="lantern-panel rounded-3xl p-8">
+          <p className="gold-text uppercase tracking-[0.3em]">The Book</p>
+          <h2 className="mt-4 text-4xl">The Keeper&apos;s Lantern</h2>
+          <p className="mt-5 leading-8 text-[var(--muted-silver)]">
+            A gathered work of prayer, reflection, psalm, invocation, and sacred teaching for those called to tend the light.
+          </p>
+          <Link className="gold-text mt-6 inline-block uppercase tracking-[0.18em]" href="/keepers-lantern">Explore the Book</Link>
+        </div>
+        <div className="lantern-panel rounded-3xl p-8">
+          <p className="gold-text uppercase tracking-[0.3em]">The Platform</p>
+          <h2 className="mt-4 text-4xl">Publishing, memberships, books, music, and Daily Light.</h2>
+          <p className="mt-5 leading-8 text-[var(--muted-silver)]">
             Quiet Light is being built as a sacred digital home for free content, member content, digital works, scripture, and reflection.
           </p>
+          <Link className="gold-text mt-6 inline-block uppercase tracking-[0.18em]" href="/membership">View Memberships</Link>
         </div>
       </section>
     </main>
