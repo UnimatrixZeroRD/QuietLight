@@ -1,6 +1,8 @@
-import { featuredPosts } from "../../data/posts";
+import { getPublicPosts } from "../../lib/supabase/public-content";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getPublicPosts();
+
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <p className="gold-text uppercase tracking-[0.3em]">Blog</p>
@@ -9,7 +11,7 @@ export default function BlogPage() {
         This section will host reflections, announcements, devotional writing, and long-form articles.
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {featuredPosts.map((post) => (
+        {posts.map((post) => (
           <article className="lantern-panel rounded-3xl p-6" key={post.title}>
             <p className="gold-text text-xs uppercase tracking-[0.25em]">{post.category}</p>
             <h2 className="mt-4 text-2xl">{post.title}</h2>
