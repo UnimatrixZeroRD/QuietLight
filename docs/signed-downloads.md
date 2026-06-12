@@ -1,6 +1,6 @@
 # Signed Product Downloads
 
-Quiet Light now includes the first signed-download route for paid product files.
+Quiet Light now includes the first signed-download route for paid product files and a customer-facing account library.
 
 Route pattern:
 
@@ -9,17 +9,19 @@ Route pattern:
 Implementation:
 
 - src/app/api/products/[productId]/files/[fileId]/download/route.ts
+- src/components/account/product-library.tsx
 
 ---
 
 ## How It Works
 
 1. The user must be signed in.
-2. The route checks the requested product file.
-3. Admin users are allowed through.
-4. Non-admin users must have an active license for the product.
-5. If access is valid, Supabase Storage creates a short-lived signed URL.
-6. The route redirects the user to that signed URL.
+2. The account library reads active licenses for that user.
+3. Licensed products and product files are shown in the account area.
+4. Each file links to the protected download route.
+5. The download route checks access again.
+6. If access is valid, Supabase Storage creates a short-lived signed URL.
+7. The route redirects the user to that signed URL.
 
 Signed URLs currently last 600 seconds.
 
@@ -33,24 +35,24 @@ The storage policy migration allows:
 - Active members to read files from member-files.
 - Admin users to manage Quiet Light storage buckets.
 
-Migration:
+Migrations:
 
 - supabase/migrations/20260612153000_product_file_storage_access.sql
+- supabase/migrations/20260612160000_customer_library_read_policies.sql
 
 ---
 
 ## Current Limitations
 
-This route handles product file delivery only.
+The customer library depends on license records already existing.
 
-It does not yet expose a customer-facing library page.
+Checkout webhooks are not connected yet, so licenses still need to be created by admin action or future payment automation.
 
 ---
 
 ## Next Work
 
-1. Add account library page.
-2. List licensed products for the signed-in user.
-3. Show available product files.
-4. Link each file to the signed download route.
-5. Add purchase creation from checkout provider webhooks.
+1. Add admin license creation for testing.
+2. Add purchase creation from checkout provider webhooks.
+3. Add checkout buttons on product pages.
+4. Add customer purchase history.
