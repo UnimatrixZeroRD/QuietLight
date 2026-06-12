@@ -10,6 +10,7 @@ Components:
 
 - src/components/admin/product-editor.tsx
 - src/components/admin/product-list.tsx
+- src/components/admin/product-file-manager.tsx
 - src/components/admin/public-image-picker.tsx
 
 ---
@@ -31,24 +32,26 @@ Products can be saved as:
 - Active.
 - Archived.
 
-Products can now select a public media asset as a cover image.
+Products can select a public media asset as a cover image.
 
 The product list shows recent products and includes a safe archive action.
+
+The product file manager can attach uploaded files from product, member, or private storage buckets to a product record.
 
 ---
 
 ## Current Limitations
 
-This layer creates product records only.
+This layer creates product records and product file records.
 
-It does not yet connect product files, payment checkout, purchases, or license delivery.
+It does not yet create payment checkout, purchases, or license delivery.
 
 ---
 
 ## Next Product Work
 
-1. Add product editing.
-2. Add product file records.
-3. Add PayPal or Stripe checkout.
-4. Add purchase records.
-5. Add license delivery.
+1. Add signed file delivery.
+2. Add PayPal or Stripe checkout.
+3. Add purchase records.
+4. Add license delivery.
+5. Add product editing.
