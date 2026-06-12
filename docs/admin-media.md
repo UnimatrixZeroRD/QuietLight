@@ -12,6 +12,10 @@ Components:
 - src/components/admin/media-asset-list.tsx
 - src/components/admin/embed-manager.tsx
 
+Related planning:
+
+- docs/media-storage-strategy.md
+
 ---
 
 ## Current Capabilities
