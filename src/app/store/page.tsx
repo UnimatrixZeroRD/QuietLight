@@ -1,6 +1,8 @@
-import { featuredProducts } from "../../data/products";
+import { getPublicProducts } from "../../lib/supabase/public-content";
 
-export default function StorePage() {
+export default async function StorePage() {
+  const products = await getPublicProducts();
+
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <p className="gold-text uppercase tracking-[0.3em]">Store</p>
@@ -9,7 +11,7 @@ export default function StorePage() {
         This section will hold e-books, music, videos, bundles, and digital access options.
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {featuredProducts.map((product) => (
+        {products.map((product) => (
           <article className="lantern-panel rounded-3xl p-6" key={product.title}>
             <p className="gold-text text-xs uppercase tracking-[0.25em]">{product.type}</p>
             <h2 className="mt-4 text-2xl">{product.title}</h2>
