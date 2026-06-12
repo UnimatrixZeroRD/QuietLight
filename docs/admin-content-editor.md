@@ -10,6 +10,7 @@ Components:
 
 - src/components/admin/content-editor.tsx
 - src/components/admin/content-list.tsx
+- src/components/admin/public-image-picker.tsx
 
 ---
 
@@ -24,6 +25,8 @@ Each item can be saved as:
 
 - Draft.
 - Published.
+
+Posts can now select a public media asset as a featured image.
 
 Published posts receive a published_at timestamp. Published Daily Light entries receive a published_on date.
 
@@ -50,8 +53,6 @@ The database also uses Row Level Security policies that allow admin users to wri
 
 1. Add edit actions.
 2. Add page editing.
-3. Add product editing.
-4. Add album and track editing.
-5. Add media attachment selection.
-6. Add markdown preview.
-7. Add content search and filters.
+3. Add markdown preview.
+4. Add content search and filters.
+5. Add richer media attachment support.
