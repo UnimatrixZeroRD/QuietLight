@@ -1,13 +1,15 @@
+import { dailyLightEntries } from "../../data/daily-light-entries";
+
+const featuredEntry = dailyLightEntries[0];
+
 export default function DailyLightPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <p className="gold-text uppercase tracking-[0.3em]">Daily Light</p>
       <h1 className="gold-text mt-4 text-5xl md:text-7xl">Daily Scripture and Reflection</h1>
       <div className="lantern-panel mt-10 rounded-3xl p-8 text-center md:p-12">
-        <p className="text-3xl italic leading-relaxed">I am not the light. I am only its keeper.</p>
-        <p className="mt-6 leading-8 text-[var(--muted-silver)]">
-          This section will host daily scripture quotes, reflections, prayers, and devotional archives.
-        </p>
+        <p className="text-3xl italic leading-relaxed">{featuredEntry.reflection}</p>
+        <p className="mt-6 leading-8 text-[var(--muted-silver)]">{featuredEntry.summary}</p>
       </div>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         <article className="lantern-panel rounded-3xl p-6">
@@ -20,7 +22,7 @@ export default function DailyLightPage() {
         </article>
         <article className="lantern-panel rounded-3xl p-6">
           <h2 className="gold-text text-2xl">Prayer</h2>
-          <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">A simple closing prayer for the day ahead.</p>
+          <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{featuredEntry.prayer}</p>
         </article>
       </div>
     </main>
