@@ -7,7 +7,7 @@ type CheckoutBody = {
   method?: PaymentMethod;
 };
 
-const etransferEmail = process.env.NEXT_PUBLIC_ETRANSFER_EMAIL ?? "eatonventurescorp@protonmail.com";
+const etransferEmail = process.env.NEXT_PUBLIC_ETRANSFER_EMAIL ?? "joshuaeatonca@protonmail.com";
 
 export async function POST(request: Request) {
   const body = (await request.json().catch(() => null)) as CheckoutBody | null;
