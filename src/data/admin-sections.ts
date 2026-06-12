@@ -28,6 +28,6 @@ export const adminSections: AdminSection[] = [
     title: "Members",
     description: "Review profiles, memberships, tiers, supporter status, and access levels.",
     href: "/admin/members",
-    status: "planned",
+    status: "ready",
   },
 ];
