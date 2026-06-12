@@ -1,6 +1,6 @@
 # Order Intents
 
-Quiet Light now includes an order intent layer between product pages and payment/access fulfillment.
+Quiet Light now includes an order intent layer between product pages and access fulfillment.
 
 ---
 
@@ -14,6 +14,7 @@ This supports:
 - Future Stripe checkout.
 - Future PayPal checkout.
 - Admin review before access is granted.
+- Direct fulfillment into product access.
 
 ---
 
@@ -21,6 +22,7 @@ This supports:
 
 - /api/checkout
 - /admin/orders
+- /api/admin/orders/[orderId]/fulfill
 
 ---
 
@@ -58,17 +60,20 @@ Statuses:
 2. /api/checkout validates the product and user.
 3. An order intent is created.
 4. E-transfer returns manual instructions with the order ID.
-5. Stripe and PayPal create pending order records but remain provider placeholders.
+5. Stripe and PayPal create pending records but remain placeholders.
 6. Admin reviews orders in /admin/orders.
-7. Admin can mark orders paid, fulfilled, or cancelled.
-8. Admin grants product access through /admin/members.
+7. Admin can mark an order paid.
+8. Admin can click Fulfill + Grant Access.
+9. The fulfillment route creates an active license if one does not already exist.
+10. The order is marked fulfilled.
+11. The user can see the product in /account.
 
 ---
 
 ## Next Work
 
-1. Add direct grant action from an order record.
-2. Add customer order history in /account.
-3. Add automatic access creation when an order is marked fulfilled.
-4. Add provider-specific checkout creation later.
-5. Add provider webhook fulfillment later.
+1. Add customer order history in /account.
+2. Add purchase records when orders are fulfilled.
+3. Add provider-specific checkout creation later.
+4. Add provider webhook fulfillment later.
+5. Add fulfillment audit notes.
