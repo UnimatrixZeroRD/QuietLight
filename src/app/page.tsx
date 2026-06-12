@@ -8,6 +8,16 @@ export default function HomePage() {
           A spiritual path of stillness, humility, sacred reflection, and the light that never fades.
         </p>
       </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="lantern-panel rounded-3xl p-8">
+          <p className="gold-text uppercase tracking-[0.3em]">Platform</p>
+          <h2 className="mt-4 text-4xl md:text-6xl">Publishing, memberships, books, music, and Daily Light.</h2>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">
+            Quiet Light is being built as a sacred digital home for free content, member content, digital works, scripture, and reflection.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
