@@ -1,22 +1,23 @@
-import { getPublicProducts } from "../../lib/supabase/public-content";
+import Link from "next/link";
+import { getStoreProducts } from "../../lib/supabase/store-products";
 
 export default async function StorePage() {
-  const products = await getPublicProducts();
+  const products = await getStoreProducts();
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <p className="gold-text uppercase tracking-[0.3em]">Store</p>
       <h1 className="gold-text mt-4 text-5xl md:text-7xl">Digital Store</h1>
       <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">
-        This section will hold e-books, music, videos, bundles, and digital access options.
+        E-books, music, videos, bundles, and digital access options for the Quiet Light library.
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {products.map((product) => (
-          <article className="lantern-panel rounded-3xl p-6" key={product.title}>
+          <Link className="lantern-panel rounded-3xl p-6" href={product.href} key={product.slug}>
             <p className="gold-text text-xs uppercase tracking-[0.25em]">{product.type}</p>
             <h2 className="mt-4 text-2xl">{product.title}</h2>
             <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{product.description}</p>
-          </article>
+          </Link>
         ))}
       </div>
     </main>
