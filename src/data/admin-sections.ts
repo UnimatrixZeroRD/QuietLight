@@ -25,6 +25,12 @@ export const adminSections: AdminSection[] = [
     status: "ready",
   },
   {
+    title: "Orders",
+    description: "Review store requests, manual payment records, and early access order intents.",
+    href: "/admin/orders",
+    status: "ready",
+  },
+  {
     title: "Music",
     description: "Create and manage albums for the Quiet Light music archive.",
     href: "/admin/music",
