@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PaymentOptions } from "../../../components/store/payment-options";
 import { getStoreProductBySlug } from "../../../lib/supabase/store-products";
 
 type StoreProductPageProps = {
@@ -38,14 +39,10 @@ export default async function StoreProductPage({ params }: StoreProductPageProps
           <h1 className="gold-text mt-4 text-5xl md:text-7xl">{product.title}</h1>
           <p className="mt-8 text-2xl text-[var(--soft-gold)]">{formatPrice(product.priceCents, product.currency)}</p>
           <p className="mt-8 text-lg leading-8 text-[var(--muted-silver)]">{product.description}</p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link className="lantern-glow rounded-full border border-[var(--lantern-gold)] bg-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--midnight)]" href="/sign-in">
-              Sign In
-            </Link>
-            <Link className="rounded-full border border-[rgba(216,168,79,0.45)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--ivory)]" href="/account">
-              Account Library
-            </Link>
-          </div>
+          <PaymentOptions productSlug={product.slug} />
+          <Link className="mt-6 inline-block rounded-full border border-[rgba(216,168,79,0.45)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--ivory)]" href="/account">
+            Account Library
+          </Link>
         </div>
       </section>
     </main>
