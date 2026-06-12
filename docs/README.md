@@ -14,6 +14,7 @@ The purpose of these documents is to make the project clear before the first ful
 | [`platform-requirements.md`](platform-requirements.md) | Defines the larger Substack/Shopify/WordPress-style platform vision for publishing, memberships, digital products, media, and scripture resources. |
 | [`data-model.md`](data-model.md) | Defines the early conceptual model for users, memberships, posts, pages, products, purchases, licenses, media, Daily Light entries, scripture, and embeds. |
 | [`payment-providers.md`](payment-providers.md) | Defines the Stripe and PayPal payment-provider direction. |
+| [`public-core-build-plan.md`](public-core-build-plan.md) | Tracks the current public-site build stage before accounts, payments, and admin tools. |
 | [`site-architecture.md`](site-architecture.md) | Defines the planned pages, routes, homepage sections, and component structure. |
 | [`design-system.md`](design-system.md) | Defines the blue/gold visual identity, typography, image rules, and interface style. |
 | [`technology-stack.md`](technology-stack.md) | Explains the planned tools, what each one is for, and why it is being used. |
@@ -59,13 +60,14 @@ For someone new to the repository:
 3. Read [`platform-requirements.md`](platform-requirements.md).
 4. Read [`data-model.md`](data-model.md).
 5. Read [`payment-providers.md`](payment-providers.md).
-6. Read [`design-system.md`](design-system.md).
-7. Read [`technology-stack.md`](technology-stack.md).
-8. Read [`site-architecture.md`](site-architecture.md).
-9. Read [`roadmap.md`](roadmap.md).
+6. Read [`public-core-build-plan.md`](public-core-build-plan.md).
+7. Read [`design-system.md`](design-system.md).
+8. Read [`technology-stack.md`](technology-stack.md).
+9. Read [`site-architecture.md`](site-architecture.md).
+10. Read [`roadmap.md`](roadmap.md).
 
 ---
 
 ## Next Work Item
 
-The next major task is to finish the application scaffold, add the install manifest, and begin building the first homepage draft while keeping future memberships, products, content publishing, and media access control in mind.
+The next major task is to run the public core changes locally, fix any build issues, then expand the homepage into the full polished public landing page.
