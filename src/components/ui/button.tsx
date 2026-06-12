@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { clsx } from "clsx";
+import type { ReactNode } from "react";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
 
 type ButtonProps = {
   href: string;
-  children: React.ReactNode;
+  children: ReactNode;
   variant?: ButtonVariant;
   className?: string;
 };
