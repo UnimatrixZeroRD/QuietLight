@@ -1,5 +1,7 @@
 import { AlbumEditor } from "../../../components/admin/album-editor";
 import { AlbumList } from "../../../components/admin/album-list";
+import { TrackEditor } from "../../../components/admin/track-editor";
+import { TrackList } from "../../../components/admin/track-list";
 
 export default function AdminMusicPage() {
   return (
@@ -7,10 +9,12 @@ export default function AdminMusicPage() {
       <p className="gold-text uppercase tracking-[0.3em]">Admin Music</p>
       <h1 className="gold-text mt-4 text-5xl md:text-7xl">Music Archive</h1>
       <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">
-        Create and manage Quiet Light albums for the music archive.
+        Create and manage Quiet Light albums and tracks for the music archive.
       </p>
       <AlbumEditor />
       <AlbumList />
+      <TrackEditor />
+      <TrackList />
     </main>
   );
 }
