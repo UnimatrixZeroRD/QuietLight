@@ -24,6 +24,7 @@ export function OrderIntentList() {
   const [orders, setOrders] = useState<OrderIntent[]>([]);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [fulfillingOrderId, setFulfillingOrderId] = useState("");
 
   const loadOrders = useCallback(async () => {
     setIsLoading(true);
@@ -51,7 +52,7 @@ export function OrderIntentList() {
     setIsLoading(false);
   }, []);
 
-  async function updateStatus(orderId: string, status: "paid" | "fulfilled" | "cancelled") {
+  async function updateStatus(orderId: string, status: "paid" | "cancelled") {
     const supabase = createSupabaseBrowserClient();
     if (!supabase) return;
 
@@ -66,6 +67,23 @@ export function OrderIntentList() {
       setMessage(`Order marked ${status}.`);
       await loadOrders();
     }
+  }
+
+  async function fulfillOrder(orderId: string) {
+    setFulfillingOrderId(orderId);
+    setMessage("");
+
+    const response = await fetch(`/api/admin/orders/${orderId}/fulfill`, { method: "POST" });
+    const data = await response.json().catch(() => null);
+
+    if (!response.ok) {
+      setMessage(data?.error ?? "Unable to fulfill order.");
+    } else {
+      setMessage(data?.alreadyLicensed ? "Order fulfilled. The user already had active access." : "Order fulfilled and product access granted.");
+      await loadOrders();
+    }
+
+    setFulfillingOrderId("");
   }
 
   useEffect(() => {
@@ -101,7 +119,7 @@ export function OrderIntentList() {
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => updateStatus(order.id, "paid")}>Mark Paid</button>
-              <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => updateStatus(order.id, "fulfilled")}>Mark Fulfilled</button>
+              <button className="rounded-full border border-[var(--lantern-gold)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)] disabled:opacity-60" type="button" onClick={() => fulfillOrder(order.id)} disabled={fulfillingOrderId === order.id}>{fulfillingOrderId === order.id ? "Fulfilling..." : "Fulfill + Grant Access"}</button>
               <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => updateStatus(order.id, "cancelled")}>Cancel</button>
             </div>
           </article>
