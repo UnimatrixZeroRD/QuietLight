@@ -6,7 +6,7 @@ export default function SignInPage() {
       <p className="gold-text uppercase tracking-[0.3em]">Sign In</p>
       <h1 className="gold-text mt-4 text-5xl md:text-7xl">Enter Quiet Light</h1>
       <p className="mt-8 text-xl leading-9 text-[var(--muted-silver)]">
-        Request a magic link to access your account, future memberships, private reflections, purchases, and digital licenses.
+        Sign in with your email address and password, or create an account for future memberships, private reflections, purchases, and digital licenses.
       </p>
       <SignInForm />
     </main>
