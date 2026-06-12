@@ -8,9 +8,13 @@ This means the app can begin preparing for database-backed content, authenticati
 
 ## Public Environment Variables
 
-The public browser client expects these variables to exist in Vercel and local development:
+The public browser and SSR clients expect these variables to exist in Vercel and local development:
 
 - NEXT_PUBLIC_SUPABASE_URL
+- NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+
+The app also supports this legacy fallback if needed:
+
 - NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 These are safe public client values, not service-role secrets.
@@ -27,12 +31,31 @@ Those must stay server-only and should never be exposed to browser code.
 
 ## Current Code Layer
 
-The first Supabase layer has been added under:
+The Supabase layer currently includes:
 
 - src/lib/supabase/env.ts
 - src/lib/supabase/client.ts
+- src/lib/supabase/server.ts
+- src/lib/supabase/proxy.ts
+- middleware.ts
 
-The current helper returns null if the required public variables are missing, so local static builds can remain stable while the database layer is being prepared.
+The helpers return null or allow safe pass-through when required public variables are missing, so local builds can remain stable while the database and auth layer are being prepared.
+
+---
+
+## Auth Providers
+
+Current enabled path:
+
+- Email and password.
+
+Planned but disabled for now:
+
+- Google.
+- Facebook.
+- Apple.
+
+Enable the social providers only after provider credentials and Supabase Auth callback settings are ready.
 
 ---
 
