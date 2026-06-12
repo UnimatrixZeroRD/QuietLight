@@ -31,6 +31,12 @@ export const adminSections: AdminSection[] = [
     status: "ready",
   },
   {
+    title: "Media",
+    description: "Register site media records and embed links.",
+    href: "/admin/media",
+    status: "ready",
+  },
+  {
     title: "Members",
     description: "Review profiles, memberships, tiers, supporter status, and access levels.",
     href: "/admin/members",
