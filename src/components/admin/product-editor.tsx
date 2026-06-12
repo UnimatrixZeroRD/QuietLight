@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+import { PublicImagePicker } from "./public-image-picker";
 
 type ProductType = "ebook" | "music" | "video" | "bundle" | "download" | "membership";
 type ProductStatus = "draft" | "active" | "archived";
@@ -14,6 +15,7 @@ export function ProductEditor() {
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [description, setDescription] = useState("");
+  const [coverImageUrl, setCoverImageUrl] = useState("");
   const [productType, setProductType] = useState<ProductType>("ebook");
   const [status, setStatus] = useState<ProductStatus>("draft");
   const [price, setPrice] = useState("25.00");
@@ -41,6 +43,7 @@ export function ProductEditor() {
       title,
       slug: slug || toSlug(title),
       description,
+      cover_image_url: coverImageUrl || null,
       product_type: productType,
       price_cents: Math.round(Number(price || "0") * 100),
       currency: "CAD",
@@ -55,6 +58,7 @@ export function ProductEditor() {
       setTitle("");
       setSlug("");
       setDescription("");
+      setCoverImageUrl("");
       setPrice("25.00");
       setProductType("ebook");
       setStatus("draft");
@@ -76,6 +80,8 @@ export function ProductEditor() {
 
       <label className="mt-6 block text-sm uppercase tracking-[0.25em] text-[var(--soft-gold)]" htmlFor="product-description">Description</label>
       <textarea className="mt-4 min-h-32 w-full rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)] outline-none focus:border-[var(--lantern-gold)]" id="product-description" value={description} onChange={(event) => setDescription(event.target.value)} required />
+
+      <PublicImagePicker value={coverImageUrl} onChange={setCoverImageUrl} />
 
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         <select className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={productType} onChange={(event) => setProductType(event.target.value as ProductType)}>
