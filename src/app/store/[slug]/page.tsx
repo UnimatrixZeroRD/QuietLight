@@ -27,6 +27,7 @@ export default async function StoreProductPage({ params }: StoreProductPageProps
       <section className="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1fr]">
         <div className="lantern-panel rounded-3xl p-6">
           {product.coverImageUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
             <img className="aspect-[4/5] w-full rounded-2xl object-cover" src={product.coverImageUrl} alt="" />
           ) : (
             <div className="aspect-[4/5] rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(216,168,79,0.08)]" />
