@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type LicenseRecord = {
@@ -35,7 +35,7 @@ export function ProductLibrary() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  async function loadLibrary() {
+  const loadLibrary = useCallback(async () => {
     setIsLoading(true);
     setMessage("");
 
@@ -106,11 +106,13 @@ export function ProductLibrary() {
 
     setProducts(productRecords);
     setIsLoading(false);
-  }
+  }, []);
 
   useEffect(() => {
-    loadLibrary();
-  }, []);
+    void Promise.resolve().then(() => {
+      void loadLibrary();
+    });
+  }, [loadLibrary]);
 
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">

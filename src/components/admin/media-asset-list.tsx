@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type MediaAsset = {
@@ -16,7 +16,7 @@ export function MediaAssetList() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  async function loadAssets() {
+  const loadAssets = useCallback(async () => {
     setIsLoading(true);
     setMessage("");
 
@@ -40,11 +40,13 @@ export function MediaAssetList() {
     }
 
     setIsLoading(false);
-  }
+  }, []);
 
   useEffect(() => {
-    loadAssets();
-  }, []);
+    void Promise.resolve().then(() => {
+      void loadAssets();
+    });
+  }, [loadAssets]);
 
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">

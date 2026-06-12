@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type EmbedItem = {
@@ -18,7 +18,7 @@ export function EmbedManager() {
   const [message, setMessage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
-  async function loadEmbeds() {
+  const loadEmbeds = useCallback(async () => {
     const supabase = createSupabaseBrowserClient();
     if (!supabase) return;
 
@@ -33,7 +33,7 @@ export function EmbedManager() {
     } else {
       setEmbeds((data ?? []) as EmbedItem[]);
     }
-  }
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -69,8 +69,10 @@ export function EmbedManager() {
   }
 
   useEffect(() => {
-    loadEmbeds();
-  }, []);
+    void Promise.resolve().then(() => {
+      void loadEmbeds();
+    });
+  }, [loadEmbeds]);
 
   return (
     <section className="mt-10 grid gap-8 lg:grid-cols-[1fr_0.9fr]">

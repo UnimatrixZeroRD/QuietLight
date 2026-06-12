@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type ProfileItem = {
@@ -16,7 +16,7 @@ export function MemberList() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  async function loadProfiles() {
+  const loadProfiles = useCallback(async () => {
     setIsLoading(true);
     setMessage("");
 
@@ -40,11 +40,13 @@ export function MemberList() {
     }
 
     setIsLoading(false);
-  }
+  }, []);
 
   useEffect(() => {
-    loadProfiles();
-  }, []);
+    void Promise.resolve().then(() => {
+      void loadProfiles();
+    });
+  }, [loadProfiles]);
 
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">

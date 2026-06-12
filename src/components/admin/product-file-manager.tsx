@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type ProductOption = {
@@ -35,7 +35,7 @@ export function ProductFileManager() {
   const [message, setMessage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
-  async function loadOptions() {
+  const loadOptions = useCallback(async () => {
     const supabase = createSupabaseBrowserClient();
     if (!supabase) return;
 
@@ -54,11 +54,11 @@ export function ProductFileManager() {
 
     setProducts(productOptions);
     setAssets(assetOptions);
-    if (!productId && productOptions[0]?.id) setProductId(productOptions[0].id);
-    if (!assetId && assetOptions[0]?.id) setAssetId(assetOptions[0].id);
-  }
+    setProductId((currentProductId) => currentProductId || productOptions[0]?.id || "");
+    setAssetId((currentAssetId) => currentAssetId || assetOptions[0]?.id || "");
+  }, []);
 
-  async function loadFiles(currentProductId = productId) {
+  const loadFiles = useCallback(async (currentProductId: string) => {
     if (!currentProductId) return;
     const supabase = createSupabaseBrowserClient();
     if (!supabase) return;
@@ -74,15 +74,21 @@ export function ProductFileManager() {
     } else {
       setFiles((data ?? []) as ProductFile[]);
     }
-  }
-
-  useEffect(() => {
-    loadOptions();
   }, []);
 
   useEffect(() => {
-    if (productId) loadFiles(productId);
-  }, [productId]);
+    void Promise.resolve().then(() => {
+      void loadOptions();
+    });
+  }, [loadOptions]);
+
+  useEffect(() => {
+    if (!productId) return;
+
+    void Promise.resolve().then(() => {
+      void loadFiles(productId);
+    });
+  }, [loadFiles, productId]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

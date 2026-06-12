@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type ProductItem = {
@@ -17,7 +17,7 @@ export function ProductList() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  async function loadProducts() {
+  const loadProducts = useCallback(async () => {
     setIsLoading(true);
     setMessage("");
 
@@ -41,7 +41,7 @@ export function ProductList() {
     }
 
     setIsLoading(false);
-  }
+  }, []);
 
   async function archiveProduct(productId: string) {
     const supabase = createSupabaseBrowserClient();
@@ -61,8 +61,10 @@ export function ProductList() {
   }
 
   useEffect(() => {
-    loadProducts();
-  }, []);
+    void Promise.resolve().then(() => {
+      void loadProducts();
+    });
+  }, [loadProducts]);
 
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">

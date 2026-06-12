@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type AlbumItem = {
@@ -16,7 +16,7 @@ export function AlbumList() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  async function loadAlbums() {
+  const loadAlbums = useCallback(async () => {
     setIsLoading(true);
     setMessage("");
 
@@ -40,7 +40,7 @@ export function AlbumList() {
     }
 
     setIsLoading(false);
-  }
+  }, []);
 
   async function archiveAlbum(albumId: string) {
     const supabase = createSupabaseBrowserClient();
@@ -60,8 +60,10 @@ export function AlbumList() {
   }
 
   useEffect(() => {
-    loadAlbums();
-  }, []);
+    void Promise.resolve().then(() => {
+      void loadAlbums();
+    });
+  }, [loadAlbums]);
 
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">

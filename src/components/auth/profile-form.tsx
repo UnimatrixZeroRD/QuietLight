@@ -17,33 +17,47 @@ export function ProfileForm({ userId }: ProfileFormProps) {
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    const supabase = createSupabaseBrowserClient();
+    let isActive = true;
 
-    if (!supabase) {
-      setMessage("Supabase is not configured in this environment yet.");
-      setIsLoading(false);
-      return;
-    }
+    void Promise.resolve().then(async () => {
+      const supabase = createSupabaseBrowserClient();
 
-    supabase
-      .from("profiles")
-      .select("display_name,handle,bio,role")
-      .eq("id", userId)
-      .maybeSingle()
-      .then(({ data, error }) => {
-        if (error) {
-          setMessage(error.message);
-        }
+      if (!isActive) return;
 
-        if (data) {
-          setDisplayName(data.display_name ?? "");
-          setProfileHandle(data.handle ?? "");
-          setBio(data.bio ?? "");
-          setRole(data.role ?? "reader");
-        }
+      setIsLoading(true);
+      setMessage("");
 
+      if (!supabase) {
+        setMessage("Supabase is not configured in this environment yet.");
         setIsLoading(false);
-      });
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("display_name,handle,bio,role")
+        .eq("id", userId)
+        .maybeSingle();
+
+      if (!isActive) return;
+
+      if (error) {
+        setMessage(error.message);
+      }
+
+      if (data) {
+        setDisplayName(data.display_name ?? "");
+        setProfileHandle(data.handle ?? "");
+        setBio(data.bio ?? "");
+        setRole(data.role ?? "reader");
+      }
+
+      setIsLoading(false);
+    });
+
+    return () => {
+      isActive = false;
+    };
   }, [userId]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
