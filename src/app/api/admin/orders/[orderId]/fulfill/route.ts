@@ -9,6 +9,9 @@ type OrderIntent = {
   id: string;
   user_id: string | null;
   product_id: string | null;
+  method: string;
+  amount_cents: number | null;
+  currency: string;
   status: string;
 };
 
@@ -40,7 +43,7 @@ export async function POST(_request: Request, { params }: FulfillOrderProps) {
 
   const { data: order, error: orderError } = await supabase
     .from("order_intents")
-    .select("id,user_id,product_id,status")
+    .select("id,user_id,product_id,method,amount_cents,currency,status")
     .eq("id", orderId)
     .maybeSingle();
 
@@ -52,6 +55,28 @@ export async function POST(_request: Request, { params }: FulfillOrderProps) {
 
   if (!selectedOrder.user_id || !selectedOrder.product_id) {
     return NextResponse.json({ error: "Order is missing user or product information." }, { status: 400 });
+  }
+
+  const { data: existingPurchase } = await supabase
+    .from("purchases")
+    .select("id,status")
+    .eq("provider_payment_id", selectedOrder.id)
+    .maybeSingle();
+
+  if (!existingPurchase) {
+    const { error: purchaseError } = await supabase.from("purchases").insert({
+      user_id: selectedOrder.user_id,
+      product_id: selectedOrder.product_id,
+      provider: selectedOrder.method,
+      provider_payment_id: selectedOrder.id,
+      amount_cents: selectedOrder.amount_cents ?? 0,
+      currency: selectedOrder.currency,
+      status: "completed",
+    });
+
+    if (purchaseError) {
+      return NextResponse.json({ error: purchaseError.message }, { status: 400 });
+    }
   }
 
   const { data: existingLicense } = await supabase
@@ -85,5 +110,9 @@ export async function POST(_request: Request, { params }: FulfillOrderProps) {
     return NextResponse.json({ error: updateError.message }, { status: 400 });
   }
 
-  return NextResponse.json({ ok: true, alreadyLicensed: Boolean(existingLicense) });
+  return NextResponse.json({
+    ok: true,
+    alreadyLicensed: Boolean(existingLicense),
+    alreadyPurchased: Boolean(existingPurchase),
+  });
 }
