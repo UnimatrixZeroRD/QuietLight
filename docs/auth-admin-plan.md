@@ -12,6 +12,7 @@ Files:
 
 - src/components/auth/sign-in-form.tsx
 - src/components/auth/account-panel.tsx
+- src/components/auth/profile-form.tsx
 - src/app/sign-in/page.tsx
 - src/app/account/page.tsx
 - src/lib/supabase/client.ts
@@ -26,6 +27,18 @@ The sign-in form supports:
 - Disabled placeholder buttons for Google, Facebook, and Apple sign-in.
 
 The social sign-in providers are intentionally wired as configuration entries but disabled until provider credentials and Supabase dashboard settings are ready.
+
+---
+
+## Account Profile Layer
+
+The account page now includes a profile editor for:
+
+- Display name.
+- Handle.
+- Bio.
+
+The profile editor reads and updates the signed-in user's row in the profiles table.
 
 ---
 
@@ -86,7 +99,7 @@ These pages define the future admin structure for:
 1. Test email and password sign-in locally.
 2. Confirm Supabase email auth settings.
 3. Confirm redirect URLs in the Supabase dashboard.
-4. Add a profile editor for display name, handle, and bio.
+4. Promote the owner account to admin in the profiles table.
 5. Add admin-only content queries.
 6. Add the first protected content creation form.
 7. Enable Google, Facebook, and Apple one at a time when ready.
