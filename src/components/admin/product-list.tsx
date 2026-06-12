@@ -87,6 +87,9 @@ export function ProductList() {
             <p className="mt-2 text-sm text-[var(--muted-silver)]">
               {product.currency} {(product.price_cents / 100).toFixed(2)}
             </p>
+            <p className="mt-3 break-all rounded-xl border border-[rgba(216,168,79,0.18)] px-4 py-3 text-xs text-[var(--muted-silver)]">
+              Product ID: {product.id}
+            </p>
             {product.status !== "archived" ? (
               <button className="mt-4 rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => archiveProduct(product.id)}>
                 Archive
