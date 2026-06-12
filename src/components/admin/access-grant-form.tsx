@@ -60,7 +60,9 @@ export function AccessGrantForm() {
   }, []);
 
   useEffect(() => {
-    loadOptions();
+    void Promise.resolve().then(() => {
+      void loadOptions();
+    });
   }, [loadOptions]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
