@@ -1,5 +1,7 @@
+import type { ReactNode } from "react";
+
 type LanternCardProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export function LanternCard({ children }: LanternCardProps) {
