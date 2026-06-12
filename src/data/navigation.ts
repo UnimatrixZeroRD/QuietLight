@@ -15,6 +15,7 @@ export const primaryNavigation: NavItem[] = [
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Support", href: "/support" },
+  { label: "Sign In", href: "/sign-in" },
 ];
 
 export const footerNavigation = {
@@ -29,5 +30,7 @@ export const footerNavigation = {
     { label: "Membership", href: "/membership" },
     { label: "Bible", href: "/bible" },
     { label: "Blog", href: "/blog" },
+    { label: "Account", href: "/account" },
+    { label: "Admin", href: "/admin" },
   ],
 };
