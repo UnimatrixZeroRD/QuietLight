@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <rect width="900" height="1200" fill="#07111f"/>
+  <rect x="70" y="70" width="760" height="1060" fill="#0b1f3a" stroke="#d8a84f" stroke-width="10"/>
+  <circle cx="450" cy="475" r="180" fill="#d8a84f" opacity="0.13"/>
+  <path d="M360 470h180l-22 260H382z" fill="none" stroke="#d8a84f" stroke-width="14"/>
+  <path d="M390 470c12-72 34-112 60-112s48 40 60 112" fill="none" stroke="#d8a84f" stroke-width="14"/>
+  <path d="M450 415c52 66 78 116 78 170 0 66-36 120-78 120s-78-54-78-120c0-54 26-104 78-170z" fill="#d8a84f"/>
+  <text x="450" y="865" text-anchor="middle" fill="#d8a84f" font-family="Georgia, serif" font-size="62">The Keeper&apos;s Lantern</text>
+  <text x="450" y="930" text-anchor="middle" fill="#f7efe0" font-family="Georgia, serif" font-size="34">The Book of Joshua</text>
+</svg>
