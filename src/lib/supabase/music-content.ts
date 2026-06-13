@@ -5,6 +5,26 @@ function toSlug(value: string) {
   return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
+function fallbackCoverForSlug(slug: string) {
+  return fallbackAlbums.find((album) => toSlug(album.title) === slug)?.coverImageUrl;
+}
+
+function normalizeCoverImageUrl(slug: string, coverImageUrl?: string | null) {
+  if (!coverImageUrl) return fallbackCoverForSlug(slug);
+
+  const legacyEmptyCoverPaths = new Set([
+    "/images/music/flame-remains-cover.png",
+    "/images/music/everlasting-light-cover.png",
+    "/images/music/gloria-patri-cover.png",
+  ]);
+
+  if (legacyEmptyCoverPaths.has(coverImageUrl)) {
+    return fallbackCoverForSlug(slug);
+  }
+
+  return coverImageUrl;
+}
+
 function fallbackList() {
   return fallbackAlbums.map((album) => {
     const slug = toSlug(album.title);
@@ -58,7 +78,7 @@ export async function getPublicMusicAlbums() {
     status: "available" as const,
     href: `/music/${album.slug}`,
     slug: album.slug,
-    coverImageUrl: album.cover_image_url ?? undefined,
+    coverImageUrl: normalizeCoverImageUrl(album.slug, album.cover_image_url),
     coverAltText: album.cover_alt_text || album.title,
   }));
 }
@@ -91,7 +111,7 @@ export async function getPublicMusicAlbumBySlug(slug: string) {
     status: "available" as const,
     href: `/music/${data.slug}`,
     slug: data.slug,
-    coverImageUrl: data.cover_image_url ?? undefined,
+    coverImageUrl: normalizeCoverImageUrl(data.slug, data.cover_image_url),
     coverAltText: data.cover_alt_text || data.title,
     tracks: tracksResult.error
       ? []
