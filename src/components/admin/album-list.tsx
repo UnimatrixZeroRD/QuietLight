@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 import { AlbumQuickEditor, EditableAlbum } from "./album-quick-editor";
@@ -143,6 +144,7 @@ export function AlbumList() {
           const isEditing = editingAlbumId === album.id;
           const readiness = getAlbumReadiness(album, tracks);
           const publishBlockReason = readiness.issues.length > 0 ? readiness.issues.join(", ") : "";
+          const publicAlbumHref = `/music/${album.slug}`;
 
           return (
             <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={album.id}>
@@ -159,6 +161,13 @@ export function AlbumList() {
               <p className="mt-2 text-sm text-[var(--muted-silver)]">{album.subtitle ?? `/${album.slug}`}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{album.description || "No album description yet."}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Cover alt text: {album.cover_alt_text || "Not set"}</p>
+              {album.status === "published" ? (
+                <Link className="gold-text mt-3 inline-flex text-xs uppercase tracking-[0.2em]" href={publicAlbumHref}>
+                  Open public album page
+                </Link>
+              ) : (
+                <p className="mt-3 text-xs uppercase tracking-[0.2em] text-[var(--muted-silver)]">Public page available after publishing</p>
+              )}
               {album.cover_image_url ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img className="mt-4 aspect-[16/9] w-full rounded-2xl border border-[rgba(216,168,79,0.25)] object-cover" src={album.cover_image_url} alt={album.cover_alt_text || `${album.title} cover`} />
@@ -170,6 +179,11 @@ export function AlbumList() {
                 <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setEditingAlbumId(isEditing ? "" : album.id)}>
                   {isEditing ? "Close Edit" : "Edit Album"}
                 </button>
+                {album.status === "published" ? (
+                  <Link className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" href={publicAlbumHref}>
+                    View Public Page
+                  </Link>
+                ) : null}
                 {album.status === "draft" ? (
                   <button className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:cursor-not-allowed disabled:opacity-50" type="button" onClick={() => setAlbumStatus(album, "published")} disabled={!readiness.isReady} title={readiness.isReady ? "Publish album" : publishBlockReason}>
                     Publish
