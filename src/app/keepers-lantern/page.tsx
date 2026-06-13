@@ -5,52 +5,71 @@ type Edition = {
   title: string;
   image: string;
   alt: string;
+  width: number;
+  height: number;
   description: string;
   href: string;
   cta: string;
+  frameClass: string;
   label?: string;
   subtitle?: string;
   featured?: boolean;
 };
 
+function isSvgImage(image: string) {
+  return image.endsWith(".svg");
+}
+
 const editions: Edition[] = [
   {
     label: "Featured Edition",
     title: "The Keeper's Lantern: Definitive Edition",
-    image: "/images/placeholders/keepers-lantern-definitive.svg",
-    alt: "Placeholder cover for The Keeper's Lantern Definitive Edition.",
+    image: "/images/books/keepers-lantern-cover.png",
+    alt: "The Keeper's Lantern Definitive Edition book cover with a glowing lantern beneath a starry sky.",
+    width: 1024,
+    height: 1536,
     description:
       "The expanded definitive edition, offering the fullest version of the work and its reflections on faith, suffering, hope, and the responsibility of carrying the light forward.",
     href: "https://www.amazon.ca/Keepers-Lantern-Definitive-Joshua-Eaton-ebook/dp/B0GX3B74W2/",
     cta: "Buy on Amazon",
+    frameClass: "aspect-[2/3]",
     featured: true,
   },
   {
     title: "The Keeper's Lantern: The Book of Joshua",
-    image: "/images/placeholders/keepers-lantern-book-of-joshua.svg",
-    alt: "Placeholder cover for The Keeper's Lantern: The Book of Joshua.",
+    image: "/images/books/keepers-lantern-handoff.jpg",
+    alt: "The Keeper's Lantern: The Book of Joshua cover showing hands passing a glowing lantern.",
+    width: 1024,
+    height: 1536,
     description:
       "The original edition of The Keeper's Lantern, a reflective work of faith, endurance, responsibility, forgiveness, and quiet spiritual philosophy.",
     href: "https://www.amazon.ca/Keepers-Lantern-Book-Joshua-ebook/dp/B0GPMD2KLL/",
     cta: "Buy on Amazon",
+    frameClass: "aspect-[2/3]",
   },
   {
     title: "The Keeper's Lantern: The Book of Joshua Audiobook",
-    image: "/images/placeholders/keepers-lantern-audiobook.svg",
-    alt: "Placeholder cover for The Keeper's Lantern audiobook.",
+    image: "/images/books/keepers-lantern-audio-experience.png",
+    alt: "The Keeper's Lantern Extended Edition audio experience artwork with a glowing lantern at sunset.",
+    width: 2560,
+    height: 2560,
     description: "Listen to The Keeper's Lantern in audiobook form through Audible.",
     href: "https://www.audible.ca/pd/The-Keeper%E2%80%99s-Lantern-Audiobook/B0GXMPG44C/",
     cta: "Listen on Audible",
+    frameClass: "aspect-square",
   },
   {
     title: "The Rule of the Keeper",
     subtitle: "A Voluntary Rhythm for Those Who Tend the Light",
     image: "/images/placeholders/rule-of-the-keeper.svg",
     alt: "Placeholder cover for The Rule of the Keeper.",
+    width: 768,
+    height: 1152,
     description:
       "A companion work offering a simple voluntary rhythm for those who wish to live more intentionally according to the spirit of quiet faith, humility, and responsibility.",
     href: "https://www.amazon.ca/Rule-Keeper-Voluntary-Rhythm-Those/dp/B0GXYZ458N/",
     cta: "Buy on Amazon",
+    frameClass: "aspect-[2/3]",
   },
 ];
 
@@ -64,10 +83,10 @@ export default function KeepersLanternPage() {
           <Image
             src={featuredEdition.image}
             alt={featuredEdition.alt}
-            width={1024}
-            height={1536}
+            width={featuredEdition.width}
+            height={featuredEdition.height}
             priority
-            unoptimized
+            unoptimized={isSvgImage(featuredEdition.image)}
             sizes="(min-width: 768px) 38vw, 100vw"
             className="block h-auto w-full"
           />
@@ -172,15 +191,15 @@ export default function KeepersLanternPage() {
               className={`lantern-panel grid gap-6 rounded-3xl p-6 md:grid-cols-[0.44fr_1fr] md:p-8 ${edition.featured ? "md:col-span-2" : ""}`}
               key={edition.title}
             >
-              <div className="overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.15)]">
+              <div className={`overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.15)] ${edition.frameClass}`}>
                 <Image
                   src={edition.image}
                   alt={edition.alt}
-                  width={768}
-                  height={1152}
-                  unoptimized
+                  width={edition.width}
+                  height={edition.height}
+                  unoptimized={isSvgImage(edition.image)}
                   sizes={edition.featured ? "(min-width: 768px) 24vw, 100vw" : "(min-width: 768px) 20vw, 100vw"}
-                  className="h-auto w-full"
+                  className="h-full w-full object-cover"
                 />
               </div>
               <div className="flex flex-col justify-center">
