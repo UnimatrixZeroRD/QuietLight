@@ -11,6 +11,7 @@ type ProductRecord = { id: string; title: string; status: string };
 type ProductFileRecord = { id: string; product_id: string; description: string };
 type StatusRecord = { id: string; status: string };
 type ProfileRecord = { id: string; role: string | null };
+type SummaryTone = "neutral" | "attention" | "warning" | "success";
 
 type ActivityItem = { id: string; label: string; detail: string; href: string; createdAt: string };
 
@@ -24,6 +25,20 @@ function formatCurrency(amountCents: number, currency: string) {
 
 function countStatus(items: StatusRecord[], status: string) {
   return items.filter((item) => item.status === status).length;
+}
+
+function getToneClasses(tone: SummaryTone) {
+  if (tone === "attention") return "border-[rgba(255,179,71,0.75)] bg-[linear-gradient(180deg,rgba(92,44,18,0.55),rgba(7,17,31,0.94))]";
+  if (tone === "warning") return "border-[rgba(216,168,79,0.75)] bg-[linear-gradient(180deg,rgba(81,63,24,0.55),rgba(7,17,31,0.94))]";
+  if (tone === "success") return "border-[rgba(42,166,161,0.65)] bg-[linear-gradient(180deg,rgba(16,74,72,0.45),rgba(7,17,31,0.94))]";
+  return "";
+}
+
+function getToneLabel(tone: SummaryTone) {
+  if (tone === "attention") return "Action needed";
+  if (tone === "warning") return "Review";
+  if (tone === "success") return "Healthy";
+  return "Monitor";
 }
 
 export function DashboardSummary() {
@@ -170,18 +185,18 @@ export function DashboardSummary() {
       {notice ? <p className="mt-6 text-sm leading-6 text-[var(--muted-silver)]">{notice}</p> : null}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <SummaryCard title="Pending orders" value={summary.pendingOrders} detail={`${summary.paidOrders} paid orders awaiting review`} href="/admin/orders" />
-        <SummaryCard title="Open messages" value={summary.openMessages} detail="Messages waiting for admin review" href="/admin/support" />
-        <SummaryCard title="Purchases" value={summary.completedPurchases} detail={`${formatCurrency(summary.revenueCents, "CAD")} completed`} href="/admin/ledger" />
-        <SummaryCard title="Delivery ready" value={summary.readyProducts} detail={`${summary.needsDeliveryWork} products need attention`} href="/admin/delivery" />
+        <SummaryCard title="Pending orders" value={summary.pendingOrders} detail={`${summary.paidOrders} paid orders awaiting review`} href="/admin/orders" tone={summary.pendingOrders > 0 || summary.paidOrders > 0 ? "attention" : "success"} />
+        <SummaryCard title="Open messages" value={summary.openMessages} detail="Messages waiting for admin review" href="/admin/support" tone={summary.openMessages > 0 ? "attention" : "success"} />
+        <SummaryCard title="Purchases" value={summary.completedPurchases} detail={`${formatCurrency(summary.revenueCents, "CAD")} completed`} href="/admin/ledger" tone={summary.completedPurchases > 0 ? "success" : "neutral"} />
+        <SummaryCard title="Delivery ready" value={summary.readyProducts} detail={`${summary.needsDeliveryWork} products need attention`} href="/admin/delivery" tone={summary.needsDeliveryWork > 0 ? "warning" : "success"} />
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
-        <SummaryCard title="Blog posts" value={summary.publishedPosts} detail={`${summary.draftPosts} drafts`} href="/admin/content" />
-        <SummaryCard title="Daily Light" value={summary.publishedDailyLight} detail={`${summary.draftDailyLight} drafts`} href="/admin/content" />
-        <SummaryCard title="Products" value={summary.activeProducts} detail={`${summary.draftProducts} drafts`} href="/admin/products" />
-        <SummaryCard title="Albums" value={summary.publishedAlbums} detail={`${summary.draftAlbums} drafts`} href="/admin/music" />
-        <SummaryCard title="Profiles" value={summary.totalProfiles} detail={`${summary.adminProfiles} admins`} href="/admin/members" />
+        <SummaryCard title="Blog posts" value={summary.publishedPosts} detail={`${summary.draftPosts} drafts`} href="/admin/content" tone={summary.draftPosts > 0 ? "warning" : summary.publishedPosts > 0 ? "success" : "neutral"} />
+        <SummaryCard title="Daily Light" value={summary.publishedDailyLight} detail={`${summary.draftDailyLight} drafts`} href="/admin/content" tone={summary.draftDailyLight > 0 ? "warning" : summary.publishedDailyLight > 0 ? "success" : "neutral"} />
+        <SummaryCard title="Products" value={summary.activeProducts} detail={`${summary.draftProducts} drafts`} href="/admin/products" tone={summary.draftProducts > 0 || summary.needsDeliveryWork > 0 ? "warning" : summary.activeProducts > 0 ? "success" : "neutral"} />
+        <SummaryCard title="Albums" value={summary.publishedAlbums} detail={`${summary.draftAlbums} drafts`} href="/admin/music" tone={summary.draftAlbums > 0 ? "warning" : summary.publishedAlbums > 0 ? "success" : "neutral"} />
+        <SummaryCard title="Profiles" value={summary.totalProfiles} detail={`${summary.adminProfiles} admins`} href="/admin/members" tone={summary.adminProfiles > 0 ? "success" : "attention"} />
       </div>
 
       <div className="lantern-panel mt-6 rounded-3xl p-6">
@@ -200,10 +215,13 @@ export function DashboardSummary() {
   );
 }
 
-function SummaryCard({ title, value, detail, href }: { title: string; value: number; detail: string; href: string }) {
+function SummaryCard({ title, value, detail, href, tone = "neutral" }: { title: string; value: number; detail: string; href: string; tone?: SummaryTone }) {
   return (
-    <Link className="lantern-panel block rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)]" href={href}>
-      <p className="gold-text text-xs uppercase tracking-[0.25em]">{title}</p>
+    <Link className={`lantern-panel block rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.85)] ${getToneClasses(tone)}`} href={href}>
+      <div className="flex items-center justify-between gap-3">
+        <p className="gold-text text-xs uppercase tracking-[0.25em]">{title}</p>
+        <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-2 py-1 text-[0.65rem] uppercase tracking-[0.16em] text-[var(--muted-silver)]">{getToneLabel(tone)}</span>
+      </div>
       <p className="mt-4 text-5xl text-[var(--ivory)]">{value}</p>
       <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{detail}</p>
     </Link>
