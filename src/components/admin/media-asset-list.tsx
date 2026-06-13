@@ -18,10 +18,18 @@ type PostUsageRecord = {
   featured_image_url: string | null;
 };
 
+type AlbumUsageRecord = {
+  id: string;
+  title: string;
+  slug: string;
+  cover_image_url: string | null;
+};
+
 export function MediaAssetList() {
   const [assets, setAssets] = useState<EditableMediaAsset[]>([]);
   const [products, setProducts] = useState<ProductUsageRecord[]>([]);
   const [posts, setPosts] = useState<PostUsageRecord[]>([]);
+  const [albums, setAlbums] = useState<AlbumUsageRecord[]>([]);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,7 +44,7 @@ export function MediaAssetList() {
       return;
     }
 
-    const [assetResult, productResult, postResult] = await Promise.all([
+    const [assetResult, productResult, postResult, albumResult] = await Promise.all([
       supabase
         .from("media_assets")
         .select("id,title,description,alt_text,bucket,path,media_type,access_level")
@@ -50,9 +58,13 @@ export function MediaAssetList() {
         .from("posts")
         .select("id,title,slug,featured_image_url")
         .limit(500),
+      supabase
+        .from("albums")
+        .select("id,title,slug,cover_image_url")
+        .limit(500),
     ]);
 
-    const error = assetResult.error ?? productResult.error ?? postResult.error;
+    const error = assetResult.error ?? productResult.error ?? postResult.error ?? albumResult.error;
 
     if (error) {
       setMessage(error.message);
@@ -60,6 +72,7 @@ export function MediaAssetList() {
       setAssets((assetResult.data ?? []) as EditableMediaAsset[]);
       setProducts((productResult.data ?? []) as ProductUsageRecord[]);
       setPosts((postResult.data ?? []) as PostUsageRecord[]);
+      setAlbums((albumResult.data ?? []) as AlbumUsageRecord[]);
     }
 
     setIsLoading(false);
@@ -101,13 +114,24 @@ export function MediaAssetList() {
             });
           }
         }
+
+        for (const album of albums) {
+          if (album.cover_image_url === publicUrl) {
+            usage.push({
+              id: `album-${album.id}`,
+              label: "Album artwork",
+              title: album.title,
+              href: "/admin/music",
+            });
+          }
+        }
       }
 
       usageMap.set(asset.id, usage);
     }
 
     return usageMap;
-  }, [assets, posts, products]);
+  }, [albums, assets, posts, products]);
 
   const usedAssetCount = useMemo(() => {
     return Array.from(usageByAssetId.values()).filter((usage) => usage.length > 0).length;
@@ -120,7 +144,7 @@ export function MediaAssetList() {
           <p className="gold-text uppercase tracking-[0.3em]">Media Library</p>
           <h2 className="mt-4 text-3xl">Recent assets</h2>
           <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">
-            {usedAssetCount} of {assets.length} listed assets are linked to products or posts.
+            {usedAssetCount} of {assets.length} listed assets are linked to products, posts, or albums.
           </p>
         </div>
         <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={loadAssets}>
