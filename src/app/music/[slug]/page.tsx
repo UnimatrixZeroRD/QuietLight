@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPublicAlbumBySlug } from "../../../lib/supabase/public-content";
+import { getPublicMusicAlbumBySlug } from "../../../lib/supabase/music-content";
 
 type AlbumPageProps = {
   params: Promise<{ slug: string }>;
@@ -9,7 +9,7 @@ type AlbumPageProps = {
 
 export async function generateMetadata({ params }: AlbumPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const album = await getPublicAlbumBySlug(slug);
+  const album = await getPublicMusicAlbumBySlug(slug);
 
   if (!album) {
     return {
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: AlbumPageProps): Promise<Meta
 
 export default async function AlbumDetailPage({ params }: AlbumPageProps) {
   const { slug } = await params;
-  const album = await getPublicAlbumBySlug(slug);
+  const album = await getPublicMusicAlbumBySlug(slug);
 
   if (!album) {
     notFound();
