@@ -31,6 +31,12 @@ export const adminSections: AdminSection[] = [
     status: "ready",
   },
   {
+    title: "Messages",
+    description: "Review account, order, download, membership, and technical messages.",
+    href: "/admin/support",
+    status: "ready",
+  },
+  {
     title: "Ledger",
     description: "Review completed transaction records and fulfillment totals.",
     href: "/admin/ledger",
