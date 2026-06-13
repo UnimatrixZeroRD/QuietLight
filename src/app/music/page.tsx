@@ -91,7 +91,7 @@ const singles: SingleShowcaseItem[] = [
     description: "A devotional hymn of stillness, humility, and keeping the inner flame.",
   },
   {
-    title: "The Keeper&apos;s Response",
+    title: "The Keeper's Response",
     subtitle: "Sacred Single",
     description: "A prayerful response for those called to tend the light in ordinary life.",
   },
