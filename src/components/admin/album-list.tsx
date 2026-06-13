@@ -147,7 +147,7 @@ export function AlbumList() {
           const publicAlbumHref = `/music/${album.slug}`;
 
           return (
-            <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={album.id}>
+            <article className="scroll-mt-28 rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" id={`album-${album.id}`} key={album.id}>
               <div className={`rounded-2xl border p-4 ${readiness.isReady ? "border-[rgba(42,166,161,0.65)] bg-[rgba(16,74,72,0.22)]" : "border-[rgba(216,168,79,0.65)] bg-[rgba(81,63,24,0.24)]"}`}>
                 <p className="gold-text text-xs uppercase tracking-[0.25em]">{readiness.isReady ? "Ready to publish" : "Review before publishing"}</p>
                 <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">
