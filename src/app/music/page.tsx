@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "/music",
     images: [
       {
-        url: "/images/music/holy-trinity-graphic.svg",
+        url: "/images/music/holy-trinity-graphic.png",
         width: 1200,
         height: 630,
         alt: "The Holy Trinity music collection graphic.",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Music of the Quiet Light",
     description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
-    images: ["/images/music/holy-trinity-graphic.svg"],
+    images: ["/images/music/holy-trinity-graphic.png"],
   },
 };
 
@@ -229,7 +229,7 @@ export default async function MusicPage() {
           <div className="lantern-panel overflow-hidden rounded-[2rem] p-4">
             <div className="overflow-hidden rounded-[1.5rem] border border-[rgba(216,168,79,0.28)] bg-[var(--midnight)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="aspect-[16/9] w-full object-cover" src="/images/music/holy-trinity-graphic.svg" alt="The Holy Trinity music collection graphic." />
+              <img className="aspect-[16/9] w-full object-cover" src="/images/music/holy-trinity-graphic.png" alt="The Holy Trinity music collection graphic." />
             </div>
             <div className="p-5">
               <p className="gold-text text-xs uppercase tracking-[0.28em]">The Holy Trinity</p>
