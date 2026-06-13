@@ -8,6 +8,7 @@ export function MediaAssetEditor() {
   const [bucket, setBucket] = useState("public");
   const [assetPath, setAssetPath] = useState("");
   const [mediaType, setMediaType] = useState("image");
+  const [altText, setAltText] = useState("");
   const [message, setMessage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
@@ -26,6 +27,7 @@ export function MediaAssetEditor() {
     const { error } = await supabase.from("media_assets").insert({
       title,
       description: "",
+      alt_text: altText,
       bucket,
       path: assetPath,
       media_type: mediaType,
@@ -40,6 +42,7 @@ export function MediaAssetEditor() {
       setBucket("public");
       setAssetPath("");
       setMediaType("image");
+      setAltText("");
     }
 
     setIsSaving(false);
@@ -52,6 +55,9 @@ export function MediaAssetEditor() {
 
       <label className="mt-8 block text-sm uppercase tracking-[0.25em] text-[var(--soft-gold)]" htmlFor="media-title">Title</label>
       <input className="mt-4 w-full rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" id="media-title" value={title} onChange={(event) => setTitle(event.target.value)} required />
+
+      <label className="mt-6 block text-sm uppercase tracking-[0.25em] text-[var(--soft-gold)]" htmlFor="media-alt-text">Alt text</label>
+      <input className="mt-4 w-full rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" id="media-alt-text" value={altText} onChange={(event) => setAltText(event.target.value)} placeholder="Describe the image for accessibility and SEO" />
 
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={bucket} onChange={(event) => setBucket(event.target.value)} placeholder="Bucket" required />
