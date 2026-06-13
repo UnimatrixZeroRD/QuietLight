@@ -82,11 +82,16 @@ function getToneClasses(tone: DeliveryStatus["tone"]) {
   return "border-[rgba(216,168,79,0.18)] bg-[rgba(7,17,31,0.35)]";
 }
 
+function canActivateProduct(product: ProductItem, files: ProductFileItem[]) {
+  return product.status === "draft" && getDeliveryStatus(product, files).tone === "ready";
+}
+
 export function ProductList() {
   const [products, setProducts] = useState<ProductItem[]>([]);
   const [files, setFiles] = useState<ProductFileItem[]>([]);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [savingProductId, setSavingProductId] = useState("");
 
   const loadProducts = useCallback(async () => {
     setIsLoading(true);
@@ -124,21 +129,33 @@ export function ProductList() {
     setIsLoading(false);
   }, []);
 
-  async function archiveProduct(productId: string) {
+  async function setProductStatus(product: ProductItem, status: "active" | "draft" | "archived") {
     const supabase = createSupabaseBrowserClient();
     if (!supabase) return;
 
+    const deliveryStatus = getDeliveryStatus(product, files);
+    if (status === "active" && !canActivateProduct(product, files)) {
+      setMessage(`Cannot activate ${product.title}: ${deliveryStatus.detail}`);
+      return;
+    }
+
+    setSavingProductId(product.id);
+    setMessage("");
+
     const { error } = await supabase
       .from("products")
-      .update({ status: "archived", updated_at: new Date().toISOString() })
-      .eq("id", productId);
+      .update({ status, updated_at: new Date().toISOString() })
+      .eq("id", product.id);
 
     if (error) {
       setMessage(error.message);
     } else {
-      setMessage("Product archived.");
+      const label = status === "active" ? "activated" : status === "draft" ? "moved to draft" : "archived";
+      setMessage(`${product.title} ${label}.`);
       await loadProducts();
     }
+
+    setSavingProductId("");
   }
 
   const warningSummary = useMemo(() => {
@@ -183,6 +200,8 @@ export function ProductList() {
         {products.map((product) => {
           const attachedFiles = getProductFiles(product.id, files);
           const deliveryStatus = getDeliveryStatus(product, files);
+          const isSaving = savingProductId === product.id;
+          const canActivate = canActivateProduct(product, files);
 
           return (
             <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={product.id}>
@@ -204,9 +223,30 @@ export function ProductList() {
                 <Link className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" href={`/store/${product.slug}`}>
                   View Store Page
                 </Link>
+                {product.status === "draft" ? (
+                  <button
+                    className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:cursor-not-allowed disabled:opacity-50"
+                    type="button"
+                    onClick={() => setProductStatus(product, "active")}
+                    disabled={!canActivate || isSaving}
+                    title={canActivate ? "Activate product" : deliveryStatus.detail}
+                  >
+                    {isSaving ? "Saving..." : "Activate"}
+                  </button>
+                ) : null}
+                {product.status === "active" ? (
+                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "draft")} disabled={isSaving}>
+                    {isSaving ? "Saving..." : "Move to Draft"}
+                  </button>
+                ) : null}
+                {product.status === "archived" ? (
+                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "draft")} disabled={isSaving}>
+                    {isSaving ? "Saving..." : "Restore Draft"}
+                  </button>
+                ) : null}
                 {product.status !== "archived" ? (
-                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => archiveProduct(product.id)}>
-                    Archive
+                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "archived")} disabled={isSaving}>
+                    {isSaving ? "Saving..." : "Archive"}
                   </button>
                 ) : null}
               </div>
