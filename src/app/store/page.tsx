@@ -1,5 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getStoreProducts } from "../../lib/supabase/store-products";
+
+export const metadata: Metadata = {
+  title: "Store",
+  description: "Digital books, music, bundles, and Quiet Light resources for purchase or access.",
+  alternates: { canonical: "/store" },
+  openGraph: {
+    title: "Store | The Way of Quiet Light",
+    description: "Digital books, music, bundles, and Quiet Light resources for purchase or access.",
+    url: "/store",
+  },
+};
 
 export default async function StorePage() {
   const products = await getStoreProducts();
