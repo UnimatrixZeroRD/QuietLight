@@ -223,6 +223,10 @@ export function LaunchReadinessScore() {
     setCopyMessage("Checklist file downloaded.");
   }
 
+  function printChecklist() {
+    window.print();
+  }
+
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -268,7 +272,7 @@ export function LaunchReadinessScore() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="gold-text text-xs uppercase tracking-[0.25em]">Launch Checklist Export</p>
-            <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">Copy or download this checklist for notes, email, or a launch-review document.</p>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">Copy, download, or print this checklist for notes, email, or a launch-review document.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={copyChecklist}>
@@ -277,10 +281,26 @@ export function LaunchReadinessScore() {
             <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={downloadChecklist}>
               Download .txt
             </button>
+            <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={printChecklist}>
+              Print / Save PDF
+            </button>
           </div>
         </div>
         {copyMessage ? <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{copyMessage}</p> : null}
         <textarea className="mt-4 min-h-72 w-full rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(7,17,31,0.8)] p-4 font-mono text-sm leading-6 text-[var(--ivory)]" readOnly value={score.checklist} />
+      </div>
+
+      <div className="printable-launch-checklist">
+        <h1>Quiet Light Launch Review Checklist</h1>
+        <p>Overall readiness: {score.total}%</p>
+        <ul>
+          {score.items.map((item) => (
+            <li key={item.title}>
+              <strong>{item.title}:</strong> {item.value}% ({item.weight}) — {item.detail}
+            </li>
+          ))}
+        </ul>
+        <pre>{score.checklist}</pre>
       </div>
     </section>
   );
