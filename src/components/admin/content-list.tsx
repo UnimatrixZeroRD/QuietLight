@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
@@ -11,6 +12,10 @@ type ContentItem = {
   type: "Post" | "Daily Light";
   createdAt: string;
 };
+
+function getPublicHref(item: ContentItem) {
+  return item.type === "Post" ? `/blog/${item.slug}` : `/daily-light/${item.slug}`;
+}
 
 export function ContentList() {
   const [items, setItems] = useState<ContentItem[]>([]);
@@ -103,26 +108,44 @@ export function ContentList() {
       {message ? <p className="mt-6 text-sm leading-6 text-[var(--muted-silver)]">{message}</p> : null}
 
       <div className="mt-6 grid gap-4">
-        {items.map((item) => (
-          <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={`${item.type}-${item.id}`}>
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div>
-                <p className="gold-text text-xs uppercase tracking-[0.25em]">{item.type} - {item.status}</p>
-                <h3 className="mt-3 text-2xl">{item.title}</h3>
-                <p className="mt-2 text-sm text-[var(--muted-silver)]">/{item.slug}</p>
+        {items.map((item) => {
+          const publicHref = getPublicHref(item);
+
+          return (
+            <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={`${item.type}-${item.id}`}>
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p className="gold-text text-xs uppercase tracking-[0.25em]">{item.type} - {item.status}</p>
+                  <h3 className="mt-3 text-2xl">{item.title}</h3>
+                  <p className="mt-2 text-sm text-[var(--muted-silver)]">/{item.slug}</p>
+                  {item.status === "published" ? (
+                    <Link className="gold-text mt-3 inline-flex text-xs uppercase tracking-[0.2em]" href={publicHref}>
+                      Open public page
+                    </Link>
+                  ) : (
+                    <p className="mt-3 text-xs uppercase tracking-[0.2em] text-[var(--muted-silver)]">Public page available after publishing</p>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {item.status === "published" ? (
+                    <Link className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" href={publicHref}>
+                      View Public Page
+                    </Link>
+                  ) : null}
+                  {item.status !== "archived" ? (
+                    <button
+                      className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]"
+                      type="button"
+                      onClick={() => archiveItem(item)}
+                    >
+                      Archive
+                    </button>
+                  ) : null}
+                </div>
               </div>
-              {item.status !== "archived" ? (
-                <button
-                  className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]"
-                  type="button"
-                  onClick={() => archiveItem(item)}
-                >
-                  Archive
-                </button>
-              ) : null}
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </section>
   );
