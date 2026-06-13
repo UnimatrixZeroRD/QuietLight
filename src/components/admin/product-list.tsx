@@ -184,7 +184,7 @@ export function ProductList() {
           const publicProductHref = `/store/${product.slug}`;
 
           return (
-            <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={product.id}>
+            <article className="scroll-mt-28 rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" id={`product-${product.id}`} key={product.id}>
               <div className={`rounded-2xl border p-4 ${getToneClasses(deliveryStatus.tone)}`}>
                 <p className="gold-text text-xs uppercase tracking-[0.25em]">{deliveryStatus.label}</p>
                 <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">{deliveryStatus.detail}</p>
