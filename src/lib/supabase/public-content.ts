@@ -6,6 +6,27 @@ import { featuredProducts as fallbackProducts } from "../../data/products";
 import { featuredScriptureReferences as fallbackScriptureReferences } from "../../data/scripture-references";
 import { createSupabaseBrowserClient } from "./client";
 
+function toSlug(value: string) {
+  return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+function getFallbackPostBySlug(slug: string) {
+  const post = fallbackPosts.find((item) => item.href === `/blog/${slug}` || toSlug(item.title) === slug);
+
+  if (!post) return null;
+
+  return {
+    slug,
+    title: post.title,
+    subtitle: "",
+    excerpt: post.summary,
+    body: post.summary,
+    featuredImageUrl: undefined as string | undefined,
+    publishedAt: null as string | null,
+    category: post.category,
+  };
+}
+
 export async function getPublicAlbums() {
   const supabase = createSupabaseBrowserClient();
 
@@ -94,7 +115,7 @@ export async function getPublicPosts() {
 
   const { data, error } = await supabase
     .from("posts")
-    .select("slug,title,excerpt,status,access_level,published_at")
+    .select("slug,title,excerpt,status,access_level,featured_image_url,published_at")
     .eq("status", "published")
     .eq("access_level", "public")
     .order("published_at", { ascending: false, nullsFirst: false });
@@ -108,7 +129,40 @@ export async function getPublicPosts() {
     category: "Reflection",
     summary: post.excerpt,
     href: `/blog/${post.slug}`,
+    featuredImageUrl: post.featured_image_url ?? undefined,
+    publishedAt: post.published_at ?? null,
   }));
+}
+
+export async function getPublicPostBySlug(slug: string) {
+  const supabase = createSupabaseBrowserClient();
+
+  if (!supabase) {
+    return getFallbackPostBySlug(slug);
+  }
+
+  const { data, error } = await supabase
+    .from("posts")
+    .select("slug,title,subtitle,excerpt,body_md,featured_image_url,published_at,status,access_level")
+    .eq("slug", slug)
+    .eq("status", "published")
+    .eq("access_level", "public")
+    .maybeSingle();
+
+  if (error || !data) {
+    return getFallbackPostBySlug(slug);
+  }
+
+  return {
+    slug: data.slug,
+    title: data.title,
+    subtitle: data.subtitle ?? "",
+    excerpt: data.excerpt,
+    body: data.body_md,
+    featuredImageUrl: data.featured_image_url ?? undefined,
+    publishedAt: data.published_at ?? null,
+    category: "Reflection",
+  };
 }
 
 export async function getFeaturedDailyLightEntry() {
