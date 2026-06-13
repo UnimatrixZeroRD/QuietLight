@@ -48,6 +48,7 @@ const artistLinks = [
   ["YouTube Music", "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn"],
   ["Amazon Music", "https://music.amazon.ca/artists/B0GV448JLH/yehoshua-of-%C4%93at%C5%ABn"],
   ["Boomplay", "https://www.boomplay.com/artists/128515868"],
+  ["SoundCloud", "https://soundcloud.com/yehoshua-of-at-n"],
 ] as const;
 
 const holyTrinityAlbums: AlbumShowcaseItem[] = [
