@@ -13,6 +13,7 @@ export type EditableProduct = {
   currency: string;
   description: string;
   cover_image_url: string | null;
+  cover_alt_text?: string | null;
 };
 
 type ProductDraft = {
@@ -23,6 +24,7 @@ type ProductDraft = {
   price: string;
   currency: string;
   coverImageUrl: string;
+  coverAltText: string;
 };
 
 function createDraft(product: EditableProduct): ProductDraft {
@@ -34,6 +36,7 @@ function createDraft(product: EditableProduct): ProductDraft {
     price: (product.price_cents / 100).toFixed(2),
     currency: product.currency,
     coverImageUrl: product.cover_image_url ?? "",
+    coverAltText: product.cover_alt_text ?? "",
   };
 }
 
@@ -77,6 +80,7 @@ export function ProductQuickEditor({ product, onSaved, onCancel }: { product: Ed
         price_cents: priceCents,
         currency: draft.currency.trim().toUpperCase(),
         cover_image_url: draft.coverImageUrl.trim() || null,
+        cover_alt_text: draft.coverAltText.trim(),
         updated_at: new Date().toISOString(),
       })
       .eq("id", product.id);
@@ -103,9 +107,10 @@ export function ProductQuickEditor({ product, onSaved, onCancel }: { product: Ed
       </div>
       <PublicImagePicker value={draft.coverImageUrl} onChange={(value) => updateDraft("coverImageUrl", value)} />
       <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={draft.coverImageUrl} onChange={(event) => updateDraft("coverImageUrl", event.target.value)} placeholder="Or paste cover image URL" />
+      <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={draft.coverAltText} onChange={(event) => updateDraft("coverAltText", event.target.value)} placeholder="Cover image alt text" />
       {draft.coverImageUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img className="aspect-[16/9] w-full rounded-2xl border border-[rgba(216,168,79,0.25)] object-cover" src={draft.coverImageUrl} alt="Selected product cover preview" />
+        <img className="aspect-[16/9] w-full rounded-2xl border border-[rgba(216,168,79,0.25)] object-cover" src={draft.coverImageUrl} alt={draft.coverAltText || "Selected product cover preview"} />
       ) : null}
       <textarea className="min-h-32 rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={draft.description} onChange={(event) => updateDraft("description", event.target.value)} placeholder="Product description" />
       <div className="flex flex-wrap gap-3">
