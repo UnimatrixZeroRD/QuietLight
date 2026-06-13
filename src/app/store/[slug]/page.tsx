@@ -12,6 +12,10 @@ function formatPrice(priceCents?: number, currency = "CAD") {
   return `${currency} ${(priceCents / 100).toFixed(2)}`;
 }
 
+function formatFileType(value: string) {
+  return value.split("/").pop()?.toUpperCase() ?? value.toUpperCase();
+}
+
 export default async function StoreProductPage({ params }: StoreProductPageProps) {
   const { slug } = await params;
   const product = await getStoreProductBySlug(slug);
@@ -39,6 +43,26 @@ export default async function StoreProductPage({ params }: StoreProductPageProps
           <h1 className="gold-text mt-4 text-5xl md:text-7xl">{product.title}</h1>
           <p className="mt-8 text-2xl text-[var(--soft-gold)]">{formatPrice(product.priceCents, product.currency)}</p>
           <p className="mt-8 text-lg leading-8 text-[var(--muted-silver)]">{product.description}</p>
+
+          <section className="mt-8 rounded-2xl border border-[rgba(216,168,79,0.2)] p-5">
+            <p className="gold-text text-xs uppercase tracking-[0.25em]">Included after purchase</p>
+            {product.files.length > 0 ? (
+              <div className="mt-4 grid gap-3">
+                {product.files.map((file) => (
+                  <article className="rounded-2xl border border-[rgba(216,168,79,0.16)] p-4" key={file.id}>
+                    <p className="gold-text text-xs uppercase tracking-[0.2em]">{formatFileType(file.fileType)}</p>
+                    <h2 className="mt-2 text-xl">{file.title}</h2>
+                    {file.description ? <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">{file.description}</p> : null}
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">
+                Downloadable files will appear in your account library after access is granted.
+              </p>
+            )}
+          </section>
+
           <PaymentOptions productSlug={product.slug} />
           <Link className="mt-6 inline-block rounded-full border border-[rgba(216,168,79,0.45)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--ivory)]" href="/account">
             Account Library
