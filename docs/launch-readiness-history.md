@@ -35,6 +35,15 @@ Admins can:
 - Add optional notes
 - See the latest saved snapshots
 - Compare the current score against the previous snapshot
+- Delete old or accidental snapshots
+
+## Delete controls
+
+Each saved snapshot has a Delete Snapshot button.
+
+The browser asks for confirmation before the snapshot is removed.
+
+After deletion, the timeline refreshes and the current comparison recalculates against the latest remaining snapshot.
 
 ## Security
 
@@ -44,4 +53,4 @@ Only admins can read, create, update, or delete launch readiness snapshots.
 
 ## Follow-up
 
-Future work can add charting, CSV export, and snapshot delete controls.
+Future work can add charting, CSV export, and richer snapshot comparison views.
