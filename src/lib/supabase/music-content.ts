@@ -15,8 +15,8 @@ function fallbackList() {
       status: album.status,
       href: `/music/${slug}`,
       slug,
-      coverImageUrl: undefined as string | undefined,
-      coverAltText: album.title,
+      coverImageUrl: album.coverImageUrl,
+      coverAltText: album.coverAltText ?? album.title,
     };
   });
 }
