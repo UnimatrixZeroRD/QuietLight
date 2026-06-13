@@ -2,19 +2,13 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
-
-type AlbumItem = {
-  id: string;
-  title: string;
-  subtitle: string | null;
-  slug: string;
-  status: string;
-};
+import { AlbumQuickEditor, EditableAlbum } from "./album-quick-editor";
 
 export function AlbumList() {
-  const [albums, setAlbums] = useState<AlbumItem[]>([]);
+  const [albums, setAlbums] = useState<EditableAlbum[]>([]);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [editingAlbumId, setEditingAlbumId] = useState("");
 
   const loadAlbums = useCallback(async () => {
     setIsLoading(true);
@@ -29,32 +23,33 @@ export function AlbumList() {
 
     const { data, error } = await supabase
       .from("albums")
-      .select("id,title,subtitle,slug,status")
+      .select("id,title,subtitle,slug,description,cover_image_url,status")
       .order("created_at", { ascending: false })
       .limit(20);
 
     if (error) {
       setMessage(error.message);
     } else {
-      setAlbums((data ?? []) as AlbumItem[]);
+      setAlbums((data ?? []) as EditableAlbum[]);
     }
 
     setIsLoading(false);
   }, []);
 
-  async function archiveAlbum(albumId: string) {
+  async function setAlbumStatus(album: EditableAlbum, status: "draft" | "published" | "archived") {
     const supabase = createSupabaseBrowserClient();
     if (!supabase) return;
 
     const { error } = await supabase
       .from("albums")
-      .update({ status: "archived", updated_at: new Date().toISOString() })
-      .eq("id", albumId);
+      .update({ status, updated_at: new Date().toISOString() })
+      .eq("id", album.id);
 
     if (error) {
       setMessage(error.message);
     } else {
-      setMessage("Album archived.");
+      const label = status === "published" ? "published" : status === "draft" ? "moved to draft" : "archived";
+      setMessage(`${album.title} ${label}.`);
       await loadAlbums();
     }
   }
@@ -81,18 +76,50 @@ export function AlbumList() {
       {message ? <p className="mt-6 text-sm leading-6 text-[var(--muted-silver)]">{message}</p> : null}
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
-        {albums.map((album) => (
-          <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={album.id}>
-            <p className="gold-text text-xs uppercase tracking-[0.25em]">{album.status}</p>
-            <h3 className="mt-3 text-2xl">{album.title}</h3>
-            <p className="mt-2 text-sm text-[var(--muted-silver)]">{album.subtitle ?? `/${album.slug}`}</p>
-            {album.status !== "archived" ? (
-              <button className="mt-4 rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => archiveAlbum(album.id)}>
-                Archive
-              </button>
-            ) : null}
-          </article>
-        ))}
+        {albums.map((album) => {
+          const isEditing = editingAlbumId === album.id;
+
+          return (
+            <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={album.id}>
+              <p className="gold-text text-xs uppercase tracking-[0.25em]">{album.status}</p>
+              <h3 className="mt-3 text-2xl">{album.title}</h3>
+              <p className="mt-2 text-sm text-[var(--muted-silver)]">{album.subtitle ?? `/${album.slug}`}</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{album.description || "No album description yet."}</p>
+              {album.cover_image_url ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="mt-4 aspect-[16/9] w-full rounded-2xl border border-[rgba(216,168,79,0.25)] object-cover" src={album.cover_image_url} alt={`${album.title} cover`} />
+              ) : null}
+
+              {isEditing ? <AlbumQuickEditor album={album} onSaved={loadAlbums} onCancel={() => setEditingAlbumId("")} /> : null}
+
+              <div className="mt-4 flex flex-wrap gap-3">
+                <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setEditingAlbumId(isEditing ? "" : album.id)}>
+                  {isEditing ? "Close Edit" : "Edit Album"}
+                </button>
+                {album.status === "draft" ? (
+                  <button className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setAlbumStatus(album, "published")}>
+                    Publish
+                  </button>
+                ) : null}
+                {album.status === "published" ? (
+                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setAlbumStatus(album, "draft")}>
+                    Move to Draft
+                  </button>
+                ) : null}
+                {album.status === "archived" ? (
+                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setAlbumStatus(album, "draft")}>
+                    Restore Draft
+                  </button>
+                ) : null}
+                {album.status !== "archived" ? (
+                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setAlbumStatus(album, "archived")}>
+                    Archive
+                  </button>
+                ) : null}
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
