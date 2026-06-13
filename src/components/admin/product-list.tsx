@@ -15,6 +15,7 @@ type ProductItem = {
   currency: string;
   description: string;
   cover_image_url: string | null;
+  cover_alt_text: string;
 };
 
 type ProductFileItem = {
@@ -39,6 +40,7 @@ function getDeliveryStatus(product: ProductItem, files: ProductFileItem[]): Deli
   const missingDescriptions = attachedFiles.filter((file) => file.description.trim().length === 0).length;
   const missingProductDescription = product.description.trim().length === 0;
   const missingCover = !product.cover_image_url;
+  const missingCoverAlt = product.cover_image_url ? product.cover_alt_text.trim().length === 0 : false;
 
   if (product.status === "archived") return { tone: "archived", label: "Archived", detail: "This product is archived and hidden from active sales." };
 
@@ -48,6 +50,7 @@ function getDeliveryStatus(product: ProductItem, files: ProductFileItem[]): Deli
       missingDescriptions > 0 ? "needs file descriptions" : "",
       missingProductDescription ? "needs product description" : "",
       missingCover ? "needs cover image" : "",
+      missingCoverAlt ? "needs cover alt text" : "",
     ].filter(Boolean);
 
     return {
@@ -60,9 +63,9 @@ function getDeliveryStatus(product: ProductItem, files: ProductFileItem[]): Deli
   if (attachedFiles.length === 0) return { tone: "attention", label: "Action needed", detail: "Active product has no attached delivery files." };
   if (missingDescriptions > 0) return { tone: "warning", label: "Review", detail: `${missingDescriptions} attached file${missingDescriptions === 1 ? "" : "s"} missing customer-facing descriptions.` };
 
-  if (missingProductDescription || missingCover) {
-    const issues = [missingProductDescription ? "product description" : "", missingCover ? "cover image" : ""].filter(Boolean);
-    return { tone: "warning", label: "Review", detail: `Active product is missing ${issues.join(" and ")}.` };
+  if (missingProductDescription || missingCover || missingCoverAlt) {
+    const issues = [missingProductDescription ? "product description" : "", missingCover ? "cover image" : "", missingCoverAlt ? "cover alt text" : ""].filter(Boolean);
+    return { tone: "warning", label: "Review", detail: `Active product is missing ${issues.join(", ")}.` };
   }
 
   return { tone: "ready", label: "Ready", detail: "Product appears ready for customer delivery." };
@@ -100,7 +103,7 @@ export function ProductList() {
     }
 
     const [productsResult, filesResult] = await Promise.all([
-      supabase.from("products").select("id,slug,title,product_type,status,price_cents,currency,description,cover_image_url").order("created_at", { ascending: false }).limit(50),
+      supabase.from("products").select("id,slug,title,product_type,status,price_cents,currency,description,cover_image_url,cover_alt_text").order("created_at", { ascending: false }).limit(50),
       supabase.from("product_files").select("id,product_id,title,description").order("sort_order", { ascending: true }).limit(500),
     ]);
 
@@ -190,6 +193,7 @@ export function ProductList() {
               <h3 className="mt-3 text-2xl">{product.title}</h3>
               <p className="mt-2 text-sm text-[var(--muted-silver)]">{product.currency} {(product.price_cents / 100).toFixed(2)}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{product.description || "No product description yet."}</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Cover alt text: {product.cover_alt_text || "Not set"}</p>
               <p className="mt-3 text-sm text-[var(--muted-silver)]">Attached files: {attachedFiles.length}</p>
               <p className="mt-3 break-all rounded-xl border border-[rgba(216,168,79,0.18)] px-4 py-3 text-xs text-[var(--muted-silver)]">Product ID: {product.id}</p>
 
