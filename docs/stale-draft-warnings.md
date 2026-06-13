@@ -26,6 +26,7 @@ Each card shows:
 - Draft age
 - Link to the matching admin list
 - Direct link to the exact admin card when available
+- Cleanup actions for each listed stale draft
 
 ## Direct anchors
 
@@ -35,6 +36,13 @@ Stale draft links now target the matching admin card anchors:
 - Daily Light drafts: `/admin/content#content-daily-light-[id]`
 - Product drafts: `/admin/products#product-[id]`
 - Album drafts: `/admin/music#album-[id]`
+
+## Cleanup actions
+
+Each listed stale draft now supports:
+
+- **Keep Draft** — refreshes `updated_at` so the draft is no longer stale.
+- **Archive** — moves the draft to archived status.
 
 ## Follow-up
 
