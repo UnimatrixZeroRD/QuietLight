@@ -18,6 +18,9 @@ const staticRoutes = [
   "/blog",
   "/support",
   "/lantern-psalms",
+  "/privacy",
+  "/terms",
+  "/refund-policy",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
