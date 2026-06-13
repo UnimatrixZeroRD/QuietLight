@@ -51,7 +51,7 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
     subtitle: "The Lantern Psalms, Volume I",
     description: "Sacred music for prayer, stillness, worship, and reflection.",
     href: "/music/the-flame-remains",
-    coverImageUrl: "/images/music/flame-remains-cover.svg",
+    coverImageUrl: "/images/music/flame-remains-cover.png",
     coverAltText: "The Flame Remains album cover.",
   },
   {
@@ -60,7 +60,7 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
     subtitle: "A Way of Quiet Light Hymn Collection",
     description: "A hymn collection for devotion, quiet worship, and spiritual renewal.",
     href: "/music/the-everlasting-light",
-    coverImageUrl: "/images/music/everlasting-light-cover.svg",
+    coverImageUrl: "/images/music/everlasting-light-cover.png",
     coverAltText: "The Everlasting Light album cover.",
   },
   {
@@ -69,7 +69,7 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
     subtitle: "Songs of the Holy Trinity",
     description: "A sacred music collection centered on glory, prayer, and praise.",
     href: "/music/gloria-patri",
-    coverImageUrl: "/images/music/gloria-patri-cover.svg",
+    coverImageUrl: "/images/music/gloria-patri-cover.png",
     coverAltText: "Gloria Patri album cover.",
   },
 ];
@@ -149,7 +149,7 @@ export default async function MusicPage() {
       subtitle: published?.subtitle ?? album.subtitle,
       description: published?.description ?? album.description,
       href: published?.href ?? album.href,
-      coverImageUrl: published?.coverImageUrl ?? album.coverImageUrl,
+      coverImageUrl: album.coverImageUrl,
       coverAltText: published?.coverAltText ?? album.coverAltText,
     };
   });
