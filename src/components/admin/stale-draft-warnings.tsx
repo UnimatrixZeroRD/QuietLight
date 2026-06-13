@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+import { DraftKind, StaleDraftActions } from "./stale-draft-actions";
 
 type DraftRecord = {
   id: string;
@@ -16,6 +17,7 @@ type DraftRecord = {
 type DraftGroup = {
   title: string;
   adminHref: string;
+  kind: DraftKind;
   getItemHref: (item: DraftRecord) => string;
   items: DraftRecord[];
 };
@@ -86,24 +88,28 @@ export function StaleDraftWarnings() {
       {
         title: "Blog drafts",
         adminHref: "/admin/content",
+        kind: "post",
         getItemHref: (item) => `/admin/content#content-post-${item.id}`,
         items: posts.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)),
       },
       {
         title: "Daily Light drafts",
         adminHref: "/admin/content",
+        kind: "daily-light",
         getItemHref: (item) => `/admin/content#content-daily-light-${item.id}`,
         items: dailyLight.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)),
       },
       {
         title: "Product drafts",
         adminHref: "/admin/products",
+        kind: "product",
         getItemHref: (item) => `/admin/products#product-${item.id}`,
         items: products.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)),
       },
       {
         title: "Album drafts",
         adminHref: "/admin/music",
+        kind: "album",
         getItemHref: (item) => `/admin/music#album-${item.id}`,
         items: albums.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)),
       },
@@ -134,14 +140,17 @@ export function StaleDraftWarnings() {
             <p className="gold-text text-xs uppercase tracking-[0.25em]">{group.title}</p>
             <p className="mt-4 text-5xl text-[var(--ivory)]">{group.items.length}</p>
             <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">
-              {group.items.length > 0 ? "Drafts may need publishing, editing, or archiving." : "No stale drafts found."}
+              {group.items.length > 0 ? "Drafts may need publishing, editing, archiving, or a keep-draft refresh." : "No stale drafts found."}
             </p>
             <div className="mt-4 grid gap-2">
               {group.items.slice(0, 3).map((item) => (
-                <Link className="rounded-2xl border border-[rgba(216,168,79,0.18)] p-3 text-sm leading-6 text-[var(--muted-silver)] transition hover:border-[rgba(216,168,79,0.45)]" href={group.getItemHref(item)} key={item.id}>
+                <div className="rounded-2xl border border-[rgba(216,168,79,0.18)] p-3 text-sm leading-6 text-[var(--muted-silver)]" key={item.id}>
                   <span className="block">{item.title || "Untitled draft"} — {formatAge(item)} old</span>
-                  <span className="gold-text mt-2 block text-xs uppercase tracking-[0.18em]">Open exact admin card</span>
-                </Link>
+                  <Link className="gold-text mt-2 block text-xs uppercase tracking-[0.18em]" href={group.getItemHref(item)}>
+                    Open exact admin card
+                  </Link>
+                  <StaleDraftActions draftId={item.id} draftTitle={item.title} kind={group.kind} onChanged={loadDrafts} />
+                </div>
               ))}
             </div>
             <Link className="gold-text mt-5 inline-block text-xs uppercase tracking-[0.2em]" href={group.adminHref}>
