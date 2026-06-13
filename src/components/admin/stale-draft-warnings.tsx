@@ -16,6 +16,7 @@ type DraftRecord = {
 type DraftGroup = {
   title: string;
   adminHref: string;
+  getItemHref: (item: DraftRecord) => string;
   items: DraftRecord[];
 };
 
@@ -82,10 +83,30 @@ export function StaleDraftWarnings() {
 
   const groups = useMemo<DraftGroup[]>(() => {
     return [
-      { title: "Blog drafts", adminHref: "/admin/content", items: posts.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)) },
-      { title: "Daily Light drafts", adminHref: "/admin/content", items: dailyLight.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)) },
-      { title: "Product drafts", adminHref: "/admin/products", items: products.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)) },
-      { title: "Album drafts", adminHref: "/admin/music", items: albums.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)) },
+      {
+        title: "Blog drafts",
+        adminHref: "/admin/content",
+        getItemHref: (item) => `/admin/content#content-post-${item.id}`,
+        items: posts.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)),
+      },
+      {
+        title: "Daily Light drafts",
+        adminHref: "/admin/content",
+        getItemHref: (item) => `/admin/content#content-daily-light-${item.id}`,
+        items: dailyLight.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)),
+      },
+      {
+        title: "Product drafts",
+        adminHref: "/admin/products",
+        getItemHref: (item) => `/admin/products#product-${item.id}`,
+        items: products.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)),
+      },
+      {
+        title: "Album drafts",
+        adminHref: "/admin/music",
+        getItemHref: (item) => `/admin/music#album-${item.id}`,
+        items: albums.filter(isStale).sort((a, b) => recordAge(b) - recordAge(a)),
+      },
     ];
   }, [albums, dailyLight, posts, products]);
 
@@ -117,8 +138,9 @@ export function StaleDraftWarnings() {
             </p>
             <div className="mt-4 grid gap-2">
               {group.items.slice(0, 3).map((item) => (
-                <Link className="rounded-2xl border border-[rgba(216,168,79,0.18)] p-3 text-sm leading-6 text-[var(--muted-silver)] transition hover:border-[rgba(216,168,79,0.45)]" href={group.adminHref} key={item.id}>
-                  {item.title || "Untitled draft"} — {formatAge(item)} old
+                <Link className="rounded-2xl border border-[rgba(216,168,79,0.18)] p-3 text-sm leading-6 text-[var(--muted-silver)] transition hover:border-[rgba(216,168,79,0.45)]" href={group.getItemHref(item)} key={item.id}>
+                  <span className="block">{item.title || "Untitled draft"} — {formatAge(item)} old</span>
+                  <span className="gold-text mt-2 block text-xs uppercase tracking-[0.18em]">Open exact admin card</span>
                 </Link>
               ))}
             </div>
