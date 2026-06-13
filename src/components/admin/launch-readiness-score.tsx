@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+import { LaunchReadinessHistory } from "./launch-readiness-history";
 
 type OrderRecord = { id: string; status: string };
 type MessageRecord = { id: string; status: string };
@@ -289,6 +290,8 @@ export function LaunchReadinessScore() {
         {copyMessage ? <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{copyMessage}</p> : null}
         <textarea className="mt-4 min-h-72 w-full rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(7,17,31,0.8)] p-4 font-mono text-sm leading-6 text-[var(--ivory)]" readOnly value={score.checklist} />
       </div>
+
+      <LaunchReadinessHistory checklist={score.checklist} items={score.items} total={score.total} />
 
       <div className="printable-launch-checklist">
         <h1>Quiet Light Launch Review Checklist</h1>
