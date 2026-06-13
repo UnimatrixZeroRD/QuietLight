@@ -63,15 +63,25 @@ export default function HomePage() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {['The Flame Remains', 'The Everlasting Light', 'Gloria Patri'].map((album, index) => (
             <div className="lantern-panel rounded-3xl p-6" key={album}>
-              <div
-                className="mb-5 flex h-52 items-end rounded-2xl border border-[var(--lantern-gold)] bg-cover bg-center p-5 text-4xl"
-                style={{
-                  backgroundImage:
-                    index === 0
-                      ? "url('/images/music/flame-remains-cover.svg')"
-                      : "linear-gradient(180deg, rgba(18,60,105,0.9), rgba(7,17,31,0.95))",
-                }}
-              />
+              {index === 0 ? (
+                <div className="mb-5 overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.18)]">
+                  <Image
+                    src="/images/music/flame-remains-cover.png"
+                    alt="The Flame Remains album cover."
+                    width={1254}
+                    height={1254}
+                    sizes="(min-width: 768px) 28vw, 100vw"
+                    className="h-auto w-full"
+                  />
+                </div>
+              ) : (
+                <div
+                  className="mb-5 flex aspect-square items-end rounded-2xl border border-[var(--lantern-gold)] bg-cover bg-center p-5 text-4xl"
+                  style={{
+                    backgroundImage: "linear-gradient(180deg, rgba(18,60,105,0.9), rgba(7,17,31,0.95))",
+                  }}
+                />
+              )}
               <h3 className="gold-text text-2xl">{album}</h3>
               <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">Sacred music for prayer, reflection, and stillness.</p>
             </div>
