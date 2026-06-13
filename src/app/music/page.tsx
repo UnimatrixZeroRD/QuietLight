@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { getPublicMusicAlbums } from "../../lib/supabase/music-content";
 
+const artistName = "Yehoshua of Ēatūn";
+const holyTrinityImage = "/images/music/holy-trinity-graphic.png";
+
 export const metadata: Metadata = {
   title: "Music",
   description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
@@ -11,20 +14,13 @@ export const metadata: Metadata = {
     title: "Music of the Quiet Light",
     description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
     url: "/music",
-    images: [
-      {
-        url: "/images/music/holy-trinity-graphic.png",
-        width: 1200,
-        height: 630,
-        alt: "The Holy Trinity music collection graphic.",
-      },
-    ],
+    images: [{ url: holyTrinityImage, width: 1200, height: 630, alt: "The Holy Trinity music collection graphic." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Music of the Quiet Light",
     description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
-    images: ["/images/music/holy-trinity-graphic.png"],
+    images: [holyTrinityImage],
   },
 };
 
@@ -42,33 +38,16 @@ type SingleShowcaseItem = {
   title: string;
   subtitle: string;
   description: string;
+  coverImageUrl: string;
+  coverAltText: string;
 };
 
-type ArtistLink = {
-  label: string;
-  href: string;
-};
-
-const artistName = "Yehoshua of Ēatūn";
-
-const artistLinks: ArtistLink[] = [
-  {
-    label: "Apple Music",
-    href: "https://music.apple.com/us/artist/yehoshua-of-%C4%93at%C5%ABn/1888389584",
-  },
-  {
-    label: "Spotify",
-    href: "https://open.spotify.com/artist/0k96zp5CFLPM2I2EtFOLTB",
-  },
-  {
-    label: "YouTube Music",
-    href: "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
-  },
-  {
-    label: "Amazon Music",
-    href: "https://music.amazon.ca/artists/B0GV448JLH/yehoshua-of-%C4%93at%C5%ABn",
-  },
-];
+const artistLinks = [
+  ["Apple Music", "https://music.apple.com/us/artist/yehoshua-of-%C4%93at%C5%ABn/1888389584"],
+  ["Spotify", "https://open.spotify.com/artist/0k96zp5CFLPM2I2EtFOLTB"],
+  ["YouTube Music", "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn"],
+  ["Amazon Music", "https://music.amazon.ca/artists/B0GV448JLH/yehoshua-of-%C4%93at%C5%ABn"],
+] as const;
 
 const holyTrinityAlbums: AlbumShowcaseItem[] = [
   {
@@ -105,36 +84,44 @@ const singles: SingleShowcaseItem[] = [
     title: "The Sound of Silence (I Returned)",
     subtitle: "Sacred Single",
     description: "A contemplative single about silence, return, and the quiet road back to the light.",
+    coverImageUrl: "/images/music/thesoundofsilence.png",
+    coverAltText: "The Sound of Silence (I Returned) single cover.",
   },
   {
     title: "The Light Led Me Back",
     subtitle: "Sacred Single",
     description: "A song of hope, restoration, and the light that calls the keeper home.",
+    coverImageUrl: "/images/music/thelightledmeback.png",
+    coverAltText: "The Light Led Me Back single cover.",
   },
   {
     title: "Into Your Hands (The Crucifixion)",
     subtitle: "Good Friday Single",
     description: "A Good Friday meditation on surrender, sacrifice, and the solemn mystery of the Cross.",
+    coverImageUrl: "/images/music/intoyourhands.png",
+    coverAltText: "Into Your Hands (The Crucifixion) single cover.",
   },
   {
     title: "The Day the Stone Was Lifted (The Resurrection)",
     subtitle: "Easter Single",
     description: "An Easter release centered on resurrection, renewal, and the dawn after the tomb.",
+    coverImageUrl: "/images/music/thedaythestonewaslifted.png",
+    coverAltText: "The Day the Stone Was Lifted (The Resurrection) single cover.",
   },
 ];
 
 function ArtistProfileLinks({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`flex flex-wrap ${compact ? "gap-2" : "gap-3"}`}>
-      {artistLinks.map((link) => (
+      {artistLinks.map(([label, href]) => (
         <a
           className={`gold-text rounded-full border border-[rgba(216,168,79,0.38)] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)] ${compact ? "px-3 py-2 text-[0.68rem] uppercase tracking-[0.16em]" : "px-5 py-3 text-xs uppercase tracking-[0.2em]"}`}
-          href={link.href}
-          key={link.label}
+          href={href}
+          key={label}
           rel="noopener noreferrer"
           target="_blank"
         >
-          {link.label}
+          {label}
         </a>
       ))}
     </div>
@@ -145,17 +132,8 @@ function AlbumCard({ album }: { album: AlbumShowcaseItem }) {
   return (
     <Link className="lantern-panel group flex h-full flex-col rounded-3xl p-5 transition duration-300 hover:-translate-y-1 hover:border-[rgba(216,168,79,0.65)]" href={album.href}>
       <div className="relative overflow-hidden rounded-2xl border border-[rgba(216,168,79,0.28)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.14)]">
-        <Image
-          src={album.coverImageUrl}
-          alt={album.coverAltText}
-          width={1254}
-          height={1254}
-          sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
-          className="h-auto w-full transition duration-300 group-hover:scale-[1.03]"
-        />
-        <span className="absolute left-4 top-4 rounded-full border border-[rgba(216,168,79,0.55)] bg-[rgba(7,17,31,0.78)] px-3 py-1 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] backdrop-blur">
-          Available
-        </span>
+        <Image src={album.coverImageUrl} alt={album.coverAltText} width={1254} height={1254} sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw" className="h-auto w-full transition duration-300 group-hover:scale-[1.03]" />
+        <span className="absolute left-4 top-4 rounded-full border border-[rgba(216,168,79,0.55)] bg-[rgba(7,17,31,0.78)] px-3 py-1 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] backdrop-blur">Available</span>
       </div>
       <div className="flex flex-1 flex-col pt-6">
         <p className="gold-text text-xs uppercase tracking-[0.22em]">Holy Trinity Album</p>
@@ -171,14 +149,11 @@ function AlbumCard({ album }: { album: AlbumShowcaseItem }) {
 function SingleCard({ single, index }: { single: SingleShowcaseItem; index: number }) {
   return (
     <article className="lantern-panel flex h-full flex-col rounded-3xl p-5">
-      <div className="flex aspect-[16/10] items-center justify-center rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[radial-gradient(circle_at_50%_30%,rgba(216,168,79,0.22),rgba(18,60,105,0.42)_38%,rgba(7,17,31,0.95)_100%)] p-6 text-center">
-        <div>
-          <p className="text-xs uppercase tracking-[0.28em] text-[var(--soft-gold)]">Single {index + 1}</p>
-          <p className="gold-text mt-4 text-5xl" aria-hidden="true">✦</p>
-        </div>
+      <div className="overflow-hidden rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.12)]">
+        <Image src={single.coverImageUrl} alt={single.coverAltText} width={1254} height={1254} sizes="(min-width: 1280px) 23vw, (min-width: 768px) 45vw, 100vw" className="h-auto w-full transition duration-300 hover:scale-[1.03]" />
       </div>
       <div className="flex flex-1 flex-col pt-6">
-        <p className="gold-text text-xs uppercase tracking-[0.22em]">Available Single</p>
+        <p className="gold-text text-xs uppercase tracking-[0.22em]">Available Single {index + 1}</p>
         <h3 className="gold-text mt-3 text-2xl leading-tight">{single.title}</h3>
         <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">{single.subtitle}</p>
         <p className="mt-4 flex-1 leading-7 text-[var(--muted-silver)]">{single.description}</p>
@@ -193,7 +168,6 @@ export default async function MusicPage() {
   const publicAlbumBySlug = new Map(publicAlbums.map((album) => [album.slug, album]));
   const albumCards = holyTrinityAlbums.map((album) => {
     const published = publicAlbumBySlug.get(album.slug);
-
     return {
       ...album,
       title: published?.title ?? album.title,
@@ -213,29 +187,21 @@ export default async function MusicPage() {
           <div>
             <p className="gold-text uppercase tracking-[0.3em]">Music</p>
             <h1 className="gold-text mt-5 text-5xl leading-tight md:text-7xl">Music of the Quiet Light</h1>
-            <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">
-              Albums, singles, psalms, hymns, and sacred music by {artistName} for prayer, stillness, worship, and reflection.
-            </p>
+            <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">Albums, singles, psalms, hymns, and sacred music by {artistName} for prayer, stillness, worship, and reflection.</p>
             <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)]">
               <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">3 albums</span>
               <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">4 singles</span>
               <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">Available now</span>
             </div>
-            <div className="mt-8">
-              <ArtistProfileLinks compact />
-            </div>
+            <div className="mt-8"><ArtistProfileLinks compact /></div>
           </div>
-
           <div className="lantern-panel overflow-hidden rounded-[2rem] p-4">
             <div className="overflow-hidden rounded-[1.5rem] border border-[rgba(216,168,79,0.28)] bg-[var(--midnight)]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="aspect-[16/9] w-full object-cover" src="/images/music/holy-trinity-graphic.png" alt="The Holy Trinity music collection graphic." />
+              <Image src={holyTrinityImage} alt="The Holy Trinity music collection graphic." width={1200} height={630} sizes="(min-width: 1024px) 48vw, 100vw" className="h-auto w-full" />
             </div>
             <div className="p-5">
               <p className="gold-text text-xs uppercase tracking-[0.28em]">The Holy Trinity</p>
-              <p className="mt-3 leading-7 text-[var(--muted-silver)]">
-                Three sacred albums gathered as the central music collection of The Way of Quiet Light.
-              </p>
+              <p className="mt-3 leading-7 text-[var(--muted-silver)]">Three sacred albums gathered as the central music collection of The Way of Quiet Light.</p>
             </div>
           </div>
         </div>
@@ -247,15 +213,9 @@ export default async function MusicPage() {
             <p className="gold-text uppercase tracking-[0.3em]">Albums</p>
             <h2 id="holy-trinity-albums" className="mt-4 text-4xl md:text-6xl">The Holy Trinity</h2>
           </div>
-          <p className="max-w-2xl leading-8 text-[var(--muted-silver)]">
-            The three full album releases are available now. Each album page is ready for the final listening links and embedded players.
-          </p>
+          <p className="max-w-2xl leading-8 text-[var(--muted-silver)]">The three full album releases are available now. Each album page is ready for the final listening links and embedded players.</p>
         </div>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {albumCards.map((album) => (
-            <AlbumCard album={album} key={album.slug} />
-          ))}
-        </div>
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">{albumCards.map((album) => <AlbumCard album={album} key={album.slug} />)}</div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="available-singles">
@@ -264,27 +224,17 @@ export default async function MusicPage() {
             <p className="gold-text uppercase tracking-[0.3em]">Singles</p>
             <h2 id="available-singles" className="mt-4 text-4xl md:text-6xl">Available Singles</h2>
           </div>
-          <p className="max-w-2xl leading-8 text-[var(--muted-silver)]">
-            Four standalone releases sit alongside the Holy Trinity album collection and are available through the official {artistName} profiles.
-          </p>
+          <p className="max-w-2xl leading-8 text-[var(--muted-silver)]">Four standalone releases sit alongside the Holy Trinity album collection and are available through the official {artistName} profiles.</p>
         </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {singles.map((single, index) => (
-            <SingleCard index={index} key={single.title} single={single} />
-          ))}
-        </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">{singles.map((single, index) => <SingleCard index={index} key={single.title} single={single} />)}</div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="artist-profile">
         <div className="lantern-panel rounded-3xl p-6 md:p-10">
           <p className="gold-text uppercase tracking-[0.3em]">Artist Profile</p>
           <h2 id="artist-profile" className="mt-4 text-4xl md:text-6xl">Listen to {artistName}.</h2>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">
-            Albums and singles are published under {artistName}. Use the official artist profiles below to listen across major music platforms.
-          </p>
-          <div className="mt-8">
-            <ArtistProfileLinks />
-          </div>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">Albums and singles are published under {artistName}. Use the official artist profiles below to listen across major music platforms.</p>
+          <div className="mt-8"><ArtistProfileLinks /></div>
         </div>
       </section>
     </main>
