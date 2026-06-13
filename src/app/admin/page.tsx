@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { DashboardSummary } from "../../components/admin/dashboard-summary";
 import { LivePageValidation } from "../../components/admin/live-page-validation";
+import { StaleDraftWarnings } from "../../components/admin/stale-draft-warnings";
 import { adminSections } from "../../data/admin-sections";
 
 export default function AdminPage() {
@@ -14,6 +15,7 @@ export default function AdminPage() {
 
       <DashboardSummary />
       <LivePageValidation />
+      <StaleDraftWarnings />
 
       <section className="mt-12">
         <p className="gold-text uppercase tracking-[0.3em]">Sections</p>
