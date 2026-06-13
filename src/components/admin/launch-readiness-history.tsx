@@ -33,6 +33,29 @@ function scoreDelta(current: number, previous?: number) {
   return `${delta > 0 ? "+" : ""}${delta} points from previous snapshot`;
 }
 
+function csvCell(value: string | number) {
+  const text = String(value).replaceAll('"', '""');
+  return `"${text}"`;
+}
+
+function snapshotsToCsv(snapshots: SnapshotRecord[]) {
+  const rows = [
+    ["created_at", "total_score", "operations_score", "delivery_score", "live_pages_score", "draft_cleanup_score", "notes", "id"],
+    ...snapshots.map((snapshot) => [
+      snapshot.created_at,
+      snapshot.total_score,
+      snapshot.operations_score,
+      snapshot.delivery_score,
+      snapshot.live_pages_score,
+      snapshot.draft_cleanup_score,
+      snapshot.notes,
+      snapshot.id,
+    ]),
+  ];
+
+  return rows.map((row) => row.map(csvCell).join(",")).join("\n");
+}
+
 export function LaunchReadinessHistory({ checklist, items, total }: { checklist: string; items: ScoreItem[]; total: number }) {
   const [snapshots, setSnapshots] = useState<SnapshotRecord[]>([]);
   const [notes, setNotes] = useState("");
@@ -144,6 +167,26 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
     setDeletingSnapshotId("");
   }
 
+  function downloadCsv() {
+    if (snapshots.length === 0) {
+      setMessage("No snapshots available to export.");
+      return;
+    }
+
+    const date = new Date().toISOString().slice(0, 10);
+    const blob = new Blob([snapshotsToCsv(snapshots)], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+
+    anchor.href = url;
+    anchor.download = `quiet-light-readiness-history-${date}.csv`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+    setMessage("Snapshot CSV downloaded.");
+  }
+
   const previous = snapshots[0];
 
   return (
@@ -156,9 +199,14 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
             Save the current launch score so progress can be compared before launch.
           </p>
         </div>
-        <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)] disabled:opacity-60" type="button" onClick={saveSnapshot} disabled={isSaving}>
-          {isSaving ? "Saving..." : "Save Snapshot"}
-        </button>
+        <div className="flex flex-wrap gap-3">
+          <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)] disabled:opacity-60" type="button" onClick={downloadCsv} disabled={snapshots.length === 0}>
+            Export CSV
+          </button>
+          <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)] disabled:opacity-60" type="button" onClick={saveSnapshot} disabled={isSaving}>
+            {isSaving ? "Saving..." : "Save Snapshot"}
+          </button>
+        </div>
       </div>
 
       <textarea className="mt-4 min-h-24 w-full rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(7,17,31,0.8)] p-4 text-sm leading-6 text-[var(--ivory)]" placeholder="Optional snapshot notes" value={notes} onChange={(event) => setNotes(event.target.value)} />
