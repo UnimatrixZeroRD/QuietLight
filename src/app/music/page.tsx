@@ -76,24 +76,24 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
 
 const singles: SingleShowcaseItem[] = [
   {
-    title: "The Sound of Silence",
+    title: "The Sound of Silence (I Returned)",
+    subtitle: "Sacred Single",
+    description: "A contemplative single about silence, return, and the quiet road back to the light.",
+  },
+  {
+    title: "The Light Led Me Back",
+    subtitle: "Sacred Single",
+    description: "A song of hope, restoration, and the light that calls the keeper home.",
+  },
+  {
+    title: "Into Your Hands (The Crucifixion)",
     subtitle: "Good Friday Single",
-    description: "A contemplative meditation for Good Friday and the silence before the dawn.",
+    description: "A Good Friday meditation on surrender, sacrifice, and the solemn mystery of the Cross.",
   },
   {
-    title: "The Light",
+    title: "The Day the Stone Was Lifted (The Resurrection)",
     subtitle: "Easter Single",
-    description: "An Easter release centered on hope, resurrection, and the flame that remains.",
-  },
-  {
-    title: "O Quiet Light",
-    subtitle: "Sacred Single",
-    description: "A devotional hymn of stillness, humility, and keeping the inner flame.",
-  },
-  {
-    title: "The Keeper's Response",
-    subtitle: "Sacred Single",
-    description: "A prayerful response for those called to tend the light in ordinary life.",
+    description: "An Easter release centered on resurrection, renewal, and the dawn after the tomb.",
   },
 ];
 
