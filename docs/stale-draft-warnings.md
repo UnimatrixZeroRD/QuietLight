@@ -25,7 +25,17 @@ Each card shows:
 - First few draft titles
 - Draft age
 - Link to the matching admin list
+- Direct link to the exact admin card when available
+
+## Direct anchors
+
+Stale draft links now target the matching admin card anchors:
+
+- Blog drafts: `/admin/content#content-post-[id]`
+- Daily Light drafts: `/admin/content#content-daily-light-[id]`
+- Product drafts: `/admin/products#product-[id]`
+- Album drafts: `/admin/music#album-[id]`
 
 ## Follow-up
 
-Future work can add configurable thresholds and direct edit links for individual draft items.
+Future work can add full direct edit routing for individual draft items.
