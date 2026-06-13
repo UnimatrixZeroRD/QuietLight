@@ -163,16 +163,22 @@ export default function KeepersLanternPage() {
 
       <section className="mx-auto max-w-5xl px-4 py-12 text-center sm:px-6 md:py-16">
         <div className="rounded-3xl border border-[rgba(216,168,79,0.34)] bg-[rgba(7,17,31,0.72)] p-8 shadow-[0_0_56px_rgba(255,179,71,0.13)] md:p-14">
-          <p className="text-2xl leading-relaxed md:text-4xl">Every generation is given a lantern in the dark.</p>
-          <div className="mt-8 space-y-2 text-lg leading-8 text-[var(--muted-silver)] md:text-xl">
-            <p>Some ignore it.</p>
-            <p>Some extinguish it.</p>
-            <p>A few choose to carry it forward.</p>
+          <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">The Keeper&apos;s Oath</p>
+          <div className="mx-auto mt-8 max-w-3xl space-y-3 text-xl leading-9 text-[var(--ivory)] md:text-2xl md:leading-10">
+            <p>I swear to tend the Quiet Light with patience and care.</p>
+            <p>I will not use it to blind, but to guide.</p>
+            <p>I will not use it to judge, but to understand.</p>
+            <p>When darkness surrounds me, I will protect the flame.</p>
+            <p>When others are lost, I will lift the lantern so they may see.</p>
+            <p>I accept that I am not the source of the light,</p>
+            <p>only its keeper for a time.</p>
+            <p>I will carry it with humility in days of peace,</p>
+            <p>and with courage in days of suffering.</p>
+            <p>If my strength fails, I will shield the flame.</p>
+            <p>If my time ends, I will pass the lantern forward.</p>
+            <p>So long as I walk in this world,</p>
+            <p>The Quiet Light will not be abandoned.</p>
           </div>
-          <blockquote className="gold-text mx-auto mt-10 max-w-2xl text-3xl italic leading-relaxed md:text-5xl">
-            “I am not the light.
-            <br />I am only its keeper.”
-          </blockquote>
         </div>
       </section>
 
