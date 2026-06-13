@@ -15,8 +15,28 @@ export type PublicDailyLightEntry = {
   publishedOn?: string;
 };
 
+function normalizeFallbackEntry(entry: (typeof fallbackEntries)[number]): PublicDailyLightEntry {
+  return {
+    id: entry.id,
+    slug: entry.slug,
+    title: entry.title,
+    summary: entry.summary,
+    accessLevel: "public",
+    status: "published",
+    scriptureReference: entry.scriptureReference,
+    scriptureText: entry.scriptureText,
+    reflection: entry.reflection,
+    prayer: entry.prayer,
+  };
+}
+
 function fallbackEntryBySlug(slug: string) {
-  return fallbackEntries.find((entry) => entry.slug === slug) ?? null;
+  const entry = fallbackEntries.find((item) => item.slug === slug);
+  return entry ? normalizeFallbackEntry(entry) : null;
+}
+
+function fallbackEntryList() {
+  return fallbackEntries.map(normalizeFallbackEntry);
 }
 
 function normalizeEntry(entry: {
@@ -43,10 +63,10 @@ function normalizeEntry(entry: {
   };
 }
 
-export async function getPublicDailyLightEntries() {
+export async function getPublicDailyLightEntries(): Promise<PublicDailyLightEntry[]> {
   const supabase = createSupabaseBrowserClient();
 
-  if (!supabase) return fallbackEntries;
+  if (!supabase) return fallbackEntryList();
 
   const { data, error } = await supabase
     .from("daily_light_entries")
@@ -55,12 +75,12 @@ export async function getPublicDailyLightEntries() {
     .eq("access_level", "public")
     .order("published_on", { ascending: false, nullsFirst: false });
 
-  if (error || !data?.length) return fallbackEntries;
+  if (error || !data?.length) return fallbackEntryList();
 
   return data.map(normalizeEntry);
 }
 
-export async function getPublicDailyLightEntryBySlug(slug: string) {
+export async function getPublicDailyLightEntryBySlug(slug: string): Promise<PublicDailyLightEntry | null> {
   const supabase = createSupabaseBrowserClient();
 
   if (!supabase) return fallbackEntryBySlug(slug);
@@ -78,7 +98,7 @@ export async function getPublicDailyLightEntryBySlug(slug: string) {
   return normalizeEntry(data);
 }
 
-export async function getLatestDailyLightEntry() {
+export async function getLatestDailyLightEntry(): Promise<PublicDailyLightEntry> {
   const entries = await getPublicDailyLightEntries();
-  return entries[0] ?? fallbackEntries[0];
+  return entries[0] ?? normalizeFallbackEntry(fallbackEntries[0]);
 }
