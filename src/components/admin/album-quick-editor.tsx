@@ -11,6 +11,7 @@ export type EditableAlbum = {
   slug: string;
   description: string;
   cover_image_url: string | null;
+  cover_alt_text?: string | null;
   status: string;
 };
 
@@ -20,6 +21,7 @@ type AlbumDraft = {
   slug: string;
   description: string;
   coverImageUrl: string;
+  coverAltText: string;
   status: string;
 };
 
@@ -36,6 +38,7 @@ function createDraft(album: EditableAlbum): AlbumDraft {
     slug: album.slug,
     description: album.description,
     coverImageUrl: album.cover_image_url ?? "",
+    coverAltText: album.cover_alt_text ?? "",
     status: album.status,
   };
 }
@@ -76,6 +79,7 @@ export function AlbumQuickEditor({ album, onSaved, onCancel }: { album: Editable
         slug: toSlug(draft.slug),
         description: draft.description.trim(),
         cover_image_url: draft.coverImageUrl.trim() || null,
+        cover_alt_text: draft.coverAltText.trim(),
         status: draft.status,
         updated_at: new Date().toISOString(),
       })
@@ -100,9 +104,10 @@ export function AlbumQuickEditor({ album, onSaved, onCancel }: { album: Editable
       <textarea className="min-h-32 rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={draft.description} onChange={(event) => updateDraft("description", event.target.value)} placeholder="Description" />
       <PublicImagePicker value={draft.coverImageUrl} onChange={(value) => updateDraft("coverImageUrl", value)} />
       <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={draft.coverImageUrl} onChange={(event) => updateDraft("coverImageUrl", event.target.value)} placeholder="Or paste cover image URL" />
+      <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={draft.coverAltText} onChange={(event) => updateDraft("coverAltText", event.target.value)} placeholder="Cover image alt text" />
       {draft.coverImageUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img className="aspect-[16/9] w-full rounded-2xl border border-[rgba(216,168,79,0.25)] object-cover" src={draft.coverImageUrl} alt={`${draft.title || "Album"} cover preview`} />
+        <img className="aspect-[16/9] w-full rounded-2xl border border-[rgba(216,168,79,0.25)] object-cover" src={draft.coverImageUrl} alt={draft.coverAltText || `${draft.title || "Album"} cover preview`} />
       ) : null}
       <select className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={draft.status} onChange={(event) => updateDraft("status", event.target.value)}>
         {statuses.map((status) => <option key={status} value={status}>{status}</option>)}
