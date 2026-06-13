@@ -50,7 +50,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const paragraphs = post.body.split("\n\n").map((item) => item.trim()).filter(Boolean);
+  const paragraphs = String(post.body ?? "")
+    .split("\n\n")
+    .map((item: string) => item.trim())
+    .filter(Boolean);
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-24">

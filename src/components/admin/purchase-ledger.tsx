@@ -55,7 +55,7 @@ export function PurchaseLedger() {
     if (error) {
       setMessage(error.message);
     } else {
-      setPurchases((data ?? []) as PurchaseRecord[]);
+      setPurchases((data ?? []) as unknown as PurchaseRecord[]);
     }
 
     setIsLoading(false);

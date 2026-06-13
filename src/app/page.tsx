@@ -1,27 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
     <main>
-      <section
-        className="relative overflow-hidden px-4 py-20 text-center sm:px-6 md:py-32"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(7,17,31,0.1), rgba(7,17,31,0.96)), url('/images/backgrounds/quiet-light-hero.svg')",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="mx-auto mb-8 h-20 w-20 rounded-full border border-[var(--lantern-gold)] bg-[url('/images/brand/lantern-mark.svg')] bg-cover shadow-[0_0_60px_rgba(216,168,79,0.25)] sm:h-24 sm:w-24" />
-        <p className="gold-text mb-5 text-xs font-semibold uppercase tracking-[0.28em] sm:tracking-[0.35em]">The Way of</p>
-        <h1 className="gold-text mx-auto max-w-5xl text-5xl font-semibold tracking-wide sm:text-6xl md:text-8xl">Quiet Light</h1>
-        <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-[var(--ivory)] md:text-2xl">
-          A spiritual path of stillness, humility, sacred reflection, and the light that never fades.
-        </p>
-        <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-          <Link className="lantern-glow rounded-full border border-[var(--lantern-gold)] bg-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--midnight)]" href="/the-way">Enter the Quiet Light</Link>
-          <Link className="rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--ivory)]" href="/music">Listen to the Music</Link>
-        </div>
+      <section className="bg-[var(--midnight)]" aria-label="The Way of Quiet Light">
+        <Image
+          src="/images/backgrounds/quiet-light-header.png"
+          alt="The Way of Quiet Light header artwork with aurora-lit mountains, lanterns, and a lakeside path."
+          width={1672}
+          height={941}
+          priority
+          sizes="100vw"
+          className="h-auto w-full"
+        />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-16">

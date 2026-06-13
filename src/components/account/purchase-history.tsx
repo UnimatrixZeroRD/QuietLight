@@ -71,7 +71,7 @@ export function PurchaseHistory() {
     if (error) {
       setMessage(error.message);
     } else {
-      setPurchases((data ?? []) as Purchase[]);
+      setPurchases((data ?? []) as unknown as Purchase[]);
     }
 
     setIsLoading(false);
