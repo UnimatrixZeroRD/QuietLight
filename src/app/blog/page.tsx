@@ -1,5 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getPublicPosts } from "../../lib/supabase/public-content";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Reflections, announcements, devotional writing, and long-form updates from The Way of Quiet Light.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog | The Way of Quiet Light",
+    description: "Reflections, announcements, devotional writing, and long-form updates from The Way of Quiet Light.",
+    url: "/blog",
+  },
+};
 
 function formatDate(value?: string | null) {
   if (!value) return "Quiet Light";
