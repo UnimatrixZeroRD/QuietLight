@@ -2,18 +2,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
-
-type MediaAsset = {
-  id: string;
-  title: string;
-  bucket: string;
-  path: string;
-  media_type: string;
-  alt_text: string;
-};
+import { EditableMediaAsset, MediaAssetCard } from "./media-asset-card";
 
 export function MediaAssetList() {
-  const [assets, setAssets] = useState<MediaAsset[]>([]);
+  const [assets, setAssets] = useState<EditableMediaAsset[]>([]);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -30,14 +22,14 @@ export function MediaAssetList() {
 
     const { data, error } = await supabase
       .from("media_assets")
-      .select("id,title,bucket,path,media_type,alt_text")
+      .select("id,title,description,alt_text,bucket,path,media_type,access_level")
       .order("created_at", { ascending: false })
       .limit(30);
 
     if (error) {
       setMessage(error.message);
     } else {
-      setAssets((data ?? []) as MediaAsset[]);
+      setAssets((data ?? []) as EditableMediaAsset[]);
     }
 
     setIsLoading(false);
@@ -66,12 +58,7 @@ export function MediaAssetList() {
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {assets.map((asset) => (
-          <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={asset.id}>
-            <p className="gold-text text-xs uppercase tracking-[0.25em]">{asset.media_type}</p>
-            <h3 className="mt-3 text-2xl">{asset.title}</h3>
-            <p className="mt-2 text-sm text-[var(--muted-silver)]">{asset.bucket}/{asset.path}</p>
-            <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Alt text: {asset.alt_text || "Not set"}</p>
-          </article>
+          <MediaAssetCard asset={asset} key={asset.id} onSaved={loadAssets} />
         ))}
       </div>
     </section>
