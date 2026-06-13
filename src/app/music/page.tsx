@@ -5,11 +5,11 @@ import { getPublicMusicAlbums } from "../../lib/supabase/music-content";
 
 export const metadata: Metadata = {
   title: "Music",
-  description: "Albums, singles, psalms, hymns, and sacred music from The Way of Quiet Light.",
+  description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
   alternates: { canonical: "/music" },
   openGraph: {
     title: "Music of the Quiet Light",
-    description: "Albums, singles, psalms, hymns, and sacred music from The Way of Quiet Light.",
+    description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
     url: "/music",
     images: [
       {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Music of the Quiet Light",
-    description: "Albums, singles, psalms, hymns, and sacred music from The Way of Quiet Light.",
+    description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
     images: ["/images/music/holy-trinity-graphic.svg"],
   },
 };
@@ -43,6 +43,28 @@ type SingleShowcaseItem = {
   subtitle: string;
   description: string;
 };
+
+type ArtistLink = {
+  label: string;
+  href: string;
+};
+
+const artistName = "Yehoshua of Ēatūn";
+
+const artistLinks: ArtistLink[] = [
+  {
+    label: "Apple Music",
+    href: "https://music.apple.com/us/artist/yehoshua-of-%C4%93at%C5%ABn/1888389584",
+  },
+  {
+    label: "Spotify",
+    href: "https://open.spotify.com/artist/0k96zp5CFLPM2I2EtFOLTB",
+  },
+  {
+    label: "YouTube Music",
+    href: "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
+  },
+];
 
 const holyTrinityAlbums: AlbumShowcaseItem[] = [
   {
@@ -97,6 +119,24 @@ const singles: SingleShowcaseItem[] = [
   },
 ];
 
+function ArtistProfileLinks({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`flex flex-wrap ${compact ? "gap-2" : "gap-3"}`}>
+      {artistLinks.map((link) => (
+        <a
+          className={`gold-text rounded-full border border-[rgba(216,168,79,0.38)] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)] ${compact ? "px-3 py-2 text-[0.68rem] uppercase tracking-[0.16em]" : "px-5 py-3 text-xs uppercase tracking-[0.2em]"}`}
+          href={link.href}
+          key={link.label}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function AlbumCard({ album }: { album: AlbumShowcaseItem }) {
   return (
     <Link className="lantern-panel group flex h-full flex-col rounded-3xl p-5 transition duration-300 hover:-translate-y-1 hover:border-[rgba(216,168,79,0.65)]" href={album.href}>
@@ -138,7 +178,7 @@ function SingleCard({ single, index }: { single: SingleShowcaseItem; index: numb
         <h3 className="gold-text mt-3 text-2xl leading-tight">{single.title}</h3>
         <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">{single.subtitle}</p>
         <p className="mt-4 flex-1 leading-7 text-[var(--muted-silver)]">{single.description}</p>
-        <p className="mt-6 text-xs uppercase tracking-[0.2em] text-[var(--muted-silver)]">Artist profile link coming soon</p>
+        <p className="mt-6 text-xs uppercase tracking-[0.2em] text-[var(--muted-silver)]">Listen under {artistName}</p>
       </div>
     </article>
   );
@@ -170,12 +210,15 @@ export default async function MusicPage() {
             <p className="gold-text uppercase tracking-[0.3em]">Music</p>
             <h1 className="gold-text mt-5 text-5xl leading-tight md:text-7xl">Music of the Quiet Light</h1>
             <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">
-              Albums, singles, psalms, hymns, and sacred music for prayer, stillness, worship, and reflection.
+              Albums, singles, psalms, hymns, and sacred music by {artistName} for prayer, stillness, worship, and reflection.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)]">
               <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">3 albums</span>
               <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">4 singles</span>
               <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">Available now</span>
+            </div>
+            <div className="mt-8">
+              <ArtistProfileLinks compact />
             </div>
           </div>
 
@@ -218,7 +261,7 @@ export default async function MusicPage() {
             <h2 id="available-singles" className="mt-4 text-4xl md:text-6xl">Available Singles</h2>
           </div>
           <p className="max-w-2xl leading-8 text-[var(--muted-silver)]">
-            Four standalone releases sit alongside the Holy Trinity album collection and will point to the official artist profile.
+            Four standalone releases sit alongside the Holy Trinity album collection and are available through the official {artistName} profiles.
           </p>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -231,10 +274,13 @@ export default async function MusicPage() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="artist-profile">
         <div className="lantern-panel rounded-3xl p-6 md:p-10">
           <p className="gold-text uppercase tracking-[0.3em]">Artist Profile</p>
-          <h2 id="artist-profile" className="mt-4 text-4xl md:text-6xl">One listening hub for every release.</h2>
+          <h2 id="artist-profile" className="mt-4 text-4xl md:text-6xl">Listen to {artistName}.</h2>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">
-            Once the artist profile name and final play links are added, this page can route every album and single to the official music profile.
+            Albums and singles are published under {artistName}. Use the official artist profiles below to listen across major music platforms.
           </p>
+          <div className="mt-8">
+            <ArtistProfileLinks />
+          </div>
         </div>
       </section>
     </main>
