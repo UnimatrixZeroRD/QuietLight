@@ -23,7 +23,7 @@ export function AlbumList() {
 
     const { data, error } = await supabase
       .from("albums")
-      .select("id,title,subtitle,slug,description,cover_image_url,status")
+      .select("id,title,subtitle,slug,description,cover_image_url,cover_alt_text,status")
       .order("created_at", { ascending: false })
       .limit(20);
 
@@ -78,6 +78,7 @@ export function AlbumList() {
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {albums.map((album) => {
           const isEditing = editingAlbumId === album.id;
+          const needsCoverAltText = Boolean(album.cover_image_url) && !album.cover_alt_text?.trim();
 
           return (
             <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={album.id}>
@@ -85,9 +86,11 @@ export function AlbumList() {
               <h3 className="mt-3 text-2xl">{album.title}</h3>
               <p className="mt-2 text-sm text-[var(--muted-silver)]">{album.subtitle ?? `/${album.slug}`}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{album.description || "No album description yet."}</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Cover alt text: {album.cover_alt_text || "Not set"}</p>
+              {needsCoverAltText ? <p className="mt-3 rounded-2xl border border-[rgba(216,168,79,0.65)] p-3 text-sm leading-6 text-[var(--muted-silver)]">Review: cover image needs alt text.</p> : null}
               {album.cover_image_url ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img className="mt-4 aspect-[16/9] w-full rounded-2xl border border-[rgba(216,168,79,0.25)] object-cover" src={album.cover_image_url} alt={`${album.title} cover`} />
+                <img className="mt-4 aspect-[16/9] w-full rounded-2xl border border-[rgba(216,168,79,0.25)] object-cover" src={album.cover_image_url} alt={album.cover_alt_text || `${album.title} cover`} />
               ) : null}
 
               {isEditing ? <AlbumQuickEditor album={album} onSaved={loadAlbums} onCancel={() => setEditingAlbumId("")} /> : null}
