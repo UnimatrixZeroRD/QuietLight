@@ -1,7 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const editions = [
+type Edition = {
+  title: string;
+  image: string;
+  alt: string;
+  description: string;
+  href: string;
+  cta: string;
+  label?: string;
+  subtitle?: string;
+  featured?: boolean;
+};
+
+const editions: Edition[] = [
   {
     label: "Featured Edition",
     title: "The Keeper's Lantern: Definitive Edition",
