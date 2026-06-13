@@ -27,22 +27,57 @@ function getFallbackPostBySlug(slug: string) {
   };
 }
 
+function getFallbackAlbums() {
+  return fallbackAlbums.map((album) => {
+    const slug = toSlug(album.title);
+
+    return {
+      title: album.title,
+      subtitle: album.subtitle,
+      description: album.description,
+      status: album.status,
+      href: `/music/${slug}`,
+      slug,
+      coverImageUrl: undefined as string | undefined,
+      coverAltText: album.title,
+    };
+  });
+}
+
+function getFallbackAlbumBySlug(slug: string) {
+  const album = getFallbackAlbums().find((item) => item.slug === slug);
+
+  if (!album) return null;
+
+  return {
+    ...album,
+    tracks: [] as Array<{
+      id: string;
+      title: string;
+      slug: string;
+      description: string;
+      trackNumber: number | null;
+      embedUrl: string | null;
+    }>,
+  };
+}
+
 export async function getPublicAlbums() {
   const supabase = createSupabaseBrowserClient();
 
   if (!supabase) {
-    return fallbackAlbums;
+    return getFallbackAlbums();
   }
 
   const { data, error } = await supabase
     .from("albums")
-    .select("slug,title,subtitle,description,cover_image_url,status")
+    .select("slug,title,subtitle,description,cover_image_url,cover_alt_text,status")
     .eq("status", "published")
     .eq("access_level", "public")
     .order("created_at", { ascending: true });
 
   if (error || !data?.length) {
-    return fallbackAlbums;
+    return getFallbackAlbums();
   }
 
   return data.map((album) => ({
@@ -50,9 +85,66 @@ export async function getPublicAlbums() {
     subtitle: album.subtitle ?? "",
     description: album.description,
     status: "available" as const,
-    href: "/music",
-    coverImageUrl: album.cover_image_url,
+    href: `/music/${album.slug}`,
+    slug: album.slug,
+    coverImageUrl: album.cover_image_url ?? undefined,
+    coverAltText: album.cover_alt_text || album.title,
   }));
+}
+
+export async function getPublicAlbumBySlug(slug: string) {
+  const supabase = createSupabaseBrowserClient();
+
+  if (!supabase) {
+    return getFallbackAlbumBySlug(slug);
+  }
+
+  const [{ data, error }, tracksResult] = await Promise.all([
+    supabase
+      .from("albums")
+      .select("slug,title,subtitle,description,cover_image_url,cover_alt_text,status,access_level")
+      .eq("slug", slug)
+      .eq("status", "published")
+      .eq("access_level", "public")
+      .maybeSingle(),
+    supabase
+      .from("tracks")
+      .select("id,title,slug,description,track_number,embed_url,status")
+      .eq("status", "published")
+      .order("track_number", { ascending: true, nullsFirst: false }),
+  ]);
+
+  if (error || !data) {
+    return getFallbackAlbumBySlug(slug);
+  }
+
+  return {
+    title: data.title,
+    subtitle: data.subtitle ?? "",
+    description: data.description,
+    status: "available" as const,
+    href: `/music/${data.slug}`,
+    slug: data.slug,
+    coverImageUrl: data.cover_image_url ?? undefined,
+    coverAltText: data.cover_alt_text || data.title,
+    tracks: tracksResult.error
+      ? []
+      : ((tracksResult.data ?? []) as Array<{
+          id: string;
+          title: string;
+          slug: string;
+          description: string | null;
+          track_number: number | null;
+          embed_url: string | null;
+        }>).map((track) => ({
+          id: track.id,
+          title: track.title,
+          slug: track.slug,
+          description: track.description ?? "",
+          trackNumber: track.track_number,
+          embedUrl: track.embed_url,
+        })),
+  };
 }
 
 export async function getPublicProducts() {
