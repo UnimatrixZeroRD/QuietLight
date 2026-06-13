@@ -10,19 +10,7 @@ function fallbackCoverForSlug(slug: string) {
 }
 
 function normalizeCoverImageUrl(slug: string, coverImageUrl?: string | null) {
-  if (!coverImageUrl) return fallbackCoverForSlug(slug);
-
-  const legacyEmptyCoverPaths = new Set([
-    "/images/music/flame-remains-cover.png",
-    "/images/music/everlasting-light-cover.png",
-    "/images/music/gloria-patri-cover.png",
-  ]);
-
-  if (legacyEmptyCoverPaths.has(coverImageUrl)) {
-    return fallbackCoverForSlug(slug);
-  }
-
-  return coverImageUrl;
+  return coverImageUrl || fallbackCoverForSlug(slug);
 }
 
 function fallbackList() {
