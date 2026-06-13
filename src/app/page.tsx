@@ -19,6 +19,10 @@ export default function HomePage() {
     },
     {
       title: "Gloria Patri",
+      cover: {
+        src: "/images/music/gloria-patri-cover.png",
+        alt: "Gloria Patri album cover.",
+      },
     },
   ];
 
