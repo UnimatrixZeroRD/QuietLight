@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536" role="img" aria-labelledby="title desc">
+  <title id="title">The Keeper's Lantern Audiobook Placeholder</title>
+  <desc id="desc">A blue and gold placeholder cover for The Keeper's Lantern audiobook.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="46%">
+      <stop offset="0%" stop-color="#f3d58b" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#d8a84f" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#07111f" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#07111f" />
+      <stop offset="50%" stop-color="#123c69" />
+      <stop offset="100%" stop-color="#0b1f3a" />
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1536" fill="url(#bg)" />
+  <circle cx="512" cy="675" r="350" fill="url(#glow)" />
+  <path d="M334 762c0-108 80-194 178-194s178 86 178 194" fill="none" stroke="#f3d58b" stroke-width="20" stroke-linecap="round" />
+  <rect x="278" y="748" width="106" height="230" rx="44" fill="none" stroke="#d8a84f" stroke-width="18" />
+  <rect x="640" y="748" width="106" height="230" rx="44" fill="none" stroke="#d8a84f" stroke-width="18" />
+  <path d="M512 806c-42 58-56 98-46 138 8 32 28 56 46 80 18-24 38-48 46-80 10-40-4-80-46-138z" fill="#ffb347" opacity="0.9" />
+  <text x="512" y="190" text-anchor="middle" fill="#f7efe0" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700">The Keeper's Lantern</text>
+  <text x="512" y="262" text-anchor="middle" fill="#d8a84f" font-family="Georgia, 'Times New Roman', serif" font-size="36" letter-spacing="4">AUDIOBOOK</text>
+  <text x="512" y="1322" text-anchor="middle" fill="#b9c7d6" font-family="Georgia, 'Times New Roman', serif" font-size="32">Placeholder cover image</text>
+  <text x="512" y="1380" text-anchor="middle" fill="#f3d58b" font-family="Georgia, 'Times New Roman', serif" font-size="28">Replace this file later</text>
+</svg>
