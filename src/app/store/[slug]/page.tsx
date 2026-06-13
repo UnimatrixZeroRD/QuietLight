@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PaymentOptions } from "../../../components/store/payment-options";
@@ -14,6 +15,36 @@ function formatPrice(priceCents?: number, currency = "CAD") {
 
 function formatFileType(value: string) {
   return value.split("/").pop()?.toUpperCase() ?? value.toUpperCase();
+}
+
+export async function generateMetadata({ params }: StoreProductPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const product = await getStoreProductBySlug(slug);
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  return {
+    title: product.title,
+    description: product.description,
+    alternates: { canonical: `/store/${product.slug}` },
+    openGraph: {
+      title: `${product.title} | Quiet Light Store`,
+      description: product.description,
+      url: `/store/${product.slug}`,
+      images: product.coverImageUrl ? [{ url: product.coverImageUrl, alt: product.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.title,
+      description: product.description,
+      images: product.coverImageUrl ? [product.coverImageUrl] : undefined,
+    },
+  };
 }
 
 export default async function StoreProductPage({ params }: StoreProductPageProps) {
