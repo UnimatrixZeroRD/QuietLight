@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getPublicDailyLightEntries } from "../lib/supabase/daily-light";
+import { getPublicMusicAlbums } from "../lib/supabase/music-content";
 import { getPublicPosts } from "../lib/supabase/public-content";
 import { getStoreProducts } from "../lib/supabase/store-products";
 
@@ -25,10 +26,11 @@ const staticRoutes = [
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
-  const [posts, dailyLightEntries, products] = await Promise.all([
+  const [posts, dailyLightEntries, products, albums] = await Promise.all([
     getPublicPosts(),
     getPublicDailyLightEntries(),
     getStoreProducts(),
+    getPublicMusicAlbums(),
   ]);
 
   const staticItems: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
@@ -61,5 +63,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.75,
   }));
 
-  return [...staticItems, ...postItems, ...dailyLightItems, ...productItems];
+  const albumItems: MetadataRoute.Sitemap = albums.map((album) => ({
+    url: `${siteUrl}${album.href}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticItems, ...postItems, ...dailyLightItems, ...productItems, ...albumItems];
 }
