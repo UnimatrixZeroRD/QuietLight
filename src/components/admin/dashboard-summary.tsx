@@ -4,50 +4,15 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
-type OrderIntent = {
-  id: string;
-  product_title: string | null;
-  status: string;
-  method: string;
-  created_at: string;
-};
+type OrderIntent = { id: string; product_title: string | null; status: string; method: string; created_at: string };
+type PurchaseRecord = { id: string; status: string; provider: string | null; amount_cents: number; currency: string; created_at: string };
+type MessageRecord = { id: string; topic: string; subject: string; status: string; created_at: string };
+type ProductRecord = { id: string; title: string; status: string };
+type ProductFileRecord = { id: string; product_id: string; description: string };
+type StatusRecord = { id: string; status: string };
+type ProfileRecord = { id: string; role: string | null };
 
-type PurchaseRecord = {
-  id: string;
-  status: string;
-  provider: string | null;
-  amount_cents: number;
-  currency: string;
-  created_at: string;
-};
-
-type MessageRecord = {
-  id: string;
-  topic: string;
-  subject: string;
-  status: string;
-  created_at: string;
-};
-
-type ProductRecord = {
-  id: string;
-  title: string;
-  status: string;
-};
-
-type ProductFileRecord = {
-  id: string;
-  product_id: string;
-  description: string;
-};
-
-type ActivityItem = {
-  id: string;
-  label: string;
-  detail: string;
-  href: string;
-  createdAt: string;
-};
+type ActivityItem = { id: string; label: string; detail: string; href: string; createdAt: string };
 
 function formatDate(value: string) {
   return new Intl.DateTimeFormat("en-CA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value));
@@ -57,12 +22,20 @@ function formatCurrency(amountCents: number, currency: string) {
   return `${currency} ${(amountCents / 100).toFixed(2)}`;
 }
 
+function countStatus(items: StatusRecord[], status: string) {
+  return items.filter((item) => item.status === status).length;
+}
+
 export function DashboardSummary() {
   const [orders, setOrders] = useState<OrderIntent[]>([]);
   const [purchases, setPurchases] = useState<PurchaseRecord[]>([]);
   const [messages, setMessages] = useState<MessageRecord[]>([]);
   const [products, setProducts] = useState<ProductRecord[]>([]);
   const [productFiles, setProductFiles] = useState<ProductFileRecord[]>([]);
+  const [posts, setPosts] = useState<StatusRecord[]>([]);
+  const [dailyLightEntries, setDailyLightEntries] = useState<StatusRecord[]>([]);
+  const [albums, setAlbums] = useState<StatusRecord[]>([]);
+  const [profiles, setProfiles] = useState<ProfileRecord[]>([]);
   const [notice, setNotice] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -77,35 +50,20 @@ export function DashboardSummary() {
       return;
     }
 
-    const [ordersResult, purchasesResult, messagesResult, productsResult, filesResult] = await Promise.all([
-      supabase
-        .from("order_intents")
-        .select("id,product_title,status,method,created_at")
-        .order("created_at", { ascending: false })
-        .limit(50),
-      supabase
-        .from("purchases")
-        .select("id,status,provider,amount_cents,currency,created_at")
-        .order("created_at", { ascending: false })
-        .limit(50),
-      supabase
-        .from("messages")
-        .select("id,topic,subject,status,created_at")
-        .order("created_at", { ascending: false })
-        .limit(50),
-      supabase
-        .from("products")
-        .select("id,title,status")
-        .order("created_at", { ascending: false })
-        .limit(100),
-      supabase
-        .from("product_files")
-        .select("id,product_id,description")
-        .order("sort_order", { ascending: true })
-        .limit(500),
+    const [ordersResult, purchasesResult, messagesResult, productsResult, filesResult, postsResult, dailyResult, albumsResult, profilesResult] = await Promise.all([
+      supabase.from("order_intents").select("id,product_title,status,method,created_at").order("created_at", { ascending: false }).limit(50),
+      supabase.from("purchases").select("id,status,provider,amount_cents,currency,created_at").order("created_at", { ascending: false }).limit(50),
+      supabase.from("messages").select("id,topic,subject,status,created_at").order("created_at", { ascending: false }).limit(50),
+      supabase.from("products").select("id,title,status").order("created_at", { ascending: false }).limit(100),
+      supabase.from("product_files").select("id,product_id,description").order("sort_order", { ascending: true }).limit(500),
+      supabase.from("posts").select("id,status").limit(500),
+      supabase.from("daily_light_entries").select("id,status").limit(500),
+      supabase.from("albums").select("id,status").limit(500),
+      supabase.from("profiles").select("id,role").limit(500),
     ]);
 
-    const firstError = ordersResult.error ?? purchasesResult.error ?? messagesResult.error ?? productsResult.error ?? filesResult.error;
+    const firstError =
+      ordersResult.error ?? purchasesResult.error ?? messagesResult.error ?? productsResult.error ?? filesResult.error ?? postsResult.error ?? dailyResult.error ?? albumsResult.error ?? profilesResult.error;
 
     if (firstError) {
       setNotice(firstError.message);
@@ -115,6 +73,10 @@ export function DashboardSummary() {
       setMessages((messagesResult.data ?? []) as MessageRecord[]);
       setProducts((productsResult.data ?? []) as ProductRecord[]);
       setProductFiles((filesResult.data ?? []) as ProductFileRecord[]);
+      setPosts((postsResult.data ?? []) as StatusRecord[]);
+      setDailyLightEntries((dailyResult.data ?? []) as StatusRecord[]);
+      setAlbums((albumsResult.data ?? []) as StatusRecord[]);
+      setProfiles((profilesResult.data ?? []) as ProfileRecord[]);
     }
 
     setIsLoading(false);
@@ -129,9 +91,7 @@ export function DashboardSummary() {
     const paidOrders = orders.filter((order) => order.status === "paid").length;
     const openMessages = messages.filter((message) => message.status === "open").length;
     const completedPurchases = purchases.filter((purchase) => purchase.status === "completed").length;
-    const revenueCents = purchases
-      .filter((purchase) => purchase.status === "completed")
-      .reduce((total, purchase) => total + purchase.amount_cents, 0);
+    const revenueCents = purchases.filter((purchase) => purchase.status === "completed").reduce((total, purchase) => total + purchase.amount_cents, 0);
 
     const readyProducts = products.filter((product) => {
       const files = productFiles.filter((file) => file.product_id === product.id);
@@ -151,8 +111,18 @@ export function DashboardSummary() {
       revenueCents,
       readyProducts,
       needsDeliveryWork,
+      publishedPosts: countStatus(posts, "published"),
+      draftPosts: countStatus(posts, "draft"),
+      publishedDailyLight: countStatus(dailyLightEntries, "published"),
+      draftDailyLight: countStatus(dailyLightEntries, "draft"),
+      activeProducts: countStatus(products, "active"),
+      draftProducts: countStatus(products, "draft"),
+      publishedAlbums: countStatus(albums, "published"),
+      draftAlbums: countStatus(albums, "draft"),
+      totalProfiles: profiles.length,
+      adminProfiles: profiles.filter((profile) => profile.role === "admin").length,
     };
-  }, [messages, orders, productFiles, products, purchases]);
+  }, [albums, dailyLightEntries, messages, orders, productFiles, products, profiles, purchases, posts]);
 
   const recentActivity = useMemo<ActivityItem[]>(() => {
     const orderActivity = orders.slice(0, 5).map((order) => ({
@@ -204,6 +174,14 @@ export function DashboardSummary() {
         <SummaryCard title="Open messages" value={summary.openMessages} detail="Messages waiting for admin review" href="/admin/support" />
         <SummaryCard title="Purchases" value={summary.completedPurchases} detail={`${formatCurrency(summary.revenueCents, "CAD")} completed`} href="/admin/ledger" />
         <SummaryCard title="Delivery ready" value={summary.readyProducts} detail={`${summary.needsDeliveryWork} products need attention`} href="/admin/delivery" />
+      </div>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+        <SummaryCard title="Blog posts" value={summary.publishedPosts} detail={`${summary.draftPosts} drafts`} href="/admin/content" />
+        <SummaryCard title="Daily Light" value={summary.publishedDailyLight} detail={`${summary.draftDailyLight} drafts`} href="/admin/content" />
+        <SummaryCard title="Products" value={summary.activeProducts} detail={`${summary.draftProducts} drafts`} href="/admin/products" />
+        <SummaryCard title="Albums" value={summary.publishedAlbums} detail={`${summary.draftAlbums} drafts`} href="/admin/music" />
+        <SummaryCard title="Profiles" value={summary.totalProfiles} detail={`${summary.adminProfiles} admins`} href="/admin/members" />
       </div>
 
       <div className="lantern-panel mt-6 rounded-3xl p-6">
