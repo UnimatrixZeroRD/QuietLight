@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Gloria Patri album cover</title>
+  <desc id="desc">A blue and gold sacred album cover placeholder with three lights for the Holy Trinity.</desc>
+  <defs>
+    <radialGradient id="centerGlow" cx="50%" cy="44%" r="60%">
+      <stop offset="0" stop-color="#f3d58b" stop-opacity="0.7" />
+      <stop offset="0.35" stop-color="#d8a84f" stop-opacity="0.25" />
+      <stop offset="1" stop-color="#07111f" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f" />
+      <stop offset="0.45" stop-color="#123c69" />
+      <stop offset="1" stop-color="#07111f" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000000" flood-opacity="0.4" />
+      <feDropShadow dx="0" dy="0" stdDeviation="20" flood-color="#f3d58b" flood-opacity="0.25" />
+    </filter>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)" />
+  <circle cx="600" cy="465" r="450" fill="url(#centerGlow)" />
+  <path d="M0 840 C200 770 330 880 510 790 C700 700 835 880 1025 780 C1100 742 1160 755 1200 735 L1200 1200 L0 1200 Z" fill="#06101d" opacity="0.74" />
+  <path d="M0 925 C220 860 350 975 560 900 C735 838 865 990 1040 895 C1110 858 1165 868 1200 850 L1200 1200 L0 1200 Z" fill="#07111f" opacity="0.95" />
+  <g filter="url(#shadow)">
+    <circle cx="420" cy="430" r="92" fill="none" stroke="#d8a84f" stroke-width="10" opacity="0.82" />
+    <circle cx="600" cy="340" r="110" fill="none" stroke="#f3d58b" stroke-width="12" />
+    <circle cx="780" cy="430" r="92" fill="none" stroke="#d8a84f" stroke-width="10" opacity="0.82" />
+    <path d="M420 522 C475 612 725 612 780 522" fill="none" stroke="#f3d58b" stroke-width="9" stroke-linecap="round" opacity="0.72" />
+    <path d="M510 380 C555 455 645 455 690 380" fill="none" stroke="#f3d58b" stroke-width="9" stroke-linecap="round" opacity="0.72" />
+  </g>
+  <g fill="#f7efe0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif">
+    <text x="600" y="910" font-size="82" letter-spacing="5">GLORIA PATRI</text>
+    <text x="600" y="976" font-size="30" fill="#f3d58b" letter-spacing="8">SONGS OF THE HOLY TRINITY</text>
+    <text x="600" y="1046" font-size="30" fill="#b9c7d6" letter-spacing="5">THE WAY OF QUIET LIGHT</text>
+  </g>
+</svg>
