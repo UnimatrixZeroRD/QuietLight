@@ -109,6 +109,36 @@ export function MediaAssetCard({ asset, usage, onSaved }: { asset: EditableMedia
     setIsSaving(false);
   }
 
+  async function setAccessLevel(nextAccessLevel: "public" | "private") {
+    if (nextAccessLevel === "private" && usage.length > 0) {
+      setMessage("This asset is currently used by public content. Remove those references before archiving it.");
+      return;
+    }
+
+    setIsSaving(true);
+    setMessage("");
+
+    const supabase = createSupabaseBrowserClient();
+    if (!supabase) {
+      setIsSaving(false);
+      return;
+    }
+
+    const { error } = await supabase
+      .from("media_assets")
+      .update({ access_level: nextAccessLevel, updated_at: new Date().toISOString() })
+      .eq("id", asset.id);
+
+    if (error) {
+      setMessage(error.message);
+    } else {
+      setMessage(nextAccessLevel === "private" ? "Media asset archived as private." : "Media asset restored to public.");
+      await onSaved();
+    }
+
+    setIsSaving(false);
+  }
+
   return (
     <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5">
       <p className="gold-text text-xs uppercase tracking-[0.25em]">{asset.media_type} - {asset.access_level}</p>
@@ -134,6 +164,13 @@ export function MediaAssetCard({ asset, usage, onSaved }: { asset: EditableMedia
         ) : (
           <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">No linked usage found yet.</p>
         )}
+      </div>
+
+      <div className="mt-4 rounded-2xl border border-[rgba(216,168,79,0.18)] p-4">
+        <p className="gold-text text-xs uppercase tracking-[0.25em]">Archive safety</p>
+        <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">
+          {usage.length > 0 ? "This asset is in use and should not be archived yet." : "No linked usage found. This asset can be archived as private."}
+        </p>
       </div>
 
       {isEditing ? (
@@ -164,9 +201,20 @@ export function MediaAssetCard({ asset, usage, onSaved }: { asset: EditableMedia
         </div>
       ) : null}
 
-      <button className="mt-4 rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setIsEditing((current) => !current)}>
-        {isEditing ? "Close Edit" : "Edit Asset"}
-      </button>
+      <div className="mt-4 flex flex-wrap gap-3">
+        <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setIsEditing((current) => !current)}>
+          {isEditing ? "Close Edit" : "Edit Asset"}
+        </button>
+        {asset.access_level === "private" ? (
+          <button className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setAccessLevel("public")} disabled={isSaving}>
+            {isSaving ? "Saving..." : "Restore Public"}
+          </button>
+        ) : (
+          <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:cursor-not-allowed disabled:opacity-50" type="button" onClick={() => setAccessLevel("private")} disabled={usage.length > 0 || isSaving}>
+            {isSaving ? "Saving..." : "Archive as Private"}
+          </button>
+        )}
+      </div>
       {message ? <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{message}</p> : null}
     </article>
   );
