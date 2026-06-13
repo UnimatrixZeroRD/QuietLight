@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPublicPostBySlug } from "../../../lib/supabase/public-content";
@@ -9,6 +10,36 @@ type BlogPostPageProps = {
 function formatDate(value?: string | null) {
   if (!value) return "Quiet Light";
   return new Intl.DateTimeFormat("en-CA", { dateStyle: "long" }).format(new Date(value));
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPublicPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      title: `${post.title} | The Way of Quiet Light`,
+      description: post.excerpt,
+      url: `/blog/${post.slug}`,
+      images: post.featuredImageUrl ? [{ url: post.featuredImageUrl, alt: post.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.featuredImageUrl ? [post.featuredImageUrl] : undefined,
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
