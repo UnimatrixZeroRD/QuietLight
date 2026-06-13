@@ -15,7 +15,7 @@ export const albums: Album[] = [
     description: "Sacred music for prayer, stillness, worship, and reflection.",
     status: "available",
     href: "/music/the-flame-remains",
-    coverImageUrl: "/images/music/flame-remains-cover.png",
+    coverImageUrl: "/images/music/flame-remains-cover.svg",
     coverAltText: "The Flame Remains album cover.",
   },
   {
@@ -24,7 +24,7 @@ export const albums: Album[] = [
     description: "A hymn collection for devotion, quiet worship, and spiritual renewal.",
     status: "available",
     href: "/music/the-everlasting-light",
-    coverImageUrl: "/images/music/everlasting-light-cover.png",
+    coverImageUrl: "/images/music/everlasting-light-cover.svg",
     coverAltText: "The Everlasting Light album cover.",
   },
   {
@@ -33,7 +33,7 @@ export const albums: Album[] = [
     description: "A sacred music collection centered on glory, prayer, and praise.",
     status: "available",
     href: "/music/gloria-patri",
-    coverImageUrl: "/images/music/gloria-patri-cover.png",
+    coverImageUrl: "/images/music/gloria-patri-cover.svg",
     coverAltText: "Gloria Patri album cover.",
   },
 ];
