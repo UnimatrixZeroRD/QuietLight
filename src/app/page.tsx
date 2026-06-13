@@ -6,21 +6,21 @@ export default function HomePage() {
     {
       title: "The Flame Remains",
       cover: {
-        src: "/images/music/flame-remains-cover.svg",
+        src: "/images/music/flame-remains-cover.png",
         alt: "The Flame Remains album cover.",
       },
     },
     {
       title: "The Everlasting Light",
       cover: {
-        src: "/images/music/everlasting-light-cover.svg",
+        src: "/images/music/everlasting-light-cover.png",
         alt: "The Everlasting Light album cover.",
       },
     },
     {
       title: "Gloria Patri",
       cover: {
-        src: "/images/music/gloria-patri-cover.svg",
+        src: "/images/music/gloria-patri-cover.png",
         alt: "Gloria Patri album cover.",
       },
     },
