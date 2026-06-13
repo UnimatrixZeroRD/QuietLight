@@ -43,7 +43,19 @@ function createDraft(album: EditableAlbum): AlbumDraft {
   };
 }
 
-export function AlbumQuickEditor({ album, onSaved, onCancel }: { album: EditableAlbum; onSaved: () => Promise<void>; onCancel: () => void }) {
+export function AlbumQuickEditor({
+  album,
+  onSaved,
+  onCancel,
+  canPublish = true,
+  publishBlockReason = "",
+}: {
+  album: EditableAlbum;
+  onSaved: () => Promise<void>;
+  onCancel: () => void;
+  canPublish?: boolean;
+  publishBlockReason?: string;
+}) {
   const [draft, setDraft] = useState<AlbumDraft>(() => createDraft(album));
   const [message, setMessage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
@@ -59,6 +71,11 @@ export function AlbumQuickEditor({ album, onSaved, onCancel }: { album: Editable
   async function saveAlbum() {
     if (!draft.title.trim() || !draft.slug.trim() || !draft.description.trim()) {
       setMessage("Title, slug, and description are required.");
+      return;
+    }
+
+    if (draft.status === "published" && !canPublish) {
+      setMessage(publishBlockReason || "This album is not ready to publish yet.");
       return;
     }
 
@@ -112,6 +129,7 @@ export function AlbumQuickEditor({ album, onSaved, onCancel }: { album: Editable
       <select className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={draft.status} onChange={(event) => updateDraft("status", event.target.value)}>
         {statuses.map((status) => <option key={status} value={status}>{status}</option>)}
       </select>
+      {!canPublish ? <p className="text-sm leading-6 text-[var(--muted-silver)]">Publishing guard: {publishBlockReason}</p> : null}
       <div className="flex flex-wrap gap-3">
         <button className="rounded-full border border-[var(--lantern-gold)] bg-[var(--lantern-gold)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--midnight)] disabled:opacity-60" type="button" onClick={saveAlbum} disabled={isSaving}>
           {isSaving ? "Saving..." : "Save Album"}
