@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
 type TrackItem = {
@@ -43,6 +43,28 @@ function createDraft(track: TrackItem): TrackDraft {
     embedUrl: track.embed_url ?? "",
     status: track.status,
   };
+}
+
+function getTrackReadiness(track: Pick<TrackItem, "title" | "slug" | "album_id" | "track_number" | "embed_url">) {
+  const issues = [
+    !track.title.trim() ? "title is missing" : "",
+    !track.slug.trim() ? "slug is missing" : "",
+    !track.album_id ? "album assignment is missing" : "",
+    !track.track_number || track.track_number < 1 ? "track number is missing" : "",
+    !track.embed_url?.trim() ? "embed URL is missing" : "",
+  ].filter(Boolean);
+
+  return { isReady: issues.length === 0, issues };
+}
+
+function getDraftReadiness(draft: TrackDraft) {
+  return getTrackReadiness({
+    title: draft.title,
+    slug: draft.slug,
+    album_id: draft.albumId || null,
+    track_number: Number(draft.trackNumber || "0"),
+    embed_url: draft.embedUrl,
+  });
 }
 
 export function TrackList() {
@@ -123,6 +145,12 @@ export function TrackList() {
       return;
     }
 
+    const draftReadiness = getDraftReadiness(draft);
+    if (draft.status === "published" && !draftReadiness.isReady) {
+      setMessage(`Cannot publish ${draft.title}: ${draftReadiness.issues.join(", ")}.`);
+      return;
+    }
+
     setSavingTrackId(track.id);
     setMessage("");
 
@@ -158,6 +186,12 @@ export function TrackList() {
   }
 
   async function setTrackStatus(track: TrackItem, status: "draft" | "published" | "archived") {
+    const readiness = getTrackReadiness(track);
+    if (status === "published" && !readiness.isReady) {
+      setMessage(`Cannot publish ${track.title}: ${readiness.issues.join(", ")}.`);
+      return;
+    }
+
     const supabase = createSupabaseBrowserClient();
     if (!supabase) return;
 
@@ -186,12 +220,26 @@ export function TrackList() {
     });
   }, [loadTracks]);
 
+  const readinessSummary = useMemo(() => {
+    return tracks.reduce(
+      (summary, track) => {
+        const readiness = getTrackReadiness(track);
+        return {
+          ready: summary.ready + (readiness.isReady ? 1 : 0),
+          review: summary.review + (readiness.isReady ? 0 : 1),
+        };
+      },
+      { ready: 0, review: 0 },
+    );
+  }, [tracks]);
+
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <p className="gold-text uppercase tracking-[0.3em]">Tracks</p>
           <h2 className="mt-4 text-3xl">Recent tracks</h2>
+          <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{readinessSummary.ready} ready / {readinessSummary.review} need review.</p>
         </div>
         <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={loadTracks}>
           Refresh
@@ -205,10 +253,19 @@ export function TrackList() {
         {tracks.map((track) => {
           const isEditing = editingTrackId === track.id && draft;
           const isSaving = savingTrackId === track.id;
+          const readiness = getTrackReadiness(track);
+          const publishBlockReason = readiness.issues.join(", ");
 
           return (
             <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={track.id}>
-              <p className="gold-text text-xs uppercase tracking-[0.25em]">Track {track.track_number ?? "-"} - {track.status}</p>
+              <div className={`rounded-2xl border p-4 ${readiness.isReady ? "border-[rgba(42,166,161,0.65)] bg-[rgba(16,74,72,0.22)]" : "border-[rgba(216,168,79,0.65)] bg-[rgba(81,63,24,0.24)]"}`}>
+                <p className="gold-text text-xs uppercase tracking-[0.25em]">{readiness.isReady ? "Ready to publish" : "Review before publishing"}</p>
+                <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">
+                  {readiness.isReady ? "Track has album assignment, numbering, slug, and embed URL." : `Needs: ${publishBlockReason}.`}
+                </p>
+              </div>
+
+              <p className="gold-text mt-5 text-xs uppercase tracking-[0.25em]">Track {track.track_number ?? "-"} - {track.status}</p>
               <h3 className="mt-3 text-2xl">{track.title}</h3>
               <p className="mt-2 text-sm text-[var(--muted-silver)]">/{track.slug}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{track.description || "No track description yet."}</p>
@@ -232,6 +289,7 @@ export function TrackList() {
                     </select>
                     <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={draft.embedUrl} onChange={(event) => updateDraft("embedUrl", event.target.value)} placeholder="Embed URL" />
                   </div>
+                  {draft.status === "published" && !getDraftReadiness(draft).isReady ? <p className="text-sm leading-6 text-[var(--muted-silver)]">Publishing guard: {getDraftReadiness(draft).issues.join(", ")}</p> : null}
                   <div className="flex flex-wrap gap-3">
                     <button className="rounded-full border border-[var(--lantern-gold)] bg-[var(--lantern-gold)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--midnight)] disabled:opacity-60" type="button" onClick={() => saveTrack(track)} disabled={isSaving}>
                       {isSaving ? "Saving..." : "Save Track"}
@@ -248,7 +306,7 @@ export function TrackList() {
                   {isEditing ? "Close Edit" : "Edit Track"}
                 </button>
                 {track.status === "draft" ? (
-                  <button className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setTrackStatus(track, "published")} disabled={isSaving}>
+                  <button className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:cursor-not-allowed disabled:opacity-50" type="button" onClick={() => setTrackStatus(track, "published")} disabled={!readiness.isReady || isSaving} title={readiness.isReady ? "Publish track" : publishBlockReason}>
                     {isSaving ? "Saving..." : "Publish"}
                   </button>
                 ) : null}
