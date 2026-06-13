@@ -67,6 +67,7 @@ export default function KeepersLanternPage() {
             width={1024}
             height={1536}
             priority
+            unoptimized
             sizes="(min-width: 768px) 38vw, 100vw"
             className="block h-auto w-full"
           />
@@ -177,6 +178,7 @@ export default function KeepersLanternPage() {
                   alt={edition.alt}
                   width={768}
                   height={1152}
+                  unoptimized
                   sizes={edition.featured ? "(min-width: 768px) 24vw, 100vw" : "(min-width: 768px) 20vw, 100vw"}
                   className="h-auto w-full"
                 />
