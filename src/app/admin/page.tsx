@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { DashboardSummary } from "../../components/admin/dashboard-summary";
+import { LaunchReadinessScore } from "../../components/admin/launch-readiness-score";
 import { LivePageValidation } from "../../components/admin/live-page-validation";
 import { StaleDraftWarnings } from "../../components/admin/stale-draft-warnings";
 import { adminSections } from "../../data/admin-sections";
@@ -14,6 +15,7 @@ export default function AdminPage() {
       </p>
 
       <DashboardSummary />
+      <LaunchReadinessScore />
       <LivePageValidation />
       <StaleDraftWarnings />
 
