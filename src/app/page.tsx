@@ -2,6 +2,26 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
+  const musicAlbums = [
+    {
+      title: "The Flame Remains",
+      cover: {
+        src: "/images/music/flame-remains-cover.png",
+        alt: "The Flame Remains album cover.",
+      },
+    },
+    {
+      title: "The Everlasting Light",
+      cover: {
+        src: "/images/music/everlasting-light-cover.png",
+        alt: "The Everlasting Light album cover.",
+      },
+    },
+    {
+      title: "Gloria Patri",
+    },
+  ];
+
   return (
     <main>
       <section className="bg-[var(--midnight)]" aria-label="The Way of Quiet Light">
@@ -61,13 +81,13 @@ export default function HomePage() {
         <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Music</p>
         <h2 className="mt-4 text-3xl md:text-6xl">Music of the Quiet Light</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {['The Flame Remains', 'The Everlasting Light', 'Gloria Patri'].map((album, index) => (
-            <div className="lantern-panel rounded-3xl p-6" key={album}>
-              {index === 0 ? (
+          {musicAlbums.map((album) => (
+            <div className="lantern-panel rounded-3xl p-6" key={album.title}>
+              {album.cover ? (
                 <div className="mb-5 overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.18)]">
                   <Image
-                    src="/images/music/flame-remains-cover.png"
-                    alt="The Flame Remains album cover."
+                    src={album.cover.src}
+                    alt={album.cover.alt}
                     width={1254}
                     height={1254}
                     sizes="(min-width: 768px) 28vw, 100vw"
@@ -82,7 +102,7 @@ export default function HomePage() {
                   }}
                 />
               )}
-              <h3 className="gold-text text-2xl">{album}</h3>
+              <h3 className="gold-text text-2xl">{album.title}</h3>
               <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">Sacred music for prayer, reflection, and stillness.</p>
             </div>
           ))}
