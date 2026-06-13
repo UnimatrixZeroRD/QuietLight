@@ -64,6 +64,10 @@ const artistLinks: ArtistLink[] = [
     label: "YouTube Music",
     href: "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
   },
+  {
+    label: "Amazon Music",
+    href: "https://music.amazon.ca/artists/B0GV448JLH/yehoshua-of-%C4%93at%C5%ABn",
+  },
 ];
 
 const holyTrinityAlbums: AlbumShowcaseItem[] = [
