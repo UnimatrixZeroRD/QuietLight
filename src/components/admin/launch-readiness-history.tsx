@@ -39,6 +39,7 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
+  const [deletingSnapshotId, setDeletingSnapshotId] = useState("");
 
   const loadSnapshots = useCallback(async () => {
     setIsLoading(true);
@@ -117,6 +118,32 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
     setIsSaving(false);
   }
 
+  async function deleteSnapshot(snapshot: SnapshotRecord) {
+    const confirmed = window.confirm(`Delete the ${snapshot.total_score}% readiness snapshot from ${new Date(snapshot.created_at).toLocaleString()}?`);
+    if (!confirmed) return;
+
+    setDeletingSnapshotId(snapshot.id);
+    setMessage("");
+
+    const supabase = createSupabaseBrowserClient();
+    if (!supabase) {
+      setMessage("Supabase is not configured in this environment yet.");
+      setDeletingSnapshotId("");
+      return;
+    }
+
+    const { error } = await supabase.from("launch_readiness_snapshots").delete().eq("id", snapshot.id);
+
+    if (error) {
+      setMessage(error.message);
+    } else {
+      setMessage("Launch readiness snapshot deleted.");
+      await loadSnapshots();
+    }
+
+    setDeletingSnapshotId("");
+  }
+
   const previous = snapshots[0];
 
   return (
@@ -160,6 +187,14 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
               Ops {snapshot.operations_score}% / Delivery {snapshot.delivery_score}% / Live {snapshot.live_pages_score}% / Drafts {snapshot.draft_cleanup_score}%
             </p>
             {snapshot.notes ? <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">Notes: {snapshot.notes}</p> : null}
+            <button
+              className="mt-4 rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60"
+              type="button"
+              onClick={() => deleteSnapshot(snapshot)}
+              disabled={deletingSnapshotId === snapshot.id}
+            >
+              {deletingSnapshotId === snapshot.id ? "Deleting..." : "Delete Snapshot"}
+            </button>
           </article>
         ))}
       </div>
