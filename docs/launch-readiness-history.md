@@ -37,6 +37,21 @@ Admins can:
 - Compare the current score against the previous snapshot
 - Delete old or accidental snapshots
 - Export the latest snapshot history as CSV
+- View a readiness trend chart
+
+## Readiness trend chart
+
+The dashboard now shows a simple bar chart for the latest saved snapshots.
+
+The chart displays:
+
+- Overall score per snapshot
+- Snapshot date labels
+- Current latest score
+- Overall point change across the displayed range
+- Latest operations, delivery, live pages, and draft cleanup sub-scores
+
+If no snapshots exist yet, the chart prompts the admin to save a snapshot first.
 
 ## CSV export
 
@@ -73,4 +88,4 @@ Only admins can read, create, update, or delete launch readiness snapshots.
 
 ## Follow-up
 
-Future work can add charting and richer snapshot comparison views.
+Future work can add richer snapshot comparison views.
