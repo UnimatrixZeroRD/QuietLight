@@ -9,6 +9,7 @@ type MediaAsset = {
   bucket: string;
   path: string;
   media_type: string;
+  alt_text: string;
 };
 
 export function MediaAssetList() {
@@ -29,7 +30,7 @@ export function MediaAssetList() {
 
     const { data, error } = await supabase
       .from("media_assets")
-      .select("id,title,bucket,path,media_type")
+      .select("id,title,bucket,path,media_type,alt_text")
       .order("created_at", { ascending: false })
       .limit(30);
 
@@ -69,6 +70,7 @@ export function MediaAssetList() {
             <p className="gold-text text-xs uppercase tracking-[0.25em]">{asset.media_type}</p>
             <h3 className="mt-3 text-2xl">{asset.title}</h3>
             <p className="mt-2 text-sm text-[var(--muted-silver)]">{asset.bucket}/{asset.path}</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Alt text: {asset.alt_text || "Not set"}</p>
           </article>
         ))}
       </div>
