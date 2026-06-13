@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+import { ProductQuickEditor } from "./product-quick-editor";
 
 type ProductItem = {
   id: string;
@@ -39,9 +40,7 @@ function getDeliveryStatus(product: ProductItem, files: ProductFileItem[]): Deli
   const missingProductDescription = product.description.trim().length === 0;
   const missingCover = !product.cover_image_url;
 
-  if (product.status === "archived") {
-    return { tone: "archived", label: "Archived", detail: "This product is archived and hidden from active sales." };
-  }
+  if (product.status === "archived") return { tone: "archived", label: "Archived", detail: "This product is archived and hidden from active sales." };
 
   if (product.status === "draft") {
     const issues = [
@@ -58,13 +57,8 @@ function getDeliveryStatus(product: ProductItem, files: ProductFileItem[]): Deli
     };
   }
 
-  if (attachedFiles.length === 0) {
-    return { tone: "attention", label: "Action needed", detail: "Active product has no attached delivery files." };
-  }
-
-  if (missingDescriptions > 0) {
-    return { tone: "warning", label: "Review", detail: `${missingDescriptions} attached file${missingDescriptions === 1 ? "" : "s"} missing customer-facing descriptions.` };
-  }
+  if (attachedFiles.length === 0) return { tone: "attention", label: "Action needed", detail: "Active product has no attached delivery files." };
+  if (missingDescriptions > 0) return { tone: "warning", label: "Review", detail: `${missingDescriptions} attached file${missingDescriptions === 1 ? "" : "s"} missing customer-facing descriptions.` };
 
   if (missingProductDescription || missingCover) {
     const issues = [missingProductDescription ? "product description" : "", missingCover ? "cover image" : ""].filter(Boolean);
@@ -92,6 +86,7 @@ export function ProductList() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [savingProductId, setSavingProductId] = useState("");
+  const [editingProductId, setEditingProductId] = useState("");
 
   const loadProducts = useCallback(async () => {
     setIsLoading(true);
@@ -105,23 +100,13 @@ export function ProductList() {
     }
 
     const [productsResult, filesResult] = await Promise.all([
-      supabase
-        .from("products")
-        .select("id,slug,title,product_type,status,price_cents,currency,description,cover_image_url")
-        .order("created_at", { ascending: false })
-        .limit(50),
-      supabase
-        .from("product_files")
-        .select("id,product_id,title,description")
-        .order("sort_order", { ascending: true })
-        .limit(500),
+      supabase.from("products").select("id,slug,title,product_type,status,price_cents,currency,description,cover_image_url").order("created_at", { ascending: false }).limit(50),
+      supabase.from("product_files").select("id,product_id,title,description").order("sort_order", { ascending: true }).limit(500),
     ]);
 
     const error = productsResult.error ?? filesResult.error;
-
-    if (error) {
-      setMessage(error.message);
-    } else {
+    if (error) setMessage(error.message);
+    else {
       setProducts((productsResult.data ?? []) as ProductItem[]);
       setFiles((filesResult.data ?? []) as ProductFileItem[]);
     }
@@ -142,14 +127,10 @@ export function ProductList() {
     setSavingProductId(product.id);
     setMessage("");
 
-    const { error } = await supabase
-      .from("products")
-      .update({ status, updated_at: new Date().toISOString() })
-      .eq("id", product.id);
+    const { error } = await supabase.from("products").update({ status, updated_at: new Date().toISOString() }).eq("id", product.id);
 
-    if (error) {
-      setMessage(error.message);
-    } else {
+    if (error) setMessage(error.message);
+    else {
       const label = status === "active" ? "activated" : status === "draft" ? "moved to draft" : "archived";
       setMessage(`${product.title} ${label}.`);
       await loadProducts();
@@ -173,9 +154,7 @@ export function ProductList() {
   }, [files, products]);
 
   useEffect(() => {
-    void Promise.resolve().then(() => {
-      void loadProducts();
-    });
+    void Promise.resolve().then(() => void loadProducts());
   }, [loadProducts]);
 
   return (
@@ -184,13 +163,9 @@ export function ProductList() {
         <div>
           <p className="gold-text uppercase tracking-[0.3em]">Products</p>
           <h2 className="mt-4 text-3xl">Recent products</h2>
-          <p className="mt-3 text-sm text-[var(--muted-silver)]">
-            {warningSummary.ready} ready / {warningSummary.attention} action needed / {warningSummary.review} review.
-          </p>
+          <p className="mt-3 text-sm text-[var(--muted-silver)]">{warningSummary.ready} ready / {warningSummary.attention} action needed / {warningSummary.review} review.</p>
         </div>
-        <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={loadProducts}>
-          Refresh
-        </button>
+        <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={loadProducts}>Refresh</button>
       </div>
 
       {isLoading ? <p className="mt-6 text-[var(--muted-silver)]">Loading products...</p> : null}
@@ -202,6 +177,7 @@ export function ProductList() {
           const deliveryStatus = getDeliveryStatus(product, files);
           const isSaving = savingProductId === product.id;
           const canActivate = canActivateProduct(product, files);
+          const isEditing = editingProductId === product.id;
 
           return (
             <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={product.id}>
@@ -212,43 +188,20 @@ export function ProductList() {
 
               <p className="gold-text mt-5 text-xs uppercase tracking-[0.25em]">{product.product_type} - {product.status}</p>
               <h3 className="mt-3 text-2xl">{product.title}</h3>
-              <p className="mt-2 text-sm text-[var(--muted-silver)]">
-                {product.currency} {(product.price_cents / 100).toFixed(2)}
-              </p>
+              <p className="mt-2 text-sm text-[var(--muted-silver)]">{product.currency} {(product.price_cents / 100).toFixed(2)}</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{product.description || "No product description yet."}</p>
               <p className="mt-3 text-sm text-[var(--muted-silver)]">Attached files: {attachedFiles.length}</p>
-              <p className="mt-3 break-all rounded-xl border border-[rgba(216,168,79,0.18)] px-4 py-3 text-xs text-[var(--muted-silver)]">
-                Product ID: {product.id}
-              </p>
+              <p className="mt-3 break-all rounded-xl border border-[rgba(216,168,79,0.18)] px-4 py-3 text-xs text-[var(--muted-silver)]">Product ID: {product.id}</p>
+
+              {isEditing ? <ProductQuickEditor product={product} onSaved={loadProducts} onCancel={() => setEditingProductId("")} /> : null}
+
               <div className="mt-4 flex flex-wrap gap-3">
-                <Link className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" href={`/store/${product.slug}`}>
-                  View Store Page
-                </Link>
-                {product.status === "draft" ? (
-                  <button
-                    className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:cursor-not-allowed disabled:opacity-50"
-                    type="button"
-                    onClick={() => setProductStatus(product, "active")}
-                    disabled={!canActivate || isSaving}
-                    title={canActivate ? "Activate product" : deliveryStatus.detail}
-                  >
-                    {isSaving ? "Saving..." : "Activate"}
-                  </button>
-                ) : null}
-                {product.status === "active" ? (
-                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "draft")} disabled={isSaving}>
-                    {isSaving ? "Saving..." : "Move to Draft"}
-                  </button>
-                ) : null}
-                {product.status === "archived" ? (
-                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "draft")} disabled={isSaving}>
-                    {isSaving ? "Saving..." : "Restore Draft"}
-                  </button>
-                ) : null}
-                {product.status !== "archived" ? (
-                  <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "archived")} disabled={isSaving}>
-                    {isSaving ? "Saving..." : "Archive"}
-                  </button>
-                ) : null}
+                <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setEditingProductId(isEditing ? "" : product.id)}>{isEditing ? "Close Edit" : "Edit Details"}</button>
+                <Link className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" href={`/store/${product.slug}`}>View Store Page</Link>
+                {product.status === "draft" ? <button className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:cursor-not-allowed disabled:opacity-50" type="button" onClick={() => setProductStatus(product, "active")} disabled={!canActivate || isSaving} title={canActivate ? "Activate product" : deliveryStatus.detail}>{isSaving ? "Saving..." : "Activate"}</button> : null}
+                {product.status === "active" ? <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "draft")} disabled={isSaving}>{isSaving ? "Saving..." : "Move to Draft"}</button> : null}
+                {product.status === "archived" ? <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "draft")} disabled={isSaving}>{isSaving ? "Saving..." : "Restore Draft"}</button> : null}
+                {product.status !== "archived" ? <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "archived")} disabled={isSaving}>{isSaving ? "Saving..." : "Archive"}</button> : null}
               </div>
             </article>
           );
