@@ -2,6 +2,7 @@
 
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+import { ProductFileCard } from "./product-file-card";
 
 type ProductOption = {
   id: string;
@@ -186,13 +187,14 @@ export function ProductFileManager() {
       {message ? <p className="mt-5 text-sm leading-6 text-[var(--muted-silver)]">{message}</p> : null}
 
       <div className="mt-8 grid gap-4">
+        {files.length === 0 ? (
+          <p className="rounded-2xl border border-[rgba(216,168,79,0.18)] p-5 text-sm leading-6 text-[var(--muted-silver)]">
+            No files are attached to this product yet. Active products without attached files can still be purchased, but customers will not see download buttons until files are attached.
+          </p>
+        ) : null}
+
         {files.map((file) => (
-          <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={file.id}>
-            <p className="gold-text text-xs uppercase tracking-[0.25em]">{formatFileType(file.file_type)} - Sort {file.sort_order}</p>
-            <h3 className="mt-3 text-2xl">{file.title}</h3>
-            {file.description ? <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">{file.description}</p> : null}
-            <p className="mt-2 text-sm text-[var(--muted-silver)]">{file.storage_bucket}/{file.file_path}</p>
-          </article>
+          <ProductFileCard file={file} key={file.id} onSaved={() => loadFiles(productId)} />
         ))}
       </div>
     </section>
