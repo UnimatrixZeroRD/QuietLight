@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
+type ProviderFilter = "all" | "etransfer" | "stripe" | "paypal";
+
 type Purchase = {
   id: string;
   provider: string | null;
@@ -13,6 +15,13 @@ type Purchase = {
   created_at: string;
   products: { title: string; slug: string } | null;
 };
+
+const providerFilters: { label: string; value: ProviderFilter }[] = [
+  { label: "All", value: "all" },
+  { label: "E-transfer", value: "etransfer" },
+  { label: "Stripe", value: "stripe" },
+  { label: "PayPal", value: "paypal" },
+];
 
 function formatAmount(amountCents: number, currency: string) {
   return `${currency} ${(amountCents / 100).toFixed(2)}`;
@@ -27,6 +36,7 @@ function formatDate(value: string) {
 
 export function PurchaseHistory() {
   const [purchases, setPurchases] = useState<Purchase[]>([]);
+  const [providerFilter, setProviderFilter] = useState<ProviderFilter>("all");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -67,6 +77,9 @@ export function PurchaseHistory() {
     setIsLoading(false);
   }, []);
 
+  const filteredPurchases = purchases.filter((purchase) => providerFilter === "all" || purchase.provider === providerFilter);
+  const filteredTotalCents = filteredPurchases.reduce((sum, purchase) => sum + purchase.amount_cents, 0);
+
   useEffect(() => {
     void Promise.resolve().then(() => {
       void loadPurchases();
@@ -79,20 +92,36 @@ export function PurchaseHistory() {
         <div>
           <p className="gold-text uppercase tracking-[0.3em]">Purchases</p>
           <h2 className="mt-4 text-3xl">Purchase history</h2>
+          <p className="mt-3 text-sm text-[var(--muted-silver)]">
+            Showing {filteredPurchases.length} of {purchases.length} purchases with a filtered total of {formatAmount(filteredTotalCents, filteredPurchases[0]?.currency ?? "CAD")}.
+          </p>
         </div>
         <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={loadPurchases}>
           Refresh
         </button>
       </div>
 
+      <div className="mt-6 flex flex-wrap gap-3">
+        {providerFilters.map((filter) => (
+          <button
+            className={`rounded-full border px-4 py-2 text-xs uppercase tracking-[0.18em] ${providerFilter === filter.value ? "border-[var(--lantern-gold)] text-[var(--ivory)]" : "border-[rgba(216,168,79,0.35)] text-[var(--muted-silver)]"}`}
+            key={filter.value}
+            type="button"
+            onClick={() => setProviderFilter(filter.value)}
+          >
+            {filter.label}
+          </button>
+        ))}
+      </div>
+
       {isLoading ? <p className="mt-6 text-[var(--muted-silver)]">Loading purchases...</p> : null}
       {message ? <p className="mt-6 text-sm leading-6 text-[var(--muted-silver)]">{message}</p> : null}
-      {!isLoading && !message && purchases.length === 0 ? (
-        <p className="mt-6 text-sm leading-6 text-[var(--muted-silver)]">No completed purchases yet.</p>
+      {!isLoading && !message && filteredPurchases.length === 0 ? (
+        <p className="mt-6 text-sm leading-6 text-[var(--muted-silver)]">No purchases match this filter.</p>
       ) : null}
 
       <div className="mt-6 grid gap-4">
-        {purchases.map((purchase) => (
+        {filteredPurchases.map((purchase) => (
           <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={purchase.id}>
             <p className="gold-text text-xs uppercase tracking-[0.25em]">{purchase.provider ?? "manual"} - {purchase.status}</p>
             <h3 className="mt-3 text-2xl">{purchase.products?.title ?? "Quiet Light product"}</h3>
