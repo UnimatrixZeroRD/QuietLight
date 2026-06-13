@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPublicDailyLightEntryBySlug } from "../../../lib/supabase/daily-light";
@@ -9,6 +10,36 @@ type DailyLightEntryPageProps = {
 function formatDate(value?: string) {
   if (!value) return "Daily Light";
   return new Intl.DateTimeFormat("en-CA", { dateStyle: "long" }).format(new Date(value));
+}
+
+export async function generateMetadata({ params }: DailyLightEntryPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const entry = await getPublicDailyLightEntryBySlug(slug);
+
+  if (!entry) {
+    return {
+      title: "Daily Light Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const description = entry.scriptureReference ? `${entry.scriptureReference} — ${entry.reflection}` : entry.reflection;
+
+  return {
+    title: entry.title,
+    description,
+    alternates: { canonical: `/daily-light/${entry.slug}` },
+    openGraph: {
+      title: `${entry.title} | Daily Light`,
+      description,
+      url: `/daily-light/${entry.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: entry.title,
+      description,
+    },
+  };
 }
 
 export default async function DailyLightEntryPage({ params }: DailyLightEntryPageProps) {
