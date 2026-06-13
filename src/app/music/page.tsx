@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { getPublicAlbums } from "../../lib/supabase/public-content";
+import { getPublicMusicAlbums } from "../../lib/supabase/music-content";
 
 export default async function MusicPage() {
-  const albums = await getPublicAlbums();
+  const albums = await getPublicMusicAlbums();
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
