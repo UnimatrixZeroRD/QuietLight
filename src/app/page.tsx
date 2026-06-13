@@ -52,14 +52,14 @@ export default function HomePage() {
 
       <section className="mx-auto grid max-w-6xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-2 md:py-16">
         <div className="lantern-panel grid gap-8 rounded-3xl p-6 md:grid-cols-[0.75fr_1fr] md:p-8">
-          <div className="overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_48px_rgba(216,168,79,0.18)]">
+          <div className="self-start overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_48px_rgba(216,168,79,0.18)]">
             <Image
               src="/images/books/keepers-lantern-cover.png"
               alt="The Keeper's Lantern Definitive Edition book cover."
               width={1024}
               height={1536}
               sizes="(min-width: 768px) 34vw, 100vw"
-              className="h-auto w-full"
+              className="block h-auto w-full"
             />
           </div>
           <div>
