@@ -36,14 +36,32 @@ Admins can:
 - See the latest saved snapshots
 - Compare the current score against the previous snapshot
 - Select any snapshot for detailed comparison
+- Compare two saved snapshots side by side
 - View the selected snapshot checklist and notes
 - Delete old or accidental snapshots
 - Export the latest snapshot history as CSV
 - View a readiness trend chart
 
+## Side-by-side comparison
+
+The side-by-side comparison panel lets an admin choose two saved snapshots and compare them directly.
+
+It shows:
+
+- Earlier snapshot selector
+- Later snapshot selector
+- Overall score change
+- Operations score change
+- Delivery score change
+- Live pages score change
+- Draft cleanup score change
+- Notes from both selected snapshots
+
+If fewer than two snapshots exist, the panel prompts the admin to save another snapshot first.
+
 ## Snapshot comparison details
 
-Each saved snapshot now has a View Comparison button.
+Each saved snapshot has a View Comparison button.
 
 Selecting a snapshot shows:
 
@@ -106,4 +124,4 @@ Only admins can read, create, update, or delete launch readiness snapshots.
 
 ## Follow-up
 
-Future work can add side-by-side snapshot comparison views.
+Future work can add snapshot PDF exports or richer chart types.
