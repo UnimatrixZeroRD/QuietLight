@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 import { LaunchReadinessChart } from "./launch-readiness-chart";
+import { LaunchSnapshotCompare } from "./launch-snapshot-compare";
 
 type ScoreItem = {
   title: string;
@@ -226,6 +227,7 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
       {isLoading ? <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">Loading snapshot history...</p> : null}
 
       <LaunchReadinessChart snapshots={snapshots} />
+      <LaunchSnapshotCompare snapshots={snapshots} />
 
       <div className="mt-5 rounded-2xl border border-[rgba(216,168,79,0.18)] p-4">
         <p className="gold-text text-xs uppercase tracking-[0.22em]">Current vs previous</p>
