@@ -16,7 +16,9 @@ type DraftRecord = { id: string; created_at: string; updated_at: string | null }
 type ScoreItem = {
   title: string;
   value: number;
+  weight: string;
   detail: string;
+  formula: string;
   href: string;
 };
 
@@ -138,10 +140,38 @@ export function LaunchReadinessScore() {
     const total = clampScore(operationsScore * 0.25 + deliveryScore * 0.25 + liveScore * 0.3 + draftScore * 0.2);
 
     const items: ScoreItem[] = [
-      { title: "Operations", value: operationsScore, detail: `${pendingOrders + paidOrders} orders and ${openMessages} messages need attention`, href: "/admin/orders" },
-      { title: "Delivery", value: deliveryScore, detail: `${readyProducts}/${products.length} active products ready`, href: "/admin/products" },
-      { title: "Live pages", value: liveScore, detail: `${readyLiveItems}/${liveItems.length} live items complete`, href: "/admin" },
-      { title: "Draft cleanup", value: draftScore, detail: `${staleDrafts} stale drafts`, href: "/admin" },
+      {
+        title: "Operations",
+        value: operationsScore,
+        weight: "25%",
+        detail: `${pendingOrders + paidOrders} orders and ${openMessages} messages need attention`,
+        formula: "100 minus pending orders x18, paid review orders x14, and open messages x18.",
+        href: "/admin/orders",
+      },
+      {
+        title: "Delivery",
+        value: deliveryScore,
+        weight: "25%",
+        detail: `${readyProducts}/${products.length} active products ready`,
+        formula: "Ready active products divided by all active products. No active products defaults to 50%.",
+        href: "/admin/products",
+      },
+      {
+        title: "Live pages",
+        value: liveScore,
+        weight: "30%",
+        detail: `${readyLiveItems}/${liveItems.length} live items complete`,
+        formula: "Complete public blog, Daily Light, store, and album pages divided by all live items. No live items defaults to 50%.",
+        href: "/admin",
+      },
+      {
+        title: "Draft cleanup",
+        value: draftScore,
+        weight: "20%",
+        detail: `${staleDrafts} stale drafts`,
+        formula: "100 minus 10 points for each draft untouched for 30 days or more.",
+        href: "/admin",
+      },
     ];
 
     return { total, items };
@@ -169,6 +199,9 @@ export function LaunchReadinessScore() {
         <div className="rounded-3xl border border-[rgba(216,168,79,0.28)] p-6 text-center">
           <p className="text-7xl text-[var(--ivory)]">{score.total}%</p>
           <p className="gold-text mt-4 text-xs uppercase tracking-[0.25em]">Overall readiness</p>
+          <p className="mt-4 text-xs leading-5 text-[var(--muted-silver)]">
+            Overall = Operations 25% + Delivery 25% + Live pages 30% + Draft cleanup 20%.
+          </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           {score.items.map((item) => (
@@ -177,7 +210,9 @@ export function LaunchReadinessScore() {
                 <p className="gold-text text-xs uppercase tracking-[0.2em]">{item.title}</p>
                 <span className="text-2xl text-[var(--ivory)]">{item.value}%</span>
               </div>
+              <p className="mt-2 text-xs uppercase tracking-[0.16em] text-[var(--soft-gold)]">Weight: {item.weight}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{item.detail}</p>
+              <p className="mt-3 text-xs leading-5 text-[var(--muted-silver)]">{item.formula}</p>
             </Link>
           ))}
         </div>
