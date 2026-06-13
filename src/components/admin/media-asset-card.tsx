@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
@@ -12,6 +13,13 @@ export type EditableMediaAsset = {
   path: string;
   media_type: string;
   access_level: string;
+};
+
+export type MediaAssetUsage = {
+  id: string;
+  label: string;
+  title: string;
+  href: string;
 };
 
 type MediaAssetDraft = {
@@ -39,7 +47,7 @@ function createDraft(asset: EditableMediaAsset): MediaAssetDraft {
   };
 }
 
-export function MediaAssetCard({ asset, onSaved }: { asset: EditableMediaAsset; onSaved: () => Promise<void> }) {
+export function MediaAssetCard({ asset, usage, onSaved }: { asset: EditableMediaAsset; usage: MediaAssetUsage[]; onSaved: () => Promise<void> }) {
   const [isEditing, setIsEditing] = useState(false);
   const [draft, setDraft] = useState<MediaAssetDraft>(() => createDraft(asset));
   const [message, setMessage] = useState("");
@@ -112,6 +120,21 @@ export function MediaAssetCard({ asset, onSaved }: { asset: EditableMediaAsset; 
         // eslint-disable-next-line @next/next/no-img-element
         <img className="mt-4 aspect-[16/9] w-full rounded-2xl border border-[rgba(216,168,79,0.25)] object-cover" src={previewUrl} alt={asset.alt_text || asset.title} />
       ) : null}
+
+      <div className="mt-4 rounded-2xl border border-[rgba(216,168,79,0.18)] p-4">
+        <p className="gold-text text-xs uppercase tracking-[0.25em]">Usage</p>
+        {usage.length > 0 ? (
+          <div className="mt-3 grid gap-2">
+            {usage.map((item) => (
+              <Link className="text-sm leading-6 text-[var(--muted-silver)] transition hover:text-[var(--lantern-gold)]" href={item.href} key={item.id}>
+                {item.label}: {item.title}
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">No linked usage found yet.</p>
+        )}
+      </div>
 
       {isEditing ? (
         <div className="mt-5 grid gap-4 rounded-2xl border border-[rgba(216,168,79,0.18)] p-4">
