@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { getPublicMusicAlbums } from "../../lib/supabase/music-content";
 
@@ -101,7 +101,14 @@ function AlbumCard({ album }: { album: AlbumShowcaseItem }) {
   return (
     <Link className="lantern-panel group flex h-full flex-col rounded-3xl p-5 transition duration-300 hover:-translate-y-1 hover:border-[rgba(216,168,79,0.65)]" href={album.href}>
       <div className="relative overflow-hidden rounded-2xl border border-[rgba(216,168,79,0.28)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.14)]">
-        <img className="aspect-square w-full object-cover transition duration-300 group-hover:scale-[1.03]" src={album.coverImageUrl} alt={album.coverAltText} />
+        <Image
+          src={album.coverImageUrl}
+          alt={album.coverAltText}
+          width={1254}
+          height={1254}
+          sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+          className="h-auto w-full transition duration-300 group-hover:scale-[1.03]"
+        />
         <span className="absolute left-4 top-4 rounded-full border border-[rgba(216,168,79,0.55)] bg-[rgba(7,17,31,0.78)] px-3 py-1 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] backdrop-blur">
           Available
         </span>
@@ -174,6 +181,7 @@ export default async function MusicPage() {
 
           <div className="lantern-panel overflow-hidden rounded-[2rem] p-4">
             <div className="overflow-hidden rounded-[1.5rem] border border-[rgba(216,168,79,0.28)] bg-[var(--midnight)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="aspect-[16/9] w-full object-cover" src="/images/music/holy-trinity-graphic.svg" alt="The Holy Trinity music collection graphic." />
             </div>
             <div className="p-5">
