@@ -177,10 +177,11 @@ export default function KeepersLanternPage() {
           <div className="relative">
             <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-[rgba(216,168,79,0.48)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.18)]">
               <Image
-                src="/images/books/keepers-oath-header.jpg"
+                src="/images/books/keepers-oath-header.webp"
                 alt="The Keeper's Oath header artwork with a glowing lantern, gold lettering, and a dark forest border."
                 width={1536}
                 height={473}
+                unoptimized
                 sizes="(min-width: 768px) 48rem, calc(100vw - 4rem)"
                 className="h-auto w-full"
               />
