@@ -17,6 +17,10 @@ function getPublicHref(item: ContentItem) {
   return item.type === "Post" ? `/blog/${item.slug}` : `/daily-light/${item.slug}`;
 }
 
+function getContentAnchor(item: ContentItem) {
+  return `content-${item.type === "Post" ? "post" : "daily-light"}-${item.id}`;
+}
+
 export function ContentList() {
   const [items, setItems] = useState<ContentItem[]>([]);
   const [message, setMessage] = useState("");
@@ -112,7 +116,7 @@ export function ContentList() {
           const publicHref = getPublicHref(item);
 
           return (
-            <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={`${item.type}-${item.id}`}>
+            <article className="scroll-mt-28 rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" id={getContentAnchor(item)} key={`${item.type}-${item.id}`}>
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
                   <p className="gold-text text-xs uppercase tracking-[0.25em]">{item.type} - {item.status}</p>
