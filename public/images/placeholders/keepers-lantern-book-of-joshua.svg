@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536" role="img" aria-labelledby="title desc">
+  <title id="title">The Keeper's Lantern: The Book of Joshua Placeholder</title>
+  <desc id="desc">A blue and gold placeholder book cover for The Keeper's Lantern: The Book of Joshua.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#f3d58b" stop-opacity="0.88" />
+      <stop offset="46%" stop-color="#d8a84f" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#07111f" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1f3a" />
+      <stop offset="55%" stop-color="#123c69" />
+      <stop offset="100%" stop-color="#07111f" />
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1536" fill="url(#bg)" />
+  <circle cx="512" cy="690" r="330" fill="url(#glow)" />
+  <path d="M356 988h312l-36 172H392z" fill="none" stroke="#d8a84f" stroke-width="18" />
+  <path d="M428 988V690c0-99 168-99 168 0v298" fill="none" stroke="#f3d58b" stroke-width="18" stroke-linecap="round" />
+  <path d="M512 536c-48 65-66 113-54 164 10 40 35 68 54 95 19-27 44-55 54-95 12-51-6-99-54-164z" fill="#ffb347" opacity="0.9" />
+  <text x="512" y="190" text-anchor="middle" fill="#f7efe0" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700">The Keeper's Lantern</text>
+  <text x="512" y="262" text-anchor="middle" fill="#d8a84f" font-family="Georgia, 'Times New Roman', serif" font-size="36" letter-spacing="3">THE BOOK OF JOSHUA</text>
+  <text x="512" y="1322" text-anchor="middle" fill="#b9c7d6" font-family="Georgia, 'Times New Roman', serif" font-size="32">Placeholder cover image</text>
+  <text x="512" y="1380" text-anchor="middle" fill="#f3d58b" font-family="Georgia, 'Times New Roman', serif" font-size="28">Replace this file later</text>
+</svg>
