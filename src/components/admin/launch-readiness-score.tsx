@@ -66,11 +66,13 @@ export function LaunchReadinessScore() {
   const [albums, setAlbums] = useState<AlbumRecord[]>([]);
   const [drafts, setDrafts] = useState<DraftRecord[]>([]);
   const [notice, setNotice] = useState("");
+  const [copyMessage, setCopyMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   const loadScore = useCallback(async () => {
     setIsLoading(true);
     setNotice("");
+    setCopyMessage("");
 
     const supabase = createSupabaseBrowserClient();
     if (!supabase) {
@@ -174,8 +176,37 @@ export function LaunchReadinessScore() {
       },
     ];
 
-    return { total, items };
+    const checklist = [
+      "Quiet Light Launch Review Checklist",
+      `Overall readiness: ${total}%`,
+      "",
+      `[${operationsScore >= 90 ? "x" : " "}] Operations score: ${operationsScore}% — ${pendingOrders + paidOrders} orders and ${openMessages} messages need attention`,
+      `[${deliveryScore >= 90 ? "x" : " "}] Delivery score: ${deliveryScore}% — ${readyProducts}/${products.length} active products ready`,
+      `[${liveScore >= 90 ? "x" : " "}] Live pages score: ${liveScore}% — ${readyLiveItems}/${liveItems.length} live items complete`,
+      `[${draftScore >= 90 ? "x" : " "}] Draft cleanup score: ${draftScore}% — ${staleDrafts} stale drafts`,
+      "",
+      "Review actions:",
+      "[ ] Resolve pending or paid orders waiting for review.",
+      "[ ] Reply to or close open messages.",
+      "[ ] Confirm active products have delivery files, file descriptions, cover images, and alt text.",
+      "[ ] Confirm live pages have required metadata, images, and visible copy.",
+      "[ ] Refresh or archive stale drafts.",
+      "[ ] Re-run the launch readiness score after cleanup.",
+    ].join("\n");
+
+    return { total, items, checklist };
   }, [albums, dailyLight, drafts, messages, orders, productFiles, products, posts]);
+
+  async function copyChecklist() {
+    setCopyMessage("");
+
+    try {
+      await navigator.clipboard.writeText(score.checklist);
+      setCopyMessage("Checklist copied.");
+    } catch {
+      setCopyMessage("Copy failed. Select and copy the checklist manually.");
+    }
+  }
 
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">
@@ -216,6 +247,20 @@ export function LaunchReadinessScore() {
             </Link>
           ))}
         </div>
+      </div>
+
+      <div className="mt-8 rounded-3xl border border-[rgba(216,168,79,0.22)] p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="gold-text text-xs uppercase tracking-[0.25em]">Launch Checklist Export</p>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">Copy this checklist into notes, email, or a launch-review document.</p>
+          </div>
+          <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={copyChecklist}>
+            Copy Checklist
+          </button>
+        </div>
+        {copyMessage ? <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{copyMessage}</p> : null}
+        <textarea className="mt-4 min-h-72 w-full rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(7,17,31,0.8)] p-4 font-mono text-sm leading-6 text-[var(--ivory)]" readOnly value={score.checklist} />
       </div>
     </section>
   );
