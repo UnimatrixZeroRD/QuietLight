@@ -73,6 +73,16 @@ const editions: Edition[] = [
   },
 ];
 
+const keeperOathStanzas = [
+  ["I swear to tend the Quiet Light with patience and care."],
+  ["I will not use it to blind, but to guide.", "I will not use it to judge, but to understand."],
+  ["When darkness surrounds me, I will protect the flame.", "When others are lost, I will lift the lantern so they may see."],
+  ["I accept that I am not the source of the light,", "only its keeper for a time."],
+  ["I will carry it with humility in days of peace,", "and with courage in days of suffering."],
+  ["If my strength fails, I will shield the flame.", "If my time ends, I will pass the lantern forward."],
+  ["So long as I walk in this world,", "The Quiet Light will not be abandoned."],
+];
+
 export default function KeepersLanternPage() {
   const featuredEdition = editions[0];
 
@@ -161,23 +171,40 @@ export default function KeepersLanternPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 py-12 text-center sm:px-6 md:py-16">
-        <div className="rounded-3xl border border-[rgba(216,168,79,0.34)] bg-[rgba(7,17,31,0.72)] p-8 shadow-[0_0_56px_rgba(255,179,71,0.13)] md:p-14">
-          <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">The Keeper&apos;s Oath</p>
-          <div className="mx-auto mt-8 max-w-3xl space-y-3 text-xl leading-9 text-[var(--ivory)] md:text-2xl md:leading-10">
-            <p>I swear to tend the Quiet Light with patience and care.</p>
-            <p>I will not use it to blind, but to guide.</p>
-            <p>I will not use it to judge, but to understand.</p>
-            <p>When darkness surrounds me, I will protect the flame.</p>
-            <p>When others are lost, I will lift the lantern so they may see.</p>
-            <p>I accept that I am not the source of the light,</p>
-            <p>only its keeper for a time.</p>
-            <p>I will carry it with humility in days of peace,</p>
-            <p>and with courage in days of suffering.</p>
-            <p>If my strength fails, I will shield the flame.</p>
-            <p>If my time ends, I will pass the lantern forward.</p>
-            <p>So long as I walk in this world,</p>
-            <p>The Quiet Light will not be abandoned.</p>
+      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16">
+        <div className="relative overflow-hidden rounded-3xl border border-[rgba(216,168,79,0.34)] bg-[rgba(7,17,31,0.72)] p-6 shadow-[0_0_56px_rgba(255,179,71,0.13)] md:p-12">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(216,168,79,0.18),transparent_34rem)]" />
+          <div className="relative">
+            <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-[rgba(216,168,79,0.48)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.18)]">
+              <Image
+                src="/images/placeholders/keepers-oath-banner.svg"
+                alt="The Keeper's Oath banner placeholder."
+                width={1600}
+                height={420}
+                unoptimized
+                sizes="(min-width: 768px) 64rem, 100vw"
+                className="h-auto w-full"
+              />
+            </div>
+
+            <div className="mx-auto mt-10 max-w-3xl space-y-5 text-center">
+              {keeperOathStanzas.map((stanza, index) => (
+                <div
+                  className={`rounded-2xl border px-5 py-5 shadow-[0_18px_44px_rgba(0,0,0,0.22)] md:px-8 ${
+                    index === 0 || index === keeperOathStanzas.length - 1
+                      ? "border-[rgba(216,168,79,0.46)] bg-[rgba(216,168,79,0.1)]"
+                      : "border-[rgba(185,199,214,0.16)] bg-[rgba(11,31,58,0.48)]"
+                  }`}
+                  key={stanza.join("|")}
+                >
+                  {stanza.map((line) => (
+                    <p className="text-xl leading-9 text-[var(--ivory)] md:text-2xl md:leading-10" key={line}>
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
