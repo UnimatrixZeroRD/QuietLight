@@ -63,7 +63,7 @@ Formula:
 
 ## Checklist export
 
-The launch readiness panel now generates a copyable and downloadable launch-review checklist.
+The launch readiness panel now generates a copyable, downloadable, and printable launch-review checklist.
 
 The checklist includes:
 
@@ -72,12 +72,17 @@ The checklist includes:
 - Review action list
 - Copy button
 - Download `.txt` button
+- Print / Save PDF button
 - Manual text area fallback
 
 The downloaded file is named with the current date, for example:
 
 `quiet-light-launch-checklist-2026-06-13.txt`
 
+## Print support
+
+The Print / Save PDF button opens the browser print dialog and uses a clean print-only checklist layout.
+
 ## Follow-up
 
-Future work can add configurable weights and downloadable PDF checklist files.
+Future work can add configurable weights and server-generated PDF checklist files.
