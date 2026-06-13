@@ -1,6 +1,14 @@
 import { featuredProducts as fallbackProducts } from "../../data/products";
 import { createSupabaseBrowserClient } from "./client";
 
+export type StoreProductFileSummary = {
+  id: string;
+  title: string;
+  description: string;
+  fileType: string;
+  sortOrder: number;
+};
+
 function toSlug(value: string) {
   return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
@@ -20,8 +28,25 @@ function fallbackStoreProducts() {
       currency: "CAD",
       status: "draft",
       accessLevel: "paid_product",
+      files: [] as StoreProductFileSummary[],
     };
   });
+}
+
+function formatFileSummary(file: {
+  id: string;
+  title: string;
+  description: string | null;
+  file_type: string;
+  sort_order: number;
+}) {
+  return {
+    id: file.id,
+    title: file.title,
+    description: file.description ?? "",
+    fileType: file.file_type,
+    sortOrder: file.sort_order,
+  };
 }
 
 export async function getStoreProducts() {
@@ -52,6 +77,7 @@ export async function getStoreProducts() {
     currency: product.currency ?? "CAD",
     status: product.status,
     accessLevel: product.access_level,
+    files: [] as StoreProductFileSummary[],
   }));
 }
 
@@ -62,12 +88,19 @@ export async function getStoreProductBySlug(slug: string) {
     return fallbackStoreProducts().find((product) => product.slug === slug) ?? null;
   }
 
-  const { data, error } = await supabase
-    .from("products")
-    .select("slug,title,description,product_type,cover_image_url,status,access_level,price_cents,currency")
-    .eq("slug", slug)
-    .in("status", ["active", "draft"])
-    .maybeSingle();
+  const [{ data, error }, filesResult] = await Promise.all([
+    supabase
+      .from("products")
+      .select("slug,title,description,product_type,cover_image_url,status,access_level,price_cents,currency")
+      .eq("slug", slug)
+      .in("status", ["active", "draft"])
+      .maybeSingle(),
+    supabase
+      .from("product_file_summaries")
+      .select("id,title,description,file_type,sort_order")
+      .eq("product_slug", slug)
+      .order("sort_order", { ascending: true }),
+  ]);
 
   if (error || !data) {
     return fallbackStoreProducts().find((product) => product.slug === slug) ?? null;
@@ -84,5 +117,6 @@ export async function getStoreProductBySlug(slug: string) {
     currency: data.currency ?? "CAD",
     status: data.status,
     accessLevel: data.access_level,
+    files: filesResult.error ? [] : ((filesResult.data ?? []) as Parameters<typeof formatFileSummary>[0][]).map(formatFileSummary),
   };
 }
