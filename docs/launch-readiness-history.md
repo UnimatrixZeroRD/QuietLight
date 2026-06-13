@@ -36,6 +36,26 @@ Admins can:
 - See the latest saved snapshots
 - Compare the current score against the previous snapshot
 - Delete old or accidental snapshots
+- Export the latest snapshot history as CSV
+
+## CSV export
+
+The Export CSV button downloads the latest snapshot timeline as a `.csv` file.
+
+The exported columns are:
+
+- created_at
+- total_score
+- operations_score
+- delivery_score
+- live_pages_score
+- draft_cleanup_score
+- notes
+- id
+
+The downloaded file is named with the current date, for example:
+
+`quiet-light-readiness-history-2026-06-13.csv`
 
 ## Delete controls
 
@@ -53,4 +73,4 @@ Only admins can read, create, update, or delete launch readiness snapshots.
 
 ## Follow-up
 
-Future work can add charting, CSV export, and richer snapshot comparison views.
+Future work can add charting and richer snapshot comparison views.
