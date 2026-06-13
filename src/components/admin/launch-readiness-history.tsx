@@ -34,6 +34,12 @@ function scoreDelta(current: number, previous?: number) {
   return `${delta > 0 ? "+" : ""}${delta} points from previous snapshot`;
 }
 
+function directDelta(current: number, snapshot: number) {
+  const delta = current - snapshot;
+  if (delta === 0) return "No change";
+  return `${delta > 0 ? "+" : ""}${delta}`;
+}
+
 function csvCell(value: string | number) {
   const text = String(value).replaceAll('"', '""');
   return `"${text}"`;
@@ -59,6 +65,7 @@ function snapshotsToCsv(snapshots: SnapshotRecord[]) {
 
 export function LaunchReadinessHistory({ checklist, items, total }: { checklist: string; items: ScoreItem[]; total: number }) {
   const [snapshots, setSnapshots] = useState<SnapshotRecord[]>([]);
+  const [selectedSnapshotId, setSelectedSnapshotId] = useState("");
   const [notes, setNotes] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -85,7 +92,9 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
     if (error) {
       setMessage(error.message);
     } else {
-      setSnapshots((data ?? []) as SnapshotRecord[]);
+      const records = (data ?? []) as SnapshotRecord[];
+      setSnapshots(records);
+      setSelectedSnapshotId((current) => (current && records.some((snapshot) => snapshot.id === current) ? current : records[0]?.id ?? ""));
     }
 
     setIsLoading(false);
@@ -189,6 +198,7 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
   }
 
   const previous = snapshots[0];
+  const selectedSnapshot = snapshots.find((snapshot) => snapshot.id === selectedSnapshotId) ?? snapshots[0];
 
   return (
     <div className="mt-8 rounded-3xl border border-[rgba(216,168,79,0.22)] p-6">
@@ -226,10 +236,46 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
         <p className="text-sm leading-6 text-[var(--muted-silver)]">Draft cleanup: {scoreDelta(currentScores.draftCleanupScore, previous?.draft_cleanup_score)}</p>
       </div>
 
+      {selectedSnapshot ? (
+        <div className="mt-5 rounded-2xl border border-[rgba(216,168,79,0.18)] p-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="gold-text text-xs uppercase tracking-[0.22em]">Selected snapshot comparison</p>
+              <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">{new Date(selectedSnapshot.created_at).toLocaleString()}</p>
+            </div>
+            <p className="text-3xl text-[var(--ivory)]">{selectedSnapshot.total_score}%</p>
+          </div>
+          <div className="mt-4 grid gap-3 md:grid-cols-5">
+            <div className="rounded-2xl border border-[rgba(216,168,79,0.14)] p-3">
+              <p className="gold-text text-[0.65rem] uppercase tracking-[0.18em]">Overall</p>
+              <p className="mt-2 text-xl text-[var(--ivory)]">{directDelta(total, selectedSnapshot.total_score)}</p>
+            </div>
+            <div className="rounded-2xl border border-[rgba(216,168,79,0.14)] p-3">
+              <p className="gold-text text-[0.65rem] uppercase tracking-[0.18em]">Operations</p>
+              <p className="mt-2 text-xl text-[var(--ivory)]">{directDelta(currentScores.operationsScore, selectedSnapshot.operations_score)}</p>
+            </div>
+            <div className="rounded-2xl border border-[rgba(216,168,79,0.14)] p-3">
+              <p className="gold-text text-[0.65rem] uppercase tracking-[0.18em]">Delivery</p>
+              <p className="mt-2 text-xl text-[var(--ivory)]">{directDelta(currentScores.deliveryScore, selectedSnapshot.delivery_score)}</p>
+            </div>
+            <div className="rounded-2xl border border-[rgba(216,168,79,0.14)] p-3">
+              <p className="gold-text text-[0.65rem] uppercase tracking-[0.18em]">Live</p>
+              <p className="mt-2 text-xl text-[var(--ivory)]">{directDelta(currentScores.livePagesScore, selectedSnapshot.live_pages_score)}</p>
+            </div>
+            <div className="rounded-2xl border border-[rgba(216,168,79,0.14)] p-3">
+              <p className="gold-text text-[0.65rem] uppercase tracking-[0.18em]">Drafts</p>
+              <p className="mt-2 text-xl text-[var(--ivory)]">{directDelta(currentScores.draftCleanupScore, selectedSnapshot.draft_cleanup_score)}</p>
+            </div>
+          </div>
+          {selectedSnapshot.notes ? <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">Notes: {selectedSnapshot.notes}</p> : null}
+          <textarea className="mt-4 min-h-60 w-full rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(7,17,31,0.8)] p-4 font-mono text-sm leading-6 text-[var(--ivory)]" readOnly value={selectedSnapshot.checklist} />
+        </div>
+      ) : null}
+
       <div className="mt-5 grid gap-3">
         {snapshots.length === 0 ? <p className="text-sm leading-6 text-[var(--muted-silver)]">No snapshots saved yet.</p> : null}
         {snapshots.map((snapshot) => (
-          <article className="rounded-2xl border border-[rgba(216,168,79,0.18)] p-4" key={snapshot.id}>
+          <article className={`rounded-2xl border p-4 ${selectedSnapshot?.id === snapshot.id ? "border-[rgba(216,168,79,0.55)]" : "border-[rgba(216,168,79,0.18)]"}`} key={snapshot.id}>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="gold-text text-xs uppercase tracking-[0.2em]">{new Date(snapshot.created_at).toLocaleString()}</p>
               <p className="text-2xl text-[var(--ivory)]">{snapshot.total_score}%</p>
@@ -238,14 +284,23 @@ export function LaunchReadinessHistory({ checklist, items, total }: { checklist:
               Ops {snapshot.operations_score}% / Delivery {snapshot.delivery_score}% / Live {snapshot.live_pages_score}% / Drafts {snapshot.draft_cleanup_score}%
             </p>
             {snapshot.notes ? <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">Notes: {snapshot.notes}</p> : null}
-            <button
-              className="mt-4 rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60"
-              type="button"
-              onClick={() => deleteSnapshot(snapshot)}
-              disabled={deletingSnapshotId === snapshot.id}
-            >
-              {deletingSnapshotId === snapshot.id ? "Deleting..." : "Delete Snapshot"}
-            </button>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <button
+                className="rounded-full border border-[rgba(42,166,161,0.55)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]"
+                type="button"
+                onClick={() => setSelectedSnapshotId(snapshot.id)}
+              >
+                View Comparison
+              </button>
+              <button
+                className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60"
+                type="button"
+                onClick={() => deleteSnapshot(snapshot)}
+                disabled={deletingSnapshotId === snapshot.id}
+              >
+                {deletingSnapshotId === snapshot.id ? "Deleting..." : "Delete Snapshot"}
+              </button>
+            </div>
           </article>
         ))}
       </div>
