@@ -35,9 +35,27 @@ Admins can:
 - Add optional notes
 - See the latest saved snapshots
 - Compare the current score against the previous snapshot
+- Select any snapshot for detailed comparison
+- View the selected snapshot checklist and notes
 - Delete old or accidental snapshots
 - Export the latest snapshot history as CSV
 - View a readiness trend chart
+
+## Snapshot comparison details
+
+Each saved snapshot now has a View Comparison button.
+
+Selecting a snapshot shows:
+
+- Snapshot date
+- Snapshot total score
+- Current overall difference from that snapshot
+- Current operations difference from that snapshot
+- Current delivery difference from that snapshot
+- Current live pages difference from that snapshot
+- Current draft cleanup difference from that snapshot
+- Snapshot notes
+- Snapshot checklist text
 
 ## Readiness trend chart
 
@@ -88,4 +106,4 @@ Only admins can read, create, update, or delete launch readiness snapshots.
 
 ## Follow-up
 
-Future work can add richer snapshot comparison views.
+Future work can add side-by-side snapshot comparison views.
