@@ -1,5 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getLatestDailyLightEntry, getPublicDailyLightEntries } from "../../lib/supabase/daily-light";
+
+export const metadata: Metadata = {
+  title: "Daily Light",
+  description: "Daily scripture, reflection, and prayer from The Way of Quiet Light.",
+  alternates: { canonical: "/daily-light" },
+  openGraph: {
+    title: "Daily Light | The Way of Quiet Light",
+    description: "Daily scripture, reflection, and prayer from The Way of Quiet Light.",
+    url: "/daily-light",
+  },
+};
 
 function formatDate(value?: string) {
   if (!value) return "Daily Light";
