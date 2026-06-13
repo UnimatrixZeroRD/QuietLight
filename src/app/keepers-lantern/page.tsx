@@ -61,10 +61,10 @@ const editions: Edition[] = [
   {
     title: "The Rule of the Keeper",
     subtitle: "A Voluntary Rhythm for Those Who Tend the Light",
-    image: "/images/placeholders/rule-of-the-keeper.svg",
-    alt: "Placeholder cover for The Rule of the Keeper.",
-    width: 768,
-    height: 1152,
+    image: "/images/books/rule-of-the-keeper-cover.jpg",
+    alt: "The Rule of the Keeper book cover with a glowing lantern in a soft blue and gold landscape.",
+    width: 1600,
+    height: 2560,
     description:
       "A companion work offering a simple voluntary rhythm for those who wish to live more intentionally according to the spirit of quiet faith, humility, and responsibility.",
     href: "https://www.amazon.ca/Rule-Keeper-Voluntary-Rhythm-Those/dp/B0GXYZ458N/",
