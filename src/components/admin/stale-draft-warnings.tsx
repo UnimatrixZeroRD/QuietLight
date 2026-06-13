@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
+import { DraftGroupActions } from "./draft-group-actions";
 import { DraftKind, StaleDraftActions } from "./stale-draft-actions";
 
 type DraftRecord = {
@@ -142,6 +143,7 @@ export function StaleDraftWarnings() {
             <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">
               {group.items.length > 0 ? "Drafts may need publishing, editing, archiving, or a keep-draft refresh." : "No stale drafts found."}
             </p>
+            <DraftGroupActions count={group.items.length} ids={group.items.map((item) => item.id)} kind={group.kind} onChanged={loadDrafts} />
             <div className="mt-4 grid gap-2">
               {group.items.slice(0, 3).map((item) => (
                 <div className="rounded-2xl border border-[rgba(216,168,79,0.18)] p-3 text-sm leading-6 text-[var(--muted-silver)]" key={item.id}>
