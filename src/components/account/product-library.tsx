@@ -23,12 +23,17 @@ type ProductFileRecord = {
   id: string;
   product_id: string;
   title: string;
+  description: string;
   file_type: string;
 };
 
 type LibraryProduct = ProductRecord & {
   files: ProductFileRecord[];
 };
+
+function formatFileType(value: string) {
+  return value.split("/").pop()?.toUpperCase() ?? value.toUpperCase();
+}
 
 export function ProductLibrary() {
   const [products, setProducts] = useState<LibraryProduct[]>([]);
@@ -87,7 +92,7 @@ export function ProductLibrary() {
         .in("id", productIds),
       supabase
         .from("product_files")
-        .select("id,product_id,title,file_type")
+        .select("id,product_id,title,description,file_type")
         .in("product_id", productIds)
         .order("sort_order", { ascending: true }),
     ]);
@@ -149,15 +154,22 @@ export function ProductLibrary() {
                 <p className="gold-text text-xs uppercase tracking-[0.25em]">Licensed</p>
                 <h3 className="mt-3 text-2xl">{product.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{product.description}</p>
-                <div className="mt-5 flex flex-wrap gap-3">
+                {product.files.length === 0 ? (
+                  <p className="mt-5 text-sm leading-6 text-[var(--muted-silver)]">No downloadable files have been attached yet.</p>
+                ) : null}
+                <div className="mt-5 grid gap-3">
                   {product.files.map((file) => (
-                    <Link
-                      className="rounded-full border border-[var(--lantern-gold)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)]"
-                      href={`/api/products/${product.id}/files/${file.id}/download`}
-                      key={file.id}
-                    >
-                      Download {file.title || file.file_type}
-                    </Link>
+                    <div className="rounded-2xl border border-[rgba(216,168,79,0.18)] p-4" key={file.id}>
+                      <p className="gold-text text-xs uppercase tracking-[0.22em]">{formatFileType(file.file_type)}</p>
+                      <h4 className="mt-2 text-xl">{file.title || file.file_type}</h4>
+                      {file.description ? <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">{file.description}</p> : null}
+                      <Link
+                        className="mt-4 inline-block rounded-full border border-[var(--lantern-gold)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)]"
+                        href={`/api/products/${product.id}/files/${file.id}/download`}
+                      >
+                        Download File
+                      </Link>
+                    </div>
                   ))}
                 </div>
               </div>
