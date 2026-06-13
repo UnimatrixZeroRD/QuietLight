@@ -37,6 +37,7 @@ Admins can:
 - Compare the current score against the previous snapshot
 - Select any snapshot for detailed comparison
 - Compare two saved snapshots side by side
+- Export a side-by-side comparison report
 - View the selected snapshot checklist and notes
 - Delete old or accidental snapshots
 - Export the latest snapshot history as CSV
@@ -56,8 +57,26 @@ It shows:
 - Live pages score change
 - Draft cleanup score change
 - Notes from both selected snapshots
+- Copyable comparison report
+- Downloadable comparison report
 
 If fewer than two snapshots exist, the panel prompts the admin to save another snapshot first.
+
+## Snapshot comparison export
+
+The side-by-side comparison report can be copied or downloaded as a `.txt` file.
+
+The report includes:
+
+- Earlier snapshot date
+- Later snapshot date
+- Score changes by area
+- Earlier notes
+- Later notes
+
+The downloaded file is named with the current date, for example:
+
+`quiet-light-snapshot-comparison-2026-06-13.txt`
 
 ## Snapshot comparison details
 
