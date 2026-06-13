@@ -30,9 +30,28 @@ function deltaText(left: number, right: number) {
   return `${delta > 0 ? "+" : ""}${delta}`;
 }
 
+function buildComparisonReport(leftSnapshot: SnapshotRecord, rightSnapshot: SnapshotRecord, rows: ScoreRow[]) {
+  return [
+    "Quiet Light Launch Readiness Comparison",
+    "",
+    `Earlier snapshot: ${new Date(leftSnapshot.created_at).toLocaleString()}`,
+    `Later snapshot: ${new Date(rightSnapshot.created_at).toLocaleString()}`,
+    "",
+    "Score comparison:",
+    ...rows.map((row) => `- ${row.label}: ${row.left}% to ${row.right}% (${deltaText(row.left, row.right)})`),
+    "",
+    "Earlier notes:",
+    leftSnapshot.notes || "No notes saved.",
+    "",
+    "Later notes:",
+    rightSnapshot.notes || "No notes saved.",
+  ].join("\n");
+}
+
 export function LaunchSnapshotCompare({ snapshots }: { snapshots: SnapshotRecord[] }) {
   const [leftSnapshotId, setLeftSnapshotId] = useState("");
   const [rightSnapshotId, setRightSnapshotId] = useState("");
+  const [exportMessage, setExportMessage] = useState("");
 
   useEffect(() => {
     if (snapshots.length === 0) {
@@ -60,6 +79,36 @@ export function LaunchSnapshotCompare({ snapshots }: { snapshots: SnapshotRecord
     ];
   }, [leftSnapshot, rightSnapshot]);
 
+  const comparisonReport = leftSnapshot && rightSnapshot ? buildComparisonReport(leftSnapshot, rightSnapshot, rows) : "";
+
+  async function copyReport() {
+    if (!comparisonReport) return;
+
+    try {
+      await navigator.clipboard.writeText(comparisonReport);
+      setExportMessage("Comparison report copied.");
+    } catch {
+      setExportMessage("Copy failed. Select and copy the report manually.");
+    }
+  }
+
+  function downloadReport() {
+    if (!comparisonReport) return;
+
+    const date = new Date().toISOString().slice(0, 10);
+    const blob = new Blob([comparisonReport], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+
+    anchor.href = url;
+    anchor.download = `quiet-light-snapshot-comparison-${date}.txt`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+    setExportMessage("Comparison report downloaded.");
+  }
+
   if (snapshots.length < 2) {
     return (
       <div className="mt-5 rounded-2xl border border-[rgba(216,168,79,0.18)] p-4">
@@ -71,8 +120,21 @@ export function LaunchSnapshotCompare({ snapshots }: { snapshots: SnapshotRecord
 
   return (
     <div className="mt-5 rounded-2xl border border-[rgba(216,168,79,0.18)] p-4">
-      <p className="gold-text text-xs uppercase tracking-[0.22em]">Side-by-side comparison</p>
-      <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Compare two saved readiness snapshots without using the current score as the reference.</p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="gold-text text-xs uppercase tracking-[0.22em]">Side-by-side comparison</p>
+          <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Compare two saved readiness snapshots without using the current score as the reference.</p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <button className="rounded-full border border-[var(--lantern-gold)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={copyReport}>
+            Copy Report
+          </button>
+          <button className="rounded-full border border-[var(--lantern-gold)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={downloadReport}>
+            Download Report
+          </button>
+        </div>
+      </div>
+      {exportMessage ? <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{exportMessage}</p> : null}
 
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         <label className="text-sm leading-6 text-[var(--muted-silver)]">
@@ -114,6 +176,8 @@ export function LaunchSnapshotCompare({ snapshots }: { snapshots: SnapshotRecord
           <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{rightSnapshot?.notes || "No notes saved."}</p>
         </div>
       </div>
+
+      <textarea className="mt-5 min-h-48 w-full rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(7,17,31,0.8)] p-4 font-mono text-sm leading-6 text-[var(--ivory)]" readOnly value={comparisonReport} />
     </div>
   );
 }
