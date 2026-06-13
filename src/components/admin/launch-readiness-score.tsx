@@ -208,6 +208,21 @@ export function LaunchReadinessScore() {
     }
   }
 
+  function downloadChecklist() {
+    const date = new Date().toISOString().slice(0, 10);
+    const blob = new Blob([score.checklist], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+
+    anchor.href = url;
+    anchor.download = `quiet-light-launch-checklist-${date}.txt`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+    setCopyMessage("Checklist file downloaded.");
+  }
+
   return (
     <section className="lantern-panel mt-10 rounded-3xl p-8">
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -253,11 +268,16 @@ export function LaunchReadinessScore() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="gold-text text-xs uppercase tracking-[0.25em]">Launch Checklist Export</p>
-            <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">Copy this checklist into notes, email, or a launch-review document.</p>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">Copy or download this checklist for notes, email, or a launch-review document.</p>
           </div>
-          <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={copyChecklist}>
-            Copy Checklist
-          </button>
+          <div className="flex flex-wrap gap-3">
+            <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={copyChecklist}>
+              Copy Checklist
+            </button>
+            <button className="rounded-full border border-[var(--lantern-gold)] px-5 py-2 text-xs uppercase tracking-[0.18em] text-[var(--ivory)]" type="button" onClick={downloadChecklist}>
+              Download .txt
+            </button>
+          </div>
         </div>
         {copyMessage ? <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{copyMessage}</p> : null}
         <textarea className="mt-4 min-h-72 w-full rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(7,17,31,0.8)] p-4 font-mono text-sm leading-6 text-[var(--ivory)]" readOnly value={score.checklist} />
