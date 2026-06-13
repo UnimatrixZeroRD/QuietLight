@@ -181,6 +181,7 @@ export function ProductList() {
           const isSaving = savingProductId === product.id;
           const canActivate = canActivateProduct(product, files);
           const isEditing = editingProductId === product.id;
+          const publicProductHref = `/store/${product.slug}`;
 
           return (
             <article className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-5" key={product.id}>
@@ -194,6 +195,11 @@ export function ProductList() {
               <p className="mt-2 text-sm text-[var(--muted-silver)]">{product.currency} {(product.price_cents / 100).toFixed(2)}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{product.description || "No product description yet."}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Cover alt text: {product.cover_alt_text || "Not set"}</p>
+              {product.status === "active" ? (
+                <Link className="gold-text mt-3 inline-flex text-xs uppercase tracking-[0.2em]" href={publicProductHref}>Open public store page</Link>
+              ) : (
+                <p className="mt-3 text-xs uppercase tracking-[0.2em] text-[var(--muted-silver)]">Public store page available after activation</p>
+              )}
               <p className="mt-3 text-sm text-[var(--muted-silver)]">Attached files: {attachedFiles.length}</p>
               <p className="mt-3 break-all rounded-xl border border-[rgba(216,168,79,0.18)] px-4 py-3 text-xs text-[var(--muted-silver)]">Product ID: {product.id}</p>
 
@@ -201,7 +207,7 @@ export function ProductList() {
 
               <div className="mt-4 flex flex-wrap gap-3">
                 <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" type="button" onClick={() => setEditingProductId(isEditing ? "" : product.id)}>{isEditing ? "Close Edit" : "Edit Details"}</button>
-                <Link className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" href={`/store/${product.slug}`}>View Store Page</Link>
+                {product.status === "active" ? <Link className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)]" href={publicProductHref}>View Public Page</Link> : null}
                 {product.status === "draft" ? <button className="rounded-full border border-[rgba(42,166,161,0.65)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:cursor-not-allowed disabled:opacity-50" type="button" onClick={() => setProductStatus(product, "active")} disabled={!canActivate || isSaving} title={canActivate ? "Activate product" : deliveryStatus.detail}>{isSaving ? "Saving..." : "Activate"}</button> : null}
                 {product.status === "active" ? <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "draft")} disabled={isSaving}>{isSaving ? "Saving..." : "Move to Draft"}</button> : null}
                 {product.status === "archived" ? <button className="rounded-full border border-[rgba(216,168,79,0.45)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] disabled:opacity-60" type="button" onClick={() => setProductStatus(product, "draft")} disabled={isSaving}>{isSaving ? "Saving..." : "Restore Draft"}</button> : null}
