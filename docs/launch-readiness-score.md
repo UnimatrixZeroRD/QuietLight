@@ -61,6 +61,18 @@ Formula:
 
 `100 - stale drafts x10`
 
+## Checklist export
+
+The launch readiness panel now generates a copyable launch-review checklist.
+
+The checklist includes:
+
+- Overall readiness percentage
+- Score line for each readiness area
+- Review action list
+- Copy button
+- Manual text area fallback
+
 ## Follow-up
 
-Future work can add configurable weights and launch checklist exports.
+Future work can add configurable weights and downloadable checklist files.
