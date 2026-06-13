@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { MessageHistory } from "../account/message-history";
 import { OrderHistory } from "../account/order-history";
 import { ProductLibrary } from "../account/product-library";
 import { PurchaseHistory } from "../account/purchase-history";
@@ -61,7 +62,7 @@ export function AccountPanel() {
       <div className="lantern-panel mt-10 rounded-3xl p-8">
         <p className="gold-text uppercase tracking-[0.3em]">Signed in</p>
         <h2 className="mt-4 text-3xl">{account.email}</h2>
-        <p className="mt-4 leading-7 text-[var(--muted-silver)]">This account area now includes profile management, order history, purchase history, and a digital product library.</p>
+        <p className="mt-4 leading-7 text-[var(--muted-silver)]">This account area now includes profile management, order history, purchase history, message history, and a digital product library.</p>
         <button
           className="mt-6 rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--ivory)]"
           type="button"
@@ -74,6 +75,7 @@ export function AccountPanel() {
       {account.userId ? <ProfileForm userId={account.userId} /> : null}
       <OrderHistory />
       <PurchaseHistory />
+      <MessageHistory />
       <ProductLibrary />
     </div>
   );
