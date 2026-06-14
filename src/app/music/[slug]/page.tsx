@@ -7,6 +7,8 @@ type AlbumPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+const flameRemainsYouTubeMusicPlaylistId = "OLAK5uy_m9ocKx4s-vQs_r19ZUbelxR_J_kh3f14A";
+
 const albumStreamingLinks: Record<
   string,
   {
@@ -19,8 +21,8 @@ const albumStreamingLinks: Record<
   "the-flame-remains": {
     appleMusic: "https://music.apple.com/us/album/the-flame-remains/1888600561",
     spotify: "https://open.spotify.com/album/5w2du8YOPpHiEh7Bkx03Kh",
-    youtubeMusic: "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
-    youtubeMusicEmbed: "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
+    youtubeMusic: `https://music.youtube.com/playlist?list=${flameRemainsYouTubeMusicPlaylistId}`,
+    youtubeMusicEmbed: `https://www.youtube.com/embed/videoseries?list=${flameRemainsYouTubeMusicPlaylistId}`,
   },
 };
 
