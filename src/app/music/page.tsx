@@ -47,6 +47,8 @@ const artistLinks = [
   ["Spotify", "https://open.spotify.com/artist/0k96zp5CFLPM2I2EtFOLTB"],
   ["YouTube Music", "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn"],
   ["Amazon Music", "https://music.amazon.ca/artists/B0GV448JLH/yehoshua-of-%C4%93at%C5%ABn"],
+  ["Boomplay", "https://www.boomplay.com/artists/128515868"],
+  ["SoundCloud", "https://soundcloud.com/yehoshua-of-at-n"],
 ] as const;
 
 const holyTrinityAlbums: AlbumShowcaseItem[] = [
@@ -112,7 +114,7 @@ const singles: SingleShowcaseItem[] = [
 
 function ArtistProfileLinks({ compact = false }: { compact?: boolean }) {
   return (
-    <div className={`flex flex-wrap ${compact ? "gap-2" : "gap-3"}`}>
+    <div className={`flex flex-wrap justify-center ${compact ? "gap-2" : "gap-3"}`}>
       {artistLinks.map(([label, href]) => (
         <a
           className={`gold-text rounded-full border border-[rgba(216,168,79,0.38)] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)] ${compact ? "px-3 py-2 text-[0.68rem] uppercase tracking-[0.16em]" : "px-5 py-3 text-xs uppercase tracking-[0.2em]"}`}
@@ -231,10 +233,24 @@ export default async function MusicPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="artist-profile">
         <div className="lantern-panel rounded-3xl p-6 md:p-10">
-          <p className="gold-text uppercase tracking-[0.3em]">Artist Profile</p>
-          <h2 id="artist-profile" className="mt-4 text-4xl md:text-6xl">Listen to {artistName}.</h2>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">Albums and singles are published under {artistName}. Use the official artist profiles below to listen across major music platforms.</p>
-          <div className="mt-8"><ArtistProfileLinks /></div>
+          <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+            <div className="flex aspect-[4/5] items-center justify-center rounded-[2rem] border border-dashed border-[rgba(216,168,79,0.45)] bg-[radial-gradient(circle_at_50%_30%,rgba(216,168,79,0.18),rgba(18,60,105,0.32)_42%,rgba(7,17,31,0.95)_100%)] p-8 text-center">
+              <div>
+                <p className="gold-text text-2xl">Artist Image</p>
+                <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--muted-silver)]">Placeholder</p>
+              </div>
+            </div>
+            <div>
+              <p className="gold-text uppercase tracking-[0.3em]">Artist Profile</p>
+              <h2 id="artist-profile" className="mt-4 text-4xl md:text-6xl">Listen to {artistName}.</h2>
+              <div className="mt-6 space-y-4 text-lg leading-8 text-[var(--muted-silver)]">
+                <p>{artistName} is a nom de plume, a chosen artist name for sacred music, reflection, and the quieter stories behind The Way of Quiet Light.</p>
+                <p>The music began with a desire to revisit the Psalms and Christian music. It also grew from family memory: a grandmother who played instruments for church and loved gospel music, and a grandfather who served as a minister.</p>
+                <p>While creating the audio version of The Keeper&apos;s Lantern, the Psalms felt like they should become songs, not only spoken words. Some prayers and stories are simply better sung.</p>
+              </div>
+              <div className="mt-8"><ArtistProfileLinks /></div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
