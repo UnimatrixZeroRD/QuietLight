@@ -165,6 +165,32 @@ function SingleCard({ single, index }: { single: SingleShowcaseItem; index: numb
   );
 }
 
+function StorySection() {
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="story-behind-music">
+      <div className="lantern-panel rounded-3xl p-6 md:p-10">
+        <p className="gold-text uppercase tracking-[0.3em]">The Story Behind the Music</p>
+        <div className="mt-5 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <h2 id="story-behind-music" className="text-4xl leading-tight md:text-6xl">A nom de plume, a family memory, and the Psalms in song.</h2>
+          </div>
+          <div className="space-y-5 text-lg leading-9 text-[var(--muted-silver)]">
+            <p>
+              {artistName} is a nom de plume: a chosen artist name rather than a legal name. It exists as a creative vessel for sacred music, reflection, and the quieter stories that sometimes need to be carried by melody.
+            </p>
+            <p>
+              The musical direction began with a desire to revisit the Psalms and Christian music in a more living, devotional form. That instinct reaches back into family memory: a grandmother who played instruments for the local church and filled her life with gospel music, and a grandfather who served as a minister.
+            </p>
+            <p>
+              While preparing the audio version of The Keeper&apos;s Lantern, the idea emerged that the Psalms did not have to remain only text on a page or spoken words in a recording. They could become songs. From there, the music grew into a larger realization: some stories, prayers, and spiritual moments are sometimes better sung than written or spoken.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default async function MusicPage() {
   const publicAlbums = await getPublicMusicAlbums();
   const publicAlbumBySlug = new Map(publicAlbums.map((album) => [album.slug, album]));
@@ -208,6 +234,8 @@ export default async function MusicPage() {
           </div>
         </div>
       </section>
+
+      <StorySection />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="holy-trinity-albums">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
