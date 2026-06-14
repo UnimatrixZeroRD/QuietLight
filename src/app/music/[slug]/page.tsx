@@ -9,6 +9,7 @@ type AlbumPageProps = {
 
 const flameRemainsYouTubeMusicPlaylistId = "OLAK5uy_m9ocKx4s-vQs_r19ZUbelxR_J_kh3f14A";
 const everlastingLightYouTubeMusicPlaylistId = "OLAK5uy_nHLhPAwknd6na_2Gc3L_sYq63qm13Q8iw";
+const gloriaPatriYouTubeMusicPlaylistId = "OLAK5uy_kjZAJqwR3Fy7JzXYNUXDNyObYQkxWnJDc";
 
 const albumStreamingLinks: Record<
   string,
@@ -32,7 +33,10 @@ const albumStreamingLinks: Record<
     youtubeMusicEmbed: `https://www.youtube.com/embed/videoseries?list=${everlastingLightYouTubeMusicPlaylistId}`,
   },
   "gloria-patri": {
+    appleMusic: "https://music.apple.com/us/album/gloria-patri/1896409031",
     spotify: "https://open.spotify.com/album/6vIcKefpiWkY5SJFhmN2e4",
+    youtubeMusic: `https://music.youtube.com/playlist?list=${gloriaPatriYouTubeMusicPlaylistId}`,
+    youtubeMusicEmbed: `https://www.youtube.com/embed/videoseries?list=${gloriaPatriYouTubeMusicPlaylistId}`,
   },
 };
 
