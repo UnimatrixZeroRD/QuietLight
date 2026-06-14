@@ -203,7 +203,7 @@ export default function BiblePage() {
         </p>
 
         <SectionGraphic
-          src="/images/bible/geneva-bible-archive.png"
+          src="/images/bible/geneva-bible-archive.webp"
           alt="Artwork for the 1599 Geneva Bible archive section."
           width={1600}
           height={1000}
@@ -267,7 +267,7 @@ export default function BiblePage() {
           </p>
 
           <SectionGraphic
-            src="/images/bible/book-index.png"
+            src="/images/bible/book-index.webp"
             alt="Artwork for the traditional books of the Bible index."
             width={1400}
             height={900}
@@ -312,7 +312,7 @@ export default function BiblePage() {
           </p>
 
           <SectionGraphic
-            src="/images/bible/official-positions.png"
+            src="/images/bible/official-positions.webp"
             alt="Artwork for Quiet Light official positions and directives."
             width={1400}
             height={900}
@@ -366,7 +366,7 @@ export default function BiblePage() {
           </p>
 
           <SectionGraphic
-            src="/images/bible/geneva-bible-project.png"
+            src="/images/bible/geneva-bible-project.webp"
             alt="Artwork for the Geneva Bible Project 400th anniversary edition."
             width={1600}
             height={1000}
