@@ -1,0 +1,15 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="900" fill="#071222"/>
+  <rect x="58" y="58" width="1284" height="784" rx="48" fill="#0D203A" stroke="#D8A84F" stroke-width="5"/>
+  <path d="M220 210H1180" stroke="#D8A84F" stroke-width="5" opacity="0.65"/>
+  <path d="M700 210V720" stroke="#D8A84F" stroke-width="5" opacity="0.5"/>
+  <text x="460" y="170" text-anchor="middle" fill="#F5D88A" font-family="Georgia, serif" font-size="44">OLD TESTAMENT</text>
+  <text x="940" y="170" text-anchor="middle" fill="#F5D88A" font-family="Georgia, serif" font-size="44">NEW TESTAMENT</text>
+  <g stroke="#E8D8AF" stroke-width="8" stroke-linecap="round" opacity="0.55">
+    <path d="M260 280H620M260 340H590M260 400H620M260 460H570M260 520H610M260 580H550M260 640H600"/>
+    <path d="M780 280H1140M780 340H1110M780 400H1140M780 460H1090M780 520H1130M780 580H1080M780 640H1120"/>
+  </g>
+  <circle cx="700" cy="740" r="42" fill="#D8A84F" opacity="0.25"/>
+  <path d="M700 706V774M666 740H734" stroke="#F5D88A" stroke-width="12" stroke-linecap="round"/>
+  <text x="700" y="820" text-anchor="middle" fill="#E8D8AF" font-family="Arial, sans-serif" font-size="28" letter-spacing="5">BOOK INDEX PLACEHOLDER · 1400 × 900</text>
+</svg>
