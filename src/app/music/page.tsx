@@ -114,7 +114,7 @@ const singles: SingleShowcaseItem[] = [
 
 function ArtistProfileLinks({ compact = false }: { compact?: boolean }) {
   return (
-    <div className={`flex flex-wrap ${compact ? "gap-2" : "gap-3"}`}>
+    <div className={`flex flex-wrap justify-center ${compact ? "gap-2" : "gap-3"}`}>
       {artistLinks.map(([label, href]) => (
         <a
           className={`gold-text rounded-full border border-[rgba(216,168,79,0.38)] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)] ${compact ? "px-3 py-2 text-[0.68rem] uppercase tracking-[0.16em]" : "px-5 py-3 text-xs uppercase tracking-[0.2em]"}`}
