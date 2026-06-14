@@ -8,6 +8,7 @@ const holyTrinityImage = "/images/music/holy-trinity-graphic.png";
 const artistImage = "/images/music/eatun.png";
 const soundOfSilenceYouTubeMusicPlaylistId = "OLAK5uy_km05_eAhDnxWl-yO_" + "UqB2sKfB8HeOCAec";
 const lightLedMeBackYouTubeMusicPlaylistId = "OLAK5uy_kcHkyF8gvZ9COs7bYrWiGJZkPn" + "RHUMqTk";
+const intoYourHandsYouTubeMusicPlaylistId = "OLAK5uy_lVvAeJ-3qeV-5ZZ52LoCUDnuf" + "GQo0gnZM";
 const stoneWasLiftedYouTubeMusicPlaylistId = "OLAK5uy_lI6kVZv8NVdfOr53yBsQx9bqu" + "LFnw0rVQ";
 
 export const metadata: Metadata = {
@@ -122,6 +123,12 @@ const singles: SingleShowcaseItem[] = [
     description: "A Good Friday meditation on surrender, sacrifice, and the solemn mystery of the Cross.",
     coverImageUrl: "/images/music/intoyourhands.png",
     coverAltText: "Into Your Hands (The Crucifixion) single cover.",
+    links: [
+      {
+        label: "YouTube Music",
+        href: `https://music.youtube.com/playlist?list=${intoYourHandsYouTubeMusicPlaylistId}`,
+      },
+    ],
   },
   {
     title: "The Day the Stone Was Lifted (The Resurrection)",
