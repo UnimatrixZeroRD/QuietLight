@@ -1,0 +1,12 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#071222"/>
+  <rect x="64" y="64" width="1472" height="872" rx="60" fill="#0D203A" stroke="#D8A84F" stroke-width="6"/>
+  <circle cx="800" cy="450" r="260" fill="#D8A84F" opacity="0.11"/>
+  <path d="M505 735V245C505 215 529 190 560 190H1040C1071 190 1095 215 1095 245V735H505Z" fill="#122A4A" stroke="#D8A84F" stroke-width="6"/>
+  <path d="M585 305H1015M585 375H980M585 445H1015M585 515H940" stroke="#E8D8AF" stroke-width="12" stroke-linecap="round" opacity="0.52"/>
+  <path d="M800 250V650M705 345H895" stroke="#F5D88A" stroke-width="26" stroke-linecap="round" opacity="0.9"/>
+  <path d="M390 780H1210" stroke="#D8A84F" stroke-width="8" stroke-linecap="round"/>
+  <text x="800" y="132" text-anchor="middle" fill="#F5D88A" font-family="Georgia, serif" font-size="52" letter-spacing="8">GENEVA BIBLE PROJECT</text>
+  <text x="800" y="838" text-anchor="middle" fill="#E8D8AF" font-family="Georgia, serif" font-size="34" letter-spacing="4">400TH ANNIVERSARY EDITION</text>
+  <text x="800" y="900" text-anchor="middle" fill="#E8D8AF" font-family="Arial, sans-serif" font-size="28" letter-spacing="5">PROJECT PLACEHOLDER · 1600 × 1000</text>
+</svg>
