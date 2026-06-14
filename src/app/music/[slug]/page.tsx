@@ -8,6 +8,7 @@ type AlbumPageProps = {
 };
 
 const flameRemainsYouTubeMusicPlaylistId = "OLAK5uy_m9ocKx4s-vQs_r19ZUbelxR_J_kh3f14A";
+const everlastingLightYouTubeMusicPlaylistId = "OLAK5uy_nHLhPAwknd6na_2Gc3L_sYq63qm13Q8iw";
 
 const albumStreamingLinks: Record<
   string,
@@ -25,7 +26,10 @@ const albumStreamingLinks: Record<
     youtubeMusicEmbed: `https://www.youtube.com/embed/videoseries?list=${flameRemainsYouTubeMusicPlaylistId}`,
   },
   "the-everlasting-light": {
+    appleMusic: "https://music.apple.com/us/album/the-everlasting-light/1894500765",
     spotify: "https://open.spotify.com/album/72HHI7tT8XD8mh6GQx6GHq",
+    youtubeMusic: `https://music.youtube.com/playlist?list=${everlastingLightYouTubeMusicPlaylistId}`,
+    youtubeMusicEmbed: `https://www.youtube.com/embed/videoseries?list=${everlastingLightYouTubeMusicPlaylistId}`,
   },
   "gloria-patri": {
     spotify: "https://open.spotify.com/album/6vIcKefpiWkY5SJFhmN2e4",
