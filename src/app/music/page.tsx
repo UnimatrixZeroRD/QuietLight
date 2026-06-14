@@ -7,6 +7,7 @@ const artistName = "Yehoshua of Ēatūn";
 const holyTrinityImage = "/images/music/holy-trinity-graphic.png";
 const artistImage = "/images/music/eatun.png";
 const soundOfSilenceYouTubeMusicPlaylistId = "OLAK5uy_km05_eAhDnxWl-yO_" + "UqB2sKfB8HeOCAec";
+const lightLedMeBackYouTubeMusicPlaylistId = "OLAK5uy_kcHkyF8gvZ9COs7bYrWiGJZkPn" + "RHUMqTk";
 
 export const metadata: Metadata = {
   title: "Music",
@@ -107,6 +108,12 @@ const singles: SingleShowcaseItem[] = [
     description: "A song of hope, restoration, and the light that calls the keeper home.",
     coverImageUrl: "/images/music/thelightledmeback.png",
     coverAltText: "The Light Led Me Back single cover.",
+    links: [
+      {
+        label: "YouTube Music",
+        href: `https://music.youtube.com/playlist?list=${lightLedMeBackYouTubeMusicPlaylistId}`,
+      },
+    ],
   },
   {
     title: "Into Your Hands (The Crucifixion)",
@@ -168,13 +175,13 @@ function SingleCard({ single, index }: { single: SingleShowcaseItem; index: numb
       <div className="overflow-hidden rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.12)]">
         <Image src={single.coverImageUrl} alt={single.coverAltText} width={1254} height={1254} sizes="(min-width: 1280px) 23vw, (min-width: 768px) 45vw, 100vw" className="h-auto w-full transition duration-300 hover:scale-[1.03]" />
       </div>
-      <div className="flex flex-1 flex-col pt-6">
+      <div className="flex flex-1 flex-col pt-6 text-center">
         <p className="gold-text text-xs uppercase tracking-[0.22em]">Available Single {index + 1}</p>
         <h3 className="gold-text mt-3 text-2xl leading-tight">{single.title}</h3>
         <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">{single.subtitle}</p>
         <p className="mt-4 flex-1 leading-7 text-[var(--muted-silver)]">{single.description}</p>
         {single.links?.length ? (
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
             {single.links.map((link) => (
               <a className="gold-text rounded-full border border-[rgba(216,168,79,0.38)] px-4 py-3 text-xs uppercase tracking-[0.18em] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]" href={link.href} key={link.label} rel="noopener noreferrer" target="_blank">
                 {link.label}
