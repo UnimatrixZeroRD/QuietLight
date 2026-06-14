@@ -10,14 +10,15 @@ export type ScriptureReference = BaseContent & {
 
 export const featuredScriptureReferences: ScriptureReference[] = [
   {
-    id: "matthew-6-quiet-works",
-    slug: "matthew-6-quiet-works",
-    title: "Quiet Works",
-    summary: "A core scripture theme for hidden service, humility, and quiet devotion.",
+    id: "geneva-bible-1599",
+    slug: "geneva-bible-1599",
+    title: "The 1599 Geneva Bible",
+    summary:
+      "The official Quiet Light scripture section, preserving the public-domain Geneva Bible as a family-rooted archive of faith, history, and quiet devotion.",
     accessLevel: "public",
     status: "published",
-    book: "Matthew",
-    chapter: 6,
-    verseStart: 1,
+    book: "Genesis",
+    chapter: 1,
+    translation: "1599 Geneva Bible",
   },
 ];
