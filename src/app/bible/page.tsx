@@ -1,23 +1,206 @@
-import { getPublicScriptureReferences } from "../../lib/supabase/public-content";
+import Link from "next/link";
 
-export default async function BiblePage() {
-  const references = await getPublicScriptureReferences();
+const scriptureLinks = [
+  {
+    title: "Complete Geneva Bible",
+    href: "#geneva-bible-books",
+    description: "The full 1599 Geneva Bible collection as the Quiet Light scripture library is built out.",
+  },
+  {
+    title: "Old Testament",
+    href: "#old-testament-books",
+    description: "The law, histories, wisdom writings, and prophets in the traditional Old Testament order.",
+  },
+  {
+    title: "New Testament",
+    href: "#new-testament-books",
+    description: "The Gospels, apostolic writings, epistles, and Revelation in the traditional New Testament order.",
+  },
+];
 
+const oldTestamentBooks = [
+  "Genesis",
+  "Exodus",
+  "Leviticus",
+  "Numbers",
+  "Deuteronomy",
+  "Joshua",
+  "Judges",
+  "Ruth",
+  "1 Samuel",
+  "2 Samuel",
+  "1 Kings",
+  "2 Kings",
+  "1 Chronicles",
+  "2 Chronicles",
+  "Ezra",
+  "Nehemiah",
+  "Esther",
+  "Job",
+  "Psalms",
+  "Proverbs",
+  "Ecclesiastes",
+  "Song of Solomon",
+  "Isaiah",
+  "Jeremiah",
+  "Lamentations",
+  "Ezekiel",
+  "Daniel",
+  "Hosea",
+  "Joel",
+  "Amos",
+  "Obadiah",
+  "Jonah",
+  "Micah",
+  "Nahum",
+  "Habakkuk",
+  "Zephaniah",
+  "Haggai",
+  "Zechariah",
+  "Malachi",
+];
+
+const newTestamentBooks = [
+  "Matthew",
+  "Mark",
+  "Luke",
+  "John",
+  "Acts",
+  "Romans",
+  "1 Corinthians",
+  "2 Corinthians",
+  "Galatians",
+  "Ephesians",
+  "Philippians",
+  "Colossians",
+  "1 Thessalonians",
+  "2 Thessalonians",
+  "1 Timothy",
+  "2 Timothy",
+  "Titus",
+  "Philemon",
+  "Hebrews",
+  "James",
+  "1 Peter",
+  "2 Peter",
+  "1 John",
+  "2 John",
+  "3 John",
+  "Jude",
+  "Revelation",
+];
+
+function BookList({ books }: { books: string[] }) {
+  return (
+    <ol className="mt-6 grid gap-3 sm:grid-cols-2">
+      {books.map((book, index) => (
+        <li
+          className="flex items-center gap-3 rounded-2xl border border-[rgba(216,168,79,0.18)] bg-[rgba(10,20,36,0.45)] px-4 py-3 text-[var(--muted-silver)]"
+          key={book}
+        >
+          <span className="gold-text min-w-8 text-sm tracking-[0.16em]">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span>{book}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export default function BiblePage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
-      <p className="gold-text uppercase tracking-[0.3em]">Bible</p>
-      <h1 className="gold-text mt-4 text-5xl md:text-7xl">Scripture Resources</h1>
-      <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">
-        This section will organize scripture quotes, Bible references, reading material, and devotional commentary.
-      </p>
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {references.map((reference) => (
-          <article className="lantern-panel rounded-3xl p-6" key={reference.slug}>
-            <h2 className="gold-text text-2xl">{reference.title}</h2>
-            <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{reference.summary}</p>
+      <section className="lantern-panel rounded-3xl p-6 md:p-12" aria-labelledby="geneva-bible-title">
+        <p className="gold-text uppercase tracking-[0.3em]">Bible</p>
+        <h1 className="gold-text mt-4 text-5xl md:text-7xl" id="geneva-bible-title">
+          The 1599 Geneva Bible
+        </h1>
+        <p className="mt-8 max-w-4xl text-xl leading-9 text-[var(--muted-silver)]">
+          This section is dedicated to the 1599 Geneva Bible: a public-domain scripture text chosen for its
+          historic depth, its freedom from modern licensing restrictions, and its closeness in time to the Bible
+          that the Eaton family may have known when they first came to the Americas in the early 1600s.
+        </p>
+        <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--muted-silver)]">
+          It also carries a personal resonance for Quiet Light. Geneva is not only the name of the Bible being
+          preserved here; it is also the name of Joshua&apos;s daughter. For that reason, this page will serve as both
+          a scripture archive and a family-rooted act of remembrance.
+        </p>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <article className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6">
+            <p className="gold-text uppercase tracking-[0.22em]">Public Domain</p>
+            <h2 className="mt-3 text-2xl text-white">Free to preserve and share</h2>
+            <p className="mt-4 leading-7 text-[var(--muted-silver)]">
+              The Geneva Bible is being used because it can be hosted, restored, quoted, and studied without the
+              licensing burdens attached to many modern Bible translations.
+            </p>
           </article>
-        ))}
-      </div>
+          <article className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6">
+            <p className="gold-text uppercase tracking-[0.22em]">Heritage</p>
+            <h2 className="mt-3 text-2xl text-white">A Bible near the family era</h2>
+            <p className="mt-4 leading-7 text-[var(--muted-silver)]">
+              The 1599 edition belongs to the same broad historical world as the early English settlers who crossed
+              into the Americas during the first decades of the 1600s.
+            </p>
+          </article>
+          <article className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6">
+            <p className="gold-text uppercase tracking-[0.22em]">Geneva</p>
+            <h2 className="mt-3 text-2xl text-white">A name with meaning</h2>
+            <p className="mt-4 leading-7 text-[var(--muted-silver)]">
+              The title also carries a living family connection through Geneva, making this archive part scripture
+              work, part legacy project, and part act of quiet devotion.
+            </p>
+          </article>
+        </div>
+
+        <nav className="mt-10 grid gap-4 md:grid-cols-3" aria-label="Geneva Bible navigation links">
+          {scriptureLinks.map((link) => (
+            <Link
+              className="group rounded-3xl border border-[var(--lantern-gold)] bg-[rgba(216,168,79,0.08)] p-6 transition hover:bg-[rgba(216,168,79,0.16)]"
+              href={link.href}
+              key={link.title}
+            >
+              <span className="gold-text text-xl">{link.title}</span>
+              <span className="mt-3 block leading-7 text-[var(--muted-silver)]">{link.description}</span>
+              <span className="gold-text mt-5 inline-block uppercase tracking-[0.18em] transition group-hover:translate-x-1">
+                View Section →
+              </span>
+            </Link>
+          ))}
+        </nav>
+      </section>
+
+      <section className="mt-14" id="geneva-bible-books" aria-labelledby="geneva-bible-books-title">
+        <div className="lantern-panel rounded-3xl p-6 md:p-12">
+          <p className="gold-text uppercase tracking-[0.3em]">Book Index</p>
+          <h2 className="gold-text mt-4 text-4xl md:text-6xl" id="geneva-bible-books-title">
+            Traditional Books of the Bible
+          </h2>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--muted-silver)]">
+            As the Quiet Light scripture library is built out, these books will become the organizing structure for
+            the complete 1599 Geneva Bible, separated into Old Testament and New Testament collections.
+          </p>
+
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+            <article id="old-testament-books">
+              <div className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6">
+                <p className="gold-text uppercase tracking-[0.22em]">Old Testament</p>
+                <h3 className="mt-3 text-3xl text-white">The Hebrew Scriptures</h3>
+                <BookList books={oldTestamentBooks} />
+              </div>
+            </article>
+
+            <article id="new-testament-books">
+              <div className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6">
+                <p className="gold-text uppercase tracking-[0.22em]">New Testament</p>
+                <h3 className="mt-3 text-3xl text-white">The Gospel and Apostolic Witness</h3>
+                <BookList books={newTestamentBooks} />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
