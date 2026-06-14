@@ -10,7 +10,12 @@ function fallbackCoverForSlug(slug: string) {
 }
 
 function normalizeCoverImageUrl(slug: string, coverImageUrl?: string | null) {
-  return coverImageUrl || fallbackCoverForSlug(slug);
+  const fallbackCover = fallbackCoverForSlug(slug);
+
+  if (!coverImageUrl) return fallbackCover;
+  if (coverImageUrl.toLowerCase().endsWith(".svg") && fallbackCover) return fallbackCover;
+
+  return coverImageUrl;
 }
 
 function fallbackList() {
