@@ -150,7 +150,7 @@ function BookList({ books }: { books: string[] }) {
   );
 }
 
-function GraphicPlaceholder({
+function SectionGraphic({
   src,
   alt,
   width,
@@ -173,7 +173,6 @@ function GraphicPlaceholder({
         width={width}
         height={height}
         priority={priority}
-        unoptimized
         sizes="(min-width: 1024px) 1024px, 100vw"
         className="block h-auto w-full"
       />
@@ -203,12 +202,12 @@ export default function BiblePage() {
           a scripture archive and a family-rooted act of remembrance.
         </p>
 
-        <GraphicPlaceholder
-          src="/images/bible/geneva-bible-archive-placeholder.svg"
-          alt="Placeholder artwork for the 1599 Geneva Bible archive section."
+        <SectionGraphic
+          src="/images/bible/geneva-bible-archive.png"
+          alt="Artwork for the 1599 Geneva Bible archive section."
           width={1600}
           height={1000}
-          label="Hero graphic placeholder · replace with Geneva Bible archive artwork"
+          label="Geneva Bible archive artwork"
           priority
         />
 
@@ -267,12 +266,12 @@ export default function BiblePage() {
             the complete 1599 Geneva Bible, separated into Old Testament and New Testament collections.
           </p>
 
-          <GraphicPlaceholder
-            src="/images/bible/book-index-placeholder.svg"
-            alt="Placeholder artwork for the traditional books of the Bible index."
+          <SectionGraphic
+            src="/images/bible/book-index.png"
+            alt="Artwork for the traditional books of the Bible index."
             width={1400}
             height={900}
-            label="Section graphic placeholder · replace with Bible book index artwork"
+            label="Bible book index artwork"
           />
 
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
@@ -312,12 +311,12 @@ export default function BiblePage() {
             in conscience rather than noise.
           </p>
 
-          <GraphicPlaceholder
-            src="/images/bible/official-positions-placeholder.svg"
-            alt="Placeholder artwork for Quiet Light official positions and directives."
+          <SectionGraphic
+            src="/images/bible/official-positions.png"
+            alt="Artwork for Quiet Light official positions and directives."
             width={1400}
             height={900}
-            label="Section graphic placeholder · replace with official positions artwork"
+            label="Official positions artwork"
           />
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -366,12 +365,12 @@ export default function BiblePage() {
             the Bible itself.
           </p>
 
-          <GraphicPlaceholder
-            src="/images/bible/geneva-bible-project-placeholder.svg"
-            alt="Placeholder artwork for the Geneva Bible Project 400th anniversary edition."
+          <SectionGraphic
+            src="/images/bible/geneva-bible-project.png"
+            alt="Artwork for the Geneva Bible Project 400th anniversary edition."
             width={1600}
             height={1000}
-            label="Feature graphic placeholder · replace with Geneva Bible Project artwork"
+            label="Geneva Bible Project artwork"
           />
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
