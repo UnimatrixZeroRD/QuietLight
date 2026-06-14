@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Fragment } from "react";
 
 export const metadata: Metadata = {
   title: "The Way Overview",
@@ -25,6 +26,14 @@ type PracticeBlock = {
   title: string;
   reference: string;
   body: string;
+};
+
+type GraphicPlaceholderProps = {
+  title: string;
+  size: string;
+  description: string;
+  fileName: string;
+  aspectClass?: string;
 };
 
 const scriptureFoundation: ScriptureBlock[] = [
@@ -164,6 +173,28 @@ const notStatements = [
   "It is not a call to religious arrogance, domination, spectacle, or judgment without mercy.",
 ];
 
+function GraphicPlaceholder({ title, size, description, fileName, aspectClass = "aspect-[16/9]" }: GraphicPlaceholderProps) {
+  return (
+    <div className={`lantern-panel relative overflow-hidden rounded-3xl border-dashed border-[rgba(216,168,79,0.46)] p-6 ${aspectClass}`}>
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(216,168,79,0.14),transparent_28%,rgba(87,184,255,0.1))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(216,168,79,0.18),transparent_26rem)]" />
+      <div className="relative flex h-full min-h-[18rem] flex-col items-center justify-center text-center">
+        <p className="gold-text text-sm uppercase tracking-[0.24em]">Artwork Placeholder</p>
+        <h3 className="mt-4 max-w-3xl text-3xl text-[var(--ivory)] md:text-5xl">{title}</h3>
+        <p className="mt-4 max-w-2xl leading-8 text-[var(--muted-silver)]">{description}</p>
+        <div className="mt-6 grid gap-2 rounded-2xl border border-[rgba(216,168,79,0.28)] bg-[rgba(7,17,31,0.54)] px-5 py-4 text-sm text-[var(--muted-silver)] md:grid-cols-2">
+          <span>
+            <span className="gold-text">Recommended:</span> {size}
+          </span>
+          <span>
+            <span className="gold-text">File:</span> {fileName}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function TheWayPage() {
   return (
     <main>
@@ -181,6 +212,14 @@ export default function TheWayPage() {
               the Light of the world, and with the call of Scripture to walk humbly, serve quietly, love mercy, endure suffering,
               and let good works point back to the Father rather than to ourselves.
             </p>
+            <div className="mt-10">
+              <GraphicPlaceholder
+                title="Christ the Light, the Lantern, and Scripture"
+                size="1920 × 1080 px"
+                fileName="/images/the-way/the-way-hero.webp"
+                description="A major hero image for this page: a luminous blue-and-gold devotional scene with Scripture, a lantern, and the light of Christ represented reverently without becoming cartoonish or overly literal."
+              />
+            </div>
             <div className="mx-auto mt-9 max-w-3xl rounded-2xl border border-[rgba(216,168,79,0.32)] bg-[rgba(7,17,31,0.52)] p-6">
               <p className="text-2xl italic leading-relaxed text-[var(--ivory)] md:text-3xl">
                 I am not the light. I am only its keeper.
@@ -227,6 +266,16 @@ export default function TheWayPage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 md:py-12">
+        <GraphicPlaceholder
+          title="A Path Under Scripture"
+          size="1800 × 900 px"
+          fileName="/images/the-way/path-under-scripture.webp"
+          description="A wide divider image showing an open Bible or Geneva-style Scripture page with a quiet lantern glow, suggesting that the Way walks under Scripture and not above it."
+          aspectClass="aspect-[2/1]"
+        />
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
         <div className="mb-10 max-w-3xl">
           <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Scriptural Foundation</p>
@@ -238,27 +287,38 @@ export default function TheWayPage() {
         </div>
         <div className="grid gap-6">
           {scriptureFoundation.map((item) => (
-            <article className="lantern-panel rounded-3xl p-6 md:p-9" key={item.theme}>
-              <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
-                <div>
-                  <p className="gold-text text-sm uppercase tracking-[0.22em]">{item.theme}</p>
-                  <h3 className="mt-4 text-3xl text-[var(--ivory)]">{item.reference}</h3>
-                </div>
-                <div>
-                  <div className="space-y-4">
-                    {item.passage.map((line) => (
-                      <blockquote
-                        className="rounded-2xl border border-[rgba(216,168,79,0.24)] bg-[rgba(7,17,31,0.46)] p-5 text-xl italic leading-9 text-[var(--ivory)]"
-                        key={line}
-                      >
-                        {line}
-                      </blockquote>
-                    ))}
+            <Fragment key={item.theme}>
+              <article className="lantern-panel rounded-3xl p-6 md:p-9">
+                <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
+                  <div>
+                    <p className="gold-text text-sm uppercase tracking-[0.22em]">{item.theme}</p>
+                    <h3 className="mt-4 text-3xl text-[var(--ivory)]">{item.reference}</h3>
                   </div>
-                  <p className="mt-6 leading-8 text-[var(--muted-silver)]">{item.reflection}</p>
+                  <div>
+                    <div className="space-y-4">
+                      {item.passage.map((line) => (
+                        <blockquote
+                          className="rounded-2xl border border-[rgba(216,168,79,0.24)] bg-[rgba(7,17,31,0.46)] p-5 text-xl italic leading-9 text-[var(--ivory)]"
+                          key={line}
+                        >
+                          {line}
+                        </blockquote>
+                      ))}
+                    </div>
+                    <p className="mt-6 leading-8 text-[var(--muted-silver)]">{item.reflection}</p>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+              {item.theme === "Quiet Works and Hidden Faithfulness" ? (
+                <GraphicPlaceholder
+                  title="Quiet Works in Secret"
+                  size="1600 × 1000 px"
+                  fileName="/images/the-way/quiet-works-in-secret.webp"
+                  description="A reverent image for Matthew 6: quiet generosity, hidden mercy, or a small act of service done without public recognition. Keep it soft, human, and humble."
+                  aspectClass="aspect-[8/5]"
+                />
+              ) : null}
+            </Fragment>
           ))}
         </div>
       </section>
@@ -293,6 +353,14 @@ export default function TheWayPage() {
             </article>
           ))}
         </div>
+        <div className="mt-8">
+          <GraphicPlaceholder
+            title="The Keeper’s Path"
+            size="1600 × 900 px"
+            fileName="/images/the-way/keepers-path.webp"
+            description="A horizontal image representing stillness, Scripture, mercy, service, and endurance as one path. This could use a lantern-lit road, blue-gold dawn, or a quiet chapel/pathway motif."
+          />
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
@@ -313,6 +381,14 @@ export default function TheWayPage() {
                 <p className="mt-4 leading-7 text-[var(--muted-silver)]">{item.meaning}</p>
               </article>
             ))}
+          </div>
+          <div className="mt-8">
+            <GraphicPlaceholder
+              title="The Light, The Lantern, The Keeper, Quiet Works"
+              size="1600 × 900 px"
+              fileName="/images/the-way/symbols-of-the-way.webp"
+              description="A symbolic composition showing the four central ideas of the Way in a refined blue-and-gold visual language: Christ as light, Scripture/lantern, humble Keeper, and quiet mercy."
+            />
           </div>
         </div>
       </section>
@@ -343,7 +419,16 @@ export default function TheWayPage() {
         <div className="lantern-panel rounded-3xl p-6 text-center md:p-12">
           <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Begin the Way</p>
           <h2 className="mt-4 text-4xl md:text-6xl">The flame does not need to roar to remain alive.</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-[var(--muted-silver)]">
+          <div className="mt-8">
+            <GraphicPlaceholder
+              title="The Flame Remains"
+              size="1920 × 640 px"
+              fileName="/images/the-way/flame-remains-banner.webp"
+              description="A wide closing banner for the final call-to-action: a quiet lantern flame, blue-gold atmosphere, peaceful but strong, suitable as a section-ending devotional image."
+              aspectClass="aspect-[3/1]"
+            />
+          </div>
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-9 text-[var(--muted-silver)]">
             It only needs to be kept. Begin with Scripture. Return through prayer. Let the light of Christ become mercy, patience,
             courage, and quiet works in the life you already live.
           </p>
