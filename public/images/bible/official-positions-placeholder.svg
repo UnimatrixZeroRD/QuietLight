@@ -1,0 +1,10 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="900" fill="#071222"/>
+  <rect x="60" y="60" width="1280" height="780" rx="52" fill="#0D203A" stroke="#D8A84F" stroke-width="5"/>
+  <rect x="270" y="180" width="860" height="540" rx="28" fill="#122A4A" stroke="#D8A84F" stroke-width="5"/>
+  <path d="M360 295H1040M360 370H980M360 445H1015M360 520H940" stroke="#E8D8AF" stroke-width="12" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="700" cy="632" r="58" fill="#D8A84F" opacity="0.22"/>
+  <path d="M700 590V674M658 632H742" stroke="#F5D88A" stroke-width="14" stroke-linecap="round"/>
+  <path d="M470 155L700 95L930 155" stroke="#D8A84F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="700" y="795" text-anchor="middle" fill="#E8D8AF" font-family="Arial, sans-serif" font-size="28" letter-spacing="5">OFFICIAL POSITIONS PLACEHOLDER · 1400 × 900</text>
+</svg>
