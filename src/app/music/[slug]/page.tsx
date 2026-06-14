@@ -12,13 +12,13 @@ const albumStreamingLinks: Record<
   {
     appleMusic?: string;
     spotify?: string;
-    spotifyEmbed?: string;
+    youtubeMusic?: string;
   }
 > = {
   "the-flame-remains": {
     appleMusic: "https://music.apple.com/us/album/the-flame-remains/1888600561",
     spotify: "https://open.spotify.com/album/5w2du8YOPpHiEh7Bkx03Kh",
-    spotifyEmbed: "https://open.spotify.com/embed/album/5w2du8YOPpHiEh7Bkx03Kh?utm_source=generator",
+    youtubeMusic: "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
   },
 };
 
@@ -96,10 +96,12 @@ export default async function AlbumDetailPage({ params }: AlbumPageProps) {
                     Spotify
                   </a>
                 ) : null}
+                {streamingLinks.youtubeMusic ? (
+                  <a className="gold-text rounded-full border border-[rgba(216,168,79,0.38)] px-4 py-3 text-xs uppercase tracking-[0.18em] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]" href={streamingLinks.youtubeMusic} rel="noopener noreferrer" target="_blank">
+                    YouTube Music
+                  </a>
+                ) : null}
               </div>
-              {streamingLinks.spotifyEmbed ? (
-                <iframe className="mt-5 w-full rounded-2xl border border-[rgba(216,168,79,0.2)]" src={streamingLinks.spotifyEmbed} title={`${album.title} on Spotify`} width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" />
-              ) : null}
             </section>
           ) : null}
 
