@@ -13,12 +13,14 @@ const albumStreamingLinks: Record<
     appleMusic?: string;
     spotify?: string;
     youtubeMusic?: string;
+    youtubeMusicEmbed?: string;
   }
 > = {
   "the-flame-remains": {
     appleMusic: "https://music.apple.com/us/album/the-flame-remains/1888600561",
     spotify: "https://open.spotify.com/album/5w2du8YOPpHiEh7Bkx03Kh",
     youtubeMusic: "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
+    youtubeMusicEmbed: "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
   },
 };
 
@@ -105,25 +107,13 @@ export default async function AlbumDetailPage({ params }: AlbumPageProps) {
             </section>
           ) : null}
 
-          <section className="mt-8 rounded-2xl border border-[rgba(216,168,79,0.2)] p-5">
-            <p className="gold-text text-xs uppercase tracking-[0.25em]">Tracks</p>
-            {album.tracks.length > 0 ? (
-              <div className="mt-4 grid gap-4">
-                {album.tracks.map((track) => (
-                  <article className="rounded-2xl border border-[rgba(216,168,79,0.16)] p-4" key={track.id}>
-                    <p className="gold-text text-xs uppercase tracking-[0.2em]">Track {track.trackNumber ?? "-"}</p>
-                    <h2 className="mt-2 text-xl">{track.title}</h2>
-                    {track.description ? <p className="mt-2 text-sm leading-6 text-[var(--muted-silver)]">{track.description}</p> : null}
-                    {track.embedUrl ? (
-                      <iframe className="mt-4 aspect-video w-full rounded-2xl border border-[rgba(216,168,79,0.2)]" src={track.embedUrl} title={`${track.title} player`} loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" />
-                    ) : null}
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">Published tracks will appear here as they are added.</p>
-            )}
-          </section>
+          {streamingLinks?.youtubeMusicEmbed ? (
+            <section className="mt-8 rounded-2xl border border-[rgba(216,168,79,0.2)] p-5">
+              <p className="gold-text text-xs uppercase tracking-[0.25em]">YouTube Music Player</p>
+              <iframe className="mt-5 h-[420px] w-full rounded-2xl border border-[rgba(216,168,79,0.2)] bg-[var(--midnight)]" src={streamingLinks.youtubeMusicEmbed} title={`${album.title} on YouTube Music`} loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" />
+              <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">If the player does not load, open the album through the YouTube Music button above.</p>
+            </section>
+          ) : null}
         </div>
       </section>
     </main>
