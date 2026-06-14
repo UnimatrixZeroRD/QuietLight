@@ -165,32 +165,6 @@ function SingleCard({ single, index }: { single: SingleShowcaseItem; index: numb
   );
 }
 
-function StorySection() {
-  return (
-    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="story-behind-music">
-      <div className="lantern-panel rounded-3xl p-6 md:p-10">
-        <p className="gold-text uppercase tracking-[0.3em]">The Story Behind the Music</p>
-        <div className="mt-5 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
-            <h2 id="story-behind-music" className="text-4xl leading-tight md:text-6xl">A nom de plume, a family memory, and the Psalms in song.</h2>
-          </div>
-          <div className="space-y-5 text-lg leading-9 text-[var(--muted-silver)]">
-            <p>
-              {artistName} is a nom de plume: a chosen artist name rather than a legal name. It exists as a creative vessel for sacred music, reflection, and the quieter stories that sometimes need to be carried by melody.
-            </p>
-            <p>
-              The musical direction began with a desire to revisit the Psalms and Christian music in a more living, devotional form. That instinct reaches back into family memory: a grandmother who played instruments for the local church and filled her life with gospel music, and a grandfather who served as a minister.
-            </p>
-            <p>
-              While preparing the audio version of The Keeper&apos;s Lantern, the idea emerged that the Psalms did not have to remain only text on a page or spoken words in a recording. They could become songs. From there, the music grew into a larger realization: some stories, prayers, and spiritual moments are sometimes better sung than written or spoken.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default async function MusicPage() {
   const publicAlbums = await getPublicMusicAlbums();
   const publicAlbumBySlug = new Map(publicAlbums.map((album) => [album.slug, album]));
@@ -235,8 +209,6 @@ export default async function MusicPage() {
         </div>
       </section>
 
-      <StorySection />
-
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="holy-trinity-albums">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
@@ -261,10 +233,24 @@ export default async function MusicPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="artist-profile">
         <div className="lantern-panel rounded-3xl p-6 md:p-10">
-          <p className="gold-text uppercase tracking-[0.3em]">Artist Profile</p>
-          <h2 id="artist-profile" className="mt-4 text-4xl md:text-6xl">Listen to {artistName}.</h2>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">Albums and singles are published under {artistName}. Use the official artist profiles below to listen across major music platforms.</p>
-          <div className="mt-8"><ArtistProfileLinks /></div>
+          <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+            <div className="flex aspect-[4/5] items-center justify-center rounded-[2rem] border border-dashed border-[rgba(216,168,79,0.45)] bg-[radial-gradient(circle_at_50%_30%,rgba(216,168,79,0.18),rgba(18,60,105,0.32)_42%,rgba(7,17,31,0.95)_100%)] p-8 text-center">
+              <div>
+                <p className="gold-text text-2xl">Artist Image</p>
+                <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--muted-silver)]">Placeholder</p>
+              </div>
+            </div>
+            <div>
+              <p className="gold-text uppercase tracking-[0.3em]">Artist Profile</p>
+              <h2 id="artist-profile" className="mt-4 text-4xl md:text-6xl">Listen to {artistName}.</h2>
+              <div className="mt-6 space-y-4 text-lg leading-8 text-[var(--muted-silver)]">
+                <p>{artistName} is a nom de plume, a chosen artist name for sacred music, reflection, and the quieter stories behind The Way of Quiet Light.</p>
+                <p>The music began with a desire to revisit the Psalms and Christian music. It also grew from family memory: a grandmother who played instruments for church and loved gospel music, and a grandfather who served as a minister.</p>
+                <p>While creating the audio version of The Keeper&apos;s Lantern, the Psalms felt like they should become songs, not only spoken words. Some prayers and stories are simply better sung.</p>
+              </div>
+              <div className="mt-8"><ArtistProfileLinks /></div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
