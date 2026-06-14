@@ -155,14 +155,12 @@ function SectionGraphic({
   alt,
   width,
   height,
-  label,
   priority = false,
 }: {
   src: string;
   alt: string;
   width: number;
   height: number;
-  label: string;
   priority?: boolean;
 }) {
   return (
@@ -176,9 +174,6 @@ function SectionGraphic({
         sizes="(min-width: 1024px) 1024px, 100vw"
         className="block h-auto w-full"
       />
-      <figcaption className="border-t border-[rgba(216,168,79,0.18)] px-5 py-3 text-sm uppercase tracking-[0.18em] text-[var(--muted-silver)]">
-        {label}
-      </figcaption>
     </figure>
   );
 }
@@ -203,11 +198,10 @@ export default function BiblePage() {
         </p>
 
         <SectionGraphic
-          src="/images/bible/geneva-bible-archive.png"
+          src="/images/bible/geneva-bible-archive.webp"
           alt="Artwork for the 1599 Geneva Bible archive section."
           width={1600}
           height={1000}
-          label="Geneva Bible archive artwork"
           priority
         />
 
@@ -267,11 +261,10 @@ export default function BiblePage() {
           </p>
 
           <SectionGraphic
-            src="/images/bible/book-index.png"
+            src="/images/bible/book-index.webp"
             alt="Artwork for the traditional books of the Bible index."
             width={1400}
             height={900}
-            label="Bible book index artwork"
           />
 
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
@@ -312,11 +305,10 @@ export default function BiblePage() {
           </p>
 
           <SectionGraphic
-            src="/images/bible/official-positions.png"
+            src="/images/bible/official-positions.webp"
             alt="Artwork for Quiet Light official positions and directives."
             width={1400}
             height={900}
-            label="Official positions artwork"
           />
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -366,11 +358,10 @@ export default function BiblePage() {
           </p>
 
           <SectionGraphic
-            src="/images/bible/geneva-bible-project.png"
+            src="/images/bible/geneva-bible-project.webp"
             alt="Artwork for the Geneva Bible Project 400th anniversary edition."
             width={1600}
             height={1000}
-            label="Geneva Bible Project artwork"
           />
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
