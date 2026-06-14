@@ -6,21 +6,21 @@ export default function HomePage() {
     {
       title: "The Flame Remains",
       cover: {
-        src: "/images/music/flame-remains-cover.png",
+        src: "/images/music/flame-remains-cover.webp",
         alt: "The Flame Remains album cover.",
       },
     },
     {
       title: "The Everlasting Light",
       cover: {
-        src: "/images/music/everlasting-light-cover.png",
+        src: "/images/music/everlasting-light-cover.webp",
         alt: "The Everlasting Light album cover.",
       },
     },
     {
       title: "Gloria Patri",
       cover: {
-        src: "/images/music/gloria-patri-cover.png",
+        src: "/images/music/gloria-patri-cover.webp",
         alt: "Gloria Patri album cover.",
       },
     },
@@ -30,7 +30,7 @@ export default function HomePage() {
     <main>
       <section className="bg-[var(--midnight)]" aria-label="The Way of Quiet Light">
         <Image
-          src="/images/backgrounds/quiet-light-header.png"
+          src="/images/backgrounds/quiet-light-header.webp"
           alt="The Way of Quiet Light header artwork with aurora-lit mountains, lanterns, and a lakeside path."
           width={1672}
           height={941}
@@ -54,7 +54,7 @@ export default function HomePage() {
         <div className="lantern-panel grid gap-8 rounded-3xl p-6 md:grid-cols-[0.75fr_1fr] md:p-8">
           <div className="self-start overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_48px_rgba(216,168,79,0.18)]">
             <Image
-              src="/images/books/keepers-lantern-cover.png"
+              src="/images/books/keepers-lantern-cover.webp"
               alt="The Keeper's Lantern Definitive Edition book cover."
               width={1024}
               height={1536}
