@@ -6,6 +6,7 @@ import { getPublicMusicAlbums } from "../../lib/supabase/music-content";
 const artistName = "Yehoshua of Ēatūn";
 const holyTrinityImage = "/images/music/holy-trinity-graphic.png";
 const artistImage = "/images/music/eatun.png";
+const soundOfSilenceYouTubeMusicPlaylistId = "OLAK5uy_km05_eAhDnxWl-yO_" + "UqB2sKfB8HeOCAec";
 
 export const metadata: Metadata = {
   title: "Music",
@@ -41,6 +42,10 @@ type SingleShowcaseItem = {
   description: string;
   coverImageUrl: string;
   coverAltText: string;
+  links?: Array<{
+    label: string;
+    href: string;
+  }>;
 };
 
 const artistLinks = [
@@ -89,6 +94,12 @@ const singles: SingleShowcaseItem[] = [
     description: "A contemplative single about silence, return, and the quiet road back to the light.",
     coverImageUrl: "/images/music/thesoundofsilence.png",
     coverAltText: "The Sound of Silence (I Returned) single cover.",
+    links: [
+      {
+        label: "YouTube Music",
+        href: `https://music.youtube.com/playlist?list=${soundOfSilenceYouTubeMusicPlaylistId}`,
+      },
+    ],
   },
   {
     title: "The Light Led Me Back",
@@ -162,7 +173,17 @@ function SingleCard({ single, index }: { single: SingleShowcaseItem; index: numb
         <h3 className="gold-text mt-3 text-2xl leading-tight">{single.title}</h3>
         <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">{single.subtitle}</p>
         <p className="mt-4 flex-1 leading-7 text-[var(--muted-silver)]">{single.description}</p>
-        <p className="mt-6 text-xs uppercase tracking-[0.2em] text-[var(--muted-silver)]">Listen under {artistName}</p>
+        {single.links?.length ? (
+          <div className="mt-6 flex flex-wrap gap-3">
+            {single.links.map((link) => (
+              <a className="gold-text rounded-full border border-[rgba(216,168,79,0.38)] px-4 py-3 text-xs uppercase tracking-[0.18em] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]" href={link.href} key={link.label} rel="noopener noreferrer" target="_blank">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-6 text-xs uppercase tracking-[0.2em] text-[var(--muted-silver)]">Listen under {artistName}</p>
+        )}
       </div>
     </article>
   );
