@@ -8,7 +8,7 @@ const quietWorks = [
       "A local food support initiative that gathers contributions, stretches them through surplus and food-waste reduction sources, and helps provide fresh produce and practical nourishment to local partners and neighbours.",
     status: "First Quiet Works initiative",
     image: {
-      src: "/images/quiet-works/keepers-table-card.svg",
+      src: "/images/quiet-works/keepers-table-card.webp",
       alt: "A lantern beside a basket of produce and food support boxes for The Keeper's Table.",
     },
   },
@@ -18,7 +18,7 @@ const quietWorks = [
       "Additional works of mercy, service, and community care can be added here as the Order of the Lanterns grows.",
     status: "Coming later",
     image: {
-      src: "/images/quiet-works/future-works-card.svg",
+      src: "/images/quiet-works/future-works-card.webp",
       alt: "A quiet lantern-lit path representing future Quiet Works initiatives.",
     },
   },
@@ -37,7 +37,7 @@ export default function QuietWorksPage() {
         </div>
         <div className="overflow-hidden rounded-3xl border border-[rgba(216,168,79,0.36)] bg-[var(--midnight)] shadow-[0_0_48px_rgba(216,168,79,0.18)]">
           <Image
-            src="/images/quiet-works/quiet-works-hero.svg"
+            src="/images/quiet-works/quiet-works-hero.webp"
             alt="Lantern-lit Quiet Works table with produce and practical support imagery."
             width={1600}
             height={900}
