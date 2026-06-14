@@ -1,20 +1,39 @@
 export type NavItem = {
   label: string;
   href: string;
+  children?: NavItem[];
 };
 
 export const primaryNavigation: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "The Way", href: "/the-way" },
-  { label: "Book", href: "/keepers-lantern" },
-  { label: "Music", href: "/music" },
-  { label: "Daily Light", href: "/daily-light" },
-  { label: "Bible", href: "/bible" },
-  { label: "Store", href: "/store" },
-  { label: "Membership", href: "/membership" },
-  { label: "Blog", href: "/blog" },
+  {
+    label: "The Way",
+    href: "/the-way",
+    children: [
+      { label: "The Way Overview", href: "/the-way" },
+      { label: "Daily Light", href: "/daily-light" },
+      { label: "Geneva Bible", href: "/bible" },
+    ],
+  },
+  {
+    label: "Works",
+    href: "/keepers-lantern",
+    children: [
+      { label: "The Keeper's Lantern", href: "/keepers-lantern" },
+      { label: "Music", href: "/music" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    label: "Community",
+    href: "/membership",
+    children: [
+      { label: "Membership", href: "/membership" },
+      { label: "Store", href: "/store" },
+      { label: "Support", href: "/support" },
+    ],
+  },
   { label: "About", href: "/about" },
-  { label: "Support", href: "/support" },
   { label: "Sign In", href: "/sign-in" },
 ];
 
