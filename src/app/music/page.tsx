@@ -115,18 +115,20 @@ const singles: SingleShowcaseItem[] = [
 
 function ArtistProfileLinks({ compact = false }: { compact?: boolean }) {
   return (
-    <div className={`flex w-full flex-nowrap justify-center overflow-x-auto ${compact ? "gap-2" : "gap-3"}`}>
-      {artistLinks.map(([label, href]) => (
-        <a
-          className={`gold-text shrink-0 whitespace-nowrap rounded-full border border-[rgba(216,168,79,0.38)] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)] ${compact ? "px-3 py-2 text-[0.68rem] uppercase tracking-[0.16em]" : "px-5 py-3 text-xs uppercase tracking-[0.2em]"}`}
-          href={href}
-          key={label}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          {label}
-        </a>
-      ))}
+    <div className="mx-auto w-full max-w-full overflow-x-auto pb-2">
+      <div className={`flex w-max min-w-full flex-nowrap justify-center ${compact ? "gap-2" : "gap-3"}`}>
+        {artistLinks.map(([label, href]) => (
+          <a
+            className={`gold-text shrink-0 whitespace-nowrap rounded-full border border-[rgba(216,168,79,0.38)] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)] ${compact ? "px-3 py-2 text-[0.68rem] uppercase tracking-[0.16em]" : "px-4 py-3 text-[0.7rem] uppercase tracking-[0.16em] xl:px-5 xl:text-xs xl:tracking-[0.2em]"}`}
+            href={href}
+            key={label}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
     </div>
   );
 }
@@ -234,11 +236,11 @@ export default async function MusicPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="artist-profile">
         <div className="lantern-panel rounded-3xl p-6 md:p-10">
-          <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-            <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-[rgba(216,168,79,0.35)] bg-[var(--midnight)] shadow-[0_0_46px_rgba(255,179,71,0.14)]">
+          <div className="grid gap-8 lg:grid-cols-[minmax(320px,0.85fr)_minmax(0,1.15fr)] lg:items-center">
+            <div className="relative mx-auto aspect-square w-full max-w-[460px] overflow-hidden rounded-[2rem] border border-[rgba(216,168,79,0.35)] bg-[var(--midnight)] shadow-[0_0_46px_rgba(255,179,71,0.14)]">
               <Image src={artistImage} alt="Yehoshua of Ēatūn artist image." fill sizes="(min-width: 1024px) 34vw, 100vw" className="object-cover" />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="gold-text uppercase tracking-[0.3em]">Artist Profile</p>
               <h2 id="artist-profile" className="mt-4 text-4xl md:text-6xl">Listen to {artistName}.</h2>
               <div className="mt-6 space-y-4 text-lg leading-8 text-[var(--muted-silver)]">
@@ -246,9 +248,9 @@ export default async function MusicPage() {
                 <p>The music began with a desire to revisit the Psalms and Christian music. It also grew from family memory: a grandmother who played instruments for church and loved gospel music, and a grandfather who served as a minister.</p>
                 <p>While creating the audio version of The Keeper&apos;s Lantern, the Psalms felt like they should become songs, not only spoken words. Some prayers and stories are simply better sung.</p>
               </div>
-              <div className="mt-8"><ArtistProfileLinks /></div>
             </div>
           </div>
+          <div className="mt-8"><ArtistProfileLinks /></div>
         </div>
       </section>
     </main>
