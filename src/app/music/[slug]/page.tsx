@@ -7,6 +7,21 @@ type AlbumPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+const albumStreamingLinks: Record<
+  string,
+  {
+    appleMusic?: string;
+    spotify?: string;
+    spotifyEmbed?: string;
+  }
+> = {
+  "the-flame-remains": {
+    appleMusic: "https://music.apple.com/us/album/the-flame-remains/1888600561",
+    spotify: "https://open.spotify.com/album/5w2du8YOPpHiEh7Bkx03Kh",
+    spotifyEmbed: "https://open.spotify.com/embed/album/5w2du8YOPpHiEh7Bkx03Kh?utm_source=generator",
+  },
+};
+
 export async function generateMetadata({ params }: AlbumPageProps): Promise<Metadata> {
   const { slug } = await params;
   const album = await getPublicMusicAlbumBySlug(slug);
@@ -45,6 +60,8 @@ export default async function AlbumDetailPage({ params }: AlbumPageProps) {
     notFound();
   }
 
+  const streamingLinks = albumStreamingLinks[album.slug];
+
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <Link className="gold-text text-sm uppercase tracking-[0.18em]" href="/music">
@@ -64,6 +81,27 @@ export default async function AlbumDetailPage({ params }: AlbumPageProps) {
           <h1 className="gold-text mt-4 text-5xl md:text-7xl">{album.title}</h1>
           {album.subtitle ? <p className="mt-5 text-xl text-[var(--soft-gold)]">{album.subtitle}</p> : null}
           <p className="mt-8 text-lg leading-8 text-[var(--muted-silver)]">{album.description}</p>
+
+          {streamingLinks ? (
+            <section className="mt-8 rounded-2xl border border-[rgba(216,168,79,0.2)] p-5">
+              <p className="gold-text text-xs uppercase tracking-[0.25em]">Listen to the album</p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {streamingLinks.appleMusic ? (
+                  <a className="gold-text rounded-full border border-[rgba(216,168,79,0.38)] px-4 py-3 text-xs uppercase tracking-[0.18em] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]" href={streamingLinks.appleMusic} rel="noopener noreferrer" target="_blank">
+                    Apple Music
+                  </a>
+                ) : null}
+                {streamingLinks.spotify ? (
+                  <a className="gold-text rounded-full border border-[rgba(216,168,79,0.38)] px-4 py-3 text-xs uppercase tracking-[0.18em] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]" href={streamingLinks.spotify} rel="noopener noreferrer" target="_blank">
+                    Spotify
+                  </a>
+                ) : null}
+              </div>
+              {streamingLinks.spotifyEmbed ? (
+                <iframe className="mt-5 w-full rounded-2xl border border-[rgba(216,168,79,0.2)]" src={streamingLinks.spotifyEmbed} title={`${album.title} on Spotify`} width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" />
+              ) : null}
+            </section>
+          ) : null}
 
           <section className="mt-8 rounded-2xl border border-[rgba(216,168,79,0.2)] p-5">
             <p className="gold-text text-xs uppercase tracking-[0.25em]">Tracks</p>
