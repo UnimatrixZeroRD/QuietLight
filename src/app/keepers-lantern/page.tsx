@@ -24,7 +24,7 @@ const editions: Edition[] = [
   {
     label: "Featured Edition",
     title: "The Keeper's Lantern: Definitive Edition",
-    image: "/images/books/keepers-lantern-cover.png",
+    image: "/images/books/keepers-lantern-cover.webp",
     alt: "The Keeper's Lantern Definitive Edition book cover with a glowing lantern beneath a starry sky.",
     width: 1024,
     height: 1536,
@@ -37,7 +37,7 @@ const editions: Edition[] = [
   },
   {
     title: "The Keeper's Lantern: The Book of Joshua",
-    image: "/images/books/keepers-lantern-handoff.jpg",
+    image: "/images/books/keepers-lantern-handoff.webp",
     alt: "The Keeper's Lantern: The Book of Joshua cover showing hands passing a glowing lantern.",
     width: 1024,
     height: 1536,
@@ -49,7 +49,7 @@ const editions: Edition[] = [
   },
   {
     title: "The Keeper's Lantern: The Book of Joshua Audiobook",
-    image: "/images/books/keepers-lantern-audio-experience.png",
+    image: "/images/books/keepers-lantern-audio-experience.webp",
     alt: "The Keeper's Lantern Extended Edition audio experience artwork with a glowing lantern at sunset.",
     width: 2560,
     height: 2560,
@@ -61,7 +61,7 @@ const editions: Edition[] = [
   {
     title: "The Rule of the Keeper",
     subtitle: "A Voluntary Rhythm for Those Who Tend the Light",
-    image: "/images/books/rule-of-the-keeper-cover.jpg",
+    image: "/images/books/rule-of-the-keeper-cover.webp",
     alt: "The Rule of the Keeper book cover with a glowing lantern in a soft blue and gold landscape.",
     width: 1600,
     height: 2560,
