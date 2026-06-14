@@ -36,6 +36,24 @@ const directiveCategories = [
   },
 ];
 
+const genevaBibleProjectFeatures = [
+  {
+    title: "Original 1599 Text",
+    description:
+      "A preserved foundation of the historic Geneva Bible text, retained as the source layer for study, comparison, and continuity.",
+  },
+  {
+    title: "Modern Language Rendering",
+    description:
+      "A complete updated-language version intended to make the meaning clearer for modern readers while remaining rooted in the original work.",
+  },
+  {
+    title: "Integrated Study Guide",
+    description:
+      "Notes, explanations, reflections, and study material built into the Bible itself so readers can move from text to understanding.",
+  },
+];
+
 const oldTestamentBooks = [
   "Genesis",
   "Exodus",
@@ -256,6 +274,48 @@ export default function BiblePage() {
             <p className="mt-4 max-w-3xl leading-8 text-[var(--muted-silver)]">
               Future entries can be organized by title, subject, date, scripture foundation, summary, and full text,
               giving Quiet Light a structured home for formal teachings and public positions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-14" id="geneva-bible-project" aria-labelledby="geneva-bible-project-title">
+        <div className="lantern-panel rounded-3xl p-6 md:p-12">
+          <p className="gold-text uppercase tracking-[0.3em]">Geneva Bible Project</p>
+          <h2 className="gold-text mt-4 text-4xl md:text-6xl" id="geneva-bible-project-title">
+            The Quiet Light Geneva Bible Project
+          </h2>
+          <p className="mt-6 max-w-4xl text-xl leading-9 text-[var(--muted-silver)]">
+            The Geneva Bible Project will be one of the most momentous works undertaken by Quiet Light: an official
+            Quiet Light copy of the Bible based on the 1599 Geneva Bible, prepared for modern readers while
+            preserving its historical foundation.
+          </p>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--muted-silver)]">
+            Unlike the free Geneva Bible archive above, this project will become a complete edited work with the
+            original Geneva text, a fully updated modern-language rendering, and a study guide built directly into
+            the Bible itself.
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {genevaBibleProjectFeatures.map((feature) => (
+              <article
+                className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6"
+                key={feature.title}
+              >
+                <p className="gold-text uppercase tracking-[0.22em]">Project Layer</p>
+                <h3 className="mt-3 text-2xl text-white">{feature.title}</h3>
+                <p className="mt-4 leading-7 text-[var(--muted-silver)]">{feature.description}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-[var(--lantern-gold)] bg-[rgba(216,168,79,0.1)] p-6 md:p-8">
+            <p className="gold-text uppercase tracking-[0.22em]">Official Edition</p>
+            <h3 className="mt-3 text-3xl text-white">A Bible for study, devotion, and legacy</h3>
+            <p className="mt-4 max-w-4xl leading-8 text-[var(--muted-silver)]">
+              This future edition will serve as the official Quiet Light Bible: a work of preservation,
+              modernization, explanation, and devotion designed to help readers encounter scripture with clarity,
+              reverence, and depth.
             </p>
           </div>
         </div>
