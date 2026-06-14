@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const scriptureLinks = [
@@ -149,6 +150,40 @@ function BookList({ books }: { books: string[] }) {
   );
 }
 
+function GraphicPlaceholder({
+  src,
+  alt,
+  width,
+  height,
+  label,
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  label: string;
+  priority?: boolean;
+}) {
+  return (
+    <figure className="mt-10 overflow-hidden rounded-3xl border border-[rgba(216,168,79,0.24)] bg-[rgba(5,13,28,0.55)] shadow-[0_0_48px_rgba(216,168,79,0.12)]">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        priority={priority}
+        unoptimized
+        sizes="(min-width: 1024px) 1024px, 100vw"
+        className="block h-auto w-full"
+      />
+      <figcaption className="border-t border-[rgba(216,168,79,0.18)] px-5 py-3 text-sm uppercase tracking-[0.18em] text-[var(--muted-silver)]">
+        {label}
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function BiblePage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
@@ -167,6 +202,15 @@ export default function BiblePage() {
           preserved here; it is also the name of Joshua&apos;s daughter. For that reason, this page will serve as both
           a scripture archive and a family-rooted act of remembrance.
         </p>
+
+        <GraphicPlaceholder
+          src="/images/bible/geneva-bible-archive-placeholder.svg"
+          alt="Placeholder artwork for the 1599 Geneva Bible archive section."
+          width={1600}
+          height={1000}
+          label="Hero graphic placeholder · replace with Geneva Bible archive artwork"
+          priority
+        />
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           <article className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6">
@@ -223,6 +267,14 @@ export default function BiblePage() {
             the complete 1599 Geneva Bible, separated into Old Testament and New Testament collections.
           </p>
 
+          <GraphicPlaceholder
+            src="/images/bible/book-index-placeholder.svg"
+            alt="Placeholder artwork for the traditional books of the Bible index."
+            width={1400}
+            height={900}
+            label="Section graphic placeholder · replace with Bible book index artwork"
+          />
+
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             <article id="old-testament-books">
               <div className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6">
@@ -259,6 +311,14 @@ export default function BiblePage() {
             or official declarations. Quiet Light will use its own voice here: calm, scriptural, direct, and rooted
             in conscience rather than noise.
           </p>
+
+          <GraphicPlaceholder
+            src="/images/bible/official-positions-placeholder.svg"
+            alt="Placeholder artwork for Quiet Light official positions and directives."
+            width={1400}
+            height={900}
+            label="Section graphic placeholder · replace with official positions artwork"
+          />
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {directiveCategories.map((category) => (
@@ -305,6 +365,14 @@ export default function BiblePage() {
             original Geneva text, a fully updated modern-language rendering, and a study guide built directly into
             the Bible itself.
           </p>
+
+          <GraphicPlaceholder
+            src="/images/bible/geneva-bible-project-placeholder.svg"
+            alt="Placeholder artwork for the Geneva Bible Project 400th anniversary edition."
+            width={1600}
+            height={1000}
+            label="Feature graphic placeholder · replace with Geneva Bible Project artwork"
+          />
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {genevaBibleProjectFeatures.map((feature) => (
