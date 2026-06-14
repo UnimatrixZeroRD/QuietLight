@@ -24,6 +24,12 @@ const albumStreamingLinks: Record<
     youtubeMusic: `https://music.youtube.com/playlist?list=${flameRemainsYouTubeMusicPlaylistId}`,
     youtubeMusicEmbed: `https://www.youtube.com/embed/videoseries?list=${flameRemainsYouTubeMusicPlaylistId}`,
   },
+  "the-everlasting-light": {
+    spotify: "https://open.spotify.com/album/72HHI7tT8XD8mh6GQx6GHq",
+  },
+  "gloria-patri": {
+    spotify: "https://open.spotify.com/album/6vIcKefpiWkY5SJFhmN2e4",
+  },
 };
 
 export async function generateMetadata({ params }: AlbumPageProps): Promise<Metadata> {
