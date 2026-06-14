@@ -5,6 +5,7 @@ import { getPublicMusicAlbums } from "../../lib/supabase/music-content";
 
 const artistName = "Yehoshua of Ēatūn";
 const holyTrinityImage = "/images/music/holy-trinity-graphic.png";
+const artistImage = "/images/music/eatun.png";
 
 export const metadata: Metadata = {
   title: "Music",
@@ -234,11 +235,8 @@ export default async function MusicPage() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="artist-profile">
         <div className="lantern-panel rounded-3xl p-6 md:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-            <div className="flex aspect-[4/5] items-center justify-center rounded-[2rem] border border-dashed border-[rgba(216,168,79,0.45)] bg-[radial-gradient(circle_at_50%_30%,rgba(216,168,79,0.18),rgba(18,60,105,0.32)_42%,rgba(7,17,31,0.95)_100%)] p-8 text-center">
-              <div>
-                <p className="gold-text text-2xl">Artist Image</p>
-                <p className="mt-3 text-sm uppercase tracking-[0.2em] text-[var(--muted-silver)]">Placeholder</p>
-              </div>
+            <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-[rgba(216,168,79,0.35)] bg-[var(--midnight)] shadow-[0_0_46px_rgba(255,179,71,0.14)]">
+              <Image src={artistImage} alt="Yehoshua of Ēatūn artist image." fill sizes="(min-width: 1024px) 34vw, 100vw" className="object-cover" />
             </div>
             <div>
               <p className="gold-text uppercase tracking-[0.3em]">Artist Profile</p>
