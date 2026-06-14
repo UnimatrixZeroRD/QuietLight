@@ -18,6 +18,24 @@ const scriptureLinks = [
   },
 ];
 
+const directiveCategories = [
+  {
+    title: "Doctrinal Positions",
+    description:
+      "Formal Quiet Light positions on questions of faith, scripture, morality, worship, humility, service, and the keeping of the inner flame.",
+  },
+  {
+    title: "Pastoral Directives",
+    description:
+      "Practical guidance for members and readers when a topic calls for a clear response rooted in scripture, conscience, and quiet wisdom.",
+  },
+  {
+    title: "Public Statements",
+    description:
+      "Official reflections on public matters, cultural questions, and spiritual concerns where Quiet Light needs to speak plainly and carefully.",
+  },
+];
+
 const oldTestamentBooks = [
   "Genesis",
   "Exodus",
@@ -198,6 +216,47 @@ export default function BiblePage() {
                 <BookList books={newTestamentBooks} />
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-14" id="official-positions" aria-labelledby="official-positions-title">
+        <div className="lantern-panel rounded-3xl p-6 md:p-12">
+          <p className="gold-text uppercase tracking-[0.3em]">Official Positions</p>
+          <h2 className="gold-text mt-4 text-4xl md:text-6xl" id="official-positions-title">
+            Quiet Light Positions &amp; Directives
+          </h2>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--muted-silver)]">
+            This section will gather formal Quiet Light positions on different subjects: official statements,
+            scripture-based opinions, pastoral guidance, and directives issued when a topic requires a clear and
+            thoughtful response.
+          </p>
+          <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--muted-silver)]">
+            In older church language, documents like these might be called encyclicals, decrees, pastoral letters,
+            or official declarations. Quiet Light will use its own voice here: calm, scriptural, direct, and rooted
+            in conscience rather than noise.
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {directiveCategories.map((category) => (
+              <article
+                className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6"
+                key={category.title}
+              >
+                <p className="gold-text uppercase tracking-[0.22em]">Directive Type</p>
+                <h3 className="mt-3 text-2xl text-white">{category.title}</h3>
+                <p className="mt-4 leading-7 text-[var(--muted-silver)]">{category.description}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(216,168,79,0.08)] p-6 md:p-8">
+            <p className="gold-text uppercase tracking-[0.22em]">Coming Archive</p>
+            <h3 className="mt-3 text-3xl text-white">A place for future official documents</h3>
+            <p className="mt-4 max-w-3xl leading-8 text-[var(--muted-silver)]">
+              Future entries can be organized by title, subject, date, scripture foundation, summary, and full text,
+              giving Quiet Light a structured home for formal teachings and public positions.
+            </p>
           </div>
         </div>
       </section>
