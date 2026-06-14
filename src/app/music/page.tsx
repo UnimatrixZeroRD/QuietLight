@@ -4,8 +4,8 @@ import Link from "next/link";
 import { getPublicMusicAlbums } from "../../lib/supabase/music-content";
 
 const artistName = "Yehoshua of Ēatūn";
-const holyTrinityImage = "/images/music/holy-trinity-graphic.png";
-const artistImage = "/images/music/eatun.png";
+const holyTrinityImage = "/images/music/holy-trinity-graphic.webp";
+const artistImage = "/images/music/eatun.webp";
 const soundOfSilenceYouTubeMusicPlaylistId = "OLAK5uy_km05_eAhDnxWl-yO_" + "UqB2sKfB8HeOCAec";
 const lightLedMeBackYouTubeMusicPlaylistId = "OLAK5uy_kcHkyF8gvZ9COs7bYrWiGJZkPn" + "RHUMqTk";
 const intoYourHandsYouTubeMusicPlaylistId = "OLAK5uy_lVvAeJ-3qeV-5ZZ52LoCUDnuf" + "GQo0gnZM";
@@ -67,7 +67,7 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
     subtitle: "The Lantern Psalms, Volume I",
     description: "Sacred music for prayer, stillness, worship, and reflection.",
     href: "/music/the-flame-remains",
-    coverImageUrl: "/images/music/flame-remains-cover.png",
+    coverImageUrl: "/images/music/flame-remains-cover.webp",
     coverAltText: "The Flame Remains album cover.",
   },
   {
@@ -76,7 +76,7 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
     subtitle: "A Way of Quiet Light Hymn Collection",
     description: "A hymn collection for devotion, quiet worship, and spiritual renewal.",
     href: "/music/the-everlasting-light",
-    coverImageUrl: "/images/music/everlasting-light-cover.png",
+    coverImageUrl: "/images/music/everlasting-light-cover.webp",
     coverAltText: "The Everlasting Light album cover.",
   },
   {
@@ -85,7 +85,7 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
     subtitle: "Songs of the Holy Trinity",
     description: "A sacred music collection centered on glory, prayer, and praise.",
     href: "/music/gloria-patri",
-    coverImageUrl: "/images/music/gloria-patri-cover.png",
+    coverImageUrl: "/images/music/gloria-patri-cover.webp",
     coverAltText: "Gloria Patri album cover.",
   },
 ];
@@ -95,7 +95,7 @@ const singles: SingleShowcaseItem[] = [
     title: "The Sound of Silence (I Returned)",
     subtitle: "Sacred Single",
     description: "A contemplative single about silence, return, and the quiet road back to the light.",
-    coverImageUrl: "/images/music/thesoundofsilence.png",
+    coverImageUrl: "/images/music/thesoundofsilence.webp",
     coverAltText: "The Sound of Silence (I Returned) single cover.",
     links: [
       {
@@ -108,7 +108,7 @@ const singles: SingleShowcaseItem[] = [
     title: "The Light Led Me Back",
     subtitle: "Sacred Single",
     description: "A song of hope, restoration, and the light that calls the keeper home.",
-    coverImageUrl: "/images/music/thelightledmeback.png",
+    coverImageUrl: "/images/music/thelightledmeback.webp",
     coverAltText: "The Light Led Me Back single cover.",
     links: [
       {
@@ -121,7 +121,7 @@ const singles: SingleShowcaseItem[] = [
     title: "Into Your Hands (The Crucifixion)",
     subtitle: "Good Friday Single",
     description: "A Good Friday meditation on surrender, sacrifice, and the solemn mystery of the Cross.",
-    coverImageUrl: "/images/music/intoyourhands.png",
+    coverImageUrl: "/images/music/intoyourhands.webp",
     coverAltText: "Into Your Hands (The Crucifixion) single cover.",
     links: [
       {
@@ -134,7 +134,7 @@ const singles: SingleShowcaseItem[] = [
     title: "The Day the Stone Was Lifted (The Resurrection)",
     subtitle: "Easter Single",
     description: "An Easter release centered on resurrection, renewal, and the dawn after the tomb.",
-    coverImageUrl: "/images/music/thedaythestonewaslifted.png",
+    coverImageUrl: "/images/music/thedaythestonewaslifted.webp",
     coverAltText: "The Day the Stone Was Lifted (The Resurrection) single cover.",
     links: [
       {
