@@ -8,6 +8,7 @@ const holyTrinityImage = "/images/music/holy-trinity-graphic.png";
 const artistImage = "/images/music/eatun.png";
 const soundOfSilenceYouTubeMusicPlaylistId = "OLAK5uy_km05_eAhDnxWl-yO_" + "UqB2sKfB8HeOCAec";
 const lightLedMeBackYouTubeMusicPlaylistId = "OLAK5uy_kcHkyF8gvZ9COs7bYrWiGJZkPn" + "RHUMqTk";
+const stoneWasLiftedYouTubeMusicPlaylistId = "OLAK5uy_lI6kVZv8NVdfOr53yBsQx9bqu" + "LFnw0rVQ";
 
 export const metadata: Metadata = {
   title: "Music",
@@ -128,6 +129,12 @@ const singles: SingleShowcaseItem[] = [
     description: "An Easter release centered on resurrection, renewal, and the dawn after the tomb.",
     coverImageUrl: "/images/music/thedaythestonewaslifted.png",
     coverAltText: "The Day the Stone Was Lifted (The Resurrection) single cover.",
+    links: [
+      {
+        label: "YouTube Music",
+        href: `https://music.youtube.com/playlist?list=${stoneWasLiftedYouTubeMusicPlaylistId}`,
+      },
+    ],
   },
 ];
 
