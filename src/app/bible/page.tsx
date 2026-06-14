@@ -56,7 +56,7 @@ const genevaBibleProjectFeatures = [
   {
     title: "400th Anniversary Edition",
     description:
-      "A special Way of Quiet Light edition honoring the Eaton family&apos;s 1635 arrival in the Americas and the 400-year legacy that follows.",
+      "A special Way of Quiet Light edition honoring the Eaton family's 1635 arrival in the Americas and the 400-year legacy that follows.",
   },
 ];
 
