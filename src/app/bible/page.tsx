@@ -52,6 +52,11 @@ const genevaBibleProjectFeatures = [
     description:
       "Notes, explanations, reflections, and study material built into the Bible itself so readers can move from text to understanding.",
   },
+  {
+    title: "400th Anniversary Edition",
+    description:
+      "A special Way of Quiet Light edition honoring the Eaton family&apos;s 1635 arrival in the Americas and the 400-year legacy that follows.",
+  },
 ];
 
 const oldTestamentBooks = [
@@ -283,12 +288,17 @@ export default function BiblePage() {
         <div className="lantern-panel rounded-3xl p-6 md:p-12">
           <p className="gold-text uppercase tracking-[0.3em]">Geneva Bible Project</p>
           <h2 className="gold-text mt-4 text-4xl md:text-6xl" id="geneva-bible-project-title">
-            The Quiet Light Geneva Bible Project
+            The Geneva Bible Project
           </h2>
           <p className="mt-6 max-w-4xl text-xl leading-9 text-[var(--muted-silver)]">
-            The Geneva Bible Project will be one of the most momentous works undertaken by Quiet Light: an official
-            Quiet Light copy of the Bible based on the 1599 Geneva Bible, prepared for modern readers while
-            preserving its historical foundation.
+            The Geneva Bible Project will be one of the most momentous works undertaken by Quiet Light: a special
+            Way of Quiet Light edition and the official Quiet Light copy of the Bible, based on the 1599 Geneva
+            Bible and prepared for modern readers while preserving its historical foundation.
+          </p>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--muted-silver)]">
+            It is also being created to honor the Eaton family&apos;s 400 years in the Americas, marking the family&apos;s
+            1635 arrival and the long legacy that followed. This will stand as a special 400th anniversary edition:
+            a work of scripture, heritage, study, and devotion.
           </p>
           <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--muted-silver)]">
             Unlike the free Geneva Bible archive above, this project will become a complete edited work with the
@@ -296,7 +306,7 @@ export default function BiblePage() {
             the Bible itself.
           </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {genevaBibleProjectFeatures.map((feature) => (
               <article
                 className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6"
@@ -310,12 +320,12 @@ export default function BiblePage() {
           </div>
 
           <div className="mt-10 rounded-3xl border border-[var(--lantern-gold)] bg-[rgba(216,168,79,0.1)] p-6 md:p-8">
-            <p className="gold-text uppercase tracking-[0.22em]">Official Edition</p>
-            <h3 className="mt-3 text-3xl text-white">A Bible for study, devotion, and legacy</h3>
+            <p className="gold-text uppercase tracking-[0.22em]">Special Edition</p>
+            <h3 className="mt-3 text-3xl text-white">A 400th anniversary Bible for study, devotion, and legacy</h3>
             <p className="mt-4 max-w-4xl leading-8 text-[var(--muted-silver)]">
               This future edition will serve as the official Quiet Light Bible: a work of preservation,
-              modernization, explanation, and devotion designed to help readers encounter scripture with clarity,
-              reverence, and depth.
+              modernization, explanation, devotion, and family remembrance designed to help readers encounter
+              scripture with clarity, reverence, and depth.
             </p>
           </div>
         </div>
