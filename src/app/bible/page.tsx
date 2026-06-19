@@ -1,21 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const OLD_TESTAMENT_COMPLETE_DOWNLOAD = "/downloads/bible/geneva-1599/old-testament-complete.pdf";
+
 const scriptureLinks = [
   {
     title: "Complete Geneva Bible",
     href: "#geneva-bible-books",
     description: "The full 1599 Geneva Bible collection as the Quiet Light scripture library is built out.",
+    action: "View Section →",
   },
   {
     title: "Old Testament",
-    href: "#old-testament-books",
-    description: "The law, histories, wisdom writings, and prophets in the traditional Old Testament order.",
+    href: OLD_TESTAMENT_COMPLETE_DOWNLOAD,
+    description: "Download the complete 1599 Geneva Bible Old Testament in one ordered PDF from Genesis through Malachi.",
+    action: "Download PDF →",
   },
   {
     title: "New Testament",
     href: "#new-testament-books",
     description: "The Gospels, apostolic writings, epistles, and Revelation in the traditional New Testament order.",
+    action: "View Section →",
   },
 ];
 
@@ -331,7 +336,7 @@ export default function BiblePage() {
               <span className="gold-text text-xl">{link.title}</span>
               <span className="mt-3 block leading-7 text-[var(--muted-silver)]">{link.description}</span>
               <span className="gold-text mt-5 inline-block uppercase tracking-[0.18em] transition group-hover:translate-x-1">
-                View Section →
+                {link.action}
               </span>
             </Link>
           ))}
@@ -361,6 +366,18 @@ export default function BiblePage() {
               <div className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6">
                 <p className="gold-text uppercase tracking-[0.22em]">Old Testament</p>
                 <h3 className="mt-3 text-3xl text-white">The Hebrew Scriptures</h3>
+                <p className="mt-4 leading-7 text-[var(--muted-silver)]">
+                  Download the complete Old Testament as one ordered PDF, or use the book list below to open an
+                  individual book.
+                </p>
+                <a
+                  className="gold-text mt-5 inline-flex rounded-full border border-[var(--lantern-gold)] bg-[rgba(216,168,79,0.08)] px-5 py-3 text-sm uppercase tracking-[0.18em] transition hover:bg-[rgba(216,168,79,0.16)]"
+                  href={OLD_TESTAMENT_COMPLETE_DOWNLOAD}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Download Complete Old Testament PDF →
+                </a>
                 <BookList books={oldTestamentBooks} />
               </div>
             </article>
