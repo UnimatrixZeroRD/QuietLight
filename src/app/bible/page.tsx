@@ -21,6 +21,31 @@ const scriptureLinks = [
 
 const bibleDownloads: Record<string, string> = {
   Genesis: "/downloads/bible/geneva-1599/enggnv_GEN.pdf",
+  Exodus: "/downloads/bible/geneva-1599/enggnv_EXO.pdf",
+  Leviticus: "/downloads/bible/geneva-1599/enggnv_LEV.pdf",
+  Numbers: "/downloads/bible/geneva-1599/enggnv_NUM.pdf",
+  Deuteronomy: "/downloads/bible/geneva-1599/enggnv_DEU.pdf",
+  Joshua: "/downloads/bible/geneva-1599/enggnv_JOS.pdf",
+  Judges: "/downloads/bible/geneva-1599/enggnv_JDG.pdf",
+  Ruth: "/downloads/bible/geneva-1599/enggnv_RUT.pdf",
+  "1 Samuel": "/downloads/bible/geneva-1599/enggnv_1SA.pdf",
+  "2 Samuel": "/downloads/bible/geneva-1599/enggnv_2SA.pdf",
+  "1 Kings": "/downloads/bible/geneva-1599/enggnv_1KI.pdf",
+  "2 Kings": "/downloads/bible/geneva-1599/enggnv_2KI.pdf",
+  "1 Chronicles": "/downloads/bible/geneva-1599/enggnv_1CH.pdf",
+  "2 Chronicles": "/downloads/bible/geneva-1599/enggnv_2CH.pdf",
+  Ezra: "/downloads/bible/geneva-1599/enggnv_EZR.pdf",
+  Nehemiah: "/downloads/bible/geneva-1599/enggnv_NEH.pdf",
+  Esther: "/downloads/bible/geneva-1599/enggnv_EST.pdf",
+  Job: "/downloads/bible/geneva-1599/enggnv_JOB.pdf",
+  Psalms: "/downloads/bible/geneva-1599/enggnv_PSA.pdf",
+  Proverbs: "/downloads/bible/geneva-1599/enggnv_PRO.pdf",
+  Ecclesiastes: "/downloads/bible/geneva-1599/enggnv_ECC.pdf",
+  "Song of Solomon": "/downloads/bible/geneva-1599/enggnv_SNG.pdf",
+  Isaiah: "/downloads/bible/geneva-1599/enggnv_ISA.pdf",
+  Jeremiah: "/downloads/bible/geneva-1599/enggnv_JER.pdf",
+  Lamentations: "/downloads/bible/geneva-1599/enggnv_LAM.pdf",
+  Ezekiel: "/downloads/bible/geneva-1599/enggnv_EZK.pdf",
 };
 
 const directiveCategories = [
