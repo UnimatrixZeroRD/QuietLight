@@ -5,6 +5,7 @@ from pypdf import PdfReader, PdfWriter
 PDF_DIR = Path("public/downloads/bible/geneva-1599")
 OUTPUT_FILE = "old-testament-complete.pdf"
 
+# Canonical Protestant Old Testament order: Genesis through Malachi.
 OLD_TESTAMENT_BOOKS = [
     ("Genesis", "enggnv_GEN.pdf"),
     ("Exodus", "enggnv_EXO.pdf"),
