@@ -6,6 +6,7 @@ PDF_DIR = Path("public/downloads/bible/geneva-1599")
 OUTPUT_FILE = "new-testament-complete.pdf"
 
 # Canonical Protestant New Testament order: Matthew through Revelation.
+# This creates one ordered New Testament download file for the Bible page.
 NEW_TESTAMENT_BOOKS = [
     ("Matthew", "enggnv_MAT.pdf"),
     ("Mark", "enggnv_MRK.pdf"),
