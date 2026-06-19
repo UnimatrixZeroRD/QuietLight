@@ -3,8 +3,9 @@ from pathlib import Path
 from pypdf import PdfReader, PdfWriter
 
 PDF_DIR = Path("public/downloads/bible/geneva-1599")
+OUTPUT_FILE = "old-testament-complete.pdf"
 
-VOLUME_1 = [
+OLD_TESTAMENT_BOOKS = [
     ("Genesis", "enggnv_GEN.pdf"),
     ("Exodus", "enggnv_EXO.pdf"),
     ("Leviticus", "enggnv_LEV.pdf"),
@@ -22,9 +23,6 @@ VOLUME_1 = [
     ("Ezra", "enggnv_EZR.pdf"),
     ("Nehemiah", "enggnv_NEH.pdf"),
     ("Esther", "enggnv_EST.pdf"),
-]
-
-VOLUME_2 = [
     ("Job", "enggnv_JOB.pdf"),
     ("Psalms", "enggnv_PSA.pdf"),
     ("Proverbs", "enggnv_PRO.pdf"),
@@ -50,10 +48,10 @@ VOLUME_2 = [
 ]
 
 
-def merge_volume(books: list[tuple[str, str]], output_name: str) -> None:
+def merge_old_testament() -> None:
     writer = PdfWriter()
 
-    for book_name, filename in books:
+    for book_name, filename in OLD_TESTAMENT_BOOKS:
         source = PDF_DIR / filename
         if not source.exists():
             raise FileNotFoundError(f"Missing required PDF for {book_name}: {source}")
@@ -63,11 +61,11 @@ def merge_volume(books: list[tuple[str, str]], output_name: str) -> None:
         for page in reader.pages:
             writer.add_page(page)
 
-        # Keep a bookmark for quick navigation inside the combined volume.
+        # Keep a bookmark for quick navigation inside the combined Old Testament file.
         writer.add_outline_item(book_name, start_page)
         print(f"Added {book_name}: {filename} ({len(reader.pages)} pages)")
 
-    output_path = PDF_DIR / output_name
+    output_path = PDF_DIR / OUTPUT_FILE
     with output_path.open("wb") as output_file:
         writer.write(output_file)
 
@@ -75,8 +73,7 @@ def merge_volume(books: list[tuple[str, str]], output_name: str) -> None:
 
 
 def main() -> None:
-    merge_volume(VOLUME_1, "old-testament-volume-1-genesis-esther.pdf")
-    merge_volume(VOLUME_2, "old-testament-volume-2-job-malachi.pdf")
+    merge_old_testament()
 
 
 if __name__ == "__main__":
