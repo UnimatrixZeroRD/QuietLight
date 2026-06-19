@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const OLD_TESTAMENT_COMPLETE_DOWNLOAD = "/downloads/bible/geneva-1599/old-testament-complete.pdf";
+const NEW_TESTAMENT_COMPLETE_DOWNLOAD = "/downloads/bible/geneva-1599/new-testament-complete.pdf";
 
 const scriptureLinks = [
   {
@@ -18,9 +19,9 @@ const scriptureLinks = [
   },
   {
     title: "New Testament",
-    href: "#new-testament-books",
-    description: "The Gospels, apostolic writings, epistles, and Revelation in the traditional New Testament order.",
-    action: "View Section →",
+    href: NEW_TESTAMENT_COMPLETE_DOWNLOAD,
+    description: "Download the complete 1599 Geneva Bible New Testament in one ordered PDF from Matthew through Revelation.",
+    action: "Download PDF →",
   },
 ];
 
@@ -386,6 +387,18 @@ export default function BiblePage() {
               <div className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6">
                 <p className="gold-text uppercase tracking-[0.22em]">New Testament</p>
                 <h3 className="mt-3 text-3xl text-white">The Gospel and Apostolic Witness</h3>
+                <p className="mt-4 leading-7 text-[var(--muted-silver)]">
+                  Download the complete New Testament as one ordered PDF, or use the book list below to open an
+                  individual book.
+                </p>
+                <a
+                  className="gold-text mt-5 inline-flex rounded-full border border-[var(--lantern-gold)] bg-[rgba(216,168,79,0.08)] px-5 py-3 text-sm uppercase tracking-[0.18em] transition hover:bg-[rgba(216,168,79,0.16)]"
+                  href={NEW_TESTAMENT_COMPLETE_DOWNLOAD}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Download Complete New Testament PDF →
+                </a>
                 <BookList books={newTestamentBooks} />
               </div>
             </article>
