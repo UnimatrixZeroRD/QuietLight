@@ -122,6 +122,12 @@ textarea {
   display: none;
 }
 
+a[href="/downloads/bible/geneva-1599/old-testament-complete.pdf"].inline-flex {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 @media (max-width: 640px) {
   .lantern-panel {
     border-radius: 1.25rem;
