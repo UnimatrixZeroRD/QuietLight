@@ -122,7 +122,8 @@ textarea {
   display: none;
 }
 
-a[href="/downloads/bible/geneva-1599/old-testament-complete.pdf"].inline-flex {
+a[href="/downloads/bible/geneva-1599/old-testament-complete.pdf"].inline-flex,
+a[href="/downloads/bible/geneva-1599/new-testament-complete.pdf"].inline-flex {
   align-items: center;
   justify-content: center;
   text-align: center;
