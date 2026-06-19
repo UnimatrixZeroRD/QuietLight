@@ -19,6 +19,10 @@ const scriptureLinks = [
   },
 ];
 
+const bibleDownloads: Record<string, string> = {
+  Genesis: "/downloads/bible/geneva-1599/enggnv_GEN.pdf",
+};
+
 const directiveCategories = [
   {
     title: "Doctrinal Positions",
@@ -135,17 +139,37 @@ const newTestamentBooks = [
 function BookList({ books }: { books: string[] }) {
   return (
     <ol className="mt-6 grid gap-3 sm:grid-cols-2">
-      {books.map((book, index) => (
-        <li
-          className="flex items-center gap-3 rounded-2xl border border-[rgba(216,168,79,0.18)] bg-[rgba(10,20,36,0.45)] px-4 py-3 text-[var(--muted-silver)]"
-          key={book}
-        >
-          <span className="gold-text min-w-8 text-sm tracking-[0.16em]">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <span>{book}</span>
-        </li>
-      ))}
+      {books.map((book, index) => {
+        const downloadHref = bibleDownloads[book];
+
+        return (
+          <li
+            className="flex items-center gap-3 rounded-2xl border border-[rgba(216,168,79,0.18)] bg-[rgba(10,20,36,0.45)] px-4 py-3 text-[var(--muted-silver)]"
+            key={book}
+          >
+            <span className="gold-text min-w-8 text-sm tracking-[0.16em]">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            {downloadHref ? (
+              <a
+                className="gold-text underline-offset-4 transition hover:underline"
+                href={downloadHref}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {book}
+              </a>
+            ) : (
+              <span>{book}</span>
+            )}
+            {downloadHref ? (
+              <span className="ml-auto rounded-full border border-[rgba(216,168,79,0.28)] px-2 py-1 text-xs uppercase tracking-[0.16em] text-[var(--muted-silver)]">
+                PDF
+              </span>
+            ) : null}
+          </li>
+        );
+      })}
     </ol>
   );
 }
