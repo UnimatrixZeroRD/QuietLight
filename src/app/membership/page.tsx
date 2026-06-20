@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getPublicMembershipTiers } from "../../lib/supabase/public-content";
 
 export default async function MembershipPage() {
@@ -11,8 +12,15 @@ export default async function MembershipPage() {
         <p className="mt-4 text-lg text-[var(--muted-silver)]">An official membership order of the Way of Quiet Light.</p>
       </div>
 
-      <div className="mx-auto mt-10 flex aspect-square max-w-sm items-center justify-center rounded-3xl border border-[var(--lantern-gold)] lantern-panel">
-        <span className="text-[var(--muted-silver)] uppercase tracking-[0.2em]">Order Logo</span>
+      <div className="lantern-panel mx-auto mt-10 flex aspect-square max-w-sm items-center justify-center overflow-hidden rounded-3xl border border-[var(--lantern-gold)] p-4 shadow-[0_0_48px_rgba(216,168,79,0.18)]">
+        <Image
+          src="/images/order-of-the-lantern/order-of-the-lantern-logo.webp"
+          alt="The Order of the Lantern logo."
+          width={800}
+          height={800}
+          priority
+          className="h-full w-full object-contain"
+        />
       </div>
 
       <p className="mx-auto mt-6 max-w-3xl text-center text-[var(--muted-silver)] italic">
