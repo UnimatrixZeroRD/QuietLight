@@ -9,6 +9,8 @@ import { SiteFooter } from "../components/site-footer";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://quietlightministries.org";
 const siteName = "The Way of Quiet Light";
 const siteDescription = "A spiritual path of stillness, humility, sacred reflection, Daily Light, music, writings, and digital works.";
+const facebookVerification = "p353p26jdn2dj0fqkp6vwueqrdgwew";
+const microsoftVerification = "7FFCFE3FA489059163785757FEF7A47D";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -63,8 +65,8 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "facebook-domain-verification": "p353p26jdn2dj0fqkp6vwueqrdgwew",
-    "msvalidate.01": "7FFCFE3FA489059163785757FEF7A47D",
+    "facebook-domain-verification": facebookVerification,
+    "msvalidate.01": microsoftVerification,
   },
   openGraph: {
     type: "website",
@@ -112,6 +114,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en-CA">
+      <head>
+        <meta name="facebook-domain-verification" content={facebookVerification} />
+        <meta name="msvalidate.01" content={microsoftVerification} />
+      </head>
       <body className="quiet-page-bg min-h-screen antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
