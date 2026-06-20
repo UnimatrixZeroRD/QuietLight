@@ -49,6 +49,11 @@ type AlbumRow = {
   created_at?: string | null;
 };
 
+type SafeSelectResult<T> = {
+  data: T[] | null;
+  error: { message: string } | null;
+};
+
 function normalizeSiteUrl(url: string) {
   return url.replace(/\/$/, "");
 }
@@ -124,7 +129,7 @@ function rfc822Date(value: string | null | undefined) {
   return new Date(toIsoDate(value)).toUTCString();
 }
 
-async function safeSelect<T>(callback: () => Promise<{ data: T[] | null; error: { message: string } | null }>) {
+async function safeSelect<T>(callback: () => PromiseLike<SafeSelectResult<T>>) {
   try {
     const result = await callback();
     if (result.error) return [] as T[];
