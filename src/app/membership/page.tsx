@@ -12,12 +12,12 @@ export default async function MembershipPage() {
         <p className="mt-4 text-lg text-[var(--muted-silver)]">An official membership order of the Way of Quiet Light.</p>
       </div>
 
-      <div className="lantern-panel mx-auto mt-10 flex aspect-square max-w-sm items-center justify-center overflow-hidden rounded-3xl border border-[var(--lantern-gold)] p-4 shadow-[0_0_48px_rgba(216,168,79,0.18)]">
+      <div className="lantern-panel mx-auto mt-10 flex aspect-square max-w-[30rem] items-center justify-center overflow-hidden rounded-3xl border border-[var(--lantern-gold)] p-4 shadow-[0_0_48px_rgba(216,168,79,0.18)]">
         <Image
           src="/images/order-of-the-lantern/order-of-the-lantern-logo.webp"
           alt="The Order of the Lantern logo."
-          width={800}
-          height={800}
+          width={1000}
+          height={1000}
           priority
           className="h-full w-full object-contain"
         />
