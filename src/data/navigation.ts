@@ -28,7 +28,7 @@ export const primaryNavigation: NavItem[] = [
     label: "Community",
     href: "/membership",
     children: [
-      { label: "Order of the Lanterns", href: "/membership" },
+      { label: "Order of the Lantern", href: "/membership" },
       { label: "Quiet Works", href: "/quiet-works" },
       { label: "Store", href: "/store" },
       { label: "Support", href: "/support" },
@@ -47,7 +47,7 @@ export const footerNavigation = {
   ],
   platform: [
     { label: "Store", href: "/store" },
-    { label: "Order of the Lanterns", href: "/membership" },
+    { label: "Order of the Lantern", href: "/membership" },
     { label: "Quiet Works", href: "/quiet-works" },
     { label: "Bible", href: "/bible" },
     { label: "Blog", href: "/blog" },
