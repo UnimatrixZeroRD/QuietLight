@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SiteHeader />
         <div id="main-content">{children}</div>
         <SiteFooter />
+        <SpeedInsights />
       </body>
     </html>
   );
