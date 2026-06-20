@@ -64,6 +64,7 @@ export const metadata: Metadata = {
   },
   other: {
     "facebook-domain-verification": "p353p26jdn2dj0fqkp6vwueqrdgwew",
+    "msvalidate.01": "7FFCFE3FA489059163785757FEF7A47D",
   },
   openGraph: {
     type: "website",
