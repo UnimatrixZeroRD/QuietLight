@@ -54,7 +54,7 @@ function normalizeSiteUrl(url: string) {
 }
 
 export function getSiteUrl() {
-  return normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://quiet-light.vercel.app");
+  return normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL || "https://quietlightministries.org");
 }
 
 export function absoluteUrl(path: string) {
