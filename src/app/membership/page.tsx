@@ -5,10 +5,13 @@ export default async function MembershipPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
-      <p className="gold-text uppercase tracking-[0.3em]">The Order of the Lanterns</p>
+      <p className="gold-text uppercase tracking-[0.3em]">The Order of the Lantern</p>
       <h1 className="gold-text mt-4 text-5xl md:text-7xl">Keep the Flame</h1>
+      <p className="mt-4 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">
+        An official membership order of the Way of Quiet Light.
+      </p>
       <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">
-        The Order of the Lanterns is the fellowship of keepers, supporters, and stewards who help carry the Way of Quiet Light forward.
+        The Order of the Lantern is the fellowship of keepers, supporters, and stewards who help carry the Way of Quiet Light forward.
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {tiers.map((tier) => (
