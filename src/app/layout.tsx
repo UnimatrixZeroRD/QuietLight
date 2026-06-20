@@ -6,7 +6,7 @@ import "./globals.css";
 import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://quiet-light.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://quietlightministries.org";
 const siteName = "The Way of Quiet Light";
 const siteDescription = "A spiritual path of stillness, humility, sacred reflection, Daily Light, music, writings, and digital works.";
 
