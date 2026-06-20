@@ -27,14 +27,48 @@ export default async function MembershipPage() {
         The Lantern is the symbol of the Keeper. We do not claim to be the Light. We are only its keepers.
       </p>
 
-      <section className="mt-16 lantern-panel rounded-3xl p-8">
-        <h2 className="gold-text text-3xl">Welcome to the Fellowship</h2>
-        <p className="mt-6 leading-8 text-[var(--muted-silver)]">
-          The Order of the Lantern is the fellowship of those who choose to support, preserve, and carry forward the work of the Way of Quiet Light. Membership is open to all people of goodwill regardless of denomination, nationality, or background.
-        </p>
-        <p className="mt-4 leading-8 text-[var(--muted-silver)]">
-          Every member shares a common purpose: to tend the flame, to walk in humility, and to carry light into the darkness.
-        </p>
+      <section className="mt-16 lantern-panel rounded-3xl p-8 md:p-10">
+        <h2 className="gold-text text-3xl md:text-4xl">Welcome to the Order of the Lantern</h2>
+        <blockquote className="mt-6 border-l-2 border-[var(--lantern-gold)] pl-5 text-lg italic leading-8 text-[var(--soft-gold)]">
+          “Neither do men light a candle, and put it under a bushel, but on a candlestick; and it giveth light unto all that are in the house.” — Matthew 5:15
+        </blockquote>
+        <div className="mt-8 space-y-5 leading-8 text-[var(--muted-silver)]">
+          <p>Beloved Keeper,</p>
+          <p>Welcome to the Order of the Lantern.</p>
+          <p>Today, you do not enter into a position of power, prestige, or authority. You enter into a calling of service. You join a fellowship of those who seek not to be exalted, but to quietly carry the light entrusted to them by God.</p>
+          <p>The Way of Quiet Light teaches that we are not the source of the Light. We are not its masters, nor its owners. We are only its keepers.</p>
+          <p className="gold-text italic">“He must increase, but I must decrease.” — John 3:30</p>
+          <p>The lantern exists not to draw attention to itself, but to illuminate the path for others. In the same way, your life as a Keeper is not measured by recognition, wealth, titles, or praise, but by the quiet good you bring into the world through humility, compassion, wisdom, and faithful service.</p>
+          <p>The Lord Himself teaches us:</p>
+          <p className="gold-text italic">“Take heed that ye do not your alms before men, to be seen of them.” — Matthew 6:1</p>
+          <p className="gold-text italic">“But when thou doest alms, let not thy left hand know what thy right hand doeth.” — Matthew 6:3</p>
+          <p>These words stand at the heart of our path.</p>
+          <div className="rounded-2xl border border-[rgba(216,168,79,0.24)] bg-[rgba(7,17,31,0.35)] p-6">
+            <p>A Keeper serves without seeking reward.</p>
+            <p>A Keeper gives without seeking recognition.</p>
+            <p>A Keeper loves without demanding praise.</p>
+            <p>A Keeper carries the lantern through darkness so that others may find their way.</p>
+          </div>
+          <p>You are called to be steadfast in faith, gentle in speech, patient in adversity, and merciful in judgment.</p>
+          <p className="gold-text italic">“Be kindly affectioned one to another with brotherly love; in honour preferring one another.” — Romans 12:10</p>
+          <p className="gold-text italic">“What doth the Lord require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?” — Micah 6:8</p>
+          <p>These virtues are not merely ideals. They are the daily work of a Keeper.</p>
+          <p>As a member of the Order of the Lantern, you become a guardian of the flame—not by force, but by example. Your words, actions, and character become the testimony of the Way. Others may never know your sacrifices. They may never see the burdens you carry. Yet God sees them.</p>
+          <p className="gold-text italic">“And thy Father which seeth in secret himself shall reward thee openly.” — Matthew 6:4</p>
+          <div className="rounded-2xl border border-[rgba(216,168,79,0.3)] p-6 text-center">
+            <p className="gold-text text-xl">Remember always the central truth of our Order:</p>
+            <p className="mt-4 text-2xl italic text-[var(--soft-gold)]">You are not the Light.</p>
+            <p className="text-2xl italic text-[var(--soft-gold)]">You are only its Keeper.</p>
+          </div>
+          <p>Carry the lantern faithfully.</p>
+          <p>Let its flame guide your steps.</p>
+          <p>Let its warmth comfort the weary.</p>
+          <p>Let its light reveal the path of peace.</p>
+          <p>And when the world grows dark, may you stand firm, holding high the lantern entrusted to your care, so that others may find hope, faith, and rest.</p>
+          <p>May the Quiet Light guide your path, strengthen your spirit, and keep your heart steadfast in the service of God.</p>
+          <p>Welcome, Keeper.</p>
+          <p className="gold-text text-2xl">The flame remains.</p>
+        </div>
       </section>
 
       <section className="mt-16">
