@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { SiteHeader } from "../components/site-header";
@@ -8,6 +9,37 @@ import { SiteFooter } from "../components/site-footer";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://quiet-light.vercel.app";
 const siteName = "The Way of Quiet Light";
 const siteDescription = "A spiritual path of stillness, humility, sacred reflection, Daily Light, music, writings, and digital works.";
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteName,
+  url: siteUrl,
+  description: siteDescription,
+  founder: {
+    "@type": "Person",
+    name: "Joshua Eaton",
+  },
+  sameAs: [
+    "https://open.spotify.com/artist/0k96zp5CFLPM2I2EtFOLTB",
+    "https://music.apple.com/us/artist/yehoshua-of-%C4%93at%C5%ABn/1888389584",
+    "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteName,
+  url: siteUrl,
+  description: siteDescription,
+  inLanguage: "en-CA",
+  publisher: {
+    "@type": "Organization",
+    name: siteName,
+    url: siteUrl,
+  },
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -77,10 +109,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en-CA">
       <body className="quiet-page-bg min-h-screen antialiased">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />
         <div id="main-content">{children}</div>
         <SiteFooter />
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
