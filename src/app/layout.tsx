@@ -12,6 +12,7 @@ const siteName = "The Way of Quiet Light";
 const siteDescription = "A spiritual path of stillness, humility, sacred reflection, Daily Light, music, writings, and digital works.";
 const facebookVerification = "p353p26jdn2dj0fqkp6vwueqrdgwew";
 const microsoftVerification = "7FFCFE3FA489059163785757FEF7A47D";
+const googleAnalyticsId = "G-53X83J437V";
 
 const organizationJsonLd = {"@context":"https://schema.org","@type":"Organization",name:siteName,url:siteUrl,description:siteDescription,founder:{"@type":"Person",name:"Joshua Eaton"},sameAs:["https://open.spotify.com/artist/0k96zp5CFLPM2I2EtFOLTB","https://music.apple.com/us/artist/yehoshua-of-%C4%93at%C5%ABn/1888389584","https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn"]};
 const websiteJsonLd = {"@context":"https://schema.org","@type":"WebSite",name:siteName,url:siteUrl,description:siteDescription,inLanguage:"en-CA",publisher:{"@type":"Organization",name:siteName,url:siteUrl}};
@@ -25,6 +26,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <meta name="facebook-domain-verification" content={facebookVerification} />
         <meta name="msvalidate.01" content={microsoftVerification} />
+        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
         <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7648202890845162" crossOrigin="anonymous" strategy="afterInteractive" />
       </head>
       <body className="quiet-page-bg min-h-screen antialiased">
