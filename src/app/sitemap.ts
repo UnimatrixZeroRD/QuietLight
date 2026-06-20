@@ -3,8 +3,9 @@ import { getPublicDailyLightEntries } from "../lib/supabase/daily-light";
 import { getPublicMusicAlbums } from "../lib/supabase/music-content";
 import { getPublicPosts } from "../lib/supabase/public-content";
 import { getStoreProducts } from "../lib/supabase/store-products";
+import { getSiteUrl } from "../lib/site-seo";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = getSiteUrl();
 
 const staticRoutes = [
   "",
