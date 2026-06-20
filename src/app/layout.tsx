@@ -62,6 +62,9 @@ export const metadata: Metadata = {
       ],
     },
   },
+  other: {
+    "facebook-domain-verification": "p353p26jdn2dj0fqkp6vwueqrdgwew",
+  },
   openGraph: {
     type: "website",
     locale: "en_CA",
