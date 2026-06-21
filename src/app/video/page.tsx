@@ -26,8 +26,8 @@ const videoSections = [
     title: "The Way of Quiet Light",
     description:
       "Videos dedicated to the path itself: scripture reflections, teachings, announcements, devotional messages, and visual works connected to the Quiet Light ministry.",
-    href: "https://www.youtube.com/",
-    cta: "Visit YouTube Channel",
+    href: "",
+    cta: "YouTube Channel Coming Soon",
     highlights: ["Scripture reflections", "Quiet Light teachings", "Official ministry updates"],
   },
   {
@@ -44,7 +44,7 @@ const videoSections = [
     title: "Podcasts",
     description:
       "A place for podcast episodes, spoken reflections, conversations, and longer-form audio or video content connected to The Way of Quiet Light.",
-    href: "/blog",
+    href: "",
     cta: "Podcast Archive Coming Soon",
     highlights: ["Podcast episodes", "Spoken reflections", "Long-form commentary"],
   },
@@ -116,14 +116,20 @@ export default function VideoPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                className="gold-text mt-8 inline-flex w-fit rounded-full border border-[rgba(216,168,79,0.42)] px-5 py-3 text-xs uppercase tracking-[0.18em] transition hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]"
-                href={section.href}
-                rel={section.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                target={section.href.startsWith("http") ? "_blank" : undefined}
-              >
-                {section.cta}
-              </Link>
+              {section.href ? (
+                <Link
+                  className="gold-text mt-8 inline-flex w-fit rounded-full border border-[rgba(216,168,79,0.42)] px-5 py-3 text-xs uppercase tracking-[0.18em] transition hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]"
+                  href={section.href}
+                  rel={section.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  target={section.href.startsWith("http") ? "_blank" : undefined}
+                >
+                  {section.cta}
+                </Link>
+              ) : (
+                <p className="gold-text mt-8 inline-flex w-fit rounded-full border border-[rgba(216,168,79,0.28)] px-5 py-3 text-xs uppercase tracking-[0.18em]">
+                  {section.cta}
+                </p>
+              )}
             </article>
           ))}
         </div>
