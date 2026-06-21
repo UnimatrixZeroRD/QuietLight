@@ -28,6 +28,11 @@ type YouTubeVideo = {
   published?: string;
 };
 
+type MediaLink = {
+  label: string;
+  href: string;
+};
+
 type VideoSection = {
   eyebrow: string;
   title: string;
@@ -41,6 +46,7 @@ type VideoSection = {
   pinnedVideos?: YouTubeVideo[];
   audioEmbedTitle?: string;
   audioEmbedUrl?: string;
+  additionalLinks?: MediaLink[];
 };
 
 const wayOfQuietLightChannelId = "UC-b5c3z_6vN5VFm-Nkpj3ag";
@@ -50,6 +56,8 @@ const musicArtistChannelUrl = `https://www.youtube.com/channel/${musicArtistChan
 const podcastSpotifyShowId = "3oqbLiVLt6kOyUGhP83m02";
 const podcastSpotifyUrl = `https://open.spotify.com/show/${podcastSpotifyShowId}`;
 const podcastSpotifyEmbedUrl = `https://open.spotify.com/embed/show/${podcastSpotifyShowId}?utm_source=generator`;
+const podcastAppleUrl = "https://podcasts.apple.com/us/podcast/the-way-of-quiet-light/id1887124259";
+const podcastAmazonUrl = "https://music.amazon.com/podcasts/68f09d83-233f-4916-a799-edbb2bbffbe9/the-way-of-quiet-light";
 
 const videoSections: VideoSection[] = [
   {
@@ -109,6 +117,10 @@ const videoSections: VideoSection[] = [
     placeholderText: "The Spotify podcast player will appear here when available.",
     audioEmbedTitle: "The Way of Quiet Light podcast on Spotify",
     audioEmbedUrl: podcastSpotifyEmbedUrl,
+    additionalLinks: [
+      { label: "Listen on Apple Podcasts", href: podcastAppleUrl },
+      { label: "Listen on Amazon Music", href: podcastAmazonUrl },
+    ],
   },
 ];
 
@@ -213,6 +225,37 @@ function ChannelPlaceholder({ text }: { text: string }) {
   );
 }
 
+function SectionLinks({ section }: { section: VideoSection }) {
+  const links: MediaLink[] = [
+    ...(section.channelUrl ? [{ label: section.channelCta, href: section.channelUrl }] : []),
+    ...(section.additionalLinks ?? []),
+  ];
+
+  if (!links.length) {
+    return (
+      <p className="gold-text inline-flex rounded-full border border-[rgba(216,168,79,0.28)] px-5 py-3 text-xs uppercase tracking-[0.18em]">
+        {section.channelCta}
+      </p>
+    );
+  }
+
+  return (
+    <div className="flex flex-wrap gap-3">
+      {links.map((link) => (
+        <a
+          className="gold-text inline-flex rounded-full border border-[rgba(216,168,79,0.42)] px-5 py-3 text-xs uppercase tracking-[0.18em] transition hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]"
+          href={link.href}
+          key={link.href}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function ChannelSection({ section, videos }: { section: VideoSection; videos: YouTubeVideo[] }) {
   const [featuredVideo, ...moreVideos] = videos;
 
@@ -272,20 +315,7 @@ function ChannelSection({ section, videos }: { section: VideoSection; videos: Yo
       ) : null}
 
       <div className="mt-8">
-        {section.channelUrl ? (
-          <a
-            className="gold-text inline-flex rounded-full border border-[rgba(216,168,79,0.42)] px-5 py-3 text-xs uppercase tracking-[0.18em] transition hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]"
-            href={section.channelUrl}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {section.channelCta}
-          </a>
-        ) : (
-          <p className="gold-text inline-flex rounded-full border border-[rgba(216,168,79,0.28)] px-5 py-3 text-xs uppercase tracking-[0.18em]">
-            {section.channelCta}
-          </p>
-        )}
+        <SectionLinks section={section} />
       </div>
     </article>
   );
