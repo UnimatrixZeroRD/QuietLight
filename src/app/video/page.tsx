@@ -37,6 +37,7 @@ type VideoSection = {
   channelUrl?: string;
   channelCta: string;
   placeholderText: string;
+  pinnedVideos?: YouTubeVideo[];
 };
 
 const musicArtistChannelId = "UCbuateNIrB9WYp9pFkIGkLA";
@@ -65,6 +66,12 @@ const videoSections: VideoSection[] = [
     channelUrl: musicArtistChannelUrl,
     channelCta: "Go Directly to the Artist Channel",
     placeholderText: "No public YouTube uploads were found for this artist channel yet.",
+    pinnedVideos: [
+      {
+        id: "gKlRMe915Y0",
+        title: "Latest Yehoshua of Ēatūn upload",
+      },
+    ],
   },
   {
     eyebrow: "Podcast Video Section",
@@ -121,12 +128,24 @@ async function getYouTubeVideos(channelId?: string): Promise<YouTubeVideo[]> {
   }
 }
 
+function mergeVideos(pinnedVideos: YouTubeVideo[] = [], fetchedVideos: YouTubeVideo[] = []) {
+  const seen = new Set<string>();
+
+  return [...pinnedVideos, ...fetchedVideos]
+    .filter((video) => {
+      if (seen.has(video.id)) return false;
+      seen.add(video.id);
+      return true;
+    })
+    .slice(0, 5);
+}
+
 function YouTubeIframe({ video, featured = false }: { video: YouTubeVideo; featured?: boolean }) {
   return (
     <div>
       <iframe
         className="aspect-video w-full rounded-2xl border border-[rgba(216,168,79,0.28)] shadow-[0_0_42px_rgba(216,168,79,0.12)]"
-        src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+        src={`https://www.youtube.com/embed/${video.id}`}
         title={video.title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
@@ -211,10 +230,14 @@ function ChannelSection({ section, videos }: { section: VideoSection; videos: Yo
 
 export default async function VideoPage() {
   const sectionsWithVideos = await Promise.all(
-    videoSections.map(async (section) => ({
-      section,
-      videos: await getYouTubeVideos(section.channelId),
-    })),
+    videoSections.map(async (section) => {
+      const fetchedVideos = await getYouTubeVideos(section.channelId);
+
+      return {
+        section,
+        videos: mergeVideos(section.pinnedVideos, fetchedVideos),
+      };
+    }),
   );
 
   return (
