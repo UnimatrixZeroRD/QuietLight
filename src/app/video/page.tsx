@@ -58,6 +58,7 @@ const podcastSpotifyUrl = `https://open.spotify.com/show/${podcastSpotifyShowId}
 const podcastSpotifyEmbedUrl = `https://open.spotify.com/embed/show/${podcastSpotifyShowId}?utm_source=generator`;
 const podcastAppleUrl = "https://podcasts.apple.com/us/podcast/the-way-of-quiet-light/id1887124259";
 const podcastAmazonUrl = "https://music.amazon.com/podcasts/68f09d83-233f-4916-a799-edbb2bbffbe9/the-way-of-quiet-light";
+const podcastGoodpodsUrl = "https://goodpods.com/podcasts/the-way-of-quiet-light-737745";
 
 const videoSections: VideoSection[] = [
   {
@@ -120,6 +121,7 @@ const videoSections: VideoSection[] = [
     additionalLinks: [
       { label: "Listen on Apple Podcasts", href: podcastAppleUrl },
       { label: "Listen on Amazon Music", href: podcastAmazonUrl },
+      { label: "Listen on Goodpods", href: podcastGoodpodsUrl },
     ],
   },
 ];
