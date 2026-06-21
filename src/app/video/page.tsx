@@ -32,7 +32,10 @@ type VideoSection = {
   placeholderText: string;
 };
 
-const musicArtistChannelUrl = "https://www.youtube.com/@Yehoshuaof%C4%92at%C5%ABn";
+const musicArtistChannelId = "UCbuateNIrB9WYp9pFkIGkLA";
+const musicArtistUploadsPlaylistId = "UUbuateNIrB9WYp9pFkIGkLA";
+const musicArtistChannelUrl = `https://www.youtube.com/channel/${musicArtistChannelId}`;
+const musicArtistUploadsEmbedUrl = `https://www.youtube.com/embed/videoseries?list=${musicArtistUploadsPlaylistId}`;
 
 const videoSections: VideoSection[] = [
   {
@@ -52,8 +55,8 @@ const videoSections: VideoSection[] = [
     channelUrl: musicArtistChannelUrl,
     channelCta: "Go Directly to the Artist Channel",
     embedTitle: "Yehoshua of Ēatūn YouTube channel uploads",
-    embedUrl: "https://www.youtube.com/embed?listType=user_uploads&list=Yehoshuaof%C4%92at%C5%ABn",
-    placeholderText: "The Yehoshua of Ēatūn YouTube channel is embedded here.",
+    embedUrl: musicArtistUploadsEmbedUrl,
+    placeholderText: "The Yehoshua of Ēatūn YouTube channel uploads are embedded here.",
   },
   {
     eyebrow: "Podcast Video Section",
@@ -74,6 +77,7 @@ function ChannelEmbed({ section }: { section: VideoSection }) {
         src={section.embedUrl}
         title={section.embedTitle}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       />
     );
