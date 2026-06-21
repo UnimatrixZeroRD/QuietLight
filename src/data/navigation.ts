@@ -21,6 +21,7 @@ export const primaryNavigation: NavItem[] = [
     children: [
       { label: "The Keeper's Lantern", href: "/keepers-lantern" },
       { label: "Music", href: "/music" },
+      { label: "Video", href: "/video" },
       { label: "Blog", href: "/blog" },
     ],
   },
@@ -43,6 +44,7 @@ export const footerNavigation = {
     { label: "The Way", href: "/the-way" },
     { label: "The Keeper's Lantern", href: "/keepers-lantern" },
     { label: "Music", href: "/music" },
+    { label: "Video", href: "/video" },
     { label: "Daily Light", href: "/daily-light" },
   ],
   platform: [
