@@ -41,6 +41,8 @@ type VideoSection = {
   pinnedVideos?: YouTubeVideo[];
 };
 
+const wayOfQuietLightChannelId = "UC-b5c3z_6vN5VFm-Nkpj3ag";
+const wayOfQuietLightChannelUrl = `https://www.youtube.com/channel/${wayOfQuietLightChannelId}`;
 const musicArtistChannelId = "UCbuateNIrB9WYp9pFkIGkLA";
 const musicArtistChannelUrl = `https://www.youtube.com/channel/${musicArtistChannelId}`;
 
@@ -62,8 +64,10 @@ const videoSections: VideoSection[] = [
       "Seek wisdom in Scripture",
       "Keep the light alive in a troubled world",
     ],
-    channelCta: "YouTube Channel Coming Soon",
-    placeholderText: "Add the official Way of Quiet Light YouTube channel ID here when ready.",
+    channelId: wayOfQuietLightChannelId,
+    channelUrl: wayOfQuietLightChannelUrl,
+    channelCta: "Go Directly to the Way of Quiet Light Channel",
+    placeholderText: "No public YouTube uploads were found for The Way of Quiet Light channel yet.",
   },
   {
     eyebrow: "Music Artist Channel",
