@@ -21,35 +21,135 @@ const heroImage = {
   height: 941,
 };
 
-const videoSections = [
+type VideoItem = {
+  title: string;
+  embedUrl?: string;
+};
+
+type VideoSection = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  channelUrl?: string;
+  channelCta: string;
+  featuredVideo?: VideoItem;
+  additionalVideos: VideoItem[];
+};
+
+const musicArtistChannelUrl = "https://www.youtube.com/@Yehoshuaof%C4%92at%C5%ABn";
+
+const videoSections: VideoSection[] = [
   {
     eyebrow: "Official YouTube Channel",
     title: "The Way of Quiet Light",
     description:
       "Videos dedicated to the path itself: scripture reflections, teachings, announcements, devotional messages, and visual works connected to the Quiet Light ministry.",
-    href: "",
-    cta: "YouTube Channel Coming Soon",
-    highlights: ["Scripture reflections", "Quiet Light teachings", "Official ministry updates"],
+    channelCta: "YouTube Channel Coming Soon",
+    featuredVideo: { title: "Latest Way of Quiet Light Video" },
+    additionalVideos: [
+      { title: "Way of Quiet Light Video 1" },
+      { title: "Way of Quiet Light Video 2" },
+      { title: "Way of Quiet Light Video 3" },
+      { title: "Way of Quiet Light Video 4" },
+      { title: "Way of Quiet Light Video 5" },
+    ],
   },
   {
     eyebrow: "Music Artist Channel",
     title: "Yehoshua of Ēatūn",
     description:
       "Music videos and visual companions for psalms, hymns, singles, and sacred music released under the Yehoshua of Ēatūn artist name.",
-    href: "https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn",
-    cta: "Visit Artist Channel",
-    highlights: ["Music videos", "Album visuals", "Sacred songs and hymns"],
+    channelUrl: musicArtistChannelUrl,
+    channelCta: "Go to Artist Channel",
+    featuredVideo: { title: "Latest Yehoshua of Ēatūn Video" },
+    additionalVideos: [
+      { title: "Yehoshua of Ēatūn Video 1" },
+      { title: "Yehoshua of Ēatūn Video 2" },
+      { title: "Yehoshua of Ēatūn Video 3" },
+      { title: "Yehoshua of Ēatūn Video 4" },
+      { title: "Yehoshua of Ēatūn Video 5" },
+    ],
   },
   {
     eyebrow: "Podcast Video Section",
     title: "Podcasts",
     description:
       "A place for podcast episodes, spoken reflections, conversations, and longer-form audio or video content connected to The Way of Quiet Light.",
-    href: "",
-    cta: "Podcast Archive Coming Soon",
-    highlights: ["Podcast episodes", "Spoken reflections", "Long-form commentary"],
+    channelCta: "Podcast Archive Coming Soon",
+    featuredVideo: { title: "Latest Podcast Episode" },
+    additionalVideos: [
+      { title: "Podcast Episode 1" },
+      { title: "Podcast Episode 2" },
+      { title: "Podcast Episode 3" },
+      { title: "Podcast Episode 4" },
+      { title: "Podcast Episode 5" },
+    ],
   },
 ];
+
+function VideoEmbedSlot({ item, label }: { item: VideoItem; label: string }) {
+  if (item.embedUrl) {
+    return (
+      <iframe
+        className="aspect-video w-full rounded-2xl border border-[rgba(216,168,79,0.28)] shadow-[0_0_42px_rgba(216,168,79,0.12)]"
+        src={item.embedUrl}
+        title={item.title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      />
+    );
+  }
+
+  return (
+    <div className="flex aspect-video w-full items-center justify-center rounded-2xl border border-dashed border-[rgba(216,168,79,0.34)] bg-[rgba(7,17,31,0.58)] p-6 text-center shadow-[0_0_32px_rgba(216,168,79,0.08)]">
+      <div>
+        <p className="gold-text text-4xl" aria-hidden="true">▶</p>
+        <p className="gold-text mt-4 text-xs uppercase tracking-[0.22em]">{label}</p>
+        <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{item.title}</p>
+      </div>
+    </div>
+  );
+}
+
+function ChannelSection({ section }: { section: VideoSection }) {
+  return (
+    <article className="lantern-panel rounded-3xl p-6 md:p-10">
+      <div className="max-w-4xl">
+        <p className="gold-text text-xs uppercase tracking-[0.26em]">{section.eyebrow}</p>
+        <h3 className="gold-text mt-4 text-4xl leading-tight md:text-6xl">{section.title}</h3>
+        <p className="mt-6 text-lg leading-8 text-[var(--muted-silver)]">{section.description}</p>
+        {section.channelUrl ? (
+          <Link
+            className="gold-text mt-7 inline-flex rounded-full border border-[rgba(216,168,79,0.42)] px-5 py-3 text-xs uppercase tracking-[0.18em] transition hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]"
+            href={section.channelUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {section.channelCta}
+          </Link>
+        ) : (
+          <p className="gold-text mt-7 inline-flex rounded-full border border-[rgba(216,168,79,0.28)] px-5 py-3 text-xs uppercase tracking-[0.18em]">
+            {section.channelCta}
+          </p>
+        )}
+      </div>
+
+      <div className="mt-10">
+        <p className="gold-text mb-4 text-xs uppercase tracking-[0.24em]">Featured / Latest Video</p>
+        {section.featuredVideo ? <VideoEmbedSlot item={section.featuredVideo} label="Featured Embed Slot" /> : null}
+      </div>
+
+      <div className="mt-10">
+        <p className="gold-text mb-4 text-xs uppercase tracking-[0.24em]">More Videos</p>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {section.additionalVideos.map((video, index) => (
+            <VideoEmbedSlot item={video} label={`Video Embed Slot ${index + 1}`} key={`${section.title}-${video.title}`} />
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function VideoPage() {
   return (
@@ -64,7 +164,7 @@ export default function VideoPage() {
               This page gathers the video content of The Way of Quiet Light: official teachings, visual reflections, music videos, and podcast episodes.
             </p>
             <p className="mt-6 max-w-3xl leading-8 text-[var(--muted-silver)]">
-              It is organized into three paths so visitors can easily find the ministry channel, the sacred music channel, and the podcast/video archive as the library grows.
+              The page is divided into three full-width areas so each channel can have its own featured video, additional videos, and direct channel button.
             </p>
           </div>
 
@@ -85,41 +185,15 @@ export default function VideoPage() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
         <div className="mb-10 max-w-3xl">
           <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Watch and Listen</p>
-          <h2 className="mt-4 text-4xl md:text-6xl">Three paths for video content.</h2>
+          <h2 className="mt-4 text-4xl md:text-6xl">Three dedicated video areas.</h2>
           <p className="mt-5 leading-8 text-[var(--muted-silver)]">
-            The video library is divided into the official Way of Quiet Light channel, the Yehoshua of Ēatūn music channel, and the podcast section.
+            Each section is stacked vertically and prepared for a featured/latest video, five additional video embeds, and a direct channel link.
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="space-y-10">
           {videoSections.map((section) => (
-            <article className="lantern-panel flex h-full flex-col rounded-3xl p-6 md:p-8" key={section.title}>
-              <p className="gold-text text-xs uppercase tracking-[0.24em]">{section.eyebrow}</p>
-              <h3 className="mt-4 text-3xl text-[var(--ivory)]">{section.title}</h3>
-              <p className="mt-5 flex-1 leading-7 text-[var(--muted-silver)]">{section.description}</p>
-              <ul className="mt-6 space-y-3 text-sm leading-6 text-[var(--muted-silver)]">
-                {section.highlights.map((highlight) => (
-                  <li className="flex gap-3" key={highlight}>
-                    <span className="gold-text" aria-hidden="true">✦</span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-              {section.href ? (
-                <Link
-                  className="gold-text mt-8 inline-flex w-fit rounded-full border border-[rgba(216,168,79,0.42)] px-5 py-3 text-xs uppercase tracking-[0.18em] transition hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]"
-                  href={section.href}
-                  rel={section.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  target={section.href.startsWith("http") ? "_blank" : undefined}
-                >
-                  {section.cta}
-                </Link>
-              ) : (
-                <p className="gold-text mt-8 inline-flex w-fit rounded-full border border-[rgba(216,168,79,0.28)] px-5 py-3 text-xs uppercase tracking-[0.18em]">
-                  {section.cta}
-                </p>
-              )}
-            </article>
+            <ChannelSection section={section} key={section.title} />
           ))}
         </div>
       </section>
