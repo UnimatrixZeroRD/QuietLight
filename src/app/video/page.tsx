@@ -33,6 +33,7 @@ type VideoSection = {
   title: string;
   description: string;
   details?: string[];
+  values?: string[];
   channelId?: string;
   channelUrl?: string;
   channelCta: string;
@@ -48,7 +49,19 @@ const videoSections: VideoSection[] = [
     eyebrow: "Official YouTube Channel",
     title: "The Way of Quiet Light",
     description:
-      "Videos dedicated to the path itself: scripture reflections, teachings, announcements, devotional messages, and visual works connected to the Quiet Light ministry.",
+      "A quiet place for reflection, faith, and spiritual growth.",
+    details: [
+      "This channel shares the sermons, teachings, prayers, and reflections that flow from The Way of Quiet Light — a path centred on humility, endurance, and the steady light of Christ.",
+      "The purpose of this channel is not spectacle or performance. The deeper work of faith often happens quietly, in the hidden corners of our lives where the soul wrestles, heals, and slowly learns to walk again in the light. What we share here are the words that help guide that journey.",
+      "Through sermons, devotional reflections, Scripture study, and teachings inspired by works such as The Keeper’s Lantern and the Geneva Bible Project, this channel seeks to encourage those who are searching for a quieter and more thoughtful walk with Christ.",
+    ],
+    values: [
+      "Walk with compassion",
+      "Speak with humility and grace",
+      "Endure faithfully through hardship",
+      "Seek wisdom in Scripture",
+      "Keep the light alive in a troubled world",
+    ],
     channelCta: "YouTube Channel Coming Soon",
     placeholderText: "Add the official Way of Quiet Light YouTube channel ID here when ready.",
   },
@@ -182,6 +195,19 @@ function ChannelSection({ section, videos }: { section: VideoSection; videos: Yo
             {section.details.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
+          </div>
+        ) : null}
+        {section.values?.length ? (
+          <div className="mt-8">
+            <p className="gold-text text-xs uppercase tracking-[0.22em]">Here we strive to</p>
+            <ul className="mt-5 grid gap-3 text-[var(--muted-silver)] sm:grid-cols-2">
+              {section.values.map((value) => (
+                <li className="flex gap-3 leading-7" key={value}>
+                  <span aria-hidden="true">✨</span>
+                  <span>{value}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         ) : null}
       </div>
