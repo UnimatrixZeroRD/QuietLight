@@ -13,6 +13,7 @@ const staticRoutes = [
   "/the-way",
   "/keepers-lantern",
   "/music",
+  "/video",
   "/daily-light",
   "/bible",
   "/store",
