@@ -12,7 +12,7 @@ const originThreads = ["Prayer", "Writing", "Scripture", "Quiet Works"];
 const foundationStones = ["Purpose", "Stewardship", "Accountability", "Service", "Continuity"];
 
 const structurePoints = [
-  "define the ministry&apos;s purpose and responsibilities",
+  "define the ministry's purpose and responsibilities",
   "clarify leadership, governance, and decision-making",
   "protect the writings, teachings, music, and ministry materials",
   "handle support, donations, and resources with care",
@@ -100,7 +100,7 @@ export default function AboutPage() {
           height={941}
           priority
           sizes="100vw"
-          className="h-[34rem] w-full object-cover opacity-45 md:h-[42rem]"
+          className="h-[34rem] w-full object-cover opacity-[0.45] md:h-[42rem]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(7,17,31,0.38)] via-[rgba(7,17,31,0.78)] to-[var(--midnight)]" />
         <div className="absolute inset-0 flex items-end">
@@ -173,7 +173,7 @@ export default function AboutPage() {
             {structurePoints.map((point) => (
               <div className="flex gap-4 rounded-2xl border border-[rgba(216,168,79,0.22)] bg-[rgba(7,17,31,0.45)] p-4 text-[var(--muted-silver)]" key={point}>
                 <span className="gold-text mt-1 text-sm" aria-hidden="true">✦</span>
-                <p dangerouslySetInnerHTML={{ __html: point }} />
+                <p>{point}</p>
               </div>
             ))}
           </div>
