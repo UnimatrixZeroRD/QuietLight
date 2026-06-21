@@ -99,7 +99,11 @@ const videoSections: VideoSection[] = [
     eyebrow: "Podcast Section",
     title: "Podcasts",
     description:
-      "Podcast episodes, spoken reflections, conversations, and longer-form audio content connected to The Way of Quiet Light.",
+      "A guided journey through The Way of Quiet Light, using The Keeper’s Lantern as its framework.",
+    details: [
+      "This podcast explores faith, struggle, and the enduring presence of light in life’s darkest moments.",
+      "Through reflection, story, and spiritual insight, each episode offers a path forward—not through noise, but through clarity, stillness, and the flame that remains.",
+    ],
     channelUrl: podcastSpotifyUrl,
     channelCta: "Listen on Spotify",
     placeholderText: "The Spotify podcast player will appear here when available.",
