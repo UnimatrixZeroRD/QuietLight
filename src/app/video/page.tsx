@@ -25,6 +25,7 @@ type VideoSection = {
   eyebrow: string;
   title: string;
   description: string;
+  details?: string[];
   channelUrl?: string;
   channelCta: string;
   embedTitle: string;
@@ -51,7 +52,12 @@ const videoSections: VideoSection[] = [
     eyebrow: "Music Artist Channel",
     title: "Yehoshua of Ēatūn",
     description:
-      "Music videos and visual companions for psalms, hymns, singles, and sacred music released under the Yehoshua of Ēatūn artist name.",
+      "An artistic expression rooted in reflection, stillness, and the enduring search for meaning.",
+    details: [
+      "The music and spoken works presented here emerge from a deeper philosophical framework known as The Way of Quiet Light, where the focus is not on noise or spectacle, but on clarity, presence, and quiet transformation.",
+      "Each piece is created as an invitation: to step back from the constant urgency of the world and enter a space where light and darkness are both acknowledged, and where understanding is allowed to unfold naturally. Drawing from spiritual language, historical echoes, and lived experience, the work does not seek to instruct or persuade, but to resonate.",
+      "The name Yehoshua reflects an ancient idea of salvation and restoration, while Ēatūn grounds the work in personal lineage and identity. Together, they represent a bridge between the timeless and the present—between what has been carried forward and what is still being discovered.",
+    ],
     channelUrl: musicArtistChannelUrl,
     channelCta: "Go Directly to the Artist Channel",
     embedTitle: "Yehoshua of Ēatūn YouTube channel uploads",
@@ -101,6 +107,13 @@ function ChannelSection({ section }: { section: VideoSection }) {
         <p className="gold-text text-xs uppercase tracking-[0.26em]">{section.eyebrow}</p>
         <h3 className="gold-text mt-4 text-4xl leading-tight md:text-6xl">{section.title}</h3>
         <p className="mt-6 text-lg leading-8 text-[var(--muted-silver)]">{section.description}</p>
+        {section.details?.length ? (
+          <div className="mt-6 space-y-5 leading-8 text-[var(--muted-silver)]">
+            {section.details.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        ) : null}
       </div>
 
       <div className="mt-10">
