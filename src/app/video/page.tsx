@@ -127,19 +127,23 @@ async function getYouTubeVideos(channelId?: string): Promise<YouTubeVideo[]> {
 
     const xml = await response.text();
     const entries = xml.split("<entry>").slice(1);
+    const videos: YouTubeVideo[] = [];
 
-    return entries
-      .map((entry) => {
-        const id = getXmlTag(entry, "yt:videoId");
-        const title = decodeXml(getXmlTag(entry, "title"));
-        const published = getXmlTag(entry, "published");
+    for (const entry of entries) {
+      const id = getXmlTag(entry, "yt:videoId");
+      const title = decodeXml(getXmlTag(entry, "title"));
+      const published = getXmlTag(entry, "published");
 
-        if (!id || !title) return null;
+      if (!id || !title) continue;
 
-        return { id, title, published };
-      })
-      .filter((video): video is YouTubeVideo => Boolean(video))
-      .slice(0, 5);
+      videos.push({
+        id,
+        title,
+        ...(published ? { published } : {}),
+      });
+    }
+
+    return videos.slice(0, 5);
   } catch {
     return [];
   }
