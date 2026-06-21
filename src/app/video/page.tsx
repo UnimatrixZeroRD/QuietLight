@@ -21,19 +21,15 @@ const heroImage = {
   height: 941,
 };
 
-type VideoItem = {
-  title: string;
-  embedUrl?: string;
-};
-
 type VideoSection = {
   eyebrow: string;
   title: string;
   description: string;
   channelUrl?: string;
   channelCta: string;
-  featuredVideo?: VideoItem;
-  additionalVideos: VideoItem[];
+  embedTitle: string;
+  embedUrl?: string;
+  placeholderText: string;
 };
 
 const musicArtistChannelUrl = "https://www.youtube.com/@Yehoshuaof%C4%92at%C5%ABn";
@@ -45,14 +41,8 @@ const videoSections: VideoSection[] = [
     description:
       "Videos dedicated to the path itself: scripture reflections, teachings, announcements, devotional messages, and visual works connected to the Quiet Light ministry.",
     channelCta: "YouTube Channel Coming Soon",
-    featuredVideo: { title: "Latest Way of Quiet Light Video" },
-    additionalVideos: [
-      { title: "Way of Quiet Light Video 1" },
-      { title: "Way of Quiet Light Video 2" },
-      { title: "Way of Quiet Light Video 3" },
-      { title: "Way of Quiet Light Video 4" },
-      { title: "Way of Quiet Light Video 5" },
-    ],
+    embedTitle: "The Way of Quiet Light YouTube videos",
+    placeholderText: "Add the official Way of Quiet Light YouTube channel or playlist embed here.",
   },
   {
     eyebrow: "Music Artist Channel",
@@ -60,15 +50,10 @@ const videoSections: VideoSection[] = [
     description:
       "Music videos and visual companions for psalms, hymns, singles, and sacred music released under the Yehoshua of Ēatūn artist name.",
     channelUrl: musicArtistChannelUrl,
-    channelCta: "Go to Artist Channel",
-    featuredVideo: { title: "Latest Yehoshua of Ēatūn Video" },
-    additionalVideos: [
-      { title: "Yehoshua of Ēatūn Video 1" },
-      { title: "Yehoshua of Ēatūn Video 2" },
-      { title: "Yehoshua of Ēatūn Video 3" },
-      { title: "Yehoshua of Ēatūn Video 4" },
-      { title: "Yehoshua of Ēatūn Video 5" },
-    ],
+    channelCta: "Go Directly to the Artist Channel",
+    embedTitle: "Yehoshua of Ēatūn YouTube channel uploads",
+    embedUrl: "https://www.youtube.com/embed?listType=user_uploads&list=Yehoshuaof%C4%92at%C5%ABn",
+    placeholderText: "The Yehoshua of Ēatūn YouTube channel is embedded here.",
   },
   {
     eyebrow: "Podcast Video Section",
@@ -76,24 +61,18 @@ const videoSections: VideoSection[] = [
     description:
       "A place for podcast episodes, spoken reflections, conversations, and longer-form audio or video content connected to The Way of Quiet Light.",
     channelCta: "Podcast Archive Coming Soon",
-    featuredVideo: { title: "Latest Podcast Episode" },
-    additionalVideos: [
-      { title: "Podcast Episode 1" },
-      { title: "Podcast Episode 2" },
-      { title: "Podcast Episode 3" },
-      { title: "Podcast Episode 4" },
-      { title: "Podcast Episode 5" },
-    ],
+    embedTitle: "Podcast videos and episodes",
+    placeholderText: "Add the podcast YouTube channel, playlist, or episode embeds here.",
   },
 ];
 
-function VideoEmbedSlot({ item, label }: { item: VideoItem; label: string }) {
-  if (item.embedUrl) {
+function ChannelEmbed({ section }: { section: VideoSection }) {
+  if (section.embedUrl) {
     return (
       <iframe
         className="aspect-video w-full rounded-2xl border border-[rgba(216,168,79,0.28)] shadow-[0_0_42px_rgba(216,168,79,0.12)]"
-        src={item.embedUrl}
-        title={item.title}
+        src={section.embedUrl}
+        title={section.embedTitle}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       />
@@ -103,9 +82,9 @@ function VideoEmbedSlot({ item, label }: { item: VideoItem; label: string }) {
   return (
     <div className="flex aspect-video w-full items-center justify-center rounded-2xl border border-dashed border-[rgba(216,168,79,0.34)] bg-[rgba(7,17,31,0.58)] p-6 text-center shadow-[0_0_32px_rgba(216,168,79,0.08)]">
       <div>
-        <p className="gold-text text-4xl" aria-hidden="true">▶</p>
-        <p className="gold-text mt-4 text-xs uppercase tracking-[0.22em]">{label}</p>
-        <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{item.title}</p>
+        <p className="gold-text text-5xl" aria-hidden="true">▶</p>
+        <p className="gold-text mt-4 text-xs uppercase tracking-[0.22em]">Channel Embed Area</p>
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[var(--muted-silver)]">{section.placeholderText}</p>
       </div>
     </div>
   );
@@ -118,9 +97,16 @@ function ChannelSection({ section }: { section: VideoSection }) {
         <p className="gold-text text-xs uppercase tracking-[0.26em]">{section.eyebrow}</p>
         <h3 className="gold-text mt-4 text-4xl leading-tight md:text-6xl">{section.title}</h3>
         <p className="mt-6 text-lg leading-8 text-[var(--muted-silver)]">{section.description}</p>
+      </div>
+
+      <div className="mt-10">
+        <ChannelEmbed section={section} />
+      </div>
+
+      <div className="mt-8">
         {section.channelUrl ? (
           <Link
-            className="gold-text mt-7 inline-flex rounded-full border border-[rgba(216,168,79,0.42)] px-5 py-3 text-xs uppercase tracking-[0.18em] transition hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]"
+            className="gold-text inline-flex rounded-full border border-[rgba(216,168,79,0.42)] px-5 py-3 text-xs uppercase tracking-[0.18em] transition hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]"
             href={section.channelUrl}
             rel="noopener noreferrer"
             target="_blank"
@@ -128,24 +114,10 @@ function ChannelSection({ section }: { section: VideoSection }) {
             {section.channelCta}
           </Link>
         ) : (
-          <p className="gold-text mt-7 inline-flex rounded-full border border-[rgba(216,168,79,0.28)] px-5 py-3 text-xs uppercase tracking-[0.18em]">
+          <p className="gold-text inline-flex rounded-full border border-[rgba(216,168,79,0.28)] px-5 py-3 text-xs uppercase tracking-[0.18em]">
             {section.channelCta}
           </p>
         )}
-      </div>
-
-      <div className="mt-10">
-        <p className="gold-text mb-4 text-xs uppercase tracking-[0.24em]">Featured / Latest Video</p>
-        {section.featuredVideo ? <VideoEmbedSlot item={section.featuredVideo} label="Featured Embed Slot" /> : null}
-      </div>
-
-      <div className="mt-10">
-        <p className="gold-text mb-4 text-xs uppercase tracking-[0.24em]">More Videos</p>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {section.additionalVideos.map((video, index) => (
-            <VideoEmbedSlot item={video} label={`Video Embed Slot ${index + 1}`} key={`${section.title}-${video.title}`} />
-          ))}
-        </div>
       </div>
     </article>
   );
@@ -164,7 +136,7 @@ export default function VideoPage() {
               This page gathers the video content of The Way of Quiet Light: official teachings, visual reflections, music videos, and podcast episodes.
             </p>
             <p className="mt-6 max-w-3xl leading-8 text-[var(--muted-silver)]">
-              The page is divided into three full-width areas so each channel can have its own featured video, additional videos, and direct channel button.
+              The page is divided into three full-width vertical areas, with one section for the Way of Quiet Light, one for the music artist channel, and one for podcasts.
             </p>
           </div>
 
@@ -187,11 +159,11 @@ export default function VideoPage() {
           <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Watch and Listen</p>
           <h2 className="mt-4 text-4xl md:text-6xl">Three dedicated video areas.</h2>
           <p className="mt-5 leading-8 text-[var(--muted-silver)]">
-            Each section is stacked vertically and prepared for a featured/latest video, five additional video embeds, and a direct channel link.
+            Each area appears one after another down the page and is prepared for its own YouTube channel or playlist embed.
           </p>
         </div>
 
-        <div className="space-y-10">
+        <div className="space-y-12">
           {videoSections.map((section) => (
             <ChannelSection section={section} key={section.title} />
           ))}
