@@ -39,12 +39,17 @@ type VideoSection = {
   channelCta: string;
   placeholderText: string;
   pinnedVideos?: YouTubeVideo[];
+  audioEmbedTitle?: string;
+  audioEmbedUrl?: string;
 };
 
 const wayOfQuietLightChannelId = "UC-b5c3z_6vN5VFm-Nkpj3ag";
 const wayOfQuietLightChannelUrl = `https://www.youtube.com/channel/${wayOfQuietLightChannelId}`;
 const musicArtistChannelId = "UCbuateNIrB9WYp9pFkIGkLA";
 const musicArtistChannelUrl = `https://www.youtube.com/channel/${musicArtistChannelId}`;
+const podcastSpotifyShowId = "3oqbLiVLt6kOyUGhP83m02";
+const podcastSpotifyUrl = `https://open.spotify.com/show/${podcastSpotifyShowId}`;
+const podcastSpotifyEmbedUrl = `https://open.spotify.com/embed/show/${podcastSpotifyShowId}?utm_source=generator`;
 
 const videoSections: VideoSection[] = [
   {
@@ -91,12 +96,15 @@ const videoSections: VideoSection[] = [
     ],
   },
   {
-    eyebrow: "Podcast Video Section",
+    eyebrow: "Podcast Section",
     title: "Podcasts",
     description:
-      "A place for podcast episodes, spoken reflections, conversations, and longer-form audio or video content connected to The Way of Quiet Light.",
-    channelCta: "Podcast Archive Coming Soon",
-    placeholderText: "Add the podcast YouTube channel ID here when ready.",
+      "Podcast episodes, spoken reflections, conversations, and longer-form audio content connected to The Way of Quiet Light.",
+    channelUrl: podcastSpotifyUrl,
+    channelCta: "Listen on Spotify",
+    placeholderText: "The Spotify podcast player will appear here when available.",
+    audioEmbedTitle: "The Way of Quiet Light podcast on Spotify",
+    audioEmbedUrl: podcastSpotifyEmbedUrl,
   },
 ];
 
@@ -177,6 +185,18 @@ function YouTubeIframe({ video, featured = false }: { video: YouTubeVideo; featu
   );
 }
 
+function SpotifyIframe({ title, url }: { title: string; url: string }) {
+  return (
+    <iframe
+      className="min-h-[352px] w-full rounded-2xl border border-[rgba(216,168,79,0.28)] shadow-[0_0_42px_rgba(216,168,79,0.12)]"
+      src={url}
+      title={title}
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    />
+  );
+}
+
 function ChannelPlaceholder({ text }: { text: string }) {
   return (
     <div className="flex aspect-video w-full items-center justify-center rounded-2xl border border-dashed border-[rgba(216,168,79,0.34)] bg-[rgba(7,17,31,0.58)] p-6 text-center shadow-[0_0_32px_rgba(216,168,79,0.08)]">
@@ -225,6 +245,11 @@ function ChannelSection({ section, videos }: { section: VideoSection; videos: Yo
           <>
             <p className="gold-text mb-4 text-xs uppercase tracking-[0.24em]">Latest Video</p>
             <YouTubeIframe video={featuredVideo} featured />
+          </>
+        ) : section.audioEmbedUrl ? (
+          <>
+            <p className="gold-text mb-4 text-xs uppercase tracking-[0.24em]">Podcast Player</p>
+            <SpotifyIframe title={section.audioEmbedTitle ?? section.title} url={section.audioEmbedUrl} />
           </>
         ) : (
           <ChannelPlaceholder text={section.placeholderText} />
@@ -307,9 +332,9 @@ export default async function VideoPage() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
         <div className="mb-10 max-w-3xl">
           <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Watch and Listen</p>
-          <h2 className="mt-4 text-4xl md:text-6xl">Three dedicated video areas.</h2>
+          <h2 className="mt-4 text-4xl md:text-6xl">Three dedicated media areas.</h2>
           <p className="mt-5 leading-8 text-[var(--muted-silver)]">
-            Each area appears one after another down the page. Public YouTube videos are pulled from the channel feed and embedded as one latest video followed by more recent uploads.
+            Each area appears one after another down the page. Public YouTube videos are pulled from channel feeds, while the podcast section uses the embedded Spotify show player.
           </p>
         </div>
 
