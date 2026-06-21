@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 const heroImage = {
+  // Replace this with the final Video page image when ready.
   src: "/images/backgrounds/quiet-light-header.webp",
   alt: "The Way of Quiet Light header artwork with aurora-lit mountains, lanterns, and a lakeside path.",
   width: 1672,
@@ -26,6 +27,7 @@ const videoSections = [
     title: "The Way of Quiet Light",
     description:
       "Videos dedicated to the path itself: scripture reflections, teachings, announcements, devotional messages, and visual works connected to the Quiet Light ministry.",
+    // Add the official Way of Quiet Light YouTube channel URL here when ready.
     href: "",
     cta: "YouTube Channel Coming Soon",
     highlights: ["Scripture reflections", "Quiet Light teachings", "Official ministry updates"],
@@ -44,6 +46,7 @@ const videoSections = [
     title: "Podcasts",
     description:
       "A place for podcast episodes, spoken reflections, conversations, and longer-form audio or video content connected to The Way of Quiet Light.",
+    // Add the podcast video channel or archive URL here when ready.
     href: "",
     cta: "Podcast Archive Coming Soon",
     highlights: ["Podcast episodes", "Spoken reflections", "Long-form commentary"],
