@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { getPublicMembershipTiers } from "../../lib/supabase/public-content";
 
 export default async function MembershipPage() {
@@ -94,10 +95,23 @@ export default async function MembershipPage() {
       </section>
 
       <section className="mt-16 lantern-panel rounded-3xl p-8 text-center">
-        <h2 className="gold-text text-3xl">The Keeper's Commitment</h2>
-        <p className="mt-8 italic leading-8 text-[var(--muted-silver)]">
-          I am not the Light. I am only its keeper. I will strive to walk in humility, to serve quietly, to seek truth honestly, and to carry the flame entrusted to me. Though darkness may surround me, the flame remains.
-        </p>
+        <h2 className="gold-text text-3xl">The Keeper&apos;s Blessing</h2>
+        <div className="mx-auto mt-8 max-w-3xl space-y-3 italic leading-8 text-[var(--muted-silver)]">
+          <p>May the Quiet Light guide your path.</p>
+          <p>May wisdom govern your words.</p>
+          <p>May mercy temper your judgment.</p>
+          <p>May humility strengthen your spirit.</p>
+          <p>May your lantern never fail.</p>
+          <p>May your faith remain steadfast.</p>
+          <p>May your service be quiet and sincere.</p>
+          <p>And when darkness surrounds you, may the flame entrusted to your care continue to shine.</p>
+          <p>In the service of God, and for the good of all.</p>
+          <p className="gold-text text-2xl not-italic">Amen.</p>
+        </div>
+        <Link className="gold-text mt-8 inline-block rounded-full border border-[var(--lantern-gold)] px-6 py-3 uppercase tracking-[0.18em]" href="/sign-in">
+          Join the Order
+        </Link>
+        <p className="gold-text mt-8 text-2xl">The Flame Remains</p>
       </section>
     </main>
   );
