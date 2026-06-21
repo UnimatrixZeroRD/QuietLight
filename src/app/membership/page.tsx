@@ -7,8 +7,8 @@ export default async function MembershipPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <div className="text-center">
-        <p className="gold-text uppercase tracking-[0.3em]">The Order of the Lantern</p>
-        <h1 className="gold-text mt-4 text-5xl md:text-7xl">Keep the Flame</h1>
+        <p className="gold-text uppercase tracking-[0.3em]">Deus Vult</p>
+        <h1 className="gold-text mt-4 text-5xl md:text-7xl">Order of the Lantern</h1>
         <p className="mt-4 text-lg text-[var(--muted-silver)]">An official membership order of the Way of Quiet Light.</p>
       </div>
 
