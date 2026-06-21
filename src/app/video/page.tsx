@@ -14,11 +14,10 @@ export const metadata: Metadata = {
 };
 
 const heroImage = {
-  // Add the final hero image path here, for example: "/images/video/quiet-light-video.webp"
-  src: "",
-  alt: "Video content from The Way of Quiet Light.",
-  width: 1600,
-  height: 900,
+  src: "/images/backgrounds/quiet-light-header.webp",
+  alt: "The Way of Quiet Light header artwork with aurora-lit mountains, lanterns, and a lakeside path.",
+  width: 1672,
+  height: 941,
 };
 
 const videoSections = [
@@ -27,7 +26,6 @@ const videoSections = [
     title: "The Way of Quiet Light",
     description:
       "Videos dedicated to the path itself: scripture reflections, teachings, announcements, devotional messages, and visual works connected to the Quiet Light ministry.",
-    // Add the official Way of Quiet Light YouTube channel URL here when ready.
     href: "",
     cta: "YouTube Channel Coming Soon",
     highlights: ["Scripture reflections", "Quiet Light teachings", "Official ministry updates"],
@@ -46,7 +44,6 @@ const videoSections = [
     title: "Podcasts",
     description:
       "A place for podcast episodes, spoken reflections, conversations, and longer-form audio or video content connected to The Way of Quiet Light.",
-    // Add the podcast video channel or archive URL here when ready.
     href: "",
     cta: "Podcast Archive Coming Soon",
     highlights: ["Podcast episodes", "Spoken reflections", "Long-form commentary"],
@@ -71,27 +68,15 @@ export default function VideoPage() {
           </div>
 
           <div className="lantern-panel overflow-hidden rounded-3xl p-4">
-            {heroImage.src ? (
-              <Image
-                src={heroImage.src}
-                alt={heroImage.alt}
-                width={heroImage.width}
-                height={heroImage.height}
-                priority
-                sizes="(min-width: 1024px) 42vw, 100vw"
-                className="aspect-video h-auto w-full rounded-2xl object-cover"
-              />
-            ) : (
-              <div className="flex aspect-video items-center justify-center rounded-2xl border border-[rgba(216,168,79,0.34)] bg-[radial-gradient(circle_at_50%_35%,rgba(216,168,79,0.2),rgba(7,17,31,0.94)_58%),linear-gradient(135deg,rgba(11,31,58,0.82),rgba(7,17,31,0.98))] p-8 text-center shadow-[0_0_48px_rgba(216,168,79,0.14)]">
-                <div>
-                  <p className="gold-text text-5xl" aria-hidden="true">▶</p>
-                  <p className="gold-text mt-5 text-xs uppercase tracking-[0.28em]">Featured Video Image</p>
-                  <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-[var(--muted-silver)]">
-                    Add a hero image here for the Video page introduction.
-                  </p>
-                </div>
-              </div>
-            )}
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              width={heroImage.width}
+              height={heroImage.height}
+              priority
+              sizes="(min-width: 1024px) 42vw, 100vw"
+              className="aspect-video h-auto w-full rounded-2xl object-cover shadow-[0_0_48px_rgba(216,168,79,0.14)]"
+            />
           </div>
         </div>
       </section>
