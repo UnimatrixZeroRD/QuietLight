@@ -102,21 +102,33 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="lantern-panel rounded-3xl p-6 md:p-8">
-          <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">The Platform</p>
-          <h2 className="mt-4 text-3xl md:text-4xl">Publishing, memberships, books, music, scripture, and Daily Light.</h2>
-          <div className="mt-5 grid gap-4 leading-8 text-[var(--muted-silver)]">
-            <p>
-              Quiet Light Ministries is being built as a sacred digital home for devotional writing, scripture work, music, books, member content, reflections, video, and other resources connected to the Way of Quiet Light. The platform brings these works together in one place so visitors can read, listen, pray, learn, and return often for new material.
-            </p>
-            <p>
-              As the ministry grows, members will be able to create an account, follow new releases, access selected digital works, receive Daily Light reflections, and take part in the wider life of the community. This is the beginning of a larger home for the Keeper&apos;s Lantern, the Geneva Bible project, sacred music, Quiet Works, and the ongoing work of keeping the flame.
-            </p>
-          </div>
-          <div className="mt-8 flex justify-center">
-            <Link className="rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] transition hover:border-[var(--lantern-gold)] hover:bg-[rgba(216,168,79,0.1)] focus-visible:border-[var(--lantern-gold)] focus-visible:bg-[rgba(216,168,79,0.1)]" href="/sign-in">
-              Join
-            </Link>
+        <div className="lantern-panel flex rounded-3xl p-6 md:p-8">
+          <div className="flex w-full flex-col">
+            <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">The Platform</p>
+            <h2 className="mt-4 text-3xl md:text-4xl">Publishing, memberships, books, music, scripture, and Daily Light.</h2>
+            <div className="mt-5 grid gap-4 leading-8 text-[var(--muted-silver)]">
+              <p>
+                Quiet Light Ministries is being built as a sacred digital home for devotional writing, scripture work, music, books, member content, reflections, video, and other resources connected to the Way of Quiet Light. The platform brings these works together in one place so visitors can read, listen, pray, learn, and return often for new material.
+              </p>
+              <p>
+                As the ministry grows, members will be able to create an account, follow new releases, access selected digital works, receive Daily Light reflections, and take part in the wider life of the community. This is the beginning of a larger home for the Keeper&apos;s Lantern, the Geneva Bible project, sacred music, Quiet Works, and the ongoing work of keeping the flame.
+              </p>
+            </div>
+            <div className="mt-8 overflow-hidden rounded-2xl border border-[rgba(216,168,79,0.36)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(216,168,79,0.14)]">
+              <Image
+                src="/images/order-of-the-lantern/order-of-the-lantern-logo1.webp"
+                alt="Order of the Lantern banner artwork."
+                width={1672}
+                height={941}
+                sizes="(min-width: 768px) 34rem, 100vw"
+                className="h-auto w-full"
+              />
+            </div>
+            <div className="mt-auto flex justify-center pt-8">
+              <Link className="rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] transition hover:border-[var(--lantern-gold)] hover:bg-[rgba(216,168,79,0.1)] focus-visible:border-[var(--lantern-gold)] focus-visible:bg-[rgba(216,168,79,0.1)]" href="/sign-in">
+                Join the Order
+              </Link>
+            </div>
           </div>
         </div>
       </section>
