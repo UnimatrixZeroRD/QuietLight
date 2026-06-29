@@ -14,6 +14,16 @@ export const metadata: Metadata = {
   },
 };
 
+const dailyLightBook = {
+  title: "The Daily Light",
+  image: "/images/books/daily-light-cover.webp",
+  alt: "The Daily Light devotional book cover.",
+  description:
+    "A year-long devotional journey through scripture, reflection, prayer, and quiet spiritual practice. The Daily Light gathers the daily readings into a companion work for those who wish to walk steadily with God, one day at a time.",
+  href: "#",
+  cta: "Buy on Amazon",
+};
+
 const dailyLightVolumes = [
   {
     title: "Walking in the Light",
@@ -231,6 +241,32 @@ export default async function DailyLightPage() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mt-16" id="daily-light-book">
+        <div className="lantern-panel grid gap-8 rounded-3xl p-6 md:grid-cols-[0.42fr_1fr] md:items-center md:p-8">
+          <div className="overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.15)]">
+            <Image
+              src={dailyLightBook.image}
+              alt={dailyLightBook.alt}
+              width={1024}
+              height={1536}
+              sizes="(min-width: 768px) 24vw, 100vw"
+              className="block h-auto w-full"
+            />
+          </div>
+          <div>
+            <p className="gold-text text-sm uppercase tracking-[0.2em]">Book Edition</p>
+            <h2 className="gold-text mt-4 text-4xl md:text-6xl">{dailyLightBook.title}</h2>
+            <p className="mt-5 text-lg leading-9 text-[var(--muted-silver)]">{dailyLightBook.description}</p>
+            <Link
+              className="mt-8 inline-block rounded-full border border-[var(--lantern-gold)] bg-[var(--lantern-gold)] px-6 py-3 text-center text-sm uppercase tracking-[0.18em] text-[var(--midnight)] shadow-[0_0_36px_rgba(216,168,79,0.24)] transition hover:bg-[var(--soft-gold)]"
+              href={dailyLightBook.href}
+            >
+              {dailyLightBook.cta}
+            </Link>
+          </div>
         </div>
       </section>
     </main>
