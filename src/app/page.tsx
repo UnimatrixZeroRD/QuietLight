@@ -159,14 +159,18 @@ export default function HomePage() {
       <section className="mx-auto grid max-w-6xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-2 md:py-16">
         <div className="lantern-panel rounded-3xl p-6 md:p-8">
           <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Store</p>
-          <h2 className="mt-4 text-3xl md:text-4xl">Digital works and access.</h2>
-          <p className="mt-5 leading-8 text-[var(--muted-silver)]">The store will hold e-books, music, video, bundles, and other Quiet Light resources.</p>
+          <h2 className="mt-4 text-3xl md:text-4xl">Merchandise, music, books, and Quiet Light goods.</h2>
+          <p className="mt-5 leading-8 text-[var(--muted-silver)]">
+            The Quiet Light store will offer merchandise and ministry-related items such as shirts, hats, apparel, and other goods connected to the Way of Quiet Light. As the store grows, it may also include selected digital products, licensed editions of music albums, books, media releases, and other resources for those who wish to carry the work into daily life.
+          </p>
           <Link className="gold-text mt-6 inline-block uppercase tracking-[0.18em]" href="/store">Visit the Store</Link>
         </div>
         <div className="lantern-panel rounded-3xl p-6 md:p-8">
           <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Support</p>
           <h2 className="mt-4 text-3xl md:text-4xl">Help keep the lantern burning.</h2>
-          <p className="mt-5 leading-8 text-[var(--muted-silver)]">Supporters help the writing, music, scripture work, and public platform continue to grow.</p>
+          <p className="mt-5 leading-8 text-[var(--muted-silver)]">
+            Your support helps keep the light alive and contributes to the growth of Quiet Light Ministries. Gifts and contributions help sustain the writing, music, scripture work, public platform, and future initiatives being built to serve the community and carry the flame forward.
+          </p>
           <Link className="gold-text mt-6 inline-block uppercase tracking-[0.18em]" href="/support">Support the Work</Link>
         </div>
       </section>
