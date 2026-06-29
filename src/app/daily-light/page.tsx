@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { getLatestDailyLightEntry, getPublicDailyLightEntries } from "../../lib/supabase/daily-light";
 
@@ -24,7 +25,21 @@ export default async function DailyLightPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <p className="gold-text uppercase tracking-[0.3em]">Daily Light</p>
-      <h1 className="gold-text mt-4 text-5xl md:text-7xl">Daily Scripture and Reflection</h1>
+      <div className="lantern-panel mt-6 overflow-hidden rounded-3xl border border-[rgba(216,168,79,0.32)] bg-[var(--midnight)] shadow-[0_0_48px_rgba(216,168,79,0.16)]">
+        <Image
+          src="/images/backgrounds/dailylightheader.webp"
+          alt="Daily Light scripture and reflection header artwork."
+          width={1672}
+          height={941}
+          priority
+          sizes="(min-width: 768px) 72rem, 100vw"
+          className="h-auto w-full"
+        />
+      </div>
+      <p className="mx-auto mt-8 max-w-4xl text-center text-lg leading-8 text-[var(--muted-silver)]">
+        Daily Light offers a daily scripture passage, a quiet reflection, and a simple thought for prayer. It is meant to help readers return each day to stillness, humility, mercy, and faithful attention to the light entrusted to them.
+      </p>
+
       <div className="lantern-panel mt-10 rounded-3xl p-8 text-center md:p-12">
         <p className="gold-text text-xs uppercase tracking-[0.25em]">Latest reflection</p>
         <h2 className="mt-4 text-4xl">{featuredEntry.title}</h2>
