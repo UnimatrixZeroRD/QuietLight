@@ -176,20 +176,15 @@ export default async function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-16">
         <div className="lantern-panel overflow-hidden rounded-3xl text-center">
-          <div className="relative border-b border-[rgba(216,168,79,0.24)] bg-[var(--midnight)]">
+          <div className="border-b border-[rgba(216,168,79,0.24)] bg-[var(--midnight)]">
             <Image
               src={dailyLightHeaderImage.src}
               alt={dailyLightHeaderImage.alt}
               width={1672}
               height={941}
               sizes="(min-width: 768px) 72rem, 100vw"
-              className="h-56 w-full object-cover md:h-72"
+              className="h-auto w-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(7,17,31,0.92)] via-[rgba(7,17,31,0.18)] to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-              <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Daily Light</p>
-              <h2 className="mt-3 text-3xl md:text-5xl">Today&apos;s Scripture and Reflection</h2>
-            </div>
           </div>
           <div className="p-6 md:p-12">
             <p className="gold-text text-xs uppercase tracking-[0.25em]">{formatDailyLightDate(dailyLightEntry.publishedOn)}</p>
