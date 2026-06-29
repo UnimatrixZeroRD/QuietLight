@@ -5,6 +5,9 @@ export default function HomePage() {
   const musicAlbums = [
     {
       title: "The Flame Remains",
+      href: "/music/the-flame-remains",
+      description:
+        "Created during the writing of The Keeper's Lantern, this album carries the psalms, prayers, and devotional language of the book into music. It is the sound of the lantern being kept: sacred, reflective, and formed around the flame that remains.",
       cover: {
         src: "/images/music/flame-remains-cover.webp",
         alt: "The Flame Remains album cover.",
@@ -12,6 +15,9 @@ export default function HomePage() {
     },
     {
       title: "The Everlasting Light",
+      href: "/music/the-everlasting-light",
+      description:
+        "The Everlasting Light explores lessons drawn from Scripture and the inheritance of classical hymnody, offering a more modern sacred expression for prayer, worship, and quiet renewal.",
       cover: {
         src: "/images/music/everlasting-light-cover.webp",
         alt: "The Everlasting Light album cover.",
@@ -19,6 +25,9 @@ export default function HomePage() {
     },
     {
       title: "Gloria Patri",
+      href: "/music/gloria-patri",
+      description:
+        "Gloria Patri returns to some of the oldest and most traditional psalms and hymns, revisiting the foundations of Christian praise to complete the original Holy Trinity of Quiet Light albums.",
       cover: {
         src: "/images/music/gloria-patri-cover.webp",
         alt: "Gloria Patri album cover.",
@@ -113,27 +122,22 @@ export default function HomePage() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {musicAlbums.map((album) => (
             <div className="lantern-panel rounded-3xl p-6" key={album.title}>
-              {album.cover ? (
-                <div className="mb-5 overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.18)]">
-                  <Image
-                    src={album.cover.src}
-                    alt={album.cover.alt}
-                    width={1254}
-                    height={1254}
-                    sizes="(min-width: 768px) 28vw, 100vw"
-                    className="h-auto w-full"
-                  />
-                </div>
-              ) : (
-                <div
-                  className="mb-5 flex aspect-square items-end rounded-2xl border border-[var(--lantern-gold)] bg-cover bg-center p-5 text-4xl"
-                  style={{
-                    backgroundImage: "linear-gradient(180deg, rgba(18,60,105,0.9), rgba(7,17,31,0.95))",
-                  }}
+              <Link className="group block overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_42px_rgba(255,179,71,0.18)]" href={album.href} aria-label={`Open ${album.title} album page`}>
+                <Image
+                  src={album.cover.src}
+                  alt={album.cover.alt}
+                  width={1254}
+                  height={1254}
+                  sizes="(min-width: 768px) 28vw, 100vw"
+                  className="h-auto w-full transition duration-300 group-hover:scale-[1.03]"
                 />
-              )}
-              <h3 className="gold-text text-2xl">{album.title}</h3>
-              <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">Sacred music for prayer, reflection, and stillness.</p>
+              </Link>
+              <h3 className="mt-5 text-2xl">
+                <Link className="gold-text transition hover:text-[var(--soft-gold)] focus-visible:text-[var(--soft-gold)]" href={album.href}>
+                  {album.title}
+                </Link>
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-[var(--muted-silver)]">{album.description}</p>
             </div>
           ))}
         </div>
