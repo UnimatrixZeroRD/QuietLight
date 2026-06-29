@@ -8,10 +8,21 @@ export type PublicDailyLightEntry = {
   summary: string;
   accessLevel: "public";
   status: "published";
+  volume?: string;
+  volumeTitle?: string;
+  day?: number;
+  theme?: string;
+  oldTestamentReading?: string;
+  newTestamentReading?: string;
+  keyVerseReference?: string;
+  keyVerseText?: string;
   scriptureReference?: string;
   scriptureText?: string;
   reflection: string;
   prayer?: string;
+  reflectionQuestion?: string;
+  todayPractice?: string;
+  closingThought?: string;
   publishedOn?: string;
 };
 
@@ -23,10 +34,22 @@ function normalizeFallbackEntry(entry: (typeof fallbackEntries)[number]): Public
     summary: entry.summary,
     accessLevel: "public",
     status: "published",
+    volume: entry.volume,
+    volumeTitle: entry.volumeTitle,
+    day: entry.day,
+    theme: entry.theme,
+    oldTestamentReading: entry.oldTestamentReading,
+    newTestamentReading: entry.newTestamentReading,
+    keyVerseReference: entry.keyVerseReference,
+    keyVerseText: entry.keyVerseText,
     scriptureReference: entry.scriptureReference,
     scriptureText: entry.scriptureText,
     reflection: entry.reflection,
     prayer: entry.prayer,
+    reflectionQuestion: entry.reflectionQuestion,
+    todayPractice: entry.todayPractice,
+    closingThought: entry.closingThought,
+    publishedOn: entry.publishedOn,
   };
 }
 
