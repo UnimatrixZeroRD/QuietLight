@@ -1,7 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getLatestDailyLightEntry } from "../lib/supabase/daily-light";
 
-export default function HomePage() {
+export const revalidate = 3600;
+
+function formatDailyLightDate(value?: string) {
+  if (!value) return "Latest reflection";
+  return new Intl.DateTimeFormat("en-CA", { dateStyle: "medium" }).format(new Date(value));
+}
+
+export default async function HomePage() {
+  const dailyLightEntry = await getLatestDailyLightEntry();
+  const dailyLightHeaderImage = {
+    src: "/images/backgrounds/quiet-light-header.webp",
+    alt: "Daily Light header artwork with lanterns, mountains, and a quiet path.",
+  };
+
   const musicAlbums = [
     {
       title: "The Flame Remains",
@@ -161,10 +175,39 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-16">
-        <div className="lantern-panel rounded-3xl p-6 text-center md:p-12">
-          <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Daily Light</p>
-          <blockquote className="mx-auto mt-6 max-w-3xl text-2xl italic leading-relaxed md:text-3xl">I am not the light. I am only its keeper.</blockquote>
-          <p className="mx-auto mt-6 max-w-2xl text-[var(--muted-silver)]">Daily scripture, quiet reflection, and devotional writing will live here as the platform grows.</p>
+        <div className="lantern-panel overflow-hidden rounded-3xl text-center">
+          <div className="relative border-b border-[rgba(216,168,79,0.24)] bg-[var(--midnight)]">
+            <Image
+              src={dailyLightHeaderImage.src}
+              alt={dailyLightHeaderImage.alt}
+              width={1672}
+              height={941}
+              sizes="(min-width: 768px) 72rem, 100vw"
+              className="h-56 w-full object-cover md:h-72"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(7,17,31,0.92)] via-[rgba(7,17,31,0.18)] to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+              <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Daily Light</p>
+              <h2 className="mt-3 text-3xl md:text-5xl">Today&apos;s Scripture and Reflection</h2>
+            </div>
+          </div>
+          <div className="p-6 md:p-12">
+            <p className="gold-text text-xs uppercase tracking-[0.25em]">{formatDailyLightDate(dailyLightEntry.publishedOn)}</p>
+            <h3 className="mx-auto mt-4 max-w-3xl text-3xl md:text-4xl">{dailyLightEntry.title}</h3>
+            {dailyLightEntry.scriptureReference ? (
+              <p className="mt-5 text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">{dailyLightEntry.scriptureReference}</p>
+            ) : null}
+            {dailyLightEntry.scriptureText ? (
+              <blockquote className="mx-auto mt-5 max-w-3xl text-xl italic leading-9 text-[var(--soft-gold)] md:text-2xl">
+                “{dailyLightEntry.scriptureText}”
+              </blockquote>
+            ) : null}
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">{dailyLightEntry.reflection}</p>
+            <p className="mx-auto mt-5 max-w-2xl leading-8 text-[var(--muted-silver)]">{dailyLightEntry.summary}</p>
+            <Link className="gold-text mt-8 inline-block rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em]" href={`/daily-light/${dailyLightEntry.slug}`}>
+              Read Today&apos;s Light
+            </Link>
+          </div>
         </div>
       </section>
 
