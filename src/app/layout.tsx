@@ -8,7 +8,7 @@ import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://quietlightministries.org";
-const siteName = "The Way of Quiet Light";
+const siteName = "Quiet Light Ministries";
 const siteDescription = "A spiritual path of stillness, humility, sacred reflection, Daily Light, music, writings, and digital works.";
 const facebookVerification = "p353p26jdn2dj0fqkp6vwueqrdgwew";
 const microsoftVerification = "7FFCFE3FA489059163785757FEF7A47D";
@@ -17,7 +17,7 @@ const googleAnalyticsId = "G-53X83J437V";
 const organizationJsonLd = {"@context":"https://schema.org","@type":"Organization",name:siteName,url:siteUrl,description:siteDescription,founder:{"@type":"Person",name:"Joshua Eaton"},sameAs:["https://open.spotify.com/artist/0k96zp5CFLPM2I2EtFOLTB","https://music.apple.com/us/artist/yehoshua-of-%C4%93at%C5%ABn/1888389584","https://music.youtube.com/@Yehoshuaof%C4%92at%C5%ABn"]};
 const websiteJsonLd = {"@context":"https://schema.org","@type":"WebSite",name:siteName,url:siteUrl,description:siteDescription,inLanguage:"en-CA",publisher:{"@type":"Organization",name:siteName,url:siteUrl}};
 
-export const metadata: Metadata = { metadataBase:new URL(siteUrl), applicationName:siteName, title:{default:`${siteName} | The Flame Remains`,template:`%s | ${siteName}`}, description:siteDescription, keywords:["Quiet Light","Way of Quiet Light","Daily Light","spiritual reflection","devotional writing","The Keeper's Lantern"], authors:[{name:"Joshua Eaton"}], creator:"Joshua Eaton", publisher:siteName, alternates:{canonical:"/",types:{"application/rss+xml":[{url:"/rss.xml",title:`${siteName} RSS Feed`},{url:"/feed.xml",title:`${siteName} Feed`}]}}, other:{"facebook-domain-verification":facebookVerification,"msvalidate.01":microsoftVerification} };
+export const metadata: Metadata = { metadataBase:new URL(siteUrl), applicationName:siteName, title:{default:siteName,template:`%s | ${siteName}`}, description:siteDescription, keywords:["Quiet Light","Quiet Light Ministries","Way of Quiet Light","Daily Light","spiritual reflection","devotional writing","The Keeper's Lantern"], authors:[{name:"Joshua Eaton"}], creator:"Joshua Eaton", publisher:siteName, alternates:{canonical:"/",types:{"application/rss+xml":[{url:"/rss.xml",title:`${siteName} RSS Feed`},{url:"/feed.xml",title:`${siteName} Feed`}]}}, icons:{icon:[{url:"/favicon.ico",sizes:"any"},{url:"/images/brand/quiet-light-icon.webp",type:"image/webp",sizes:"512x512"}],shortcut:"/favicon.ico",apple:"/apple-touch-icon.png"}, other:{"facebook-domain-verification":facebookVerification,"msvalidate.01":microsoftVerification} };
 export const viewport: Viewport = { width:"device-width", initialScale:1, maximumScale:5, themeColor:"#07111f", colorScheme:"dark" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
