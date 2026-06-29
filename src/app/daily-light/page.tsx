@@ -15,18 +15,90 @@ export const metadata: Metadata = {
 };
 
 const dailyLightVolumes = [
-  { title: "Volume One", days: "Days 1-30", note: "The opening volume of Daily Light reflections." },
-  { title: "Volume Two", days: "Days 31-60", note: "The second gathered volume of Daily Light." },
-  { title: "Volume Three", days: "Days 61-90", note: "The third gathered volume of Daily Light." },
-  { title: "Volume Four", days: "Days 91-120", note: "The fourth gathered volume of Daily Light." },
-  { title: "Volume Five", days: "Days 121-150", note: "The fifth gathered volume of Daily Light." },
-  { title: "Volume Six", days: "Days 151-180", note: "The sixth gathered volume of Daily Light." },
-  { title: "Volume Seven", days: "Days 181-210", note: "The seventh gathered volume of Daily Light." },
-  { title: "Volume Eight", days: "Days 211-240", note: "The eighth gathered volume of Daily Light." },
-  { title: "Volume Nine", days: "Days 241-270", note: "The ninth gathered volume of Daily Light." },
-  { title: "Volume Ten", days: "Days 271-300", note: "The tenth gathered volume of Daily Light." },
-  { title: "Volume Eleven", days: "Days 301-330", note: "The eleventh gathered volume of Daily Light." },
-  { title: "Volume Twelve", days: "Days 331-365", note: "The final volume completing the year of Daily Light." },
+  {
+    title: "Walking in the Light",
+    volume: "Volume One",
+    days: "Days 1-30",
+    theme: "Foundations of faith",
+    description: "Creation, the character of God, faith, repentance, grace, and the call to follow Christ.",
+  },
+  {
+    title: "Growing in Grace",
+    volume: "Volume Two",
+    days: "Days 31-60",
+    theme: "Spiritual maturity",
+    description: "Prayer, humility, obedience, wisdom, and trusting God in daily life.",
+  },
+  {
+    title: "The Narrow Way",
+    volume: "Volume Three",
+    days: "Days 61-90",
+    theme: "The life of discipleship",
+    description: "Self-denial, perseverance, holiness, and counting the cost of following Christ.",
+  },
+  {
+    title: "The Servant's Heart",
+    volume: "Volume Four",
+    days: "Days 91-120",
+    theme: "Living out the Gospel",
+    description: "Love, compassion, forgiveness, generosity, stewardship, and serving others.",
+  },
+  {
+    title: "The Quiet Path",
+    volume: "Volume Five",
+    days: "Days 121-150",
+    theme: "Walking with God",
+    description: "Stillness, peace, contentment, patience, and learning to rest in the Lord.",
+  },
+  {
+    title: "The Lamp Unto My Feet",
+    volume: "Volume Six",
+    days: "Days 151-180",
+    theme: "The Word of God",
+    description: "Scripture, wisdom, discernment, truth, and applying God's Word.",
+  },
+  {
+    title: "The Refiner's Fire",
+    volume: "Volume Seven",
+    days: "Days 181-210",
+    theme: "Trials and perseverance",
+    description: "Suffering, endurance, temptation, spiritual warfare, and God's faithfulness.",
+  },
+  {
+    title: "The Light of the World",
+    volume: "Volume Eight",
+    days: "Days 211-240",
+    theme: "Christ revealed",
+    description: "The person of Jesus Christ, His ministry, miracles, teachings, death, resurrection, and kingdom.",
+  },
+  {
+    title: "The Work of the Kingdom",
+    volume: "Volume Nine",
+    days: "Days 241-270",
+    theme: "Living on mission",
+    description: "Evangelism, discipleship, community, vocation, and being salt and light.",
+  },
+  {
+    title: "The Flame Remains",
+    volume: "Volume Ten",
+    days: "Days 271-300",
+    theme: "Faithfulness",
+    description: "Remaining steadfast through changing seasons, hope, courage, and finishing well.",
+  },
+  {
+    title: "The Blessed Hope",
+    volume: "Volume Eleven",
+    days: "Days 301-330",
+    theme: "Looking toward eternity",
+    description: "Heaven, resurrection, judgment, redemption, and the promises of God.",
+  },
+  {
+    title: "The Eternal Light",
+    volume: "Volume Twelve",
+    days: "Days 331-365",
+    theme: "The fulfillment of all things",
+    description: "The new creation, eternal worship, God's everlasting kingdom, and living forever in His presence.",
+  },
 ];
 
 function formatDate(value?: string) {
@@ -100,14 +172,15 @@ export default async function DailyLightPage() {
         <p className="gold-text uppercase tracking-[0.3em]">Daily Light Volumes</p>
         <h2 className="mt-4 text-4xl md:text-5xl">A year of Daily Light, gathered by volume.</h2>
         <p className="mt-5 max-w-4xl leading-8 text-[var(--muted-silver)]">
-          The original Daily Light will be gathered into twelve volumes covering a full year of scripture and reflection. As each volume is released, this section can hold download links, special editions, and future purchase links for platforms such as Amazon.
+          Together, these twelve volumes form a complete spiritual journey through the foundations of faith, the life of discipleship, quiet obedience, kingdom service, perseverance, hope, and the eternal light of God&apos;s presence.
         </p>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {dailyLightVolumes.map((volume) => (
             <div className="lantern-panel rounded-3xl p-6" key={volume.title}>
-              <p className="gold-text text-xs uppercase tracking-[0.25em]">{volume.days}</p>
+              <p className="gold-text text-xs uppercase tracking-[0.25em]">{volume.volume} · {volume.days}</p>
               <h3 className="mt-4 text-2xl">{volume.title}</h3>
-              <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{volume.note}</p>
+              <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--soft-gold)]">Theme: {volume.theme}</p>
+              <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{volume.description}</p>
               <p className="mt-6 inline-block rounded-full border border-[rgba(216,168,79,0.4)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)]">
                 Coming Soon
               </p>
