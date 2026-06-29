@@ -42,11 +42,19 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-16">
         <div className="lantern-panel rounded-3xl p-6 md:p-12">
-          <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">What is the Way?</p>
-          <h2 className="mt-4 text-3xl md:text-6xl">A lantern-lit path through the dark.</h2>
-          <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--muted-silver)] md:text-lg">
-            The Way of Quiet Light is a spiritual path of stillness, humility, quiet service, sacred reflection, and the keeping of the inner flame.
-          </p>
+          <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">The Way of Quiet Light Ministries</p>
+          <h2 className="mt-4 text-3xl md:text-6xl">The Way of Quiet Light</h2>
+          <div className="mt-6 grid max-w-4xl gap-5 text-base leading-8 text-[var(--muted-silver)] md:text-lg">
+            <p>
+              Welcome to Quiet Light Ministries, a spiritual home for those who feel called to seek God through stillness, humility, sacred reflection, and quiet service. The Way of Quiet Light is not built around noise, performance, or spiritual pride. It is a lantern-lit path of prayer, scripture, music, writing, and faithful works offered for God, for life, and for one another.
+            </p>
+            <p>
+              At the heart of this ministry is a simple conviction: the light belongs to God, and we are called to keep it faithfully. Here you will find devotional writings, sacred music, reflections, the Keeper&apos;s Lantern, the Geneva Bible project, and resources for those who wish to walk with patience, mercy, and reverence. The flame is tended not by grand display, but through daily faithfulness, quiet courage, and love that seeks no applause.
+            </p>
+          </div>
+          <blockquote className="mt-8 max-w-4xl border-l-2 border-[var(--lantern-gold)] pl-5 text-lg italic leading-8 text-[var(--soft-gold)] md:text-xl">
+            “Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.” <span className="not-italic text-[var(--muted-silver)]">— Matthew 5:16</span>
+          </blockquote>
         </div>
       </section>
 
