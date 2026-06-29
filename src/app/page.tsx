@@ -125,7 +125,7 @@ export default function HomePage() {
               />
             </div>
             <div className="mt-auto flex justify-center pt-8">
-              <Link className="rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] transition hover:border-[var(--lantern-gold)] hover:bg-[rgba(216,168,79,0.1)] focus-visible:border-[var(--lantern-gold)] focus-visible:bg-[rgba(216,168,79,0.1)]" href="/sign-in">
+              <Link aria-label="Join the Order of the Lantern" className="rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] transition hover:border-[var(--lantern-gold)] hover:bg-[rgba(216,168,79,0.1)] focus-visible:border-[var(--lantern-gold)] focus-visible:bg-[rgba(216,168,79,0.1)]" href="/sign-in">
                 Join the Order
               </Link>
             </div>
