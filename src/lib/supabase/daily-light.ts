@@ -1,6 +1,8 @@
 import { dailyLightEntries as fallbackEntries } from "../../data/daily-light-entries";
 import { createSupabaseBrowserClient } from "./client";
 
+const DAILY_LIGHT_TIME_ZONE = "America/Halifax";
+
 export type PublicDailyLightEntry = {
   id: string;
   slug: string;
@@ -25,6 +27,34 @@ export type PublicDailyLightEntry = {
   closingThought?: string;
   publishedOn?: string;
 };
+
+function getDailyLightToday() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: DAILY_LIGHT_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+
+  const year = parts.find((part) => part.type === "year")?.value;
+  const month = parts.find((part) => part.type === "month")?.value;
+  const day = parts.find((part) => part.type === "day")?.value;
+
+  return `${year}-${month}-${day}`;
+}
+
+function isVisibleDailyLightEntry(entry: PublicDailyLightEntry) {
+  if (!entry.publishedOn) return true;
+  return entry.publishedOn <= getDailyLightToday();
+}
+
+function sortDailyLightEntries(entries: PublicDailyLightEntry[]) {
+  return entries.sort((first, second) => {
+    const firstDate = first.publishedOn ?? "0000-00-00";
+    const secondDate = second.publishedOn ?? "0000-00-00";
+    return secondDate.localeCompare(firstDate);
+  });
+}
 
 function normalizeFallbackEntry(entry: (typeof fallbackEntries)[number]): PublicDailyLightEntry {
   return {
@@ -55,11 +85,14 @@ function normalizeFallbackEntry(entry: (typeof fallbackEntries)[number]): Public
 
 function fallbackEntryBySlug(slug: string) {
   const entry = fallbackEntries.find((item) => item.slug === slug);
-  return entry ? normalizeFallbackEntry(entry) : null;
+  if (!entry) return null;
+
+  const normalizedEntry = normalizeFallbackEntry(entry);
+  return isVisibleDailyLightEntry(normalizedEntry) ? normalizedEntry : null;
 }
 
 function fallbackEntryList() {
-  return fallbackEntries.map(normalizeFallbackEntry);
+  return sortDailyLightEntries(fallbackEntries.map(normalizeFallbackEntry).filter(isVisibleDailyLightEntry));
 }
 
 function normalizeEntry(entry: {
@@ -88,6 +121,7 @@ function normalizeEntry(entry: {
 
 export async function getPublicDailyLightEntries(): Promise<PublicDailyLightEntry[]> {
   const supabase = createSupabaseBrowserClient();
+  const today = getDailyLightToday();
 
   if (!supabase) return fallbackEntryList();
 
@@ -96,6 +130,7 @@ export async function getPublicDailyLightEntries(): Promise<PublicDailyLightEntr
     .select("slug,title,scripture_reference,scripture_text,reflection,prayer,published_on,status")
     .eq("status", "published")
     .eq("access_level", "public")
+    .lte("published_on", today)
     .order("published_on", { ascending: false, nullsFirst: false });
 
   if (error || !data?.length) return fallbackEntryList();
@@ -105,6 +140,7 @@ export async function getPublicDailyLightEntries(): Promise<PublicDailyLightEntr
 
 export async function getPublicDailyLightEntryBySlug(slug: string): Promise<PublicDailyLightEntry | null> {
   const supabase = createSupabaseBrowserClient();
+  const today = getDailyLightToday();
 
   if (!supabase) return fallbackEntryBySlug(slug);
 
@@ -114,6 +150,7 @@ export async function getPublicDailyLightEntryBySlug(slug: string): Promise<Publ
     .eq("slug", slug)
     .eq("status", "published")
     .eq("access_level", "public")
+    .lte("published_on", today)
     .maybeSingle();
 
   if (error || !data) return fallbackEntryBySlug(slug);
@@ -121,7 +158,7 @@ export async function getPublicDailyLightEntryBySlug(slug: string): Promise<Publ
   return normalizeEntry(data);
 }
 
-export async function getLatestDailyLightEntry(): Promise<PublicDailyLightEntry> {
+export async function getLatestDailyLightEntry(): Promise<PublicDailyLightEntry | null> {
   const entries = await getPublicDailyLightEntries();
-  return entries[0] ?? normalizeFallbackEntry(fallbackEntries[0]);
+  return entries[0] ?? null;
 }
