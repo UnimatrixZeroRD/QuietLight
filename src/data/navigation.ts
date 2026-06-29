@@ -4,6 +4,8 @@ export type NavItem = {
   children?: NavItem[];
 };
 
+const externalStoreUrl = "https://quietlight.store/";
+
 export const primaryNavigation: NavItem[] = [
   { label: "Home", href: "/" },
   {
@@ -31,7 +33,7 @@ export const primaryNavigation: NavItem[] = [
     children: [
       { label: "Order of the Lantern", href: "/membership" },
       { label: "Quiet Works", href: "/quiet-works" },
-      { label: "Store", href: "/store" },
+      { label: "Store", href: externalStoreUrl },
       { label: "Support", href: "/support" },
     ],
   },
@@ -48,7 +50,7 @@ export const footerNavigation = {
     { label: "Daily Light", href: "/daily-light" },
   ],
   platform: [
-    { label: "Store", href: "/store" },
+    { label: "Store", href: externalStoreUrl },
     { label: "Order of the Lantern", href: "/membership" },
     { label: "Quiet Works", href: "/quiet-works" },
     { label: "Bible", href: "/bible" },
