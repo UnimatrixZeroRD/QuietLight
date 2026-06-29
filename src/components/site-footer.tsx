@@ -15,7 +15,7 @@ export function SiteFooter() {
         <FooterColumn title="Platform" items={footerNavigation.platform} />
         <FooterColumn title="Legal" items={footerNavigation.legal} />
       </div>
-      <p className="mx-auto mt-10 max-w-7xl text-xs leading-6 text-[var(--muted-silver)]">
+      <p className="mx-auto mt-10 max-w-7xl text-center text-xs leading-6 text-[var(--muted-silver)]">
         © {currentYear} Quiet Light Ministries. All rights reserved.
       </p>
     </footer>
