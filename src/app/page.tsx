@@ -73,19 +73,37 @@ export default function HomePage() {
           <div>
             <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">The Book</p>
             <h2 className="mt-4 text-3xl md:text-4xl">The Keeper&apos;s Lantern</h2>
-            <p className="mt-5 leading-8 text-[var(--muted-silver)]">
-              A gathered work of prayer, reflection, psalm, invocation, and sacred teaching for those called to tend the light.
-            </p>
-            <Link className="gold-text mt-6 inline-block uppercase tracking-[0.18em]" href="/keepers-lantern">Explore the Book</Link>
+            <div className="mt-5 grid gap-4 leading-8 text-[var(--muted-silver)]">
+              <p>
+                The Keeper&apos;s Lantern is the central gathered work of Quiet Light Ministries: a book of prayer, reflection, psalm, invocation, sacred teaching, and spiritual formation for those who feel called to tend the light with humility. It gives language to the heart of the Way of Quiet Light, shaping its prayers, its charges, its blessings, and its quiet call to live faithfully before God.
+              </p>
+              <p>
+                Written for seekers, servants, and keepers of the flame, the book invites readers into a life of stillness, mercy, reverence, and quiet courage. It is not merely a text to read, but a companion for prayer, devotional practice, and the daily work of becoming a person who carries light without seeking attention for oneself.
+              </p>
+            </div>
+            <div className="mt-8 flex justify-center">
+              <Link className="rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] transition hover:border-[var(--lantern-gold)] hover:bg-[rgba(216,168,79,0.1)] focus-visible:border-[var(--lantern-gold)] focus-visible:bg-[rgba(216,168,79,0.1)]" href="/keepers-lantern">
+                Explore the Book
+              </Link>
+            </div>
           </div>
         </div>
         <div className="lantern-panel rounded-3xl p-6 md:p-8">
           <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">The Platform</p>
-          <h2 className="mt-4 text-3xl md:text-4xl">Publishing, memberships, books, music, and Daily Light.</h2>
-          <p className="mt-5 leading-8 text-[var(--muted-silver)]">
-            Quiet Light is being built as a sacred digital home for free content, member content, digital works, scripture, and reflection.
-          </p>
-          <Link className="gold-text mt-6 inline-block uppercase tracking-[0.18em]" href="/membership">View Memberships</Link>
+          <h2 className="mt-4 text-3xl md:text-4xl">Publishing, memberships, books, music, scripture, and Daily Light.</h2>
+          <div className="mt-5 grid gap-4 leading-8 text-[var(--muted-silver)]">
+            <p>
+              Quiet Light Ministries is being built as a sacred digital home for devotional writing, scripture work, music, books, member content, reflections, video, and other resources connected to the Way of Quiet Light. The platform brings these works together in one place so visitors can read, listen, pray, learn, and return often for new material.
+            </p>
+            <p>
+              As the ministry grows, members will be able to create an account, follow new releases, access selected digital works, receive Daily Light reflections, and take part in the wider life of the community. This is the beginning of a larger home for the Keeper&apos;s Lantern, the Geneva Bible project, sacred music, Quiet Works, and the ongoing work of keeping the flame.
+            </p>
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Link className="rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] transition hover:border-[var(--lantern-gold)] hover:bg-[rgba(216,168,79,0.1)] focus-visible:border-[var(--lantern-gold)] focus-visible:bg-[rgba(216,168,79,0.1)]" href="/sign-in">
+              Join
+            </Link>
+          </div>
         </div>
       </section>
 
