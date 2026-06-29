@@ -3,6 +3,29 @@ import { createSupabaseBrowserClient } from "./client";
 
 const DAILY_LIGHT_TIME_ZONE = "America/Halifax";
 
+const dailyLightSelectFields = `
+  slug,
+  title,
+  summary,
+  volume,
+  volume_title,
+  day,
+  theme,
+  old_testament_reading,
+  new_testament_reading,
+  key_verse_reference,
+  key_verse_text,
+  scripture_reference,
+  scripture_text,
+  reflection,
+  prayer,
+  reflection_question,
+  today_practice,
+  closing_thought,
+  published_on,
+  status
+`;
+
 export type PublicDailyLightEntry = {
   id: string;
   slug: string;
@@ -98,23 +121,46 @@ function fallbackEntryList() {
 function normalizeEntry(entry: {
   slug: string;
   title: string;
+  summary: string | null;
+  volume: string | null;
+  volume_title: string | null;
+  day: number | null;
+  theme: string | null;
+  old_testament_reading: string | null;
+  new_testament_reading: string | null;
+  key_verse_reference: string | null;
+  key_verse_text: string | null;
   scripture_reference: string | null;
   scripture_text: string | null;
   reflection: string;
   prayer: string | null;
+  reflection_question: string | null;
+  today_practice: string | null;
+  closing_thought: string | null;
   published_on: string | null;
 }): PublicDailyLightEntry {
   return {
     id: entry.slug,
     slug: entry.slug,
     title: entry.title,
-    summary: entry.scripture_reference ?? "Daily scripture and reflection.",
+    summary: entry.summary ?? entry.scripture_reference ?? "Daily scripture and reflection.",
     accessLevel: "public",
     status: "published",
+    volume: entry.volume ?? undefined,
+    volumeTitle: entry.volume_title ?? undefined,
+    day: entry.day ?? undefined,
+    theme: entry.theme ?? undefined,
+    oldTestamentReading: entry.old_testament_reading ?? undefined,
+    newTestamentReading: entry.new_testament_reading ?? undefined,
+    keyVerseReference: entry.key_verse_reference ?? undefined,
+    keyVerseText: entry.key_verse_text ?? undefined,
     scriptureReference: entry.scripture_reference ?? undefined,
     scriptureText: entry.scripture_text ?? undefined,
     reflection: entry.reflection,
     prayer: entry.prayer ?? undefined,
+    reflectionQuestion: entry.reflection_question ?? undefined,
+    todayPractice: entry.today_practice ?? undefined,
+    closingThought: entry.closing_thought ?? undefined,
     publishedOn: entry.published_on ?? undefined,
   };
 }
@@ -127,7 +173,7 @@ export async function getPublicDailyLightEntries(): Promise<PublicDailyLightEntr
 
   const { data, error } = await supabase
     .from("daily_light_entries")
-    .select("slug,title,scripture_reference,scripture_text,reflection,prayer,published_on,status")
+    .select(dailyLightSelectFields)
     .eq("status", "published")
     .eq("access_level", "public")
     .lte("published_on", today)
@@ -146,7 +192,7 @@ export async function getPublicDailyLightEntryBySlug(slug: string): Promise<Publ
 
   const { data, error } = await supabase
     .from("daily_light_entries")
-    .select("slug,title,scripture_reference,scripture_text,reflection,prayer,published_on,status")
+    .select(dailyLightSelectFields)
     .eq("slug", slug)
     .eq("status", "published")
     .eq("access_level", "public")
