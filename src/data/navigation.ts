@@ -13,7 +13,7 @@ export const primaryNavigation: NavItem[] = [
     href: "/the-way",
     children: [
       { label: "The Way Overview", href: "/the-way" },
-      { label: "Daily Light", href: "/daily-light" },
+      { label: "Blog", href: "/blog" },
       { label: "Geneva Bible", href: "/bible" },
     ],
   },
@@ -22,9 +22,9 @@ export const primaryNavigation: NavItem[] = [
     href: "/keepers-lantern",
     children: [
       { label: "The Keeper's Lantern", href: "/keepers-lantern" },
+      { label: "Daily Light", href: "/daily-light" },
       { label: "Music", href: "/music" },
       { label: "Video", href: "/video" },
-      { label: "Blog", href: "/blog" },
     ],
   },
   {
