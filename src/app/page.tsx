@@ -187,21 +187,35 @@ export default async function HomePage() {
             />
           </div>
           <div className="p-6 md:p-12">
-            <p className="gold-text text-xs uppercase tracking-[0.25em]">{formatDailyLightDate(dailyLightEntry.publishedOn)}</p>
-            <h3 className="mx-auto mt-4 max-w-3xl text-3xl md:text-4xl">{dailyLightEntry.title}</h3>
-            {dailyLightEntry.scriptureReference ? (
-              <p className="mt-5 text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">{dailyLightEntry.scriptureReference}</p>
-            ) : null}
-            {dailyLightEntry.scriptureText ? (
-              <blockquote className="mx-auto mt-5 max-w-3xl text-xl italic leading-9 text-[var(--soft-gold)] md:text-2xl">
-                “{dailyLightEntry.scriptureText}”
-              </blockquote>
-            ) : null}
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">{dailyLightEntry.reflection}</p>
-            <p className="mx-auto mt-5 max-w-2xl leading-8 text-[var(--muted-silver)]">{dailyLightEntry.summary}</p>
-            <Link className="gold-text mt-8 inline-block rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em]" href={`/daily-light/${dailyLightEntry.slug}`}>
-              Read Today&apos;s Light
-            </Link>
+            {dailyLightEntry ? (
+              <>
+                <p className="gold-text text-xs uppercase tracking-[0.25em]">{formatDailyLightDate(dailyLightEntry.publishedOn)}</p>
+                <h3 className="mx-auto mt-4 max-w-3xl text-3xl md:text-4xl">{dailyLightEntry.title}</h3>
+                {dailyLightEntry.scriptureReference ? (
+                  <p className="mt-5 text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">{dailyLightEntry.scriptureReference}</p>
+                ) : null}
+                {dailyLightEntry.scriptureText ? (
+                  <blockquote className="mx-auto mt-5 max-w-3xl text-xl italic leading-9 text-[var(--soft-gold)] md:text-2xl">
+                    “{dailyLightEntry.scriptureText}”
+                  </blockquote>
+                ) : null}
+                <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">{dailyLightEntry.summary}</p>
+                <Link className="gold-text mt-8 inline-block rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em]" href={`/daily-light/${dailyLightEntry.slug}`}>
+                  Read Today&apos;s Light
+                </Link>
+              </>
+            ) : (
+              <>
+                <p className="gold-text text-xs uppercase tracking-[0.25em]">Begins July 1, 2026</p>
+                <h3 className="mx-auto mt-4 max-w-3xl text-3xl md:text-4xl">The Daily Light is being prepared.</h3>
+                <p className="mx-auto mt-6 max-w-2xl leading-8 text-[var(--muted-silver)]">
+                  The first Daily Light reflection will appear here on July 1, 2026. Each day after that, the next reflection will rise in order and the previous six days will remain in the archive.
+                </p>
+                <Link className="gold-text mt-8 inline-block rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em]" href="/daily-light">
+                  Visit Daily Light
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </section>
