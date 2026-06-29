@@ -20,6 +20,10 @@ function isSvgImage(image: string) {
   return image.endsWith(".svg");
 }
 
+function isExternalLink(href: string) {
+  return href.startsWith("http");
+}
+
 const editions: Edition[] = [
   {
     label: "Featured Edition",
@@ -69,6 +73,19 @@ const editions: Edition[] = [
       "A companion work offering a simple voluntary rhythm for those who wish to live more intentionally according to the spirit of quiet faith, humility, and responsibility.",
     href: "https://www.amazon.ca/Rule-Keeper-Voluntary-Rhythm-Those/dp/B0GXYZ458N/",
     cta: "Buy on Amazon",
+    frameClass: "aspect-[2/3]",
+  },
+  {
+    title: "The Daily Light",
+    subtitle: "A Year of Scripture and Reflection",
+    image: "/images/books/daily-light-cover.webp",
+    alt: "The Daily Light devotional book cover.",
+    width: 1024,
+    height: 1536,
+    description:
+      "A year-long devotional journey through scripture, reflection, prayer, and quiet spiritual practice, gathered for those who wish to walk steadily with God one day at a time.",
+    href: "/daily-light#daily-light-book",
+    cta: "View Daily Light",
     frameClass: "aspect-[2/3]",
   },
 ];
@@ -214,7 +231,7 @@ export default function KeepersLanternPage() {
           <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">Available Editions</p>
           <h2 className="mt-4 text-4xl md:text-6xl">Books and companion works</h2>
           <p className="mt-5 leading-8 text-[var(--muted-silver)]">
-            <em>The Keeper&apos;s Lantern</em> and related works are currently available through Amazon and Audible.
+            <em>The Keeper&apos;s Lantern</em> and related works are gathered here as books, audio, and devotional companions.
           </p>
         </div>
 
@@ -245,8 +262,8 @@ export default function KeepersLanternPage() {
                 <Link
                   className="gold-text mt-6 inline-block uppercase tracking-[0.18em]"
                   href={edition.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={isExternalLink(edition.href) ? "_blank" : undefined}
+                  rel={isExternalLink(edition.href) ? "noopener noreferrer" : undefined}
                 >
                   {edition.cta}
                 </Link>
