@@ -21,6 +21,7 @@ function formatDate(value?: string) {
 
 export default async function DailyLightPage() {
   const [featuredEntry, entries] = await Promise.all([getLatestDailyLightEntry(), getPublicDailyLightEntries()]);
+  const previousEntries = entries.filter((entry) => entry.slug !== featuredEntry.slug).slice(0, 6);
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
@@ -40,20 +41,37 @@ export default async function DailyLightPage() {
         Daily Light offers a daily scripture passage, a quiet reflection, and a simple thought for prayer. It is meant to help readers return each day to stillness, humility, mercy, and faithful attention to the light entrusted to them.
       </p>
 
-      <div className="lantern-panel mt-10 rounded-3xl p-8 text-center md:p-12">
-        <p className="gold-text text-xs uppercase tracking-[0.25em]">Latest reflection</p>
-        <h2 className="mt-4 text-4xl">{featuredEntry.title}</h2>
-        <p className="mt-6 text-3xl italic leading-relaxed">{featuredEntry.reflection}</p>
-        <p className="mt-6 leading-8 text-[var(--muted-silver)]">{featuredEntry.summary}</p>
-        <Link className="mt-8 inline-block rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--soft-gold)]" href={`/daily-light/${featuredEntry.slug}`}>
-          Read Today&apos;s Light
-        </Link>
-      </div>
+      <article className="lantern-panel mt-10 rounded-3xl p-8 md:p-12">
+        <p className="gold-text text-center text-xs uppercase tracking-[0.25em]">Current Daily Light</p>
+        <p className="gold-text mt-5 text-center uppercase tracking-[0.3em]">{formatDate(featuredEntry.publishedOn)}</p>
+        <h1 className="gold-text mx-auto mt-4 max-w-4xl text-center text-5xl md:text-7xl">{featuredEntry.title}</h1>
+
+        {featuredEntry.scriptureReference ? (
+          <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
+            <p className="gold-text text-xs uppercase tracking-[0.25em]">Scripture</p>
+            <h2 className="mt-3 text-2xl">{featuredEntry.scriptureReference}</h2>
+            {featuredEntry.scriptureText ? <p className="mt-4 text-lg leading-9 text-[var(--muted-silver)]">{featuredEntry.scriptureText}</p> : null}
+          </section>
+        ) : null}
+
+        <section className="mt-10">
+          <p className="gold-text text-xs uppercase tracking-[0.25em]">Reflection</p>
+          <p className="mt-4 text-2xl italic leading-10 text-[var(--ivory)]">{featuredEntry.reflection}</p>
+        </section>
+
+        {featuredEntry.prayer ? (
+          <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
+            <p className="gold-text text-xs uppercase tracking-[0.25em]">Prayer</p>
+            <p className="mt-4 text-lg leading-9 text-[var(--muted-silver)]">{featuredEntry.prayer}</p>
+          </section>
+        ) : null}
+      </article>
 
       <section className="mt-12">
         <p className="gold-text uppercase tracking-[0.3em]">Archive</p>
+        <p className="mt-3 max-w-3xl leading-8 text-[var(--muted-silver)]">The six most recent Daily Light entries before today&apos;s reflection.</p>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
-          {entries.map((entry) => (
+          {previousEntries.map((entry) => (
             <Link className="lantern-panel block rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)]" href={`/daily-light/${entry.slug}`} key={entry.slug}>
               <p className="gold-text text-xs uppercase tracking-[0.25em]">{formatDate(entry.publishedOn)}</p>
               <h2 className="mt-4 text-2xl">{entry.title}</h2>
