@@ -108,7 +108,7 @@ function formatDate(value?: string) {
 
 export default async function DailyLightPage() {
   const [featuredEntry, entries] = await Promise.all([getLatestDailyLightEntry(), getPublicDailyLightEntries()]);
-  const previousEntries = entries.filter((entry) => entry.slug !== featuredEntry.slug).slice(0, 6);
+  const previousEntries = featuredEntry ? entries.filter((entry) => entry.slug !== featuredEntry.slug).slice(0, 6) : [];
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
@@ -128,66 +128,76 @@ export default async function DailyLightPage() {
         Daily Light offers a daily scripture passage, a quiet reflection, and a simple thought for prayer. It is meant to help readers return each day to stillness, humility, mercy, and faithful attention to the light entrusted to them.
       </p>
 
-      <article className="lantern-panel mt-10 rounded-3xl p-8 md:p-12">
-        <p className="gold-text text-center text-xs uppercase tracking-[0.25em]">Current Daily Light</p>
-        <p className="gold-text mt-5 text-center uppercase tracking-[0.3em]">{formatDate(featuredEntry.publishedOn)}</p>
-        <div className="mt-4 text-center text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">
-          {featuredEntry.volume ? <span>{featuredEntry.volume}</span> : null}
-          {featuredEntry.volume && featuredEntry.volumeTitle ? <span> · </span> : null}
-          {featuredEntry.volumeTitle ? <span>{featuredEntry.volumeTitle}</span> : null}
-          {featuredEntry.day ? <span> · Day {featuredEntry.day}</span> : null}
-        </div>
-        <h1 className="gold-text mx-auto mt-4 max-w-4xl text-center text-5xl md:text-7xl">{featuredEntry.title}</h1>
-        {featuredEntry.theme ? <p className="mt-5 text-center text-lg text-[var(--muted-silver)]">Theme: {featuredEntry.theme}</p> : null}
+      {featuredEntry ? (
+        <article className="lantern-panel mt-10 rounded-3xl p-8 md:p-12">
+          <p className="gold-text text-center text-xs uppercase tracking-[0.25em]">Current Daily Light</p>
+          <p className="gold-text mt-5 text-center uppercase tracking-[0.3em]">{formatDate(featuredEntry.publishedOn)}</p>
+          <div className="mt-4 text-center text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">
+            {featuredEntry.volume ? <span>{featuredEntry.volume}</span> : null}
+            {featuredEntry.volume && featuredEntry.volumeTitle ? <span> · </span> : null}
+            {featuredEntry.volumeTitle ? <span>{featuredEntry.volumeTitle}</span> : null}
+            {featuredEntry.day ? <span> · Day {featuredEntry.day}</span> : null}
+          </div>
+          <h1 className="gold-text mx-auto mt-4 max-w-4xl text-center text-5xl md:text-7xl">{featuredEntry.title}</h1>
+          {featuredEntry.theme ? <p className="mt-5 text-center text-lg text-[var(--muted-silver)]">Theme: {featuredEntry.theme}</p> : null}
 
-        {(featuredEntry.oldTestamentReading || featuredEntry.newTestamentReading) ? (
-          <section className="mt-10 grid gap-6 md:grid-cols-2">
-            {featuredEntry.oldTestamentReading ? (
-              <div className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
-                <p className="gold-text text-xs uppercase tracking-[0.25em]">Old Testament Reading</p>
-                <p className="mt-3 text-2xl">{featuredEntry.oldTestamentReading}</p>
-              </div>
-            ) : null}
-            {featuredEntry.newTestamentReading ? (
-              <div className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
-                <p className="gold-text text-xs uppercase tracking-[0.25em]">New Testament Reading</p>
-                <p className="mt-3 text-2xl">{featuredEntry.newTestamentReading}</p>
-              </div>
-            ) : null}
+          {(featuredEntry.oldTestamentReading || featuredEntry.newTestamentReading) ? (
+            <section className="mt-10 grid gap-6 md:grid-cols-2">
+              {featuredEntry.oldTestamentReading ? (
+                <div className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
+                  <p className="gold-text text-xs uppercase tracking-[0.25em]">Old Testament Reading</p>
+                  <p className="mt-3 text-2xl">{featuredEntry.oldTestamentReading}</p>
+                </div>
+              ) : null}
+              {featuredEntry.newTestamentReading ? (
+                <div className="rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
+                  <p className="gold-text text-xs uppercase tracking-[0.25em]">New Testament Reading</p>
+                  <p className="mt-3 text-2xl">{featuredEntry.newTestamentReading}</p>
+                </div>
+              ) : null}
+            </section>
+          ) : null}
+
+          {(featuredEntry.keyVerseReference || featuredEntry.keyVerseText || featuredEntry.scriptureReference) ? (
+            <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
+              <p className="gold-text text-xs uppercase tracking-[0.25em]">Key Verse</p>
+              <h2 className="mt-3 text-2xl">{featuredEntry.keyVerseReference ?? featuredEntry.scriptureReference}</h2>
+              {(featuredEntry.keyVerseText ?? featuredEntry.scriptureText) ? (
+                <p className="mt-4 text-xl italic leading-9 text-[var(--soft-gold)]">“{featuredEntry.keyVerseText ?? featuredEntry.scriptureText}”</p>
+              ) : null}
+            </section>
+          ) : null}
+
+          <section className="mt-10">
+            <p className="gold-text text-xs uppercase tracking-[0.25em]">Daily Light</p>
+            <p className="mt-4 whitespace-pre-line text-xl leading-10 text-[var(--ivory)]">{featuredEntry.reflection}</p>
           </section>
-        ) : null}
 
-        {(featuredEntry.keyVerseReference || featuredEntry.keyVerseText || featuredEntry.scriptureReference) ? (
-          <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
-            <p className="gold-text text-xs uppercase tracking-[0.25em]">Key Verse</p>
-            <h2 className="mt-3 text-2xl">{featuredEntry.keyVerseReference ?? featuredEntry.scriptureReference}</h2>
-            {(featuredEntry.keyVerseText ?? featuredEntry.scriptureText) ? (
-              <p className="mt-4 text-xl italic leading-9 text-[var(--soft-gold)]">“{featuredEntry.keyVerseText ?? featuredEntry.scriptureText}”</p>
-            ) : null}
-          </section>
-        ) : null}
+          {featuredEntry.prayer ? (
+            <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
+              <p className="gold-text text-xs uppercase tracking-[0.25em]">Prayer</p>
+              <p className="mt-4 whitespace-pre-line text-lg leading-9 text-[var(--muted-silver)]">{featuredEntry.prayer}</p>
+            </section>
+          ) : null}
 
-        <section className="mt-10">
-          <p className="gold-text text-xs uppercase tracking-[0.25em]">Daily Light</p>
-          <p className="mt-4 whitespace-pre-line text-xl leading-10 text-[var(--ivory)]">{featuredEntry.reflection}</p>
+          {(featuredEntry.reflectionQuestion || featuredEntry.todayPractice || featuredEntry.closingThought) ? (
+            <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
+              <p className="gold-text text-xs uppercase tracking-[0.25em]">Reflection</p>
+              {featuredEntry.reflectionQuestion ? <p className="mt-4 text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Question:</span> {featuredEntry.reflectionQuestion}</p> : null}
+              {featuredEntry.todayPractice ? <p className="mt-4 text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Today&apos;s Practice:</span> {featuredEntry.todayPractice}</p> : null}
+              {featuredEntry.closingThought ? <p className="mt-6 text-xl italic leading-9 text-[var(--soft-gold)]">“{featuredEntry.closingThought}”</p> : null}
+            </section>
+          ) : null}
+        </article>
+      ) : (
+        <section className="lantern-panel mt-10 rounded-3xl p-8 text-center md:p-12">
+          <p className="gold-text text-xs uppercase tracking-[0.25em]">Begins July 1, 2026</p>
+          <h1 className="gold-text mx-auto mt-4 max-w-4xl text-5xl md:text-7xl">The Daily Light is being prepared.</h1>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">
+            The first Daily Light reflection will appear on July 1, 2026. Each day after that, the next entry will become the current Daily Light, while the previous six days remain available in the archive below.
+          </p>
         </section>
-
-        {featuredEntry.prayer ? (
-          <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
-            <p className="gold-text text-xs uppercase tracking-[0.25em]">Prayer</p>
-            <p className="mt-4 whitespace-pre-line text-lg leading-9 text-[var(--muted-silver)]">{featuredEntry.prayer}</p>
-          </section>
-        ) : null}
-
-        {(featuredEntry.reflectionQuestion || featuredEntry.todayPractice || featuredEntry.closingThought) ? (
-          <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
-            <p className="gold-text text-xs uppercase tracking-[0.25em]">Reflection</p>
-            {featuredEntry.reflectionQuestion ? <p className="mt-4 text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Question:</span> {featuredEntry.reflectionQuestion}</p> : null}
-            {featuredEntry.todayPractice ? <p className="mt-4 text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Today&apos;s Practice:</span> {featuredEntry.todayPractice}</p> : null}
-            {featuredEntry.closingThought ? <p className="mt-6 text-xl italic leading-9 text-[var(--soft-gold)]">“{featuredEntry.closingThought}”</p> : null}
-          </section>
-        ) : null}
-      </article>
+      )}
 
       <section className="mt-12">
         <p className="gold-text uppercase tracking-[0.3em]">Archive</p>
