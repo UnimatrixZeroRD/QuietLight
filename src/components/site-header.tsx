@@ -70,7 +70,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Quiet Light Ministries home">
           <Image
-            src="/images/brand/quiet-light-mark.webp"
+            src="/images/brand/quiet-light-icon.webp"
             alt=""
             width={40}
             height={40}
