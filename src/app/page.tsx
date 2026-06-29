@@ -68,33 +68,38 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto grid max-w-6xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-2 md:py-16">
-        <div className="lantern-panel grid gap-8 rounded-3xl p-6 md:grid-cols-[0.75fr_1fr] md:p-8">
-          <div className="self-start overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_48px_rgba(216,168,79,0.18)]">
-            <Image
-              src="/images/books/keepers-lantern-cover.webp"
-              alt="The Keeper's Lantern Definitive Edition book cover."
-              width={1024}
-              height={1536}
-              sizes="(min-width: 768px) 34vw, 100vw"
-              className="block h-auto w-full"
-            />
+        <div className="lantern-panel rounded-3xl p-6 md:p-8">
+          <div className="grid gap-8 md:grid-cols-[0.75fr_1fr] md:items-center">
+            <div className="self-start overflow-hidden rounded-2xl border border-[var(--lantern-gold)] bg-[var(--midnight)] shadow-[0_0_48px_rgba(216,168,79,0.18)]">
+              <Image
+                src="/images/books/keepers-lantern-cover.webp"
+                alt="The Keeper's Lantern Definitive Edition book cover."
+                width={1024}
+                height={1536}
+                sizes="(min-width: 768px) 34vw, 100vw"
+                className="block h-auto w-full"
+              />
+            </div>
+            <div>
+              <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">The Book</p>
+              <h2 className="mt-4 text-3xl md:text-4xl">The Keeper&apos;s Lantern</h2>
+              <p className="mt-5 leading-8 text-[var(--muted-silver)]">
+                The central gathered work of Quiet Light Ministries: a devotional companion for prayer, reflection, psalm, invocation, sacred teaching, and the keeping of the flame.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="gold-text uppercase tracking-[0.24em] sm:tracking-[0.3em]">The Book</p>
-            <h2 className="mt-4 text-3xl md:text-4xl">The Keeper&apos;s Lantern</h2>
-            <div className="mt-5 grid gap-4 leading-8 text-[var(--muted-silver)]">
-              <p>
-                The Keeper&apos;s Lantern is the central gathered work of Quiet Light Ministries: a book of prayer, reflection, psalm, invocation, sacred teaching, and spiritual formation for those who feel called to tend the light with humility. It gives language to the heart of the Way of Quiet Light, shaping its prayers, its charges, its blessings, and its quiet call to live faithfully before God.
-              </p>
-              <p>
-                Written for seekers, servants, and keepers of the flame, the book invites readers into a life of stillness, mercy, reverence, and quiet courage. It is not merely a text to read, but a companion for prayer, devotional practice, and the daily work of becoming a person who carries light without seeking attention for oneself.
-              </p>
-            </div>
-            <div className="mt-8 flex justify-center">
-              <Link className="rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] transition hover:border-[var(--lantern-gold)] hover:bg-[rgba(216,168,79,0.1)] focus-visible:border-[var(--lantern-gold)] focus-visible:bg-[rgba(216,168,79,0.1)]" href="/keepers-lantern">
-                Explore the Book
-              </Link>
-            </div>
+          <div className="mt-8 grid gap-4 leading-8 text-[var(--muted-silver)]">
+            <p>
+              The Keeper&apos;s Lantern gives language to the heart of the Way of Quiet Light, shaping its prayers, its charges, its blessings, and its quiet call to live faithfully before God. It gathers the spiritual foundation of the ministry into one place for those who feel called to tend the light with humility.
+            </p>
+            <p>
+              Written for seekers, servants, and keepers of the flame, the book invites readers into a life of stillness, mercy, reverence, and quiet courage. It is not merely a text to read, but a companion for prayer, devotional practice, and the daily work of becoming a person who carries light without seeking attention for oneself.
+            </p>
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Link className="rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] transition hover:border-[var(--lantern-gold)] hover:bg-[rgba(216,168,79,0.1)] focus-visible:border-[var(--lantern-gold)] focus-visible:bg-[rgba(216,168,79,0.1)]" href="/keepers-lantern">
+              Explore the Book
+            </Link>
           </div>
         </div>
         <div className="lantern-panel rounded-3xl p-6 md:p-8">
