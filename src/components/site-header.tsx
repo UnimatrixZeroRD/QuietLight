@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { primaryNavigation, type NavItem } from "../data/navigation";
 
@@ -67,9 +68,17 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-[rgba(216,168,79,0.28)] bg-[rgba(7,17,31,0.9)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Quiet Light home">
-          <span className="gold-text shrink-0 text-3xl" aria-hidden="true">✦</span>
-          <span className="gold-text truncate text-base uppercase tracking-[0.2em] sm:text-lg sm:tracking-[0.25em]">Quiet Light</span>
+        <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Quiet Light Ministries home">
+          <Image
+            src="/images/brand/quiet-light-mark.webp"
+            alt=""
+            width={40}
+            height={40}
+            priority
+            aria-hidden="true"
+            className="h-8 w-8 shrink-0 object-contain sm:h-10 sm:w-10"
+          />
+          <span className="gold-text truncate text-base uppercase tracking-[0.16em] sm:text-lg sm:tracking-[0.22em]">Quiet Light Ministries</span>
         </Link>
         <nav className="hidden items-center gap-5 text-xs uppercase tracking-[0.16em] text-[var(--muted-silver)] xl:flex" aria-label="Primary navigation">
           {primaryNavigation.map((item) => (
