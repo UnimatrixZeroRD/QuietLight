@@ -12,7 +12,7 @@ function formatDailyLightDate(value?: string) {
 export default async function HomePage() {
   const dailyLightEntry = await getLatestDailyLightEntry();
   const dailyLightHeaderImage = {
-    src: "/images/backgrounds/quiet-light-header.webp",
+    src: "/images/backgrounds/dailylightheader.webp",
     alt: "Daily Light header artwork with lanterns, mountains, and a quiet path.",
   };
 
