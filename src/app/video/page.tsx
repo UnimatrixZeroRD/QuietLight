@@ -15,11 +15,10 @@ export const metadata: Metadata = {
 };
 
 const heroImage = {
-  // Replace this with the final Video page image when ready.
-  src: "/images/backgrounds/quiet-light-header.webp",
-  alt: "The Way of Quiet Light header artwork with aurora-lit mountains, lanterns, and a lakeside path.",
-  width: 1672,
-  height: 941,
+  src: "/images/video/videocover.webp",
+  alt: "Video of the Quiet Light cover artwork representing teachings, music, and podcasts.",
+  width: 1024,
+  height: 1024,
 };
 
 type YouTubeVideo = {
@@ -129,7 +128,7 @@ const videoSections: VideoSection[] = [
 ];
 
 function getXmlTag(block: string, tag: string) {
-  const match = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`));
+  const match = block.match(new RegExp(`<${tag}[^>]*>([\s\S]*?)<\/${tag}>`));
   return match?.[1]?.trim() ?? "";
 }
 
@@ -361,7 +360,7 @@ export default async function VideoPage() {
               height={heroImage.height}
               priority
               sizes="(min-width: 1024px) 42vw, 100vw"
-              className="aspect-video h-auto w-full rounded-2xl object-cover shadow-[0_0_48px_rgba(216,168,79,0.14)]"
+              className="aspect-square h-auto w-full rounded-2xl object-cover shadow-[0_0_48px_rgba(216,168,79,0.14)]"
             />
           </div>
         </div>
