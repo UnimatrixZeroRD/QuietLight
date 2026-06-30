@@ -128,7 +128,8 @@ const videoSections: VideoSection[] = [
 ];
 
 function getXmlTag(block: string, tag: string) {
-  const match = block.match(new RegExp(`<${tag}[^>]*>([\s\S]*?)<\/${tag}>`));
+  const pattern = String.raw`<${tag}[^>]*>([\s\S]*?)<\/${tag}>`;
+  const match = block.match(new RegExp(pattern));
   return match?.[1]?.trim() ?? "";
 }
 
