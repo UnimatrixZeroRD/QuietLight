@@ -1,128 +1,135 @@
 "use client";
 
-import Link from "next/link";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { createSupabaseBrowserClient } from "../../lib/supabase/client";
 
-type Topic = "general" | "order" | "download" | "membership" | "account" | "technical";
+type Topic = "general" | "donations" | "membership" | "in-kind" | "books" | "music" | "technical";
 
 const topics: { label: string; value: Topic }[] = [
-  { label: "General", value: "general" },
-  { label: "Order", value: "order" },
-  { label: "Download", value: "download" },
+  { label: "General Question", value: "general" },
+  { label: "Donations and Giving", value: "donations" },
   { label: "Membership", value: "membership" },
-  { label: "Account", value: "account" },
-  { label: "Technical", value: "technical" },
+  { label: "In-Kind Donations", value: "in-kind" },
+  { label: "Books and Resources", value: "books" },
+  { label: "Music, Video, or Podcast", value: "music" },
+  { label: "Technical Support", value: "technical" },
 ];
 
+const consentStatement =
+  "I consent to Quiet Light Ministries contacting me by email or telephone about this message, donation, membership, support request, or related ministry matter. I understand that I can withdraw this consent at any time.";
+
 export function ContactRequestForm() {
-  const [userId, setUserId] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [topic, setTopic] = useState<Topic>("general");
   const [subject, setSubject] = useState("");
   const [messageText, setMessageText] = useState("");
+  const [hasContactConsent, setHasContactConsent] = useState(false);
   const [message, setMessage] = useState("");
-  const [isLoadingUser, setIsLoadingUser] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
-
-  useEffect(() => {
-    const supabase = createSupabaseBrowserClient();
-    if (!supabase) {
-      setMessage("Supabase is not configured in this environment yet.");
-      setIsLoadingUser(false);
-      return;
-    }
-
-    void Promise.resolve().then(async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-
-      if (user) {
-        setUserId(user.id);
-        setEmail(user.email ?? "");
-      }
-
-      setIsLoadingUser(false);
-    });
-  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSaving(true);
     setMessage("");
 
-    const supabase = createSupabaseBrowserClient();
-    if (!supabase || !userId) {
-      setMessage("Please sign in before sending a request.");
+    if (!hasContactConsent) {
+      setMessage("Please confirm that Quiet Light Ministries has permission to contact you about this message.");
       setIsSaving(false);
       return;
     }
 
-    const { error } = await supabase.from("messages").insert({
-      user_id: userId,
+    const supabase = createSupabaseBrowserClient();
+    if (!supabase) {
+      setMessage("The contact form is not configured yet. Please try again later.");
+      setIsSaving(false);
+      return;
+    }
+
+    const { error } = await supabase.from("contact_submissions").insert({
       sender_name: name,
-      sender_address: email,
+      sender_email: email,
+      sender_phone: phone,
       topic,
       subject,
       message_text: messageText,
+      consent_to_contact: hasContactConsent,
+      consent_statement: consentStatement,
+      source: "support_page",
     });
 
     if (error) {
       setMessage(error.message);
     } else {
-      setMessage("Your request has been sent. Thank you — we will review it from the admin inbox.");
+      setMessage("Your message has been sent. Thank you for reaching out to Quiet Light Ministries.");
+      setName("");
+      setEmail("");
+      setPhone("");
       setTopic("general");
       setSubject("");
       setMessageText("");
+      setHasContactConsent(false);
     }
 
     setIsSaving(false);
   }
 
-  if (!isLoadingUser && !userId) {
-    return (
-      <section className="lantern-panel mt-10 rounded-3xl p-8">
-        <p className="gold-text uppercase tracking-[0.3em]">Contact</p>
-        <h2 className="mt-4 text-3xl">Sign in to send a request</h2>
-        <p className="mt-4 leading-8 text-[var(--muted-silver)]">
-          Support requests are attached to your account so orders, downloads, memberships, and access questions can be reviewed safely.
-        </p>
-        <Link className="lantern-glow mt-6 inline-block rounded-full border border-[var(--lantern-gold)] bg-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--midnight)]" href="/sign-in?next=/support">
-          Sign In
-        </Link>
-        <p className="mt-6 text-sm leading-6 text-[var(--muted-silver)]">
-          You can also email Joshua Eaton directly at joshuaeatonca@protonmail.com.
-        </p>
-      </section>
-    );
-  }
-
   return (
     <form className="lantern-panel mt-10 rounded-3xl p-8" onSubmit={handleSubmit}>
       <p className="gold-text uppercase tracking-[0.3em]">Contact</p>
-      <h2 className="mt-4 text-3xl">Send a support request</h2>
+      <h2 className="mt-4 text-3xl">Send a message to Quiet Light Ministries</h2>
       <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">
-        Use this for order questions, download access, account issues, memberships, or technical problems.
+        Use this form for questions about donations, memberships, in-kind support, books, music, videos, podcasts, technical matters, or anything connected to the work of Quiet Light Ministries. You do not need to be signed in to send a message.
       </p>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
-        <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={name} onChange={(event) => setName(event.target.value)} placeholder="Name" />
-        <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email" type="email" required />
+        <label className="grid gap-2 text-sm text-[var(--muted-silver)]">
+          Name
+          <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={name} onChange={(event) => setName(event.target.value)} placeholder="Your name" required />
+        </label>
+        <label className="grid gap-2 text-sm text-[var(--muted-silver)]">
+          Email Address
+          <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" type="email" required />
+        </label>
       </div>
 
-      <div className="mt-4 grid gap-4 md:grid-cols-[220px_1fr]">
-        <select className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={topic} onChange={(event) => setTopic(event.target.value as Topic)}>
-          {topics.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
-        </select>
-        <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={subject} onChange={(event) => setSubject(event.target.value)} placeholder="Subject" required />
+      <div className="mt-4 grid gap-4 md:grid-cols-2">
+        <label className="grid gap-2 text-sm text-[var(--muted-silver)]">
+          Telephone Number
+          <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="Phone number" type="tel" required />
+        </label>
+        <label className="grid gap-2 text-sm text-[var(--muted-silver)]">
+          Topic
+          <select className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={topic} onChange={(event) => setTopic(event.target.value as Topic)}>
+            {topics.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+          </select>
+        </label>
       </div>
 
-      <textarea className="mt-4 min-h-44 w-full rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={messageText} onChange={(event) => setMessageText(event.target.value)} placeholder="How can we help? Include order ID, product name, or account details if relevant." required />
+      <label className="mt-4 grid gap-2 text-sm text-[var(--muted-silver)]">
+        Subject
+        <input className="rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={subject} onChange={(event) => setSubject(event.target.value)} placeholder="How can we help?" required />
+      </label>
 
-      <button className="lantern-glow mt-6 rounded-full border border-[var(--lantern-gold)] bg-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--midnight)] disabled:opacity-60" type="submit" disabled={isSaving || isLoadingUser}>
-        {isSaving ? "Sending..." : "Send Request"}
+      <label className="mt-4 grid gap-2 text-sm text-[var(--muted-silver)]">
+        Message
+        <textarea className="min-h-44 w-full rounded-2xl border border-[rgba(216,168,79,0.4)] bg-[rgba(7,17,31,0.85)] px-5 py-4 text-[var(--ivory)]" value={messageText} onChange={(event) => setMessageText(event.target.value)} placeholder="Write your message here." required />
+      </label>
+
+      <label className="mt-6 flex gap-3 rounded-2xl border border-[rgba(216,168,79,0.28)] bg-[rgba(7,17,31,0.55)] p-4 text-sm leading-6 text-[var(--muted-silver)]">
+        <input className="mt-1 h-4 w-4 accent-[var(--lantern-gold)]" checked={hasContactConsent} onChange={(event) => setHasContactConsent(event.target.checked)} type="checkbox" required />
+        <span>
+          {consentStatement}
+        </span>
+      </label>
+
+      <p className="mt-4 text-xs leading-6 text-[var(--muted-silver)]">
+        This consent allows Quiet Light Ministries to respond to your inquiry and follow up about the matter you submit. It is included to support Canadian anti-spam compliance.
+      </p>
+
+      <button className="lantern-glow mt-6 rounded-full border border-[var(--lantern-gold)] bg-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--midnight)] disabled:opacity-60" type="submit" disabled={isSaving}>
+        {isSaving ? "Sending..." : "Send Message"}
       </button>
 
       {message ? <p className="mt-5 text-sm leading-6 text-[var(--muted-silver)]">{message}</p> : null}
