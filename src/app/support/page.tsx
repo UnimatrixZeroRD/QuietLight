@@ -19,18 +19,20 @@ const donationOptions = [
   {
     label: "$10",
     description: "A simple gift toward hosting, tools, and daily ministry expenses.",
-    href: "https://www.paypal.com/donate/?hosted_button_id=YJE9WNP3WEFWN",
-    cta: "Donate with PayPal",
+    hostedButtonId: "YJE9WNP3WEFWN",
   },
   {
     label: "$25",
     description: "Helps support writing, publishing, media, and ongoing content creation.",
-    href: "https://www.paypal.com/donate/?hosted_button_id=VWC3L2WGA4UBN",
-    cta: "Donate with PayPal",
+    hostedButtonId: "VWC3L2WGA4UBN",
   },
-  { label: "$50", description: "Helps strengthen the ministry platform and future creative work.", href: "#donation-options", cta: "Donation Link Placeholder" },
-  { label: "$100", description: "A larger gift toward development, production, and long-term growth.", href: "#donation-options", cta: "Donation Link Placeholder" },
-  { label: "Other Amount", description: "Choose a custom amount when the donation form is connected.", href: "#donation-options", cta: "Donation Link Placeholder" },
+  {
+    label: "$50",
+    description: "Helps strengthen the ministry platform and future creative work.",
+    hostedButtonId: "SJKPMCTCW6QWU",
+  },
+  { label: "$100", description: "A larger gift toward development, production, and long-term growth." },
+  { label: "Other Amount", description: "Choose a custom amount when the donation form is connected." },
 ];
 
 const ministryNeeds = [
@@ -61,6 +63,10 @@ const imagePlaceholders = [
   "Wishlist and equipment image",
   "In-kind gifts and resources image",
 ];
+
+function paypalDonationLink(hostedButtonId: string) {
+  return `https://www.paypal.com/donate/?hosted_button_id=${hostedButtonId}`;
+}
 
 function VisualPlaceholder({ label }: { label: string }) {
   return (
@@ -113,19 +119,22 @@ export default function SupportPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {donationOptions.map((option) => {
-              const isExternal = option.href.startsWith("http");
+              const href = option.hostedButtonId ? paypalDonationLink(option.hostedButtonId) : "#donation-options";
+              const isExternal = option.hostedButtonId !== undefined;
 
               return (
                 <Link
                   className="lantern-panel rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)] hover:bg-[rgba(216,168,79,0.06)]"
-                  href={option.href}
+                  href={href}
                   key={option.label}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noopener noreferrer" : undefined}
                 >
                   <p className="gold-text text-3xl">{option.label}</p>
                   <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{option.description}</p>
-                  <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">{option.cta}</p>
+                  <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">
+                    {option.hostedButtonId ? "Donate with PayPal" : "Donation Link Placeholder"}
+                  </p>
                 </Link>
               );
             })}
