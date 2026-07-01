@@ -31,7 +31,11 @@ const donationOptions = [
     description: "Helps strengthen the ministry platform and future creative work.",
     hostedButtonId: "SJKPMCTCW6QWU",
   },
-  { label: "$100", description: "A larger gift toward development, production, and long-term growth." },
+  {
+    label: "$100",
+    description: "A larger gift toward development, production, and long-term growth.",
+    hostedButtonId: "U4MVKSAUJ598S",
+  },
   { label: "Other Amount", description: "Choose a custom amount when the donation form is connected." },
 ];
 
