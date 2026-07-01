@@ -22,7 +22,12 @@ const donationOptions = [
     href: "https://www.paypal.com/donate/?hosted_button_id=YJE9WNP3WEFWN",
     cta: "Donate with PayPal",
   },
-  { label: "$25", description: "Helps support writing, publishing, media, and ongoing content creation.", href: "#donation-options", cta: "Donation Link Placeholder" },
+  {
+    label: "$25",
+    description: "Helps support writing, publishing, media, and ongoing content creation.",
+    href: "https://www.paypal.com/donate/?hosted_button_id=VWC3L2WGA4UBN",
+    cta: "Donate with PayPal",
+  },
   { label: "$50", description: "Helps strengthen the ministry platform and future creative work.", href: "#donation-options", cta: "Donation Link Placeholder" },
   { label: "$100", description: "A larger gift toward development, production, and long-term growth.", href: "#donation-options", cta: "Donation Link Placeholder" },
   { label: "Other Amount", description: "Choose a custom amount when the donation form is connected.", href: "#donation-options", cta: "Donation Link Placeholder" },
