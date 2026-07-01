@@ -16,11 +16,16 @@ export const metadata: Metadata = {
 };
 
 const donationOptions = [
-  { label: "$10", description: "A simple gift toward hosting, tools, and daily ministry expenses.", href: "#donation-options" },
-  { label: "$25", description: "Helps support writing, publishing, media, and ongoing content creation.", href: "#donation-options" },
-  { label: "$50", description: "Helps strengthen the ministry platform and future creative work.", href: "#donation-options" },
-  { label: "$100", description: "A larger gift toward development, production, and long-term growth.", href: "#donation-options" },
-  { label: "Other Amount", description: "Choose a custom amount when the donation form is connected.", href: "#donation-options" },
+  {
+    label: "$10",
+    description: "A simple gift toward hosting, tools, and daily ministry expenses.",
+    href: "https://www.paypal.com/donate/?hosted_button_id=YJE9WNP3WEFWN",
+    cta: "Donate with PayPal",
+  },
+  { label: "$25", description: "Helps support writing, publishing, media, and ongoing content creation.", href: "#donation-options", cta: "Donation Link Placeholder" },
+  { label: "$50", description: "Helps strengthen the ministry platform and future creative work.", href: "#donation-options", cta: "Donation Link Placeholder" },
+  { label: "$100", description: "A larger gift toward development, production, and long-term growth.", href: "#donation-options", cta: "Donation Link Placeholder" },
+  { label: "Other Amount", description: "Choose a custom amount when the donation form is connected.", href: "#donation-options", cta: "Donation Link Placeholder" },
 ];
 
 const ministryNeeds = [
@@ -95,24 +100,30 @@ export default function SupportPage() {
             <p className="gold-text uppercase tracking-[0.3em]">Donations</p>
             <h2 className="mt-4 text-4xl md:text-6xl">Give toward the work.</h2>
             <p className="mt-6 text-lg leading-9 text-[var(--muted-silver)]">
-              Donations help sustain the ministry directly. Future donation buttons can be connected through Stripe, Square, or another secure payment provider. Supporters may give a fixed amount or choose another amount when the donation system is connected.
+              Donations help sustain the ministry directly. Donation buttons can be connected through PayPal, Stripe, Square, or another secure payment provider. Supporters may give a fixed amount or choose another amount when the donation system is connected.
             </p>
             <p className="mt-5 leading-8 text-[var(--muted-silver)]">
               E-transfer information can also be added here for those who prefer to give directly. This section is prepared so the giving links can be added cleanly once the payment options are ready.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {donationOptions.map((option) => (
-              <Link
-                className="lantern-panel rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)] hover:bg-[rgba(216,168,79,0.06)]"
-                href={option.href}
-                key={option.label}
-              >
-                <p className="gold-text text-3xl">{option.label}</p>
-                <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{option.description}</p>
-                <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">Donation Link Placeholder</p>
-              </Link>
-            ))}
+            {donationOptions.map((option) => {
+              const isExternal = option.href.startsWith("http");
+
+              return (
+                <Link
+                  className="lantern-panel rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)] hover:bg-[rgba(216,168,79,0.06)]"
+                  href={option.href}
+                  key={option.label}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                >
+                  <p className="gold-text text-3xl">{option.label}</p>
+                  <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{option.description}</p>
+                  <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">{option.cta}</p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
