@@ -131,10 +131,13 @@ export default function SupportPage() {
             <p className="gold-text uppercase tracking-[0.3em]">Donations</p>
             <h2 className="mt-4 text-4xl md:text-6xl">Give toward the work.</h2>
             <p className="mt-6 text-lg leading-9 text-[var(--muted-silver)]">
-              Donations help sustain the ministry directly. Donation buttons can be connected through PayPal, Stripe, Square, or another secure payment provider. Supporters may give a fixed amount or choose another amount when the donation system is connected.
+              Every gift helps Quiet Light Ministries continue creating scripture reflections, devotional writings, music, video, podcasts, books, and resources for those seeking a quieter walk with Christ. Whether it is a small one-time gift or a larger contribution, your support helps keep the work alive and allows the ministry to grow with care and purpose.
             </p>
             <p className="mt-5 leading-8 text-[var(--muted-silver)]">
-              E-transfer information can also be added here for those who prefer to give directly. This section is prepared so the giving links can be added cleanly once the payment options are ready.
+              Supporters may give once, or they may choose to make a monthly or annual contribution if they feel called to help sustain the ministry over time. The PayPal options can be used by supporters wherever PayPal is available.
+            </p>
+            <p className="mt-5 leading-8 text-[var(--muted-silver)]">
+              E-transfer is provided as a direct option for Canadian supporters only, and availability may depend on the limits and rules of the sender’s own bank or account.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
