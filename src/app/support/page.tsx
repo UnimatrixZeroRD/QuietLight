@@ -36,7 +36,11 @@ const donationOptions = [
     description: "A larger gift toward development, production, and long-term growth.",
     hostedButtonId: "U4MVKSAUJ598S",
   },
-  { label: "Other Amount", description: "Choose a custom amount when the donation form is connected." },
+  {
+    label: "Any Amount",
+    description: "Choose a custom amount to support the ministry in the way you are able.",
+    hostedButtonId: "M75GM3LH2WV3N",
+  },
 ];
 
 const ministryNeeds = [
@@ -123,22 +127,19 @@ export default function SupportPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {donationOptions.map((option) => {
-              const href = option.hostedButtonId ? paypalDonationLink(option.hostedButtonId) : "#donation-options";
-              const isExternal = option.hostedButtonId !== undefined;
+              const href = paypalDonationLink(option.hostedButtonId);
 
               return (
                 <Link
                   className="lantern-panel rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)] hover:bg-[rgba(216,168,79,0.06)]"
                   href={href}
                   key={option.label}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <p className="gold-text text-3xl">{option.label}</p>
                   <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{option.description}</p>
-                  <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">
-                    {option.hostedButtonId ? "Donate with PayPal" : "Donation Link Placeholder"}
-                  </p>
+                  <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">Donate with PayPal</p>
                 </Link>
               );
             })}
