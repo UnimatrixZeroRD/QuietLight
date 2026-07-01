@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ContactRequestForm } from "../../components/support/contact-request-form";
 
@@ -21,6 +22,41 @@ type DonationOption = {
   hostedButtonId?: string;
   eTransferEmail?: string;
 };
+
+type SupportImage = {
+  src: string;
+  alt: string;
+};
+
+const supportImages = {
+  hero: {
+    src: "/images/support/support-hero.webp",
+    alt: "Quiet Light Ministries support artwork showing the lantern and the work of ministry.",
+  },
+  wishlist: {
+    src: "/images/support/support-wishlist.webp",
+    alt: "Quiet Light Ministries wish list artwork showing practical tools and equipment for ministry work.",
+  },
+  inKind: {
+    src: "/images/support/support-in-kind.webp",
+    alt: "Quiet Light Ministries in-kind donation artwork showing Bibles, supplies, and useful resources.",
+  },
+};
+
+const supportGalleryImages: SupportImage[] = [
+  {
+    src: "/images/support/support-donations.webp",
+    alt: "Quiet Light Ministries donation artwork representing giving and practical support.",
+  },
+  {
+    src: "/images/support/support-equipment.webp",
+    alt: "Quiet Light Ministries equipment artwork representing hardware, production tools, and ministry resources.",
+  },
+  {
+    src: "/images/support/support-resources.webp",
+    alt: "Quiet Light Ministries resource artwork representing books, Bibles, supplies, and outreach materials.",
+  },
+];
 
 const donationOptions: DonationOption[] = [
   {
@@ -78,27 +114,20 @@ const ministryNeeds = [
   },
 ];
 
-const imagePlaceholders = [
-  "Donation and giving artwork",
-  "Wishlist and equipment image",
-  "In-kind gifts and resources image",
-];
-
 function paypalDonationLink(hostedButtonId: string) {
   return `https://www.paypal.com/donate/?hosted_button_id=${hostedButtonId}`;
 }
 
-function VisualPlaceholder({ label }: { label: string }) {
+function SupportImageSlot({ src, alt }: SupportImage) {
   return (
-    <div className="relative min-h-56 overflow-hidden rounded-3xl border border-[rgba(216,168,79,0.34)] bg-[radial-gradient(circle_at_50%_10%,rgba(216,168,79,0.22),transparent_18rem),linear-gradient(135deg,rgba(11,31,58,0.92),rgba(7,17,31,0.96))] p-6 shadow-[0_0_42px_rgba(216,168,79,0.12)]">
-      <div className="absolute inset-x-8 top-8 h-px bg-[linear-gradient(90deg,transparent,rgba(216,168,79,0.8),transparent)]" />
-      <div className="flex h-full min-h-44 items-center justify-center rounded-2xl border border-dashed border-[rgba(216,168,79,0.36)] bg-[rgba(7,17,31,0.42)] text-center">
-        <div className="px-6">
-          <p className="gold-text text-4xl" aria-hidden="true">✦</p>
-          <p className="gold-text mt-4 text-xs uppercase tracking-[0.24em]">Image Placeholder</p>
-          <p className="mx-auto mt-3 max-w-xs text-sm leading-6 text-[var(--muted-silver)]">{label}</p>
-        </div>
-      </div>
+    <div className="relative min-h-56 overflow-hidden rounded-3xl border border-[rgba(216,168,79,0.34)] bg-[radial-gradient(circle_at_50%_10%,rgba(216,168,79,0.22),transparent_18rem),linear-gradient(135deg,rgba(11,31,58,0.92),rgba(7,17,31,0.96))] shadow-[0_0_42px_rgba(216,168,79,0.12)]">
+      <Image
+        src={src}
+        alt={alt}
+        width={1200}
+        height={900}
+        className="h-full min-h-56 w-full object-cover"
+      />
     </div>
   );
 }
@@ -122,7 +151,7 @@ export default function SupportPage() {
             </p>
           </div>
         </div>
-        <VisualPlaceholder label="A future support page hero image can go here, showing the lantern, ministry work, giving, or quiet service." />
+        <SupportImageSlot {...supportImages.hero} />
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-12" id="donation-options">
@@ -179,7 +208,7 @@ export default function SupportPage() {
       <section className="mx-auto max-w-6xl px-6 py-12">
         <div className="lantern-panel rounded-3xl p-6 md:p-10">
           <div className="grid gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center">
-            <VisualPlaceholder label="Wishlist image placeholder for hardware, equipment, books, Bibles, and ministry tools." />
+            <SupportImageSlot {...supportImages.wishlist} />
             <div>
               <p className="gold-text uppercase tracking-[0.3em]">Wish List</p>
               <h2 className="mt-4 text-4xl md:text-5xl">Help provide practical tools.</h2>
@@ -267,15 +296,15 @@ export default function SupportPage() {
                 </p>
               </div>
             </div>
-            <VisualPlaceholder label="In-kind donation image placeholder for Bibles, supplies, equipment, or donated resources." />
+            <SupportImageSlot {...supportImages.inKind} />
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-12">
         <div className="grid gap-6 md:grid-cols-3">
-          {imagePlaceholders.map((label) => (
-            <VisualPlaceholder label={label} key={label} />
+          {supportGalleryImages.map((image) => (
+            <SupportImageSlot {...image} key={image.src} />
           ))}
         </div>
       </section>
