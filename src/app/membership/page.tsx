@@ -1,10 +1,64 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getPublicMembershipTiers } from "../../lib/supabase/public-content";
 
-export default async function MembershipPage() {
-  const tiers = await getPublicMembershipTiers();
+type MembershipType = {
+  title: string;
+  subtitle: string;
+  imageLabel: string;
+  summary: string;
+  points: string[];
+  note: string;
+};
 
+const membershipTypes: MembershipType[] = [
+  {
+    title: "Free Member",
+    subtitle: "Open access to the public life of the ministry.",
+    imageLabel: "Free Member Image Placeholder",
+    summary:
+      "Free membership is for those who want to follow the work, take part in the public community, and access the free resources made available through Quiet Light Ministries.",
+    points: [
+      "Basic access to free areas of the website and publicly available ministry content.",
+      "Access to free writings, updates, reflections, media, and open community resources as they are released.",
+      "Future free access may be supported by advertising once the advertising module is approved and implemented.",
+      "Free members do not receive voting rights or special privileges in decision-making processes.",
+    ],
+    note: "A good path for those who want to walk with the community, receive what is freely offered, and support the ministry through presence, prayer, sharing, and participation.",
+  },
+  {
+    title: "Paid Membership",
+    subtitle: "A deeper form of support, participation, and access.",
+    imageLabel: "Paid Membership Image Placeholder",
+    summary:
+      "Paid membership helps sustain the ministry directly while opening access to additional member benefits, restricted content, and deeper participation in the life of the Order.",
+    points: [
+      "Ad-free access to the site where membership-supported access is available.",
+      "Access to more restricted content, member resources, and private areas of the website.",
+      "Ability to log in for members-only events, discussions, gatherings, and future community features.",
+      "Access to member benefits such as custom discount codes, special offers, and future ministry resources.",
+      "Paid membership may include different internal levels, each with its own rights, privileges, and responsibilities.",
+      "Paid members may participate in designated discussions and receive voting rights according to their membership level and the governing rules of the ministry.",
+    ],
+    note: "This path is for those who want to help carry the work forward in a more committed way and take part in the continuing development of Quiet Light Ministries.",
+  },
+];
+
+function MembershipImagePlaceholder({ label }: { label: string }) {
+  return (
+    <div className="relative aspect-square overflow-hidden rounded-3xl border border-dashed border-[rgba(216,168,79,0.45)] bg-[radial-gradient(circle_at_50%_20%,rgba(216,168,79,0.22),transparent_18rem),linear-gradient(135deg,rgba(11,31,58,0.92),rgba(7,17,31,0.96))] shadow-[0_0_42px_rgba(216,168,79,0.12)]">
+      <div className="absolute inset-x-8 top-8 h-px bg-[linear-gradient(90deg,transparent,rgba(216,168,79,0.85),transparent)]" />
+      <div className="flex h-full items-center justify-center p-8 text-center">
+        <div>
+          <p className="gold-text text-5xl" aria-hidden="true">✦</p>
+          <p className="gold-text mt-5 text-xs uppercase tracking-[0.24em]">Square Image Placeholder</p>
+          <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-[var(--muted-silver)]">{label}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function MembershipPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
       <div className="text-center">
@@ -74,13 +128,33 @@ export default async function MembershipPage() {
       </section>
 
       <section className="mt-16">
-        <h2 className="gold-text text-4xl text-center">Membership Levels</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-5">
-          <article className="lantern-panel rounded-3xl p-6"><h3 className="gold-text">Follower of the Light</h3><p className="mt-3 text-sm text-[var(--muted-silver)]">Free membership and community updates.</p></article>
-          <article className="lantern-panel rounded-3xl p-6"><h3 className="gold-text">Friend of the Lantern</h3><p className="mt-3 text-sm text-[var(--muted-silver)]">Supporter level membership.</p></article>
-          <article className="lantern-panel rounded-3xl p-6"><h3 className="gold-text">Keeper of the Flame</h3><p className="mt-3 text-sm text-[var(--muted-silver)]">Exclusive reflections and member content.</p></article>
-          <article className="lantern-panel rounded-3xl p-6"><h3 className="gold-text">Steward of the Lantern</h3><p className="mt-3 text-sm text-[var(--muted-silver)]">Recognition and project updates.</p></article>
-          <article className="lantern-panel rounded-3xl p-6"><h3 className="gold-text">Lantern Bearer</h3><p className="mt-3 text-sm text-[var(--muted-silver)]">Highest public supporter tier.</p></article>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="gold-text uppercase tracking-[0.3em]">Membership Type</p>
+          <h2 className="gold-text mt-4 text-4xl">Free or Paid Membership</h2>
+          <p className="mt-5 leading-8 text-[var(--muted-silver)]">
+            Membership in the Order of the Lantern begins with a simple choice: follow freely and receive what is openly offered, or become a paid member and help sustain the ministry while taking part in deeper member privileges.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-8 md:grid-cols-2">
+          {membershipTypes.map((membership) => (
+            <article className="lantern-panel rounded-3xl p-6 md:p-8" key={membership.title}>
+              <MembershipImagePlaceholder label={membership.imageLabel} />
+              <p className="gold-text mt-8 text-xs uppercase tracking-[0.24em]">Membership Type</p>
+              <h3 className="gold-text mt-3 text-3xl md:text-4xl">{membership.title}</h3>
+              <p className="mt-3 text-lg leading-8 text-[var(--soft-gold)]">{membership.subtitle}</p>
+              <p className="mt-5 leading-8 text-[var(--muted-silver)]">{membership.summary}</p>
+              <ul className="mt-6 space-y-3 text-sm leading-7 text-[var(--muted-silver)]">
+                {membership.points.map((point) => (
+                  <li className="rounded-2xl border border-[rgba(216,168,79,0.18)] bg-[rgba(7,17,31,0.32)] p-4" key={point}>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 rounded-2xl border border-[rgba(216,168,79,0.28)] p-5 text-sm leading-7 text-[var(--muted-silver)]">
+                {membership.note}
+              </p>
+            </article>
+          ))}
         </div>
       </section>
 
