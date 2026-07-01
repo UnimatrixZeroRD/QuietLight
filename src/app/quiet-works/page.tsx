@@ -32,7 +32,7 @@ export default function QuietWorksPage() {
           <p className="gold-text uppercase tracking-[0.3em]">Quiet Works</p>
           <h1 className="mt-4 text-5xl md:text-7xl">Faith made visible through service.</h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">
-            Quiet Works is the service arm of the Way of Quiet Light: humble, practical acts of mercy carried out without spectacle, rooted in stillness, compassion, and care for the local community.
+            Quiet Works is the service arm of Quiet Light Ministries: humble, practical acts of mercy carried out without spectacle, rooted in stillness, compassion, and care for the local community.
           </p>
         </div>
         <div className="overflow-hidden rounded-3xl border border-[rgba(216,168,79,0.36)] bg-[var(--midnight)] shadow-[0_0_48px_rgba(216,168,79,0.18)]">
