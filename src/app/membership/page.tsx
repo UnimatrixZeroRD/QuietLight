@@ -178,7 +178,10 @@ export default function MembershipPage() {
             <p className="gold-text text-xl">One-Time Support</p>
             <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Donate once with PayPal.</p>
           </Link>
-          <div className="rounded-2xl border border-[var(--lantern-gold)] p-4">Additional Donation Methods</div>
+          <Link className="rounded-2xl border border-[var(--lantern-gold)] p-4 transition hover:bg-[rgba(216,168,79,0.1)]" href="/support">
+            <p className="gold-text text-xl">Additional Donation Methods</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">View the full support page.</p>
+          </Link>
         </div>
       </section>
 
