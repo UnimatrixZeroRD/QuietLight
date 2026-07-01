@@ -167,14 +167,17 @@ export default function MembershipPage() {
       <section className="mt-16 lantern-panel rounded-3xl p-8 text-center">
         <h2 className="gold-text text-4xl">Support the Work</h2>
         <p className="mx-auto mt-4 max-w-3xl leading-8 text-[var(--muted-silver)]">
-          Monthly support helps sustain Quiet Light Ministries over time and strengthens the foundation for future writing, music, video, community tools, and member resources.
+          Monthly or one-time support helps sustain Quiet Light Ministries over time and strengthens the foundation for future writing, music, video, community tools, and member resources.
         </p>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           <Link className="rounded-2xl border border-[var(--lantern-gold)] p-4 transition hover:bg-[rgba(216,168,79,0.1)]" href={paypalDonationLink("4DC2BN3VNS6TN")} target="_blank" rel="noopener noreferrer">
             <p className="gold-text text-xl">Monthly Support</p>
             <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Donate monthly with PayPal.</p>
           </Link>
-          <div className="rounded-2xl border border-[var(--lantern-gold)] p-4">One-Time Donation Button</div>
+          <Link className="rounded-2xl border border-[var(--lantern-gold)] p-4 transition hover:bg-[rgba(216,168,79,0.1)]" href={paypalDonationLink("MBTLCPJPK9LTW")} target="_blank" rel="noopener noreferrer">
+            <p className="gold-text text-xl">One-Time Support</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Donate once with PayPal.</p>
+          </Link>
           <div className="rounded-2xl border border-[var(--lantern-gold)] p-4">Additional Donation Methods</div>
         </div>
       </section>
