@@ -187,10 +187,10 @@ export default function SupportPage() {
                 Some ministry needs are practical: equipment, hardware, production tools, books, Bibles, crafting supplies, storage, and other items that help improve the quality and reach of the work.
               </p>
               <p className="mt-5 leading-8 text-[var(--muted-silver)]">
-                An Amazon wish list or similar list can be linked here so supporters can help provide specific items that strengthen the ministry and increase production value.
+                The Amazon wish list includes practical items that would help strengthen the ministry, improve production quality, and support future creative and community work.
               </p>
-              <Link className="gold-text mt-8 inline-block rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-sm uppercase tracking-[0.18em] transition hover:bg-[rgba(216,168,79,0.1)]" href="#wishlist-link">
-                Amazon Wish List Placeholder
+              <Link className="gold-text mt-8 inline-block rounded-full border border-[rgba(216,168,79,0.5)] px-6 py-3 text-sm uppercase tracking-[0.18em] transition hover:bg-[rgba(216,168,79,0.1)]" href="https://www.amazon.ca/hz/wishlist/ls/19JTME9M1TAYE?ref_=wl_share" target="_blank" rel="noopener noreferrer">
+                View the Amazon Wish List
               </Link>
             </div>
           </div>
