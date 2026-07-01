@@ -4,7 +4,8 @@ import Link from "next/link";
 type MembershipType = {
   title: string;
   subtitle: string;
-  imageLabel: string;
+  imageSrc: string;
+  imageAlt: string;
   summary: string;
   points: string[];
   note: string;
@@ -14,7 +15,8 @@ const membershipTypes: MembershipType[] = [
   {
     title: "Free Member",
     subtitle: "Open access to the public life of the ministry.",
-    imageLabel: "Free Member Image Placeholder",
+    imageSrc: "/images/membership/membership-free.webp",
+    imageAlt: "Free membership artwork for the Order of the Lantern.",
     summary:
       "Free membership is for those who want to follow the work, take part in the public community, and access the free resources made available through Quiet Light Ministries.",
     points: [
@@ -28,7 +30,8 @@ const membershipTypes: MembershipType[] = [
   {
     title: "Paid Membership",
     subtitle: "A deeper form of support, participation, and access.",
-    imageLabel: "Paid Membership Image Placeholder",
+    imageSrc: "/images/membership/membership-paid.webp",
+    imageAlt: "Paid membership artwork for the Order of the Lantern.",
     summary:
       "Paid membership helps sustain the ministry directly while opening access to additional member benefits, restricted content, and deeper participation in the life of the Order.",
     points: [
@@ -43,17 +46,16 @@ const membershipTypes: MembershipType[] = [
   },
 ];
 
-function MembershipImagePlaceholder({ label }: { label: string }) {
+function MembershipImage({ imageSrc, imageAlt }: { imageSrc: string; imageAlt: string }) {
   return (
-    <div className="relative aspect-square overflow-hidden rounded-3xl border border-dashed border-[rgba(216,168,79,0.45)] bg-[radial-gradient(circle_at_50%_20%,rgba(216,168,79,0.22),transparent_18rem),linear-gradient(135deg,rgba(11,31,58,0.92),rgba(7,17,31,0.96))] shadow-[0_0_42px_rgba(216,168,79,0.12)]">
-      <div className="absolute inset-x-8 top-8 h-px bg-[linear-gradient(90deg,transparent,rgba(216,168,79,0.85),transparent)]" />
-      <div className="flex h-full items-center justify-center p-8 text-center">
-        <div>
-          <p className="gold-text text-5xl" aria-hidden="true">✦</p>
-          <p className="gold-text mt-5 text-xs uppercase tracking-[0.24em]">Square Image Placeholder</p>
-          <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-[var(--muted-silver)]">{label}</p>
-        </div>
-      </div>
+    <div className="relative aspect-square overflow-hidden rounded-3xl border border-[rgba(216,168,79,0.45)] bg-[radial-gradient(circle_at_50%_20%,rgba(216,168,79,0.22),transparent_18rem),linear-gradient(135deg,rgba(11,31,58,0.92),rgba(7,17,31,0.96))] shadow-[0_0_42px_rgba(216,168,79,0.12)]">
+      <Image
+        src={imageSrc}
+        alt={imageAlt}
+        width={1200}
+        height={1200}
+        className="h-full w-full object-cover"
+      />
     </div>
   );
 }
@@ -138,7 +140,7 @@ export default function MembershipPage() {
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           {membershipTypes.map((membership) => (
             <article className="lantern-panel rounded-3xl p-6 md:p-8" key={membership.title}>
-              <MembershipImagePlaceholder label={membership.imageLabel} />
+              <MembershipImage imageSrc={membership.imageSrc} imageAlt={membership.imageAlt} />
               <p className="gold-text mt-8 text-xs uppercase tracking-[0.24em]">Membership Type</p>
               <h3 className="gold-text mt-3 text-3xl md:text-4xl">{membership.title}</h3>
               <p className="mt-3 text-lg leading-8 text-[var(--soft-gold)]">{membership.subtitle}</p>
