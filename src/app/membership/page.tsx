@@ -60,6 +60,10 @@ function MembershipImage({ imageSrc, imageAlt }: { imageSrc: string; imageAlt: s
   );
 }
 
+function paypalDonationLink(hostedButtonId: string) {
+  return `https://www.paypal.com/donate/?hosted_button_id=${hostedButtonId}`;
+}
+
 export default function MembershipPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
@@ -162,9 +166,14 @@ export default function MembershipPage() {
 
       <section className="mt-16 lantern-panel rounded-3xl p-8 text-center">
         <h2 className="gold-text text-4xl">Support the Work</h2>
-        <p className="mt-4 text-[var(--muted-silver)]">Reserve this section for donation buttons, Stripe, PayPal, GoFundMe, and e-transfer options.</p>
+        <p className="mx-auto mt-4 max-w-3xl leading-8 text-[var(--muted-silver)]">
+          Monthly support helps sustain Quiet Light Ministries over time and strengthens the foundation for future writing, music, video, community tools, and member resources.
+        </p>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-[var(--lantern-gold)] p-4">Monthly Donation Button</div>
+          <Link className="rounded-2xl border border-[var(--lantern-gold)] p-4 transition hover:bg-[rgba(216,168,79,0.1)]" href={paypalDonationLink("4DC2BN3VNS6TN")} target="_blank" rel="noopener noreferrer">
+            <p className="gold-text text-xl">Monthly Support</p>
+            <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Donate monthly with PayPal.</p>
+          </Link>
           <div className="rounded-2xl border border-[var(--lantern-gold)] p-4">One-Time Donation Button</div>
           <div className="rounded-2xl border border-[var(--lantern-gold)] p-4">Additional Donation Methods</div>
         </div>
