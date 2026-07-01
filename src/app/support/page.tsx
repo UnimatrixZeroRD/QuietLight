@@ -139,27 +139,33 @@ export default function SupportPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {donationOptions.map((option) => {
-              const href = option.hostedButtonId
-                ? paypalDonationLink(option.hostedButtonId)
-                : `mailto:${option.eTransferEmail}?subject=Quiet%20Light%20Ministries%20E-Transfer`;
-              const isExternal = Boolean(option.hostedButtonId);
+              if (option.eTransferEmail) {
+                return (
+                  <div
+                    className="lantern-panel rounded-3xl p-6"
+                    key={option.label}
+                  >
+                    <p className="gold-text text-3xl">{option.label}</p>
+                    <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{option.description}</p>
+                    <p className="mt-4 break-words font-mono text-sm text-[var(--muted-silver)]">{option.eTransferEmail}</p>
+                    <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">Send through online banking</p>
+                  </div>
+                );
+              }
+
+              const href = paypalDonationLink(option.hostedButtonId!);
 
               return (
                 <Link
                   className="lantern-panel rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)] hover:bg-[rgba(216,168,79,0.06)]"
                   href={href}
                   key={option.label}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <p className="gold-text text-3xl">{option.label}</p>
                   <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{option.description}</p>
-                  {option.eTransferEmail ? (
-                    <p className="mt-4 break-words font-mono text-sm text-[var(--muted-silver)]">{option.eTransferEmail}</p>
-                  ) : null}
-                  <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">
-                    {option.hostedButtonId ? "Donate with PayPal" : "Use this E-Transfer Email"}
-                  </p>
+                  <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">Donate with PayPal</p>
                 </Link>
               );
             })}
