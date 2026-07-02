@@ -27,15 +27,15 @@ const quietWorks = [
 const keeperTableDonationSlots = [
   {
     title: "Sponsor Produce Bags",
-    description: "Add a donation button here for supporters who want to fund one or more produce bags for The Keeper's Table.",
+    description: "This giving option will help supporters fund produce bags for food banks and families once the program financials are finalized.",
   },
   {
     title: "Support Local Families",
-    description: "Add a donation button here for gifts directed toward low-income families who need access to fresh fruits and vegetables.",
+    description: "This giving option will help direct support toward low-income families who need better access to fresh fruits and vegetables.",
   },
   {
     title: "Help Cover Collection Costs",
-    description: "Add a donation button here for support that helps offset travel, pickup, and delivery expenses across Nova Scotia.",
+    description: "This giving option will help offset pickup, travel, delivery, and program costs while keeping card processing fees as low as possible.",
   },
 ];
 
@@ -119,17 +119,17 @@ export default function QuietWorksPage() {
         </div>
 
         <div className="mt-10">
-          <p className="gold-text uppercase tracking-[0.24em]">Keeper&apos;s Table Donations</p>
-          <h3 className="mt-3 text-2xl md:text-3xl">Donation buttons can be added here.</h3>
+          <p className="gold-text uppercase tracking-[0.24em]">Keeper&apos;s Table Giving</p>
+          <h3 className="mt-3 text-2xl md:text-3xl">Dedicated donation options are being prepared.</h3>
           <p className="mt-4 max-w-3xl leading-8 text-[var(--muted-silver)]">
-            These three spaces are reserved for dedicated Keeper&apos;s Table donation buttons, so supporters can direct their gifts specifically toward produce bags, family support, and collection costs.
+            Quiet Light Ministries is currently working through the financial details for The Keeper&apos;s Table so that gifts can be used responsibly, transparently, and with as little loss as possible to card processing fees or platform costs. Once the structure is ready, supporters will be able to give directly toward produce bags, support for local families, and the practical costs of collecting and distributing food.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {keeperTableDonationSlots.map((slot) => (
               <div className="rounded-2xl border border-[var(--lantern-gold)] p-5" key={slot.title}>
                 <p className="gold-text text-xl">{slot.title}</p>
                 <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">{slot.description}</p>
-                <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">Button Placeholder</p>
+                <p className="gold-text mt-5 text-xs uppercase tracking-[0.2em]">Coming Soon</p>
               </div>
             ))}
           </div>
