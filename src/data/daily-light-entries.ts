@@ -400,4 +400,96 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Intentionally encourage someone today with words that point them toward God's faithfulness rather than your own accomplishments.",
     closingThought: "The lantern has no light of its own; it fulfills its purpose only by carrying the flame entrusted to it.",
   },
+  {
+    id: "daily-light-day-10-living-water",
+    slug: "day-10-living-water",
+    title: "Living Water",
+    summary: "Christ alone satisfies the deepest thirst of the soul, inviting the weary to drink freely from His grace, presence, and promises.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 10,
+    theme: "The Soul's Deepest Need",
+    oldTestamentReading: "Isaiah 55:1-3",
+    newTestamentReading: "John 4:1-26",
+    keyVerseReference: "John 4:14",
+    keyVerseText: "But whosoever drinketh of the water that I shall give him shall never thirst.",
+    scriptureReference: "John 4:14",
+    scriptureText: "But whosoever drinketh of the water that I shall give him shall never thirst.",
+    publishedOn: "2026-07-10",
+    reflection: `Every human heart thirsts for something.
+
+Some pursue wealth, believing it will satisfy. Others seek success, comfort, relationships, or recognition. Yet no earthly pursuit can fully satisfy the deepest longing of the soul, for we were created to know God.
+
+Through the prophet Isaiah, the Lord extended a remarkable invitation: "Ho, every one that thirsteth, come ye to the waters." It was an invitation not to those who had earned God's favor, but to those who recognized their need. The water was freely offered because God's grace is freely given.
+
+That invitation reached its fullness when Jesus met the Samaritan woman at Jacob's well.
+
+She came seeking ordinary water, burdened by a difficult past and searching for meaning in places that could never satisfy. Christ looked beyond her failures and offered her something infinitely greater—living water that would become within her "a well of water springing up into everlasting life."
+
+The Lord continues to extend that same invitation today. He knows every disappointment, every hidden wound, every unanswered question, and every burden we carry. Yet He does not ask us to clean ourselves before coming to Him. He simply invites us to come.
+
+The Way of Quiet Light reminds us that the quiet soul is one that continually returns to Christ as its source of life. Just as our bodies require fresh water each day, our spirits require daily communion with God through His Word, prayer, worship, and faithful obedience. Yesterday's devotion cannot sustain today's faithfulness.
+
+If you have found yourself spiritually weary, do not search elsewhere for satisfaction. Return to the One who alone gives living water. His grace has never run dry, and His mercy is renewed every morning.
+
+Drink deeply from His promises today. Let His Spirit refresh your heart, renew your strength, and remind you that the deepest thirst of your soul has already been answered in Christ.`,
+    prayer: `Heavenly Father,
+
+Thank You for the living water found only in Jesus Christ. Forgive me for the times I have sought satisfaction in things that cannot truly fulfill. Draw me back to You each day through Your Word and by Your Spirit. Refresh my soul, strengthen my faith, and help me to find my joy in Your presence alone.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Where have I been looking for fulfillment apart from Christ?",
+    todayPractice: "Before reaching for entertainment or distraction today, spend time reading God's Word and asking Him to satisfy your heart with His presence.",
+    closingThought: "The soul that drinks daily from Christ will never be emptied by the world's disappointments.",
+  },
+  {
+    id: "daily-light-day-11-the-narrow-way",
+    slug: "day-11-the-narrow-way",
+    title: "The Narrow Way",
+    summary: "The narrow way calls believers to choose life through repentance, humility, obedience, and faithful surrender to Christ above convenience or approval.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 11,
+    theme: "Choosing the Path of Life",
+    oldTestamentReading: "Deuteronomy 30:15-20",
+    newTestamentReading: "Matthew 7:13-14",
+    keyVerseReference: "Matthew 7:13-14",
+    keyVerseText: "Enter ye in at the strait gate: for wide is the gate, and broad is the way, that leadeth to destruction... because strait is the gate, and narrow is the way, which leadeth unto life.",
+    scriptureReference: "Matthew 7:13-14",
+    scriptureText: "Enter ye in at the strait gate: for wide is the gate, and broad is the way, that leadeth to destruction... because strait is the gate, and narrow is the way, which leadeth unto life.",
+    publishedOn: "2026-07-11",
+    reflection: `Every day is filled with choices.
+
+Some seem insignificant, while others shape the direction of an entire lifetime. Long before Israel entered the Promised Land, Moses placed a decision before the people: "I have set before thee life and death, blessing and cursing: therefore choose life."
+
+Centuries later, Jesus echoed this same call, describing two roads that lie before every person.
+
+One road is broad and well traveled. It requires little sacrifice, demands no repentance, and comfortably follows the values of the surrounding culture. Many choose it because it appears easier, more popular, and less costly.
+
+The other road is narrow.
+
+It is marked by repentance instead of pride, humility instead of self-exaltation, forgiveness instead of revenge, truth instead of convenience, and faithful obedience instead of personal comfort. At times it can feel lonely, for not everyone is willing to walk it.
+
+Yet Christ Himself walks that road.
+
+The Way of Quiet Light recognizes that the narrow way is often a quiet way. It is not lived through loud displays of religion or public recognition, but through daily acts of faithful obedience that may never be noticed by anyone except God. A gentle response, an honest confession, a hidden act of generosity, a steadfast commitment to truth—these are the footsteps that mark the disciple of Christ.
+
+The narrow way is not difficult because God delights in hardship. It is difficult because it requires surrender. Every step asks us to trust God's wisdom above our own desires. Yet every step also draws us nearer to the One who promised never to leave nor forsake His people.
+
+Do not measure the value of your path by how crowded it is. Measure it by whether it leads you closer to Christ.
+
+The destination is worth every faithful step.`,
+    prayer: `Heavenly Father,
+
+Help me to choose the narrow way each day. Give me courage to remain faithful even when obedience is difficult or unpopular. Guard my heart against compromise, and teach me to value Your approval above the praise of others. May every step I take draw me closer to Jesus Christ, who is Himself the Way, the Truth, and the Life.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is there a decision before me where I know the right path but have hesitated because it is more difficult?",
+    todayPractice: "Make one deliberate choice today that reflects obedience to Christ rather than convenience or public opinion.",
+    closingThought: "The narrow way may demand more of us, but it leads us ever closer to the heart of God.",
+  },
 ];
