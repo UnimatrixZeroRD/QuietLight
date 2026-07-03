@@ -187,4 +187,96 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Choose one resource God has given you—your time, abilities, finances, or encouragement—and intentionally use it today to bless someone else.",
     closingThought: "God does not ask us to manage someone else's gifts—only to faithfully steward our own.",
   },
+  {
+    id: "daily-light-day-28-the-cost-of-discipleship",
+    slug: "day-28-the-cost-of-discipleship",
+    title: "The Cost of Discipleship",
+    summary: "Discipleship calls believers to follow Christ above all else, surrendering self-centered living and carrying the cross daily with faithful devotion.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 28,
+    theme: "Following Christ Above All Else",
+    oldTestamentReading: "Deuteronomy 6:4-9",
+    newTestamentReading: "Luke 9:23-26",
+    keyVerseReference: "Luke 9:23",
+    keyVerseText: "And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me.",
+    scriptureReference: "Luke 9:23",
+    scriptureText: "And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me.",
+    publishedOn: "2026-07-28",
+    reflection: `Every worthwhile journey requires commitment.
+
+No builder begins constructing a house without first counting the cost. No farmer expects a harvest without months of faithful labor. In the same way, Jesus never hid the cost of following Him. He invited people not merely to admire His teachings but to become His disciples.
+
+The call of Christ is both simple and demanding.
+
+It is simple because salvation is received by grace through faith. It is demanding because grace transforms the entire direction of our lives. Jesus calls us to deny ourselves—not because He desires to diminish us, but because He desires to free us from the tyranny of self-centered living.
+
+To take up our cross is to surrender our own will each day and place Christ at the center of every decision. It means choosing forgiveness when resentment seems easier. It means speaking truth with love when silence would be more comfortable. It means pursuing holiness even when compromise appears more convenient.
+
+Moses gave Israel a similar command before they entered the Promised Land. The people were instructed to love the Lord with all their heart, soul, and strength. God's Word was to shape every part of their lives, from their homes to their daily conversations.
+
+The Way of Quiet Light embraces this same wholehearted devotion. Discipleship is not confined to Sunday worship or moments of public ministry. It is lived quietly in ordinary decisions made throughout the day. Every choice either draws us closer to Christ or farther from Him.
+
+The cost of discipleship is real, but so is its reward.
+
+Whatever we surrender for Christ, we gain something infinitely greater—His presence, His peace, His purpose, and the promise of eternal life. Nothing we leave behind compares with what He has prepared for those who love Him.
+
+As you walk today, ask yourself not what following Christ might cost you, but what life would become without Him. The answer reveals the immeasurable worth of the Savior.`,
+    prayer: `Heavenly Father,
+
+Help me to follow Jesus with an undivided heart. Give me courage to deny myself whenever my desires conflict with Your will. Strengthen me to carry my cross faithfully each day, trusting that Your ways lead to life. May my greatest desire always be to know Christ more fully and to honor Him in everything I do.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is there anything I have been unwilling to surrender in order to follow Christ more faithfully?",
+    todayPractice: "Prayerfully identify one area where God is calling you to deeper obedience, and take one practical step toward that obedience today.",
+    closingThought: "The cross we carry today becomes the testimony of the Savior we follow forever.",
+  },
+  {
+    id: "daily-light-day-29-the-kingdom-of-god",
+    slug: "day-29-the-kingdom-of-god",
+    title: "The Kingdom of God",
+    summary: "The eternal Kingdom of God calls believers to seek Christ first, living as faithful citizens and ambassadors of His unshakable reign.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 29,
+    theme: "Living for an Eternal Kingdom",
+    oldTestamentReading: "Daniel 7:13-14",
+    newTestamentReading: "Matthew 6:25-34",
+    keyVerseReference: "Matthew 6:33",
+    keyVerseText: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+    scriptureReference: "Matthew 6:33",
+    scriptureText: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+    publishedOn: "2026-07-29",
+    reflection: `Every kingdom of this world has its limits.
+
+Empires rise and fall. Governments change. Wealth fades. Human accomplishments, no matter how impressive, eventually pass into history. Yet above every earthly kingdom stands the everlasting Kingdom of God—a kingdom that will never be shaken, never be conquered, and never come to an end.
+
+Daniel was given a remarkable vision of this eternal Kingdom. He saw One "like the Son of man" receiving everlasting dominion, glory, and authority. Centuries later, Jesus revealed Himself as that promised King, inviting all people to enter His Kingdom through repentance and faith.
+
+To belong to God's Kingdom is to live according to different priorities.
+
+The world tells us to seek success first, security first, or personal fulfillment first. Jesus says, "Seek ye first the kingdom of God."
+
+This does not mean neglecting our responsibilities. Rather, it means allowing every responsibility to be guided by God's purposes. Our work becomes worship. Our homes become places of discipleship. Our relationships become opportunities to demonstrate Christ's love. Every decision is measured by one question: "Will this honor my King?"
+
+The Way of Quiet Light reminds us that the Kingdom often advances quietly. Jesus compared it to a mustard seed that begins almost unnoticed yet grows into a great tree. He described it as leaven working unseen until the whole loaf is transformed. God's greatest work is often accomplished through quiet faithfulness rather than public spectacle.
+
+As citizens of Heaven, we are called to live differently. We pursue justice with mercy, truth with humility, courage with gentleness, and conviction with love. Our hope is not rooted in temporary earthly systems but in the reign of Christ, whose Kingdom is both present and yet still to come in its fullness.
+
+Whatever challenges you face today, remember where your true citizenship lies. Earthly kingdoms may disappoint, but the Kingdom of God remains forever.
+
+Live today as an ambassador of that eternal Kingdom. Let your words, your actions, and your quiet faithfulness bear witness to the King you serve.`,
+    prayer: `Heavenly Father,
+
+Thank You for inviting me into Your eternal Kingdom through Jesus Christ. Help me to seek Your Kingdom above every earthly ambition and to live each day as a faithful citizen of Heaven. May my priorities reflect Your will, my relationships display Your love, and my life point others toward the everlasting reign of Christ.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What earthly concern has been competing with my commitment to seek God's Kingdom first?",
+    todayPractice: "Before making an important decision today, ask yourself, \"Does this reflect the values of Christ's Kingdom?\" Allow that answer to guide your choice.",
+    closingThought: "Those who seek first the Kingdom discover that the greatest treasures are the ones that cannot be taken away.",
+  },
 ];
