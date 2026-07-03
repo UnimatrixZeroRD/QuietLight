@@ -127,4 +127,136 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Look intentionally for one opportunity today to show practical compassion to someone in need, whether through your time, encouragement, or service.",
     closingThought: "Compassion is the light of Christ made visible through ordinary acts of love.",
   },
+  {
+    id: "daily-light-day-45-walking-in-discernment",
+    slug: "day-45-walking-in-discernment",
+    title: "Walking in Discernment",
+    summary: "Discernment grows through prayer, Scripture, humility, and patient dependence upon God's wisdom in every decision.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 45,
+    theme: "Seeking God's Wisdom in Every Decision",
+    oldTestamentReading: "1 Kings 3:5-14",
+    newTestamentReading: "Philippians 1:9-11",
+    keyVerseReference: "Philippians 1:9",
+    keyVerseText: "And this I pray, that your love may abound yet more and more in knowledge and in all judgment.",
+    scriptureReference: "Philippians 1:9",
+    scriptureText: "And this I pray, that your love may abound yet more and more in knowledge and in all judgment.",
+    publishedOn: "2026-08-14",
+    reflection: `Not everything that appears good is God's best.
+
+As we grow in faith, one of the greatest gifts the Lord develops within us is discernment—the ability to recognize truth from error, wisdom from foolishness, and God's leading from our own desires.
+
+When Solomon became king, he could have asked for wealth, power, or long life. Instead, he asked for an understanding heart so that he might rightly govern God's people. His request pleased the Lord because it revealed humility and dependence rather than self-interest.
+
+Discernment begins the same way today.
+
+It grows in hearts that are willing to admit, "Lord, I do not know the best path without You."
+
+The Apostle Paul prayed that believers would abound in love joined with knowledge and discernment. Love without wisdom can become naïve. Knowledge without love can become harsh. God's design is that both grow together, producing lives that are sincere, blameless, and filled with the fruit of righteousness.
+
+The Way of Quiet Light reminds us that discernment is rarely developed in moments of haste. It grows through quiet prayer, careful study of Scripture, wise counsel, and patient waiting upon the Lord. Many mistakes could be avoided if we were willing to pause before acting.
+
+Discernment also protects us from deception.
+
+The world constantly offers competing voices, each claiming to possess truth. Yet Christ has given us His Word, His Spirit, and the fellowship of His Church to guide our steps.
+
+Before making important decisions, ask yourself:
+
+Does this honor Christ?
+
+Does it agree with Scripture?
+
+Does it reflect love, truth, and humility?
+
+Does it produce peace rather than confusion?
+
+The Lord delights in guiding those who sincerely seek His wisdom.
+
+Walk carefully today.
+
+The path of discernment may require patience, but it leads safely through life's many crossroads.`,
+    prayer: `Heavenly Father,
+
+Grant me wisdom and discernment in every decision I make. Guard me from deception, pride, and impulsiveness. Help me to love Your truth, cherish Your Word, and listen carefully for the leading of Your Holy Spirit. May every choice I make bring honor to Jesus Christ and reflect Your perfect wisdom.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is there a decision in my life where I need to pause and seek God's wisdom more carefully?",
+    todayPractice: "Before making your next significant decision, spend time in prayer and read a portion of Scripture before taking action.",
+    closingThought: "Discernment grows where prayer, Scripture, and humility meet.",
+  },
+  {
+    id: "daily-light-day-46-a-faithful-witness",
+    slug: "day-46-a-faithful-witness",
+    title: "A Faithful Witness",
+    summary: "A faithful witness reflects Christ before the world through integrity, compassion, quiet service, hope, and a life surrendered to Him.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 46,
+    theme: "Reflecting Christ Before the World",
+    oldTestamentReading: "Isaiah 43:8-13",
+    newTestamentReading: "Matthew 5:13-16",
+    keyVerseReference: "Matthew 5:14,16",
+    keyVerseText: "Ye are the light of the world... Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.",
+    scriptureReference: "Matthew 5:14,16",
+    scriptureText: "Ye are the light of the world... Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.",
+    publishedOn: "2026-08-15",
+    reflection: `Every believer tells a story.
+
+Long before we speak about Christ, people often observe how we respond to disappointment, success, criticism, hardship, and everyday relationships. Our lives quietly testify to what we truly believe.
+
+Jesus described His followers as the salt of the earth and the light of the world.
+
+Salt preserves what is good.
+
+Light reveals what is true.
+
+Neither fulfills its purpose by drawing attention to itself. Both exist to benefit others.
+
+Isaiah records the Lord declaring, "Ye are my witnesses." God's people were chosen to bear testimony to His faithfulness among the nations. That calling continues today. Every act of honesty, every expression of compassion, every quiet act of service, and every word spoken in love points beyond ourselves toward Christ.
+
+The Way of Quiet Light embraces this calling wholeheartedly.
+
+We do not seek attention for ourselves.
+
+We simply desire that others might see the character of Christ reflected through ordinary lives surrendered to Him.
+
+Some of the most powerful witnesses are never delivered from pulpits.
+
+They are seen in faithful parents raising their children.
+
+Employees working with integrity.
+
+Neighbors caring for one another.
+
+Friends who forgive.
+
+Believers who remain hopeful in suffering.
+
+These quiet testimonies often speak louder than eloquent sermons.
+
+Remember that witnessing is not only something we do—it is someone we become.
+
+As we walk closely with Christ, His light naturally shines through us.
+
+Our responsibility is not to manufacture the light.
+
+Our responsibility is to remain close to the Light.
+
+Today, ask yourself whether your life makes it easier or more difficult for others to see Jesus.
+
+Then walk in such a way that when people notice your kindness, your integrity, your peace, and your hope, they are ultimately drawn not to you, but to the Savior you serve.`,
+    prayer: `Heavenly Father,
+
+Help my life become a faithful witness to Jesus Christ. Let my words, actions, and attitudes reflect His love and truth. Guard me from hypocrisy, and teach me to live with integrity in every circumstance. May others see Christ through me and be drawn to the hope that is found in Him alone.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What kind of testimony does my daily life present to those around me?",
+    todayPractice: "Look for one opportunity today to quietly demonstrate the love of Christ through your actions rather than your words alone.",
+    closingThought: "The brightest witness is a life that quietly reflects the character of Christ.",
+  },
 ];
