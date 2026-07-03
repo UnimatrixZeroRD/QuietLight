@@ -181,4 +181,102 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Spend time today reading John 15 slowly. Ask God to reveal one area of your life where deeper obedience will help you abide more fully in Christ.",
     closingThought: "Fruit is never produced by striving alone, but by faithfully remaining connected to the Vine.",
   },
+  {
+    id: "daily-light-day-16-the-servants-heart",
+    slug: "day-16-the-servants-heart",
+    title: "The Servant's Heart",
+    summary: "True greatness is revealed through humility and quiet service, following Christ who came not to be served but to serve.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 16,
+    theme: "Greatness Through Humility",
+    oldTestamentReading: "Isaiah 42:1-4",
+    newTestamentReading: "Mark 10:35-45",
+    keyVerseReference: "Mark 10:45",
+    keyVerseText: "For even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many.",
+    scriptureReference: "Mark 10:45",
+    scriptureText: "For even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many.",
+    publishedOn: "2026-07-16",
+    reflection: `The world measures greatness by influence, wealth, authority, and recognition. We celebrate those who rise above others, command attention, and leave their mark upon history.
+
+Jesus measured greatness differently.
+
+When His disciples argued over who would be the greatest in His kingdom, Jesus did not rebuke their desire to serve God. Instead, He transformed their understanding of greatness. The greatest, He said, would be the servant of all.
+
+The Creator of heaven and earth chose to wash the feet of His disciples.
+
+The King of kings welcomed children, touched lepers, comforted the brokenhearted, and gave His own life for those who rejected Him. Every act of Christ's ministry revealed that genuine authority is expressed through sacrificial love.
+
+Isaiah foresaw this Servant centuries before Christ was born. The promised Messiah would not cry aloud to draw attention to Himself. He would not crush the bruised reed nor extinguish the faintly burning wick. His strength would be displayed through gentleness, compassion, and unwavering faithfulness.
+
+The Way of Quiet Light embraces this same calling. We are not called to build our own reputation but to quietly reflect the character of Christ. Many of the most meaningful acts of service are never noticed by the public. A word of encouragement, an anonymous gift, a patient conversation, a prayer offered in secret, or a helping hand extended without expectation of praise—these are the works that often shine brightest in God's sight.
+
+True service begins with humility.
+
+Humility is not thinking less of yourself; it is thinking of yourself less often. It frees us to rejoice when others succeed, to forgive when we are wronged, and to serve without seeking recognition.
+
+Today, ask yourself not, "How can I be noticed?" but, "Whom can I serve?"
+
+The answer may seem small in the eyes of the world, but no act of love offered in Christ's name is ever insignificant. The Lord who sees in secret delights in every faithful servant whose heart reflects His own.`,
+    prayer: `Heavenly Father,
+
+Thank You for the perfect example of Jesus Christ, who came to serve rather than to be served. Remove pride from my heart and replace it with genuine humility. Help me to notice the needs of others before my own desires and to serve faithfully without seeking recognition. May every act of kindness become an offering of worship to You.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "In what ways have I sought recognition instead of simply serving others in love?",
+    todayPractice: "Perform one act of service today without telling anyone. Let it remain a quiet gift between you and God.",
+    closingThought: "The brightest lights often shine where no one thinks to look.",
+  },
+  {
+    id: "daily-light-day-17-the-wisdom-from-above",
+    slug: "day-17-the-wisdom-from-above",
+    title: "The Wisdom from Above",
+    summary: "Godly wisdom is pure, peaceable, gentle, and humble, guiding believers to trust the Lord above their own understanding.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 17,
+    theme: "Living According to God's Wisdom",
+    oldTestamentReading: "Proverbs 3:1-8",
+    newTestamentReading: "James 3:13-18",
+    keyVerseReference: "Proverbs 3:5",
+    keyVerseText: "Trust in the LORD with all thine heart; and lean not unto thine own understanding.",
+    scriptureReference: "Proverbs 3:5",
+    scriptureText: "Trust in the LORD with all thine heart; and lean not unto thine own understanding.",
+    publishedOn: "2026-07-17",
+    reflection: `Every decision we make reveals the source of our wisdom.
+
+Some choices are guided by convenience. Others are shaped by emotion, public opinion, or personal ambition. Yet Scripture invites us to seek a wisdom that comes from above—a wisdom rooted not in changing circumstances but in the unchanging character of God.
+
+Solomon urged God's people to trust in the Lord with all their hearts rather than leaning upon their own understanding. This is not a call to ignore reason or refuse thoughtful planning. Rather, it is an invitation to recognize that our perspective is limited while God's wisdom is perfect.
+
+James expands upon this truth by contrasting two kinds of wisdom.
+
+Earthly wisdom is driven by envy, selfish ambition, and pride. It asks, "What benefits me?" Heavenly wisdom asks, "What glorifies God?"
+
+Wisdom from above is pure before it is persuasive. It is peaceable before it is powerful. It is gentle rather than harsh, merciful rather than condemning, and willing to listen before speaking.
+
+The Way of Quiet Light encourages believers to cultivate this quiet wisdom. We live in a culture that often rewards the loudest voice and the quickest response. God's wisdom frequently invites us to slow down—to listen carefully, pray earnestly, and respond thoughtfully.
+
+There is strength in restraint.
+
+Not every criticism deserves an answer. Not every disagreement requires an argument. Sometimes the wisest response is a gentle word, patient silence, or a sincere prayer.
+
+As you face today's decisions, ask not merely, "What do I think is best?" but, "Lord, what would You have me do?"
+
+The Holy Spirit delights in guiding hearts that are willing to listen. As you submit your plans to Him, you will discover that true wisdom produces not confusion, but peace.
+
+Those who walk according to God's wisdom become peacemakers in a divided world, reflecting the calm confidence that comes from trusting the Lord completely.`,
+    prayer: `Heavenly Father,
+
+Grant me the wisdom that comes from above. Guard me against pride, impatience, and selfish ambition. Teach me to trust You more than my own understanding and to seek Your will in every decision I make. May my words bring peace, my actions reflect Your love, and my life bear witness to Your perfect wisdom.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Am I making decisions primarily through my own understanding, or have I invited God to guide my thinking?",
+    todayPractice: "Before making your next important decision, pause to pray and read Proverbs 3:5-6. Ask God to direct your path before taking your next step.",
+    closingThought: "God's wisdom is rarely the loudest voice, but it is always the truest guide.",
+  },
 ];
