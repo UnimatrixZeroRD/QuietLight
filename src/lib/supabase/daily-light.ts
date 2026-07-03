@@ -1,7 +1,9 @@
-import { dailyLightEntries as fallbackEntries } from "../../data/daily-light-entries";
+import { dailyLightEntries as fallbackEntries, type DailyLightEntry } from "../../data/daily-light-entries";
+import { dailyLightFutureEntries } from "../../data/daily-light-future-entries";
 import { createSupabaseBrowserClient } from "./client";
 
 const DAILY_LIGHT_TIME_ZONE = "America/Halifax";
+const allFallbackEntries = [...fallbackEntries, ...dailyLightFutureEntries];
 
 const dailyLightSelectFields = `
   slug,
@@ -79,7 +81,7 @@ function sortDailyLightEntries(entries: PublicDailyLightEntry[]) {
   });
 }
 
-function normalizeFallbackEntry(entry: (typeof fallbackEntries)[number]): PublicDailyLightEntry {
+function normalizeFallbackEntry(entry: DailyLightEntry): PublicDailyLightEntry {
   return {
     id: entry.id,
     slug: entry.slug,
@@ -107,7 +109,7 @@ function normalizeFallbackEntry(entry: (typeof fallbackEntries)[number]): Public
 }
 
 function fallbackEntryBySlug(slug: string) {
-  const entry = fallbackEntries.find((item) => item.slug === slug);
+  const entry = allFallbackEntries.find((item) => item.slug === slug);
   if (!entry) return null;
 
   const normalizedEntry = normalizeFallbackEntry(entry);
@@ -115,7 +117,7 @@ function fallbackEntryBySlug(slug: string) {
 }
 
 function fallbackEntryList() {
-  return sortDailyLightEntries(fallbackEntries.map(normalizeFallbackEntry).filter(isVisibleDailyLightEntry));
+  return sortDailyLightEntries(allFallbackEntries.map(normalizeFallbackEntry).filter(isVisibleDailyLightEntry));
 }
 
 function normalizeEntry(entry: {
