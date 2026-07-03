@@ -193,4 +193,90 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Perform one intentional act of kindness for someone who cannot repay you. Offer it quietly as an act of worship to God.",
     closingThought: "Love shines brightest when it serves without seeking recognition.",
   },
+  {
+    id: "daily-light-day-22-forgiveness-without-measure",
+    slug: "day-22-forgiveness-without-measure",
+    title: "Forgiveness Without Measure",
+    summary: "Forgiveness reflects the mercy received in Christ, releasing bitterness into God's hands and allowing His light to heal the heart.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 22,
+    theme: "Extending the Mercy We Have Received",
+    oldTestamentReading: "Psalm 103:8-14",
+    newTestamentReading: "Matthew 18:21-35",
+    keyVerseReference: "Ephesians 4:32",
+    keyVerseText: "Be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you.",
+    scriptureReference: "Ephesians 4:32",
+    scriptureText: "Be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you.",
+    publishedOn: "2026-07-22",
+    reflection: `Few acts reveal the heart of Christ more clearly than forgiveness.
+
+It is one thing to forgive when an offense is small or when an apology comes quickly. It is another to forgive when the wound is deep, the pain lingers, and justice seems absent. Yet it is precisely in those difficult moments that the Gospel speaks most powerfully.
+
+When Peter asked Jesus how many times he should forgive his brother, he likely thought he was being generous. The common expectation was far less than the seven times Peter suggested. Jesus answered, "Until seventy times seven," not to establish a mathematical limit, but to reveal that forgiveness should become a way of life for those who have experienced God's mercy.
+
+He then told the parable of a servant who had been forgiven an unimaginable debt but refused to forgive someone who owed him very little. The contrast is striking. Compared to the holiness of God, every one of us owed a debt we could never repay. Yet through the sacrifice of Jesus Christ, that debt has been completely forgiven.
+
+Forgiveness does not pretend that evil never happened. It does not excuse injustice or require the restoration of trust where wisdom says caution is needed. Forgiveness is the deliberate decision to release the desire for personal vengeance and entrust justice to God, who judges perfectly.
+
+The Way of Quiet Light reminds us that bitterness quietly darkens the heart, while forgiveness allows the light of Christ to shine freely. Carrying resentment only deepens our wounds. Releasing it into God's hands opens the way for healing.
+
+There may be someone today whose name immediately comes to your mind. Perhaps the hurt is recent, or perhaps it has been carried for many years. Ask the Lord for the strength to begin the work of forgiveness. You may not be able to restore every relationship, but you can choose to surrender your hurt to the One who has forgiven you completely.
+
+The cross forever reminds us that mercy triumphs over vengeance. As those who have received immeasurable grace, let us become people who extend that grace to others.`,
+    prayer: `Heavenly Father,
+
+Thank You for forgiving my sins through the sacrifice of Jesus Christ. Help me to forgive those who have wronged me, even when it is difficult. Remove bitterness from my heart and replace it with compassion, humility, and peace. Teach me to trust Your perfect justice while reflecting Your perfect mercy.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is there someone I have struggled to forgive, even though God has freely forgiven me?",
+    todayPractice: "Pray sincerely for someone who has hurt you. Ask God to bless them and to continue His work of healing in your own heart.",
+    closingThought: "Forgiveness does not erase the past, but it frees the heart to walk toward the future with Christ.",
+  },
+  {
+    id: "daily-light-day-23-bearing-good-fruit",
+    slug: "day-23-bearing-good-fruit",
+    title: "Bearing Good Fruit",
+    summary: "A life rooted in Christ quietly bears the fruit of the Spirit, reflecting His character through steady growth and faithful obedience.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 23,
+    theme: "A Life That Reflects Christ",
+    oldTestamentReading: "Jeremiah 17:5-8",
+    newTestamentReading: "Galatians 5:22-26",
+    keyVerseReference: "Galatians 5:22-23",
+    keyVerseText: "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance.",
+    scriptureReference: "Galatians 5:22-23",
+    scriptureText: "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance.",
+    publishedOn: "2026-07-23",
+    reflection: `Healthy trees are known by their fruit.
+
+No tree strains to convince others that it is alive. Its fruit quietly bears witness to the health of its roots. In the same way, the Christian life is not measured merely by what we profess with our lips, but by what is consistently produced through our lives.
+
+Paul describes the fruit of the Spirit as the natural result of God's work within every believer. Love replaces selfishness. Joy overcomes despair. Peace steadies anxious hearts. Patience softens frustration. Kindness, goodness, faithfulness, gentleness, and self-control become increasingly evident as we remain close to Christ.
+
+These qualities cannot be manufactured by human determination alone. They are cultivated as the Holy Spirit transforms us from within.
+
+Jeremiah paints a similar picture of the person who trusts in the Lord. Such a life is like a tree planted beside flowing waters. Even during seasons of drought, its roots continue drawing nourishment from a source that never fails. While outward conditions may become difficult, inward life continues to flourish.
+
+The Way of Quiet Light reminds us that spiritual fruit develops quietly over time. Growth is rarely dramatic from one day to the next. Instead, God shapes His people through thousands of small moments of obedience, repentance, prayer, worship, and faithful service.
+
+Do not become discouraged if you do not yet see all the fruit you desire. Farmers do not dig up a tree each morning to check whether it has grown. They faithfully water, cultivate, and patiently wait for the harvest.
+
+Continue abiding in Christ. Continue seeking His presence. Continue yielding to His Spirit. In time, the fruit will become evident—not because you have forced it to appear, but because God has faithfully produced it within you.
+
+The greatest testimony to the reality of Christ is often not found in extraordinary accomplishments but in an ordinary life transformed by His grace.`,
+    prayer: `Heavenly Father,
+
+Thank You for the work Your Holy Spirit is doing within me. Continue to produce the fruit that reflects the character of Jesus Christ. Remove attitudes and habits that hinder my growth, and help me remain rooted in Your Word and dependent upon Your grace. May my life bear fruit that brings glory to You and blessing to those around me.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Which fruit of the Spirit do I most need God to cultivate in my life today?",
+    todayPractice: "Choose one fruit of the Spirit and intentionally practice it throughout the day, asking God to strengthen it within your heart.",
+    closingThought: "A life deeply rooted in Christ will quietly bear fruit that points others to Him.",
+  },
 ];
