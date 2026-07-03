@@ -199,4 +199,104 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Instead of asking only for relief from your current difficulty, ask God to reveal what He desires to teach you through it.",
     closingThought: "The deepest roots of faith are often grown in the hardest seasons of life.",
   },
+  {
+    id: "daily-light-day-35-faith-that-endures",
+    slug: "day-35-faith-that-endures",
+    title: "Faith That Endures",
+    summary: "Enduring faith perseveres through every season by fixing its eyes on Jesus, the author and finisher of our faith.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 35,
+    theme: "Persevering Until the End",
+    oldTestamentReading: "Habakkuk 3:17-19",
+    newTestamentReading: "Hebrews 12:1-3",
+    keyVerseReference: "Hebrews 12:1-2",
+    keyVerseText: "Let us run with patience the race that is set before us, looking unto Jesus the author and finisher of our faith.",
+    scriptureReference: "Hebrews 12:1-2",
+    scriptureText: "Let us run with patience the race that is set before us, looking unto Jesus the author and finisher of our faith.",
+    publishedOn: "2026-08-04",
+    reflection: `The Christian life is often described as a journey, but Scripture also describes it as a race.
+
+Unlike a sprint, this race is not won through bursts of enthusiasm. It is completed through steady perseverance. There will be seasons when the path feels light and joyful, and there will be seasons when every step requires determination. In both, Christ remains our constant companion.
+
+The writer of Hebrews reminds us that we are surrounded by a great cloud of witnesses—men and women who trusted God through trials, persecution, disappointment, and uncertainty. Their lives testify that faith is not measured by an easy road but by faithful endurance.
+
+Habakkuk understood this deeply. He looked ahead to a time when the fields would produce no crops, the vineyards would be empty, and the flocks would disappear. Every outward sign of prosperity would be gone. Yet he declared, "Yet I will rejoice in the LORD, I will joy in the God of my salvation."
+
+That is enduring faith.
+
+It does not ignore hardship. It simply refuses to allow hardship to become the final word. Its confidence rests in the unchanging character of God rather than in changing circumstances.
+
+The Way of Quiet Light reminds us that perseverance is built one faithful day at a time. We are not asked to carry tomorrow's burdens today. We are called to walk faithfully with Christ in this moment, trusting Him to provide grace for whatever tomorrow may bring.
+
+There may be days when your faith feels strong and others when it feels fragile. Remember that your salvation rests not upon the strength of your grip on Christ, but upon the strength of His grip on you.
+
+Keep your eyes upon Jesus.
+
+He endured the cross for the joy set before Him. He understands every burden you carry and promises to sustain you until the journey is complete.
+
+Do not lose heart.
+
+The race is long, but the One who calls you is faithful.`,
+    prayer: `Heavenly Father,
+
+Strengthen me to persevere with faith and patience. When I grow weary, lift my eyes toward Jesus, who endured for my sake. Help me to trust You through every season, knowing that You are faithful to complete the work You have begun in me. Let my life become a testimony of steadfast hope and enduring faith.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Where have I become discouraged, and how can I fix my eyes upon Christ instead of my circumstances?",
+    todayPractice: "Encourage someone who is struggling in their faith. Share a Scripture that has strengthened your own heart during difficult times.",
+    closingThought: "Faith endures not because the road is easy, but because Christ walks every step beside us.",
+  },
+  {
+    id: "daily-light-day-36-a-grateful-heart",
+    slug: "day-36-a-grateful-heart",
+    title: "A Grateful Heart",
+    summary: "A grateful heart recognizes God's goodness in every season, turning attention from complaint toward His mercy, faithfulness, and daily gifts.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 36,
+    theme: "Giving Thanks in Every Season",
+    oldTestamentReading: "Psalm 100",
+    newTestamentReading: "1 Thessalonians 5:16-24",
+    keyVerseReference: "1 Thessalonians 5:18",
+    keyVerseText: "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
+    scriptureReference: "1 Thessalonians 5:18",
+    scriptureText: "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
+    publishedOn: "2026-08-05",
+    reflection: `Gratitude changes the way we see the world.
+
+When our attention is fixed only upon what is missing, disappointment quickly grows. We begin to measure God's goodness by our circumstances rather than by His unchanging character. Yet Scripture repeatedly calls us to a different perspective—one rooted in thanksgiving.
+
+Notice that Paul does not say we must give thanks for every hardship. Instead, he teaches us to give thanks in every circumstance. Even during seasons of sorrow, there remain countless reasons to praise God: His mercy, His forgiveness, His presence, His promises, and the hope we have through Jesus Christ.
+
+The psalmist invites God's people to enter His gates with thanksgiving and His courts with praise. Worship begins with remembering who God is. Before considering our needs, we first acknowledge His goodness, His steadfast love, and His enduring faithfulness.
+
+The Way of Quiet Light encourages believers to cultivate quiet gratitude each day. Many of God's greatest blessings are easily overlooked because they have become familiar—the sunrise, daily bread, the love of family, the encouragement of friends, the gift of Scripture, the privilege of prayer, and the assurance of salvation.
+
+A grateful heart also guards us against pride.
+
+When we remember that every good gift comes from our Heavenly Father, boasting disappears. Gratitude produces humility, generosity, contentment, and joy. It reminds us that life itself is a gift entrusted to us by God's gracious hand.
+
+If today has brought unexpected blessings, thank Him.
+
+If today has brought unexpected difficulties, thank Him that He remains faithful within them.
+
+If today feels ordinary, thank Him for the quiet mercies that sustain you every moment.
+
+The more we recognize God's faithfulness, the more naturally praise flows from our hearts.
+
+A grateful life becomes a powerful witness in a world that is often consumed by complaint.`,
+    prayer: `Heavenly Father,
+
+Thank You for every good gift You have placed in my life. Forgive me for the times I have overlooked Your daily mercies or allowed complaints to replace gratitude. Open my eyes to recognize Your goodness in every season. May thanksgiving become the natural language of my heart and a testimony of Your faithfulness to everyone around me.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What blessings have I taken for granted that deserve renewed thanksgiving today?",
+    todayPractice: "Write down ten specific blessings from God, both great and small. Offer Him sincere thanks for each one.",
+    closingThought: "Gratitude does not wait for perfect circumstances; it recognizes God's goodness within every season.",
+  },
 ];
