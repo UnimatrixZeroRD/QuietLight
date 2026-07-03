@@ -89,4 +89,96 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Offer one burden, fear, or limitation to the Lord in prayer. Rather than asking only for its removal, ask Him to reveal His strength through it.",
     closingThought: "The strongest believer is not the one who needs God the least, but the one who trusts Him the most.",
   },
+  {
+    id: "daily-light-day-14-the-peace-of-christ",
+    slug: "day-14-the-peace-of-christ",
+    title: "The Peace of Christ",
+    summary: "Christ gives a peace that surpasses understanding, guarding anxious hearts as they surrender every burden into God's care.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 14,
+    theme: "Peace That Surpasses Understanding",
+    oldTestamentReading: "Isaiah 26:1-4",
+    newTestamentReading: "Philippians 4:4-9",
+    keyVerseReference: "Philippians 4:7",
+    keyVerseText: "And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+    scriptureReference: "Philippians 4:7",
+    scriptureText: "And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+    publishedOn: "2026-07-14",
+    reflection: `Peace is one of humanity's greatest pursuits.
+
+People seek it in financial security, stable relationships, good health, or a life free from hardship. While these blessings are gifts from God, they cannot provide the lasting peace for which the human heart longs. Circumstances change. Health fades. Wealth comes and goes. Even our closest relationships experience seasons of difficulty.
+
+The peace Christ offers is different.
+
+Isaiah declared that God would keep in perfect peace the one whose mind is stayed upon Him. That promise does not depend upon the absence of trouble but upon the presence of God. When our confidence rests in the unchanging character of the Lord, we discover a peace that remains steady even when life is uncertain.
+
+The Apostle Paul wrote these words while imprisoned. His circumstances gave every reason for anxiety, yet his heart overflowed with joy and confidence. He urged believers to bring every concern before God through prayer, promising that the peace of God would guard both heart and mind.
+
+Notice that Paul did not say God would immediately remove every trial. Instead, He promised His presence within the trial.
+
+The Way of Quiet Light reminds us that peace is cultivated through trust. A quiet heart is not one without questions; it is one that has learned to place those questions into the hands of God. We surrender what we cannot control and entrust ourselves to the One who governs all things with perfect wisdom.
+
+Perhaps today your mind is filled with uncertainty. There may be decisions to make, burdens to carry, or fears that refuse to leave. Bring them honestly before the Lord. Prayer is not merely presenting a list of requests—it is placing ourselves into God's care.
+
+As you walk today, let your thoughts dwell upon whatever is true, honest, just, pure, lovely, and worthy of praise. The world feeds anxiety by keeping our eyes fixed upon its troubles. Christ gives peace by lifting our eyes toward Himself.
+
+The storms of life may continue, but the Prince of Peace remains upon the throne. His presence is greater than every fear.`,
+    prayer: `Heavenly Father,
+
+Thank You for the peace that comes through Jesus Christ. Quiet my anxious thoughts and teach me to trust You more deeply. Help me to bring every burden before You in prayer, believing that Your wisdom is greater than my understanding. Guard my heart and mind today, and let Your peace guide my words, decisions, and relationships.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What anxiety have I been carrying instead of placing into God's hands?",
+    todayPractice: "When worry enters your mind today, immediately turn it into a prayer before allowing it to grow into fear.",
+    closingThought: "Peace is not found when every storm has passed, but when Christ is trusted within the storm.",
+  },
+  {
+    id: "daily-light-day-15-the-vine-and-the-branches",
+    slug: "day-15-the-vine-and-the-branches",
+    title: "The Vine and the Branches",
+    summary: "Spiritual fruit grows as believers abide in Christ, remaining rooted in His Word, dependent upon His Spirit, and connected to the true Vine.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 15,
+    theme: "Abiding in Christ",
+    oldTestamentReading: "Psalm 1",
+    newTestamentReading: "John 15:1-11",
+    keyVerseReference: "John 15:5",
+    keyVerseText: "I am the vine, ye are the branches... for without me ye can do nothing.",
+    scriptureReference: "John 15:5",
+    scriptureText: "I am the vine, ye are the branches... for without me ye can do nothing.",
+    publishedOn: "2026-07-15",
+    reflection: `Every healthy branch shares one characteristic: it remains connected to the vine.
+
+Separated from its source of life, even the strongest branch gradually withers. Leaves fade. Fruit disappears. Eventually, what once appeared alive becomes dry and lifeless.
+
+Jesus used this familiar picture to teach one of the deepest truths of the Christian life. Spiritual fruit is not produced through human determination alone. It grows naturally in those who remain closely connected to Him.
+
+The world often measures success by visible achievements. God looks first at faithfulness. Before He calls us to accomplish great things, He calls us simply to abide.
+
+To abide means more than believing certain truths. It means living in continual fellowship with Christ. His Word shapes our thinking. His Spirit directs our steps. His love transforms our relationships. His presence becomes the place where our hearts continually return.
+
+Psalm 1 paints a similar picture. The righteous person delights in the law of the Lord and meditates upon it day and night. Such a person is like a tree planted beside rivers of water, bearing fruit in its season because its roots draw constantly from an unfailing source.
+
+The Way of Quiet Light encourages this kind of steady, hidden faithfulness. Fruit grows quietly. Roots deepen silently beneath the surface long before branches become visible above the ground. Much of God's greatest work within us happens where no one else can see.
+
+Do not become discouraged if your growth seems slow. Trees are not measured by a single day's progress but by years of faithful growth. Continue reading the Scriptures. Continue praying. Continue worshipping. Continue serving. Every day spent abiding in Christ strengthens the roots of your faith.
+
+When storms come—and they surely will—it is not the tallest tree that survives, but the one whose roots reach deepest.
+
+Remain in Christ today. Apart from Him we can accomplish nothing of eternal value. With Him, even the smallest act of faithful obedience becomes fruit that brings glory to God.`,
+    prayer: `Heavenly Father,
+
+Help me to remain close to Jesus Christ each day. Keep my heart rooted in Your Word and my life dependent upon Your Spirit. Prune away whatever hinders my growth and produce within me the fruit that honors You. Teach me to value faithfulness more than recognition, and let my life remain firmly connected to the true Vine.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What habits help me remain connected to Christ, and which distractions have weakened that connection?",
+    todayPractice: "Spend time today reading John 15 slowly. Ask God to reveal one area of your life where deeper obedience will help you abide more fully in Christ.",
+    closingThought: "Fruit is never produced by striving alone, but by faithfully remaining connected to the Vine.",
+  },
 ];
