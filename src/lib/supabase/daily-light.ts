@@ -2,6 +2,7 @@ import { dailyLightEntries as fallbackEntries, type DailyLightEntry } from "../.
 import { dailyLightFutureEntries } from "../../data/daily-light-future-entries";
 import { dailyLightFutureEntriesBatchTwo } from "../../data/daily-light-future-entries-2";
 import { dailyLightFutureEntriesBatchThree } from "../../data/daily-light-future-entries-3";
+import { dailyLightFutureEntriesBatchFour } from "../../data/daily-light-future-entries-4";
 import { createSupabaseBrowserClient } from "./client";
 
 const DAILY_LIGHT_TIME_ZONE = "America/Halifax";
@@ -10,6 +11,7 @@ const allFallbackEntries = [
   ...dailyLightFutureEntries,
   ...dailyLightFutureEntriesBatchTwo,
   ...dailyLightFutureEntriesBatchThree,
+  ...dailyLightFutureEntriesBatchFour,
 ];
 
 const dailyLightSelectFields = `
