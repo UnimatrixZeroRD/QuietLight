@@ -231,4 +231,122 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Quietly give something today—your time, encouragement, resources, or service—to someone who needs it, expecting nothing in return.",
     closingThought: "Hands opened in generosity reveal a heart that trusts completely in God's provision.",
   },
+  {
+    id: "daily-light-day-41-the-power-of-the-tongue",
+    slug: "day-41-the-power-of-the-tongue",
+    title: "The Power of the Tongue",
+    summary: "The tongue holds great power, calling believers to speak words shaped by truth, gentleness, restraint, encouragement, and the character of Christ.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 41,
+    theme: "Speaking Words That Give Life",
+    oldTestamentReading: "Proverbs 15:1-7",
+    newTestamentReading: "James 3:1-12",
+    keyVerseReference: "Proverbs 15:1",
+    keyVerseText: "A soft answer turneth away wrath: but grievous words stir up anger.",
+    scriptureReference: "Proverbs 15:1",
+    scriptureText: "A soft answer turneth away wrath: but grievous words stir up anger.",
+    publishedOn: "2026-08-10",
+    reflection: `Few gifts from God are as powerful as the ability to speak.
+
+With our words we teach, comfort, encourage, pray, worship, and proclaim the Gospel. Yet with those same words we can also wound, discourage, deceive, divide, and destroy. Scripture repeatedly reminds us that the tongue, though small, possesses remarkable influence.
+
+James compares it to a rudder that steers a great ship and a tiny spark capable of setting an entire forest ablaze. A single careless sentence can damage a friendship, discourage a believer, or leave wounds that last for years. Conversely, one gracious word spoken at the right moment can restore hope, strengthen faith, and bring peace to a troubled heart.
+
+The book of Proverbs repeatedly praises gentle speech. A soft answer does not display weakness; it reflects self-control. It chooses understanding over argument, patience over anger, and peace over pride.
+
+The Way of Quiet Light reminds us that disciples of Christ should be known as carefully by the words they refuse to speak as by the words they choose to speak. Silence is sometimes the wisest answer. At other times, love requires us to speak truth—but always with gentleness, humility, and grace.
+
+Before speaking, it is often helpful to ask a few simple questions:
+
+Is it true?
+
+Is it necessary?
+
+Is it loving?
+
+Will it glorify Christ?
+
+Words offered in anger may satisfy our emotions for a moment but leave lasting regret. Words shaped by the Holy Spirit become instruments through which God brings healing and encouragement.
+
+Today, invite the Lord to guard your lips. Ask Him to make every conversation an opportunity to reflect His character. Whether you are speaking to family, friends, strangers, or even those who oppose you, remember that every word represents the One you follow.
+
+Let your speech become another way that Christ's light shines into the world.`,
+    prayer: `Heavenly Father,
+
+Set a watch before my mouth and guard my tongue. Help me to speak words that bring peace, encouragement, truth, and hope. Keep me from gossip, anger, pride, and careless speech. May every conversation today reflect the love and wisdom of Jesus Christ, bringing glory to Your name.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Do my words consistently reflect the character of Christ?",
+    todayPractice: "Intentionally encourage at least three people today with sincere and thoughtful words.",
+    closingThought: "The tongue reveals what the heart has been quietly cultivating.",
+  },
+  {
+    id: "daily-light-day-42-encouraging-one-another",
+    slug: "day-42-encouraging-one-another",
+    title: "Encouraging One Another",
+    summary: "God calls believers to strengthen one another through attentive love, hopeful words, sincere prayer, and faithful acts of encouragement.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 42,
+    theme: "Building Up the Body of Christ",
+    oldTestamentReading: "Isaiah 40:28-31",
+    newTestamentReading: "Hebrews 10:19-25",
+    keyVerseReference: "Hebrews 10:24",
+    keyVerseText: "And let us consider one another to provoke unto love and to good works.",
+    scriptureReference: "Hebrews 10:24",
+    scriptureText: "And let us consider one another to provoke unto love and to good works.",
+    publishedOn: "2026-08-11",
+    reflection: `No believer was meant to walk alone.
+
+From the beginning, God designed His people to encourage, strengthen, and support one another. The Christian life is deeply personal, but it is never intended to be isolated.
+
+The writer of Hebrews urges believers not only to gather together but to intentionally consider how they might encourage one another toward love and good works. This requires more than simply attending worship. It requires paying attention to the needs of others and responding with compassion.
+
+Encouragement is one of the simplest yet most powerful ministries available to every Christian.
+
+You do not need a public platform to encourage someone.
+
+A handwritten note.
+
+A thoughtful phone call.
+
+A sincere prayer.
+
+A listening ear.
+
+A quiet reminder of God's promises.
+
+These small acts often become life-changing moments in the lives of those who receive them.
+
+Isaiah reminds us that even the strongest grow weary. Every person you meet is carrying burdens that may not be visible. Some are battling illness. Others are grieving. Many quietly wrestle with fear, loneliness, disappointment, or doubt.
+
+The Way of Quiet Light teaches that faithful disciples learn to notice these unseen burdens. We become attentive to those who have been overlooked, offering hope without seeking recognition for ourselves.
+
+Encouragement is not pretending that difficulties do not exist. Rather, it is gently reminding one another that God remains faithful in the midst of them.
+
+Perhaps God has placed someone upon your heart today.
+
+Do not ignore that prompting.
+
+A simple message or kind conversation may become the very encouragement they have been praying for.
+
+As Christ has strengthened you, become a source of strength for someone else.
+
+His grace was never meant to stop with us.
+
+It is meant to flow through us.`,
+    prayer: `Heavenly Father,
+
+Thank You for the people You have placed in my life. Help me to become an encouragement to others through my words, my actions, and my prayers. Open my eyes to recognize those who are weary or discouraged, and give me wisdom to strengthen them with Your truth and love. May my life reflect the compassion of Jesus Christ every day.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Who in my life may need encouragement today, and how can I faithfully strengthen them?",
+    todayPractice: "Reach out to one person today simply to encourage them. Share a Scripture, offer a prayer, or remind them that they are not alone.",
+    closingThought: "God often answers someone's prayer by sending a faithful believer with words of hope.",
+  },
 ];
