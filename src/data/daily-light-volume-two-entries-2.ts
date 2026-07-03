@@ -103,4 +103,132 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Throughout today, intentionally thank God each time you are tempted to compare your life with someone else's. Replace comparison with gratitude.",
     closingThought: "Contentment grows wherever Christ becomes our greatest treasure.",
   },
+  {
+    id: "daily-light-day-39-the-joy-of-obedience",
+    slug: "day-39-the-joy-of-obedience",
+    title: "The Joy of Obedience",
+    summary: "Obedience flows from love and gratitude, becoming the joyful response of a heart already welcomed by God's grace in Christ.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 39,
+    theme: "Loving God Through Faithful Living",
+    oldTestamentReading: "Deuteronomy 10:12-13",
+    newTestamentReading: "John 14:15-24",
+    keyVerseReference: "John 14:15",
+    keyVerseText: "If ye love me, keep my commandments.",
+    scriptureReference: "John 14:15",
+    scriptureText: "If ye love me, keep my commandments.",
+    publishedOn: "2026-08-08",
+    reflection: `Obedience is often misunderstood.
+
+Many people imagine God's commandments as burdens designed to limit freedom or diminish joy. Yet throughout Scripture, obedience is presented not as slavery but as the natural response of a heart that loves its Creator.
+
+Jesus did not say, "Obey Me so that I will love you."
+
+He said, "If ye love me, keep my commandments."
+
+Love comes first.
+
+Obedience follows.
+
+This distinction changes everything.
+
+We do not strive to earn God's acceptance through our good works. We obey because we have already been welcomed into His family through the grace of Jesus Christ. Every act of obedience becomes an expression of gratitude rather than an attempt to gain favor.
+
+Moses taught Israel a similar lesson. God did not ask for empty rituals or outward appearances. He called His people to fear the Lord, walk in His ways, love Him, and serve Him with all their heart and soul. True obedience has always begun within the heart.
+
+The Way of Quiet Light reminds us that obedience is often revealed in quiet moments.
+
+Choosing honesty when dishonesty would be easier.
+
+Speaking kindly when harsh words would come naturally.
+
+Forgiving instead of retaliating.
+
+Remaining faithful when no one else is watching.
+
+These small decisions shape a life that increasingly reflects the character of Christ.
+
+Every command God gives is rooted in His wisdom and love. He does not withhold good from His children. Instead, His instructions lead us into the fullness of life He intended from the beginning.
+
+If there is an area where you have resisted God's leading, remember that His call to obedience is always an invitation into something better than what you are leaving behind.
+
+Trust His heart.
+
+Follow His voice.
+
+You will never regret walking where Christ leads.`,
+    prayer: `Heavenly Father,
+
+Thank You for loving me before I could ever deserve it. Help me to obey You not out of fear, but out of love and gratitude. Strengthen my heart to follow Your Word in every circumstance, and let my life become a joyful expression of devotion to Jesus Christ. Teach me to delight in Your will, knowing that Your ways always lead to life.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is there an area of my life where God has called me to obedience, but I have hesitated?",
+    todayPractice: "Choose one command from Scripture that you know God is calling you to practice more faithfully, and intentionally live it out today.",
+    closingThought: "Love delights in obedience because it trusts the heart of the One who gives the command.",
+  },
+  {
+    id: "daily-light-day-40-living-with-open-hands",
+    slug: "day-40-living-with-open-hands",
+    title: "Living with Open Hands",
+    summary: "Generosity reflects God's grace by holding every blessing with open hands and quietly sharing time, encouragement, resources, and love.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 40,
+    theme: "The Grace of Generosity",
+    oldTestamentReading: "Proverbs 11:24-28",
+    newTestamentReading: "2 Corinthians 9:6-11",
+    keyVerseReference: "2 Corinthians 9:7",
+    keyVerseText: "God loveth a cheerful giver.",
+    scriptureReference: "2 Corinthians 9:7",
+    scriptureText: "God loveth a cheerful giver.",
+    publishedOn: "2026-08-09",
+    reflection: `Everything we possess is a gift from God.
+
+Our time, abilities, finances, opportunities, relationships, and possessions have all been entrusted to us by our Heavenly Father. Because they ultimately belong to Him, we are invited to hold them with open hands rather than closed fists.
+
+Generosity is more than giving money.
+
+It is a way of living.
+
+A generous heart gladly shares encouragement, forgiveness, hospitality, wisdom, compassion, time, and material resources. It reflects the character of God Himself, who has freely given us all things through Jesus Christ.
+
+Paul reminds believers that giving is never to be done reluctantly or under pressure. God delights in cheerful generosity because it flows from a heart that trusts His provision. The generous believer understands that no act of kindness escapes the Lord's notice.
+
+The book of Proverbs teaches a beautiful paradox: "There is that scattereth, and yet increaseth." God's economy often differs from our own. The more tightly we cling to earthly possessions, the more anxious we become. The more willingly we entrust them to God's purposes, the more freely our hearts experience peace and joy.
+
+The Way of Quiet Light encourages quiet generosity.
+
+Not every gift needs to be announced.
+
+Not every kindness requires recognition.
+
+Some of the greatest acts of love are known only to God and the person receiving them. These hidden offerings become beautiful acts of worship because they seek God's glory rather than human praise.
+
+Generosity also reminds us that our true treasure is not found in what we own but in Christ Himself.
+
+When our hearts are secure in Him, giving becomes a joy rather than a sacrifice.
+
+Look around today.
+
+Someone may need your encouragement.
+
+Someone may need your time.
+
+Someone may need your help.
+
+Ask the Lord to show you how you can become a channel through which His generosity flows into the lives of others.`,
+    prayer: `Heavenly Father,
+
+Thank You for every blessing You have entrusted to me. Help me to hold everything with open hands, recognizing that it all belongs to You. Give me a generous spirit that delights in blessing others without seeking recognition. May my life reflect the abundant grace You have shown me through Jesus Christ.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What has God entrusted to me that I could use more generously for His Kingdom?",
+    todayPractice: "Quietly give something today—your time, encouragement, resources, or service—to someone who needs it, expecting nothing in return.",
+    closingThought: "Hands opened in generosity reveal a heart that trusts completely in God's provision.",
+  },
 ];
