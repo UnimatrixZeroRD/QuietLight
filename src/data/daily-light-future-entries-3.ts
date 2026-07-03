@@ -91,4 +91,100 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Read Ephesians 6:10-18 slowly. As you pray, reflect on each piece of armor and ask God to strengthen you in that specific area.",
     closingThought: "The strongest defense against darkness is a life clothed each day in the strength of Christ.",
   },
+  {
+    id: "daily-light-day-26-the-power-of-prayer",
+    slug: "day-26-the-power-of-prayer",
+    title: "The Power of Prayer",
+    summary: "Prayer draws believers near to God, transforming the heart through worship, communion, faithful dependence, and persevering trust.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 26,
+    theme: "Drawing Near to God",
+    oldTestamentReading: "2 Chronicles 7:11-16",
+    newTestamentReading: "Luke 11:1-13",
+    keyVerseReference: "Jeremiah 33:3",
+    keyVerseText: "Call unto me, and I will answer thee, and shew thee great and mighty things, which thou knowest not.",
+    scriptureReference: "Jeremiah 33:3",
+    scriptureText: "Call unto me, and I will answer thee, and shew thee great and mighty things, which thou knowest not.",
+    publishedOn: "2026-07-26",
+    reflection: `Prayer is one of the greatest privileges God has given His people.
+
+Through Jesus Christ, we are invited into the very presence of our Heavenly Father. We do not approach Him as strangers hoping to gain an audience with a distant king. We come as beloved children welcomed into the presence of a loving Father who delights in hearing our voices.
+
+Yet prayer is often misunderstood.
+
+Some view it as a last resort after every other solution has failed. Others treat it as a list of requests, approaching God only when something is needed. While the Lord certainly invites us to bring every need before Him, prayer is much more than asking—it is communion.
+
+When the disciples asked Jesus to teach them to pray, He began not with requests but with worship: "Our Father which art in heaven, Hallowed be thy name." Prayer begins by recognizing who God is before focusing on what we desire. As our hearts are lifted toward His holiness, our own priorities begin to change.
+
+Throughout Scripture, God consistently responds to humble, sincere prayer. Solomon dedicated the temple, and God promised that if His people humbled themselves, prayed, sought His face, and turned from their wicked ways, He would hear from heaven. This promise reveals not merely God's willingness to answer, but His desire for restored fellowship with His people.
+
+The Way of Quiet Light reminds us that prayer is often the quiet work behind every visible blessing. Long before ministries flourish, families are restored, or hearts are changed, someone has faithfully prayed. The greatest victories in God's Kingdom frequently begin in places where only He is watching.
+
+Prayer also transforms the one who prays.
+
+As we spend time with God, our fears begin to give way to peace. Our anger softens into compassion. Our uncertainty becomes trust. Though circumstances may remain unchanged for a season, our hearts are steadily shaped into the likeness of Christ.
+
+Do not measure prayer by how quickly answers appear. Some prayers are answered immediately. Others unfold over months, years, or even generations. The value of prayer is found not only in what God gives but in the relationship He deepens through it.
+
+Make prayer your first response rather than your final option. The Father who hears in secret is faithful beyond all measure.`,
+    prayer: `Heavenly Father,
+
+Thank You for inviting me into Your presence through Jesus Christ. Teach me to pray with humility, faith, and perseverance. Help me to seek Your will before my own and to trust Your answers even when they come differently than I expect. Draw my heart ever closer to Yours, and let my life become a testimony to the power of faithful prayer.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Has prayer become my first response, or have I allowed it to become my last resort?",
+    todayPractice: "Set aside at least twenty minutes today for uninterrupted prayer. Spend the first portion simply praising God before presenting your requests.",
+    closingThought: "Prayer changes far more than our circumstances—it quietly changes our hearts.",
+  },
+  {
+    id: "daily-light-day-27-faithful-stewardship",
+    slug: "day-27-faithful-stewardship",
+    title: "Faithful Stewardship",
+    summary: "Faithful stewardship honors God by wisely using the time, gifts, resources, and responsibilities He has entrusted to each believer.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 27,
+    theme: "Honoring God with What He Has Entrusted",
+    oldTestamentReading: "Psalm 24:1-6",
+    newTestamentReading: "Matthew 25:14-30",
+    keyVerseReference: "1 Corinthians 4:2",
+    keyVerseText: "Moreover it is required in stewards, that a man be found faithful.",
+    scriptureReference: "1 Corinthians 4:2",
+    scriptureText: "Moreover it is required in stewards, that a man be found faithful.",
+    publishedOn: "2026-07-27",
+    reflection: `Everything we possess ultimately belongs to God.
+
+Our time, abilities, resources, relationships, opportunities, and even the breath within our lungs are gifts entrusted to us by our Creator. Scripture describes us not as owners but as stewards—caretakers who have been entrusted with responsibilities that ultimately belong to another.
+
+This truth changes how we view every aspect of life.
+
+The parable of the talents teaches that God does not measure success by comparing us with others. Each servant received different responsibilities according to his ability. The master's expectation was not equality of results but faithfulness with what had been entrusted.
+
+Likewise, the Lord has uniquely equipped every believer for His purposes. Some are called to teach. Others encourage quietly behind the scenes. Some possess financial resources, while others offer hospitality, compassion, craftsmanship, wisdom, or prayer. No gift is insignificant when placed into God's hands.
+
+The Way of Quiet Light encourages believers to serve faithfully without seeking recognition. Much of God's work is accomplished through ordinary people faithfully carrying out ordinary responsibilities with extraordinary love. The parent teaching a child, the neighbor offering a helping hand, the volunteer serving without applause, the believer praying faithfully in private—all are valuable in the Kingdom of God.
+
+Faithful stewardship also includes how we care for creation, manage our finances, use our words, and invest our time. Every decision becomes an opportunity to honor the One who has entrusted these gifts to us.
+
+One day each of us will give an account—not of how much we possessed, but of how faithfully we used what God provided.
+
+Do not compare your calling with someone else's. Instead, ask yourself, "How can I faithfully use what God has placed in my hands today?"
+
+The Lord delights in those who quietly serve with grateful and faithful hearts.
+
+When our lives are surrendered to Him, even the smallest offering becomes an act of worship.`,
+    prayer: `Heavenly Father,
+
+Everything I have comes from You. Thank You for entrusting me with gifts, opportunities, and responsibilities. Help me to use them wisely and faithfully for Your glory. Guard me against selfishness and comparison, and teach me to serve with humility, generosity, and gratitude. May my life reflect the faithfulness of a good steward.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What gift, opportunity, or responsibility has God entrusted to me that I could use more faithfully?",
+    todayPractice: "Choose one resource God has given you—your time, abilities, finances, or encouragement—and intentionally use it today to bless someone else.",
+    closingThought: "God does not ask us to manage someone else's gifts—only to faithfully steward our own.",
+  },
 ];
