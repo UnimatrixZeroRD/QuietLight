@@ -232,4 +232,86 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Spend at least fifteen uninterrupted minutes reading Scripture in silence before beginning your regular routine. Ask only one question: \"Lord, what would You have me learn today?\"",
     closingThought: "God often speaks most clearly when we have finally become quiet enough to listen.",
   },
+  {
+    id: "daily-light-day-6-the-fear-of-the-lord",
+    slug: "day-6-the-fear-of-the-lord",
+    title: "The Fear of the Lord",
+    summary: "True wisdom begins with holy reverence for God, shaping not only what we know but how we live, serve, speak, and obey.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 6,
+    theme: "The Beginning of Wisdom",
+    oldTestamentReading: "Proverbs 1:1-7",
+    newTestamentReading: "James 3:13-18",
+    keyVerseReference: "Proverbs 1:7",
+    keyVerseText: "The fear of the LORD is the beginning of knowledge: but fools despise wisdom and instruction.",
+    scriptureReference: "Proverbs 1:7",
+    scriptureText: "The fear of the LORD is the beginning of knowledge: but fools despise wisdom and instruction.",
+    publishedOn: "2026-07-06",
+    reflection: `In today's world, wisdom is often confused with intelligence. A person may possess remarkable knowledge, academic achievement, or practical skill and yet remain spiritually unwise. Scripture teaches that true wisdom begins in an entirely different place—it begins with the fear of the Lord.
+
+The fear of the Lord is not a terror that drives us away from God. Rather, it is a holy reverence that draws us nearer to Him. It is the humble recognition that God alone is perfectly holy, perfectly just, and perfectly wise. When we understand who He is, pride begins to fade, and our hearts become teachable.
+
+King Solomon, renowned for his wisdom, understood that knowledge apart from God can easily become arrogance. James echoes this truth by distinguishing earthly wisdom from heavenly wisdom. Earthly wisdom seeks personal gain, recognition, and power. Heavenly wisdom is "pure, peaceable, gentle, and easy to be entreated, full of mercy and good fruits."
+
+The Way of Quiet Light encourages believers to pursue wisdom not as a means of elevating themselves, but as a way of serving God and others more faithfully. Wisdom is revealed not merely in what we know, but in how we live. A gentle answer, an honest confession, a patient spirit, and a forgiving heart often display greater wisdom than the most eloquent speech.
+
+Our generation has access to more information than any before it, yet information alone cannot transform the heart. Only God can do that. As we submit ourselves to His Word and allow His Spirit to shape our lives, we begin to see the world through His eyes rather than our own.
+
+Ask yourself today not, "How can I appear wiser?" but rather, "How can I become more faithful?" The truly wise person does not seek admiration; they seek obedience. In doing so, they discover a wisdom that neither time nor circumstance can take away.`,
+    prayer: `Heavenly Father,
+
+Teach me to walk in true wisdom. Remove every trace of pride from my heart and replace it with humble reverence for You. Help me to seek understanding through Your Word rather than through my own opinions. May my thoughts, words, and actions reflect the wisdom that comes from above, bringing peace to those around me and glory to Your name.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Do I seek wisdom to honor God, or do I seek knowledge merely to impress others?",
+    todayPractice: "Before making an important decision today, pause and ask, \"Lord, what choice would most glorify You?\"",
+    closingThought: "Wisdom begins the moment we stop trusting ourselves and begin trusting God.",
+  },
+  {
+    id: "daily-light-day-7-rest-for-the-soul",
+    slug: "day-7-rest-for-the-soul",
+    title: "Rest for the Soul",
+    summary: "Christ offers rest for the soul, calling the weary to lay down their burdens and return to the Shepherd who restores and strengthens them.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 7,
+    theme: "Finding Peace in Christ",
+    oldTestamentReading: "Psalm 23",
+    newTestamentReading: "Matthew 11:28-30",
+    keyVerseReference: "Matthew 11:28",
+    keyVerseText: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+    scriptureReference: "Matthew 11:28",
+    scriptureText: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+    publishedOn: "2026-07-07",
+    reflection: `The pace of modern life often leaves little room for rest. We hurry from one responsibility to another, carrying burdens that seem to grow heavier with each passing day. We strive to accomplish more, fix more, and worry more, believing that peace will finally arrive when every problem has been solved.
+
+Yet Christ offers something the world cannot provide.
+
+He does not merely promise a lighter schedule or easier circumstances. He promises rest for the soul.
+
+David understood this long before Jesus walked the earth. In Psalm 23 he describes the Lord as a Shepherd who leads His sheep beside still waters and restores their souls. Even while walking through the valley of the shadow of death, David speaks with confidence rather than fear because the Shepherd remains near.
+
+Jesus reveals Himself as that Good Shepherd. He invites the weary, the anxious, and the discouraged to come to Him—not after they have solved every difficulty, but precisely because they cannot carry those burdens alone.
+
+The Way of Quiet Light reminds us that rest is not laziness. It is an act of trust. When we intentionally pause to pray, worship, and reflect upon God's goodness, we acknowledge that the world continues because God sustains it—not because we never stop working.
+
+Quiet moments with God renew our strength in ways that constant activity never can. They remind us that our identity is not found in our productivity but in our relationship with our Heavenly Father.
+
+Perhaps your burdens today are invisible to others. Perhaps they are physical pain, emotional exhaustion, uncertainty about the future, or grief that words cannot express. Christ knows each one. He does not ask you to pretend they do not exist. He simply says, "Come."
+
+The Shepherd still leads beside still waters. His peace is available today, even in the midst of life's storms. Lay your burdens before Him and discover the quiet strength that only His presence can provide.`,
+    prayer: `Heavenly Father,
+
+Thank You for being my Shepherd and my refuge. When my heart grows weary and my mind becomes anxious, remind me to come to Christ, who alone gives lasting rest. Help me to trust You with every burden I carry and to find peace in Your presence rather than in my circumstances. Restore my soul and strengthen me to walk faithfully in Your ways.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What burden have I continued to carry that I need to surrender to Christ today?",
+    todayPractice: "Set aside twenty uninterrupted minutes today to be alone with God. Read Psalm 23 slowly, pray through its words, and allow yourself to rest quietly in His presence.",
+    closingThought: "The strongest soul is not the one that never grows weary, but the one that continually returns to the Shepherd for rest.",
+  },
 ];
