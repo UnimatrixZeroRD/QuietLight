@@ -144,4 +144,92 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Identify one act of obedience you have been delaying. Commit it to prayer, and if it is within your ability today, take that first step in faith.",
     closingThought: "Faith does not illuminate the entire journey; it provides enough light for the next faithful step.",
   },
+  {
+    id: "daily-light-day-4-the-promise-of-redemption",
+    slug: "day-4-the-promise-of-redemption",
+    title: "The Promise of Redemption",
+    summary: "Even in the tragedy of the fall, God gave the first promise of redemption, pointing forward to Christ and the grace that restores what sin has broken.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 4,
+    theme: "Hope in the Midst of the Fall",
+    oldTestamentReading: "Genesis 3:14-24",
+    newTestamentReading: "Romans 5:6-11",
+    keyVerseReference: "Romans 5:8",
+    keyVerseText: "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
+    scriptureReference: "Romans 5:8",
+    scriptureText: "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
+    publishedOn: "2026-07-04",
+    reflection: `The first pages of Scripture reveal both humanity's greatest tragedy and God's first promise of hope.
+
+Adam and Eve were created to live in perfect fellowship with their Creator. Yet through disobedience, sin entered the world, bringing shame, suffering, and death. The harmony of Eden was broken, and mankind was separated from the God who had lovingly formed them from the dust.
+
+If the story ended there, there would be no hope.
+
+But before Adam and Eve were sent from the garden, God spoke words that echoed throughout history. In His judgment upon the serpent was a promise that one day the offspring of the woman would crush the serpent's head. Though wounded Himself, the coming Redeemer would ultimately defeat sin, death, and Satan forever.
+
+This promise pointed forward to Jesus Christ.
+
+From the very beginning, redemption was not an afterthought. God did not abandon His creation when it fell. Instead, He began unfolding His plan of salvation—a plan that would culminate at the cross and the empty tomb.
+
+Every believer knows something of Eden's loss. We experience temptation, failure, grief, and the consequences of living in a broken world. Yet we also know something Adam and Eve could only anticipate: the promised Redeemer has come.
+
+Because of Christ, our failures do not have the final word. Grace speaks louder than guilt. Mercy triumphs over condemnation. Through faith in Him, what was broken can be restored.
+
+The Way of Quiet Light reminds us that redemption often begins quietly. God usually works in hearts before He changes circumstances. He heals the soul before He heals the world. Every act of repentance is evidence that His restoring work has already begun.
+
+Today, remember that no failure is beyond God's ability to redeem. Bring your burdens honestly before Him. The same Lord who promised salvation in the Garden continues His work of restoration in every heart surrendered to Him.`,
+    prayer: `Heavenly Father,
+
+Thank You for Your mercy that reaches even into my failures. When I stumble, remind me that Your grace is greater than my sin and that Jesus Christ has secured my redemption through His sacrifice. Help me to turn from temptation, trust in Your forgiveness, and walk each day in the new life You have given me. Restore what sin has damaged, and teach me to live in grateful obedience.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is there an area of my life where I have allowed guilt to overshadow God's promise of forgiveness?",
+    todayPractice: "Spend time thanking God specifically for His grace rather than focusing only on your shortcomings.",
+    closingThought: "Where sin entered quietly, God's redemption arrived with greater power.",
+  },
+  {
+    id: "daily-light-day-5-a-heart-that-hears",
+    slug: "day-5-a-heart-that-hears",
+    title: "A Heart That Hears",
+    summary: "A heart that hears learns to quiet the noise of the world, listen for the Shepherd's voice, and obey the Word of God with humility.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 5,
+    theme: "Listening for the Voice of God",
+    oldTestamentReading: "1 Samuel 3:1-10",
+    newTestamentReading: "John 10:1-18",
+    keyVerseReference: "1 Samuel 3:10",
+    keyVerseText: "Speak; for thy servant heareth.",
+    scriptureReference: "1 Samuel 3:10",
+    scriptureText: "Speak; for thy servant heareth.",
+    publishedOn: "2026-07-05",
+    reflection: `The world is full of voices.
+
+Every day we are surrounded by opinions, advertisements, entertainment, fears, and distractions that compete for our attention. In such constant noise, it becomes difficult to recognize the quiet voice of the Lord.
+
+Young Samuel experienced this firsthand. When God called his name during the night, Samuel assumed it was Eli speaking. Only after repeated calls did Eli realize that the Lord Himself was speaking to the boy. Samuel's simple reply became one of the most beautiful prayers in all of Scripture: "Speak; for thy servant heareth."
+
+Centuries later, Jesus described Himself as the Good Shepherd whose sheep know His voice. They follow Him because they have learned to recognize the Shepherd who loves them, protects them, and leads them into abundant life.
+
+Learning to hear God's voice is not about seeking dramatic signs or extraordinary experiences. Most often, God speaks through His written Word, through prayer, through the conviction of the Holy Spirit, and through the wisdom of faithful believers. His voice never contradicts His character or His Scriptures.
+
+The Way of Quiet Light encourages a life that intentionally creates space for God to speak. Silence is not emptiness; it is an invitation. When we quiet our own ambitions, fears, and constant activity, we become more attentive to the gentle leading of our Shepherd.
+
+This kind of listening requires humility. It asks us to approach God not with demands but with open hands. Instead of saying, "Lord, bless my plans," we learn to pray, "Lord, show me Yours."
+
+As you begin today, resist the temptation to fill every quiet moment with distraction. Open the Scriptures. Pray sincerely. Listen patiently. The Shepherd still calls His sheep by name, and He remains faithful to lead those who are willing to follow.`,
+    prayer: `Heavenly Father,
+
+Teach me to recognize Your voice above every distraction. Quiet the noise within my heart and help me to delight in Your Word. Give me a servant's spirit that eagerly listens and willingly obeys. Lead me by Your Holy Spirit, and grant me wisdom to follow wherever Christ calls me.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What voices have I allowed to become louder than God's voice in my daily life?",
+    todayPractice: "Spend at least fifteen uninterrupted minutes reading Scripture in silence before beginning your regular routine. Ask only one question: \"Lord, what would You have me learn today?\"",
+    closingThought: "God often speaks most clearly when we have finally become quiet enough to listen.",
+  },
 ];
