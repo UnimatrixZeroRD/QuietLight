@@ -101,4 +101,102 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Choose one verse from today's reading and commit it to memory. Return to it throughout the day whenever your thoughts begin to wander.",
     closingThought: "A life transformed by Christ begins with a mind continually renewed by His truth.",
   },
+  {
+    id: "daily-light-day-33-walking-in-the-spirit",
+    slug: "day-33-walking-in-the-spirit",
+    title: "Walking in the Spirit",
+    summary: "The Christian life is lived under the guidance of the Holy Spirit, who gives life, leads daily obedience, and produces lasting transformation.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 33,
+    theme: "Living Under the Guidance of the Holy Spirit",
+    oldTestamentReading: "Ezekiel 37:1-14",
+    newTestamentReading: "Galatians 5:16-26",
+    keyVerseReference: "Galatians 5:16",
+    keyVerseText: "This I say then, Walk in the Spirit, and ye shall not fulfil the lust of the flesh.",
+    scriptureReference: "Galatians 5:16",
+    scriptureText: "This I say then, Walk in the Spirit, and ye shall not fulfil the lust of the flesh.",
+    publishedOn: "2026-08-02",
+    reflection: `The Christian life was never intended to be lived by human effort alone.
+
+Many believers begin their walk with Christ relying upon His grace, only to find themselves trying to grow through their own strength. They become discouraged when old habits return, temptations persist, or spiritual progress seems slow. Yet God never asked us to produce holiness apart from Him.
+
+He has given us His Holy Spirit.
+
+The vision given to Ezekiel of the valley of dry bones is one of the most powerful pictures of spiritual life in all of Scripture. Dry bones cannot restore themselves. Only the breath of God can bring life where death once ruled. In the same way, it is the Spirit of God who continually breathes life into His people.
+
+Paul reminds us that every believer faces a daily struggle between the desires of the flesh and the leading of the Spirit. This conflict should not surprise us. Growth often involves learning, failing, repenting, and returning again to Christ.
+
+Walking in the Spirit is not a single dramatic event but a daily decision to surrender our thoughts, desires, and actions to God's direction.
+
+The Way of Quiet Light encourages believers to cultivate sensitivity to the Spirit's gentle leading. He often speaks quietly through Scripture, conviction, wisdom, and peace rather than through dramatic displays. As we spend time in prayer and God's Word, we become increasingly able to recognize His guidance.
+
+Notice that Paul speaks of "walking" in the Spirit rather than running. Walking implies consistency. One faithful step follows another. It is steady, intentional, and dependent upon the One leading the way.
+
+Do not become discouraged if your pace seems slow. The Spirit is more interested in lasting transformation than rapid change. Continue yielding yourself to Him each day, trusting that He who began the good work will faithfully bring it to completion.`,
+    prayer: `Heavenly Father,
+
+Thank You for the gift of Your Holy Spirit. Teach me to walk under His guidance each day. Help me to resist the desires of the flesh and to cultivate the fruit that reflects Christ's character. Make me sensitive to Your leading, willing to obey Your voice, and faithful in every step I take.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "In what area of my life do I most need to yield to the guidance of the Holy Spirit?",
+    todayPractice: "Before making any significant decision today, pause and ask the Holy Spirit to guide your thoughts and actions.",
+    closingThought: "The Spirit rarely rushes us ahead; He faithfully walks beside us.",
+  },
+  {
+    id: "daily-light-day-34-growing-through-trials",
+    slug: "day-34-growing-through-trials",
+    title: "Growing Through Trials",
+    summary: "God uses hardship to deepen faith, strengthen endurance, shape character, and draw His people closer to Himself through every season.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Two",
+    volumeTitle: "Growing in Grace",
+    day: 34,
+    theme: "God's Purpose in Suffering",
+    oldTestamentReading: "Job 23:1-12",
+    newTestamentReading: "James 1:2-8",
+    keyVerseReference: "James 1:3",
+    keyVerseText: "Knowing this, that the trying of your faith worketh patience.",
+    scriptureReference: "James 1:3",
+    scriptureText: "Knowing this, that the trying of your faith worketh patience.",
+    publishedOn: "2026-08-03",
+    reflection: `No one naturally welcomes hardship.
+
+When difficulties arise, our first instinct is often to ask, "Why is this happening?" While that question is understandable, Scripture gently redirects our attention toward another question: "What is God accomplishing through this?"
+
+James offers one of the most surprising commands in the New Testament: "Count it all joy when ye fall into divers temptations." He is not encouraging us to celebrate pain itself. Rather, he invites us to rejoice in what God is producing through our trials.
+
+Patience.
+
+Endurance.
+
+Maturity.
+
+A deeper dependence upon Him.
+
+Job understood this reality in ways few others have. Though stripped of nearly everything he held dear, he continued seeking God. At one point he declared, "When he hath tried me, I shall come forth as gold." Job did not understand every reason for his suffering, but he trusted the character of the God who remained sovereign over it.
+
+The Way of Quiet Light teaches that seasons of hardship often become seasons of deepest growth. Storms drive the roots of great trees deeper into the earth. Likewise, trials often deepen our faith, strengthen our character, and loosen our grip upon temporary things.
+
+This does not mean suffering is easy. God never asks us to deny grief or pretend that pain is pleasant. Jesus Himself wept. Yet even in sorrow, we are invited to trust that our Heavenly Father is accomplishing purposes far greater than we can presently see.
+
+If you are walking through a difficult season, remember that God's silence is not His absence. He is present even when His work remains hidden from view.
+
+One day you may look back and discover that the season you would never have chosen became the season in which God drew you closest to Himself.
+
+Trust Him.
+
+The Refiner never wastes the fire.`,
+    prayer: `Heavenly Father,
+
+When trials come, help me to trust Your purposes even when I cannot understand them. Give me patience, endurance, and unwavering faith. Draw me closer to You through every difficulty, and remind me that Your love remains constant in every season. Shape my character so that my life increasingly reflects Jesus Christ.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "How might God be using my present circumstances to shape my faith and character?",
+    todayPractice: "Instead of asking only for relief from your current difficulty, ask God to reveal what He desires to teach you through it.",
+    closingThought: "The deepest roots of faith are often grown in the hardest seasons of life.",
+  },
 ];
