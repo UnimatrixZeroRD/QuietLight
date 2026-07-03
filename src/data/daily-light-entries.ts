@@ -62,4 +62,44 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Before beginning your work, spend five quiet minutes thanking God simply for who He is, not merely for what He has given.",
     closingThought: "The One who spoke light into creation is the same Lord who speaks hope into every faithful heart.",
   },
+  {
+    id: "daily-light-day-2-the-god-who-sees",
+    slug: "day-2-the-god-who-sees",
+    title: "The God Who Sees",
+    summary: "God sees the faithful heart even when the world overlooks it, calling His children to rest in His compassionate presence rather than the approval of others.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 2,
+    theme: "God's Faithful Presence",
+    oldTestamentReading: "Genesis 16:7-14",
+    newTestamentReading: "Matthew 6:25-34",
+    keyVerseReference: "Genesis 16:13",
+    keyVerseText: "Thou God seest me.",
+    scriptureReference: "Genesis 16:13",
+    scriptureText: "Thou God seest me.",
+    publishedOn: "2026-07-02",
+    reflection: `There are moments in every life when we feel forgotten.
+
+Perhaps our prayers seem unanswered. Perhaps our burdens are carried in silence, unseen by those around us. In such seasons, it is easy to believe that we have been overlooked. Yet Scripture reminds us of a profound truth: the God who created the heavens also sees the individual heart.
+
+Hagar fled into the wilderness believing she had been abandoned. Alone, weary, and uncertain of what lay ahead, she encountered the Angel of the Lord. In that sacred moment she declared, "Thou God seest me." Her circumstances did not change immediately, but her understanding did. She discovered that she was never beyond God's sight.
+
+Centuries later, Jesus taught His disciples not to be consumed by worry. The heavenly Father knows what we need before we ask Him. He clothes the lilies of the field with beauty and feeds the birds of the air without fail. If He cares for His creation with such tenderness, how much more does He care for those made in His image?
+
+The Way of Quiet Light reminds us that faith is often lived in places unseen by the world. Many of the greatest acts of obedience happen without applause or recognition. Yet every quiet prayer, every hidden act of kindness, and every faithful step is fully known to God.
+
+When others fail to notice your efforts, remember that your purpose is not to be seen by people but to walk faithfully before the One who sees all things. His approval is of greater value than the praise of the world.
+
+Walk today with quiet confidence. You are neither forgotten nor alone. The Lord who watched over Hagar in the wilderness continues to watch over His children. His eyes are upon you—not with condemnation, but with compassion, wisdom, and unfailing love.`,
+    prayer: `Heavenly Father,
+
+Thank You for knowing me completely and loving me perfectly. When I feel unseen or discouraged, remind me that Your eyes are always upon me. Help me to trust Your care instead of giving in to fear or anxiety. Teach me to live for Your approval alone, finding peace in Your constant presence. May I faithfully walk before You today, knowing that nothing escapes Your loving gaze.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Where have I been seeking the approval of others instead of resting in the knowledge that God already sees and knows me?",
+    todayPractice: "Perform one act of kindness today without telling anyone. Let it be an offering of worship to God alone.",
+    closingThought: "The world may overlook the faithful servant, but the Lord never overlooks a heart that quietly seeks Him.",
+  },
 ];
