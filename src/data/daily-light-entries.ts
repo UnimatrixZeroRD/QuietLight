@@ -314,4 +314,90 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Set aside twenty uninterrupted minutes today to be alone with God. Read Psalm 23 slowly, pray through its words, and allow yourself to rest quietly in His presence.",
     closingThought: "The strongest soul is not the one that never grows weary, but the one that continually returns to the Shepherd for rest.",
   },
+  {
+    id: "daily-light-day-8-the-shepherds-care",
+    slug: "day-8-the-shepherds-care",
+    title: "The Shepherd's Care",
+    summary: "Christ, the Good Shepherd, seeks, guides, restores, and protects His sheep, calling believers to remain close and trust His faithful care.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 8,
+    theme: "Trusting the Shepherd's Guidance",
+    oldTestamentReading: "Ezekiel 34:11-16",
+    newTestamentReading: "John 10:11-18",
+    keyVerseReference: "John 10:11",
+    keyVerseText: "I am the good shepherd: the good shepherd giveth his life for the sheep.",
+    scriptureReference: "John 10:11",
+    scriptureText: "I am the good shepherd: the good shepherd giveth his life for the sheep.",
+    publishedOn: "2026-07-08",
+    reflection: `There is a profound comfort in knowing that we do not walk through life alone. Scripture repeatedly describes God's people as sheep—not because we are weak or insignificant, but because sheep were never intended to find their way without a shepherd.
+
+Throughout the Old Testament, the Lord rebuked shepherds who cared more for themselves than for the flock. They neglected the weak, ignored the wounded, and scattered those entrusted to them. Yet God promised that He Himself would seek His sheep, gather the lost, bind up the broken, and strengthen the weak.
+
+That promise finds its fulfillment in Jesus Christ.
+
+He is not merely another shepherd among many. He is the Good Shepherd who willingly laid down His life for His sheep. Unlike a hired servant who flees when danger comes, Christ remains faithful even unto death. His love is measured not by words alone, but by the cross.
+
+The Way of Quiet Light reminds us that following Christ is not simply about believing certain truths—it is about learning to trust His guidance day by day. The Shepherd often leads His flock along paths they would never choose for themselves. Some roads pass through green pastures, while others wind through dark valleys. Yet every step is watched over by the One who sees the end from the beginning.
+
+There may be moments when you question where God is leading you. The path may seem uncertain or even difficult. Resist the temptation to run ahead or wander away. The safest place is always near the Shepherd.
+
+As you grow in faith, you will discover that His guidance is not driven by haste but by wisdom. He knows when to lead, when to restore, when to correct, and when to carry those who have grown weary.
+
+Walk closely with Him today. The Shepherd never loses sight of His sheep, and those who remain near Him need never fear that they have been forgotten.`,
+    prayer: `Heavenly Father,
+
+Thank You for sending Jesus, the Good Shepherd, to seek and save those who were lost. Help me to trust His guidance, even when I cannot understand the path before me. Keep my heart close to Him, protect me from wandering, and teach me to rest in His faithful care. May I follow wherever He leads, knowing that His way is always good.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Am I following the Shepherd's voice, or have I been trying to find my own way?",
+    todayPractice: "Before making an important decision today, pause and ask, \"Lord, where are You leading me?\" Spend time in prayer before acting.",
+    closingThought: "The safest path is not always the easiest, but it is always the one walked with the Shepherd.",
+  },
+  {
+    id: "daily-light-day-9-the-light-shines",
+    slug: "day-9-the-light-shines",
+    title: "The Light Shines",
+    summary: "Christ is the Light of the World, and His people are called to carry His light with humility so others may be guided toward Him.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume One",
+    volumeTitle: "Walking in the Light",
+    day: 9,
+    theme: "Christ, the Light of the World",
+    oldTestamentReading: "Isaiah 9:1-7",
+    newTestamentReading: "John 8:12",
+    keyVerseReference: "John 8:12",
+    keyVerseText: "Then spake Jesus again unto them, saying, I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.",
+    scriptureReference: "John 8:12",
+    scriptureText: "Then spake Jesus again unto them, saying, I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.",
+    publishedOn: "2026-07-09",
+    reflection: `From the opening chapter of Genesis to the final pages of Revelation, light is one of Scripture's most enduring images of God's presence.
+
+Before the sun and moon were created, God spoke light into existence. Throughout Israel's history, His glory appeared as fire by night, guiding His people through the wilderness. The prophets looked forward to a day when a great Light would dawn upon those who sat in darkness.
+
+That Light is Jesus Christ.
+
+When Jesus declared, "I am the light of the world," He was making one of the most remarkable claims in all of Scripture. He was not merely offering good advice or a better philosophy of life. He was revealing Himself as the very source of truth, hope, life, and salvation.
+
+Darkness cannot overcome light. Even the smallest flame pushes back the darkness surrounding it. In the same way, one faithful life surrendered to Christ can become a testimony that points others toward Him.
+
+The Way of Quiet Light is built upon this truth. We do not create the light, nor do we possess it by our own strength. We simply carry the light that Christ has placed within us. Like a lantern in the night, our purpose is not to draw attention to ourselves but to illuminate the path toward the Savior.
+
+This calling requires humility. A lantern fulfills its purpose only when its light shines outward. If we seek recognition for ourselves, we obscure the very light we were meant to display. But when Christ is lifted high, His light reaches farther than we could ever imagine.
+
+Perhaps today you feel surrounded by darkness—whether through discouragement, uncertainty, grief, or temptation. Remember that darkness is not the absence of God's power. It is simply the place where His light shines most clearly.
+
+Walk confidently today, not because you are strong, but because Christ, the Light of the World, goes before you. His light has never failed, and it never will.`,
+    prayer: `Heavenly Father,
+
+Thank You for sending Your Son to be the Light of the world. Let His light shine brightly within me so that others may see Your love, truth, and grace. Guard me against pride, and remind me that I am only a servant entrusted with reflecting Christ's light. May my words and actions point others toward Him today.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Does my life draw attention to Christ, or does it seek attention for myself?",
+    todayPractice: "Intentionally encourage someone today with words that point them toward God's faithfulness rather than your own accomplishments.",
+    closingThought: "The lantern has no light of its own; it fulfills its purpose only by carrying the flame entrusted to it.",
+  },
 ];
