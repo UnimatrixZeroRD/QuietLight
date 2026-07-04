@@ -36,4 +36,22 @@ export const albums: Album[] = [
     coverImageUrl: "/images/music/gloria-patri-cover.webp",
     coverAltText: "Gloria Patri album cover.",
   },
+  {
+    title: "Little Lights Part 1",
+    subtitle: "Children's Music Collection",
+    description: "A gentle children's music album created for young hearts, simple joy, family listening, and the first small steps of learning to carry light with kindness.",
+    status: "available",
+    href: "/music/little-lights-part-1",
+    coverImageUrl: "/images/music/little-lights-part-1-cover.webp",
+    coverAltText: "Little Lights Part 1 album cover.",
+  },
+  {
+    title: "Little Lights Part 2",
+    subtitle: "Children's Music Collection",
+    description: "A second Little Lights collection of warm children's songs, carrying the same spirit of hope, gentleness, imagination, and quiet goodness for families and children.",
+    status: "available",
+    href: "/music/little-lights-part-2",
+    coverImageUrl: "/images/music/little-lights-part-2-cover.webp",
+    coverAltText: "Little Lights Part 2 album cover.",
+  },
 ];
