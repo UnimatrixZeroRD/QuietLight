@@ -79,6 +79,13 @@ export default async function AlbumDetailPage({ params }: AlbumPageProps) {
   }
 
   const streamingLinks = albumStreamingLinks[album.slug];
+  const isSquareAlbumArtwork = album.slug.startsWith("little-lights");
+  const coverImageClassName = isSquareAlbumArtwork
+    ? "aspect-square w-full rounded-2xl object-contain"
+    : "aspect-[4/5] w-full rounded-2xl object-cover";
+  const coverPlaceholderClassName = isSquareAlbumArtwork
+    ? "aspect-square rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(216,168,79,0.08)]"
+    : "aspect-[4/5] rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(216,168,79,0.08)]";
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
@@ -89,9 +96,9 @@ export default async function AlbumDetailPage({ params }: AlbumPageProps) {
         <div className="lantern-panel rounded-3xl p-6">
           {album.coverImageUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="aspect-[4/5] w-full rounded-2xl object-cover" src={album.coverImageUrl} alt={album.coverAltText} />
+            <img className={coverImageClassName} src={album.coverImageUrl} alt={album.coverAltText} />
           ) : (
-            <div className="aspect-[4/5] rounded-2xl border border-[rgba(216,168,79,0.25)] bg-[rgba(216,168,79,0.08)]" />
+            <div className={coverPlaceholderClassName} />
           )}
         </div>
         <div className="lantern-panel rounded-3xl p-8">
