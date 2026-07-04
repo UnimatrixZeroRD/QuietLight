@@ -13,18 +13,18 @@ const stoneWasLiftedYouTubeMusicPlaylistId = "OLAK5uy_lI6kVZv8NVdfOr53yBsQx9bqu"
 
 export const metadata: Metadata = {
   title: "Music",
-  description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
+  description: "Albums, singles, psalms, hymns, children's music, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
   alternates: { canonical: "/music" },
   openGraph: {
     title: "Music of the Quiet Light",
-    description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
+    description: "Albums, singles, psalms, hymns, children's music, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
     url: "/music",
     images: [{ url: holyTrinityImage, width: 1200, height: 630, alt: "The Holy Trinity music collection graphic." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Music of the Quiet Light",
-    description: "Albums, singles, psalms, hymns, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
+    description: "Albums, singles, psalms, hymns, children's music, and sacred music by Yehoshua of Ēatūn from The Way of Quiet Light.",
     images: [holyTrinityImage],
   },
 };
@@ -37,6 +37,7 @@ type AlbumShowcaseItem = {
   href: string;
   coverImageUrl: string;
   coverAltText: string;
+  categoryLabel: string;
 };
 
 type SingleShowcaseItem = {
@@ -69,6 +70,7 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
     href: "/music/the-flame-remains",
     coverImageUrl: "/images/music/flame-remains-cover.webp",
     coverAltText: "The Flame Remains album cover.",
+    categoryLabel: "Holy Trinity Album",
   },
   {
     title: "The Everlasting Light",
@@ -78,6 +80,7 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
     href: "/music/the-everlasting-light",
     coverImageUrl: "/images/music/everlasting-light-cover.webp",
     coverAltText: "The Everlasting Light album cover.",
+    categoryLabel: "Holy Trinity Album",
   },
   {
     title: "Gloria Patri",
@@ -87,6 +90,30 @@ const holyTrinityAlbums: AlbumShowcaseItem[] = [
     href: "/music/gloria-patri",
     coverImageUrl: "/images/music/gloria-patri-cover.webp",
     coverAltText: "Gloria Patri album cover.",
+    categoryLabel: "Holy Trinity Album",
+  },
+];
+
+const childrenAlbums: AlbumShowcaseItem[] = [
+  {
+    title: "Little Lights Part 1",
+    slug: "little-lights-part-1",
+    subtitle: "Children's Music Collection",
+    description: "A gentle children's music album created for young hearts, simple joy, family listening, and the first small steps of learning to carry light with kindness.",
+    href: "/music/little-lights-part-1",
+    coverImageUrl: "/images/music/little-lights-part-1-cover.webp",
+    coverAltText: "Little Lights Part 1 album cover.",
+    categoryLabel: "Children's Music Album",
+  },
+  {
+    title: "Little Lights Part 2",
+    slug: "little-lights-part-2",
+    subtitle: "Children's Music Collection",
+    description: "A second Little Lights collection of warm children's songs, carrying the same spirit of hope, gentleness, imagination, and quiet goodness for families and children.",
+    href: "/music/little-lights-part-2",
+    coverImageUrl: "/images/music/little-lights-part-2-cover.webp",
+    coverAltText: "Little Lights Part 2 album cover.",
+    categoryLabel: "Children's Music Album",
   },
 ];
 
@@ -173,7 +200,7 @@ function AlbumCard({ album }: { album: AlbumShowcaseItem }) {
         <span className="absolute left-4 top-4 rounded-full border border-[rgba(216,168,79,0.55)] bg-[rgba(7,17,31,0.78)] px-3 py-1 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)] backdrop-blur">Available</span>
       </div>
       <div className="flex flex-1 flex-col pt-6">
-        <p className="gold-text text-xs uppercase tracking-[0.22em]">Holy Trinity Album</p>
+        <p className="gold-text text-xs uppercase tracking-[0.22em]">{album.categoryLabel}</p>
         <h2 className="gold-text mt-3 text-3xl leading-tight">{album.title}</h2>
         <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)]">{album.subtitle}</p>
         <p className="mt-4 flex-1 leading-7 text-[var(--muted-silver)]">{album.description}</p>
@@ -210,10 +237,8 @@ function SingleCard({ single, index }: { single: SingleShowcaseItem; index: numb
   );
 }
 
-export default async function MusicPage() {
-  const publicAlbums = await getPublicMusicAlbums();
-  const publicAlbumBySlug = new Map(publicAlbums.map((album) => [album.slug, album]));
-  const albumCards = holyTrinityAlbums.map((album) => {
+function mergePublishedAlbums(albums: AlbumShowcaseItem[], publicAlbumBySlug: Map<string, Awaited<ReturnType<typeof getPublicMusicAlbums>>[number]>) {
+  return albums.map((album) => {
     const published = publicAlbumBySlug.get(album.slug);
     return {
       ...album,
@@ -225,6 +250,14 @@ export default async function MusicPage() {
       coverAltText: published?.coverAltText ?? album.coverAltText,
     };
   });
+}
+
+export default async function MusicPage() {
+  const publicAlbums = await getPublicMusicAlbums();
+  const publicAlbumBySlug = new Map(publicAlbums.map((album) => [album.slug, album]));
+  const holyTrinityAlbumCards = mergePublishedAlbums(holyTrinityAlbums, publicAlbumBySlug);
+  const childrenAlbumCards = mergePublishedAlbums(childrenAlbums, publicAlbumBySlug);
+  const albumCount = holyTrinityAlbums.length + childrenAlbums.length;
 
   return (
     <main className="pb-24">
@@ -234,9 +267,9 @@ export default async function MusicPage() {
           <div>
             <p className="gold-text uppercase tracking-[0.3em]">Music</p>
             <h1 className="gold-text mt-5 text-5xl leading-tight md:text-7xl">Music of the Quiet Light</h1>
-            <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">Albums, singles, psalms, hymns, and sacred music by {artistName} for prayer, stillness, worship, and reflection.</p>
+            <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">Albums, singles, psalms, hymns, children's music, and sacred music by {artistName} for prayer, stillness, worship, family listening, and reflection.</p>
             <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)]">
-              <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">3 albums</span>
+              <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">{albumCount} albums</span>
               <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">4 singles</span>
               <span className="rounded-full border border-[rgba(216,168,79,0.35)] px-4 py-2">Available now</span>
             </div>
@@ -248,7 +281,7 @@ export default async function MusicPage() {
             </div>
             <div className="p-5">
               <p className="gold-text text-xs uppercase tracking-[0.28em]">The Holy Trinity</p>
-              <p className="mt-3 leading-7 text-[var(--muted-silver)]">Three sacred albums gathered as the central music collection of The Way of Quiet Light.</p>
+              <p className="mt-3 leading-7 text-[var(--muted-silver)]">Three sacred albums gathered as the central music collection of The Way of Quiet Light, with additional family and children's music now available separately.</p>
             </div>
           </div>
         </div>
@@ -260,9 +293,22 @@ export default async function MusicPage() {
             <p className="gold-text uppercase tracking-[0.3em]">Albums</p>
             <h2 id="holy-trinity-albums" className="mt-4 text-4xl md:text-6xl">The Holy Trinity</h2>
           </div>
-          <p className="max-w-2xl leading-8 text-[var(--muted-silver)]">The three full album releases are available now. Each album page is ready for the final listening links and embedded players.</p>
+          <p className="max-w-2xl leading-8 text-[var(--muted-silver)]">The three central album releases remain gathered as the Holy Trinity collection. Each album page is ready for the final listening links and embedded players.</p>
         </div>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">{albumCards.map((album) => <AlbumCard album={album} key={album.slug} />)}</div>
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">{holyTrinityAlbumCards.map((album) => <AlbumCard album={album} key={album.slug} />)}</div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="children-music-albums">
+        <div className="lantern-panel rounded-3xl p-6 md:p-10">
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="gold-text uppercase tracking-[0.3em]">Children's Music</p>
+              <h2 id="children-music-albums" className="mt-4 text-4xl md:text-6xl">Little Lights</h2>
+            </div>
+            <p className="max-w-2xl leading-8 text-[var(--muted-silver)]">Little Lights is a separate children's music collection. These albums are not part of the Holy Trinity series; they are set apart for family listening, young hearts, and simple songs of hope, kindness, and light.</p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">{childrenAlbumCards.map((album) => <AlbumCard album={album} key={album.slug} />)}</div>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20" aria-labelledby="available-singles">
