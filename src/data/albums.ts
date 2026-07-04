@@ -42,7 +42,7 @@ export const albums: Album[] = [
     description: "A gentle children's music album created for young hearts, simple joy, family listening, and the first small steps of learning to carry light with kindness.",
     status: "available",
     href: "/music/little-lights-part-1",
-    coverImageUrl: "/images/music/little-lights-part-1-cover.webp",
+    coverImageUrl: "/images/music/littlelightspt1.webp",
     coverAltText: "Little Lights Part 1 album cover.",
   },
   {
@@ -51,7 +51,7 @@ export const albums: Album[] = [
     description: "A second Little Lights collection of warm children's songs, carrying the same spirit of hope, gentleness, imagination, and quiet goodness for families and children.",
     status: "available",
     href: "/music/little-lights-part-2",
-    coverImageUrl: "/images/music/little-lights-part-2-cover.webp",
+    coverImageUrl: "/images/music/littlelightspt2.webp",
     coverAltText: "Little Lights Part 2 album cover.",
   },
 ];
