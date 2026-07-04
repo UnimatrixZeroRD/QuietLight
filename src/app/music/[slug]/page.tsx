@@ -10,6 +10,7 @@ type AlbumPageProps = {
 const flameRemainsYouTubeMusicPlaylistId = "OLAK5uy_m9ocKx4s-vQs_r19ZUbelxR_J_kh3f14A";
 const everlastingLightYouTubeMusicPlaylistId = "OLAK5uy_nHLhPAwknd6na_2Gc3L_sYq63qm13Q8iw";
 const gloriaPatriYouTubeMusicPlaylistId = "OLAK5uy_kjZAJqwR3Fy7JzXYNUXDNyObYQkxWnJDc";
+const littleLightsReleaseDateLabel = "July 8, 2026";
 
 const albumStreamingLinks: Record<
   string,
@@ -18,6 +19,7 @@ const albumStreamingLinks: Record<
     spotify?: string;
     youtubeMusic?: string;
     youtubeMusicEmbed?: string;
+    releaseDateLabel?: string;
   }
 > = {
   "the-flame-remains": {
@@ -37,6 +39,12 @@ const albumStreamingLinks: Record<
     spotify: "https://open.spotify.com/album/6vIcKefpiWkY5SJFhmN2e4",
     youtubeMusic: `https://music.youtube.com/playlist?list=${gloriaPatriYouTubeMusicPlaylistId}`,
     youtubeMusicEmbed: `https://www.youtube.com/embed/videoseries?list=${gloriaPatriYouTubeMusicPlaylistId}`,
+  },
+  "little-lights-part-1": {
+    releaseDateLabel: littleLightsReleaseDateLabel,
+  },
+  "little-lights-part-2": {
+    releaseDateLabel: littleLightsReleaseDateLabel,
   },
 };
 
@@ -79,6 +87,13 @@ export default async function AlbumDetailPage({ params }: AlbumPageProps) {
   }
 
   const streamingLinks = albumStreamingLinks[album.slug];
+  const streamingServices = streamingLinks
+    ? [
+        { label: "Apple Music", href: streamingLinks.appleMusic },
+        { label: "Spotify", href: streamingLinks.spotify },
+        { label: "YouTube Music", href: streamingLinks.youtubeMusic },
+      ]
+    : [];
   const isSquareAlbumArtwork = album.slug.startsWith("little-lights");
   const coverImageClassName = isSquareAlbumArtwork
     ? "aspect-square w-full rounded-2xl object-contain"
@@ -110,22 +125,21 @@ export default async function AlbumDetailPage({ params }: AlbumPageProps) {
           {streamingLinks ? (
             <section className="mt-8 rounded-2xl border border-[rgba(216,168,79,0.2)] p-5">
               <p className="gold-text text-xs uppercase tracking-[0.25em]">Listen to the album</p>
+              {streamingLinks.releaseDateLabel ? (
+                <p className="mt-3 text-sm leading-6 text-[var(--muted-silver)]">Streaming links are being prepared and will be added when this album goes live on {streamingLinks.releaseDateLabel}.</p>
+              ) : null}
               <div className="mt-4 flex flex-wrap gap-3">
-                {streamingLinks.appleMusic ? (
-                  <a className="gold-text rounded-full border border-[rgba(216,168,79,0.38)] px-4 py-3 text-xs uppercase tracking-[0.18em] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]" href={streamingLinks.appleMusic} rel="noopener noreferrer" target="_blank">
-                    Apple Music
-                  </a>
-                ) : null}
-                {streamingLinks.spotify ? (
-                  <a className="gold-text rounded-full border border-[rgba(216,168,79,0.38)] px-4 py-3 text-xs uppercase tracking-[0.18em] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]" href={streamingLinks.spotify} rel="noopener noreferrer" target="_blank">
-                    Spotify
-                  </a>
-                ) : null}
-                {streamingLinks.youtubeMusic ? (
-                  <a className="gold-text rounded-full border border-[rgba(216,168,79,0.38)] px-4 py-3 text-xs uppercase tracking-[0.18em] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]" href={streamingLinks.youtubeMusic} rel="noopener noreferrer" target="_blank">
-                    YouTube Music
-                  </a>
-                ) : null}
+                {streamingServices.map((service) =>
+                  service.href ? (
+                    <a className="gold-text rounded-full border border-[rgba(216,168,79,0.38)] px-4 py-3 text-xs uppercase tracking-[0.18em] transition duration-300 hover:border-[rgba(216,168,79,0.72)] hover:bg-[rgba(216,168,79,0.08)]" href={service.href} key={service.label} rel="noopener noreferrer" target="_blank">
+                      {service.label}
+                    </a>
+                  ) : (
+                    <span aria-disabled="true" className="rounded-full border border-[rgba(216,168,79,0.24)] px-4 py-3 text-xs uppercase tracking-[0.18em] text-[var(--muted-silver)] opacity-80" key={service.label}>
+                      {service.label} · Coming {streamingLinks.releaseDateLabel}
+                    </span>
+                  )
+                )}
               </div>
             </section>
           ) : null}
@@ -135,6 +149,13 @@ export default async function AlbumDetailPage({ params }: AlbumPageProps) {
               <p className="gold-text text-xs uppercase tracking-[0.25em]">YouTube Music Player</p>
               <iframe className="mt-5 h-[420px] w-full rounded-2xl border border-[rgba(216,168,79,0.2)] bg-[var(--midnight)]" src={streamingLinks.youtubeMusicEmbed} title={`${album.title} on YouTube Music`} loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" />
               <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">If the player does not load, open the album through the YouTube Music button above.</p>
+            </section>
+          ) : streamingLinks?.releaseDateLabel ? (
+            <section className="mt-8 rounded-2xl border border-[rgba(216,168,79,0.2)] p-5">
+              <p className="gold-text text-xs uppercase tracking-[0.25em]">YouTube Music Player</p>
+              <div className="mt-5 flex min-h-[220px] items-center justify-center rounded-2xl border border-[rgba(216,168,79,0.2)] bg-[rgba(7,17,31,0.72)] p-6 text-center">
+                <p className="max-w-xl text-sm leading-7 text-[var(--muted-silver)]">The YouTube Music stream will appear here when this album goes live on {streamingLinks.releaseDateLabel}. Once the playlist link is available, this placeholder can be replaced with the embedded player.</p>
+              </div>
             </section>
           ) : null}
         </div>
