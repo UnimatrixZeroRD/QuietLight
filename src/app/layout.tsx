@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
+import { ServiceWorkerRegistration } from "../components/service-worker-registration";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://quietlightministries.org";
 const siteName = "Quiet Light Ministries";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="quiet-page-bg min-h-screen antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+        <ServiceWorkerRegistration />
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />
         <div id="main-content">{children}</div>
