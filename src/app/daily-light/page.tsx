@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getLatestDailyLightEntry, getPublicDailyLightEntries } from "../../lib/supabase/daily-light";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Daily Light",
   description: "Daily scripture, reflection, and prayer from The Way of Quiet Light.",
