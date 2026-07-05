@@ -200,7 +200,7 @@ export default async function HomePage() {
                   </blockquote>
                 ) : null}
                 <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">{dailyLightEntry.summary}</p>
-                <Link className="gold-text mt-8 inline-block rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em]" href={`/daily-light/${dailyLightEntry.slug}`}>
+                <Link className="gold-text mt-8 inline-block rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em]" href="/daily-light">
                   Read Today&apos;s Light
                 </Link>
               </>
