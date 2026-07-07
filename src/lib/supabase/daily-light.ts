@@ -13,6 +13,7 @@ import { dailyLightVolumeThreeEntriesBatchTwo } from "../../data/daily-light-vol
 import { dailyLightVolumeThreeEntriesBatchThree } from "../../data/daily-light-volume-three-entries-3";
 import { dailyLightVolumeThreeEntriesBatchFour } from "../../data/daily-light-volume-three-entries-4";
 import { dailyLightVolumeThreeEntriesBatchFive } from "../../data/daily-light-volume-three-entries-5";
+import { dailyLightVolumeThreeEntriesBatchSix } from "../../data/daily-light-volume-three-entries-6";
 import { createSupabaseBrowserClient } from "./client";
 
 const DAILY_LIGHT_TIME_ZONE = "America/Halifax";
@@ -32,6 +33,7 @@ const allFallbackEntries = [
   ...dailyLightVolumeThreeEntriesBatchThree,
   ...dailyLightVolumeThreeEntriesBatchFour,
   ...dailyLightVolumeThreeEntriesBatchFive,
+  ...dailyLightVolumeThreeEntriesBatchSix,
 ];
 
 const dailyLightSelectFields = `
