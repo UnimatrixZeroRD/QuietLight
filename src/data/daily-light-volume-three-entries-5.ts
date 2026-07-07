@@ -151,4 +151,142 @@ In His holy name, Amen.`,
     todayPractice: "Take one step of obedience you have been avoiding because of fear, trusting God's presence to strengthen you.",
     closingThought: "Kingdom courage is not confidence in ourselves—it is confidence in the God who goes before us.",
   },
+  {
+    id: "daily-light-day-83-praying-for-the-nations",
+    slug: "day-83-praying-for-the-nations",
+    title: "Praying for the Nations",
+    summary: "God's Kingdom has no borders, and believers participate in His mission by praying for leaders, communities, churches, missionaries, and the nations.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 83,
+    theme: "A Kingdom Without Borders",
+    oldTestamentReading: "Psalm 67",
+    newTestamentReading: "1 Timothy 2:1-6",
+    keyVerseReference: "1 Timothy 2:1",
+    keyVerseText: "I exhort therefore, that, first of all, supplications, prayers, intercessions, and giving of thanks, be made for all men.",
+    scriptureReference: "1 Timothy 2:1",
+    scriptureText: "I exhort therefore, that, first of all, supplications, prayers, intercessions, and giving of thanks, be made for all men.",
+    publishedOn: "2026-09-21",
+    reflection: `The Kingdom of God has no borders.
+
+It is not limited by language, culture, nationality, or race. Every nation is invited into the saving grace of Jesus Christ, and every believer has the privilege of participating in God's mission through prayer.
+
+Paul urges the Church to pray for everyone, including kings and those in positions of authority. Such prayers are not merely civic duties; they are acts of Kingdom faithfulness. When we pray for our leaders, our communities, and the nations of the world, we acknowledge that God alone is sovereign over history.
+
+The psalmist looked forward to the day when all peoples would praise the Lord. God's covenant with Israel was never intended to end with one nation. From the beginning, His purpose was that every family of the earth would come to know His salvation.
+
+The Way of Quiet Light reminds us that prayer quietly reaches places we may never personally visit.
+
+We may never stand in another country.
+
+We may never meet every person for whom we pray.
+
+Yet our prayers are heard by the God who rules over every nation and every generation.
+
+Pray for those who govern with wisdom and justice.
+
+Pray for persecuted believers.
+
+Pray for missionaries and evangelists.
+
+Pray for churches faithfully proclaiming the Gospel.
+
+Pray for those who have never heard the name of Jesus.
+
+Every prayer offered in faith becomes part of God's work in the world.
+
+Though our influence may appear small, the God who hears our prayers is infinitely great.
+
+Lift your eyes beyond your own circumstances today.
+
+The Kingdom extends to the ends of the earth.`,
+    prayer: `Heavenly Father,
+
+Thank You that Your love reaches every nation and every people. Teach me to pray faithfully for my community, my country, and the world. Strengthen Your Church wherever it gathers, protect those who suffer for Your name, and draw many hearts to faith in Jesus Christ. May Your Kingdom come and Your will be done on earth as it is in Heaven.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "How often do my prayers extend beyond my own needs to include God's work throughout the world?",
+    todayPractice: "Pray today for one nation other than your own, asking God to strengthen His Church and open hearts to the Gospel.",
+    closingThought: "The Kingdom of God advances wherever faithful believers lift the nations before the throne of grace.",
+  },
+  {
+    id: "daily-light-day-84-living-in-hope",
+    slug: "day-84-living-in-hope",
+    title: "Living in Hope",
+    summary: "Kingdom hope looks forward to Christ's return while giving eternal purpose to faithful service, holiness, perseverance, and love today.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 84,
+    theme: "Looking Forward While Serving Today",
+    oldTestamentReading: "Isaiah 65:17-25",
+    newTestamentReading: "Titus 2:11-14",
+    keyVerseReference: "Titus 2:13",
+    keyVerseText: "Looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ.",
+    scriptureReference: "Titus 2:13",
+    scriptureText: "Looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ.",
+    publishedOn: "2026-09-22",
+    reflection: `The Christian life always looks in two directions.
+
+We faithfully serve Christ today while eagerly anticipating His return tomorrow.
+
+This hope is not an escape from responsibility.
+
+It is the motivation for faithful living.
+
+Paul reminds Titus that God's grace teaches us to reject ungodliness and to live soberly, righteously, and godly in this present world as we await the appearing of Jesus Christ.
+
+Hope produces holiness.
+
+It encourages perseverance.
+
+It inspires faithful service.
+
+Isaiah looked beyond the brokenness of this present age to the promise of a new creation where sorrow, injustice, and death would no longer reign. Every promise finds its fulfillment in the eternal Kingdom of God.
+
+The Way of Quiet Light encourages believers to hold this hope with joyful confidence.
+
+We are not pessimists.
+
+We are not merely observers of history.
+
+We are servants of the coming King.
+
+Every act of kindness anticipates His Kingdom.
+
+Every prayer echoes His promises.
+
+Every faithful decision declares our confidence that Christ will complete what He has begun.
+
+Living in hope does not cause us to neglect today's responsibilities.
+
+Instead, it gives eternal significance to them.
+
+We plant seeds because we believe God will bring the harvest.
+
+We forgive because we know justice belongs to Him.
+
+We serve because we know our labor is never in vain.
+
+We love because Christ first loved us.
+
+Today, lift your eyes beyond the temporary.
+
+The Kingdom is coming.
+
+The King is faithful.
+
+Until that day arrives, continue serving with joy, courage, and unwavering hope.`,
+    prayer: `Heavenly Father,
+
+Thank You for the blessed hope I have through Jesus Christ. Help me to live each day with eternity in view, faithfully serving You while eagerly awaiting the fulfillment of Your promises. Keep my heart steadfast, my faith joyful, and my eyes fixed upon the coming Kingdom.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Does the hope of Christ's return shape the way I live today?",
+    todayPractice: "Let one ordinary decision today be guided by eternal priorities rather than temporary concerns.",
+    closingThought: "Kingdom hope does not distract us from today's work—it gives eternal purpose to everything we do.",
+  },
 ];
