@@ -313,4 +313,164 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Slowly read one chapter of Scripture today. Before you begin, ask God to reveal something about His character and something He desires to change within your own heart.",
     closingThought: "The written Word faithfully leads every willing heart to the Living Word, Jesus Christ.",
   },
+  {
+    id: "daily-light-day-99-the-gift-of-prayer",
+    slug: "day-99-the-gift-of-prayer",
+    title: "The Gift of Prayer",
+    summary: "Prayer is the gift of speaking with our Heavenly Father, aligning our hearts with His will, and resting in His loving presence.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Four",
+    volumeTitle: "The Heart of Worship",
+    day: 99,
+    theme: "Speaking with Our Heavenly Father",
+    oldTestamentReading: "Psalm 62:5-8",
+    newTestamentReading: "Matthew 6:5-13",
+    keyVerseReference: "Matthew 6:9",
+    keyVerseText: "After this manner therefore pray ye...",
+    scriptureReference: "Matthew 6:9",
+    scriptureText: "After this manner therefore pray ye...",
+    publishedOn: "2026-10-07",
+    reflection: `Prayer is one of God's greatest gifts to His children.
+
+It is not merely a religious obligation or a spiritual exercise. It is an invitation to speak with our Heavenly Father, who knows us completely, loves us perfectly, and welcomes us into His presence through Jesus Christ.
+
+When the disciples asked Jesus to teach them how to pray, He did not begin with elaborate words or complicated formulas. Instead, He began with a relationship.
+
+"Our Father..."
+
+Those two words change everything.
+
+We do not approach God as strangers seeking an audience with a distant ruler.
+
+We come as beloved children welcomed by a gracious Father.
+
+Jesus' model prayer teaches us to begin with worship, submit ourselves to God's will, depend upon Him for our daily needs, seek forgiveness, extend forgiveness to others, and trust Him for guidance and protection.
+
+Prayer is not about informing God of what He does not know.
+
+It is about aligning our hearts with His purposes.
+
+The Way of Quiet Light reminds us that prayer is conversation before it is presentation.
+
+Sometimes we speak.
+
+Sometimes we listen.
+
+Sometimes we praise.
+
+Sometimes we simply sit quietly, aware of God's presence.
+
+Every sincere prayer, whether spoken aloud or whispered in silence, is heard by the Father who sees in secret.
+
+Do not measure prayer by its length or eloquence.
+
+Measure it by its sincerity.
+
+The simplest prayer offered with genuine faith delights the heart of God.
+
+Come to Him today.
+
+He is already waiting.`,
+    prayer: `Heavenly Father,
+
+Thank You for inviting me to come before You through Jesus Christ. Teach me to pray with sincerity, humility, and confidence. Help me to seek Your will above my own and to trust Your wisdom in every circumstance. May prayer become not merely a habit, but the joyful conversation of a child with a loving Father.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is prayer becoming a genuine relationship with God, or has it become only a list of requests?",
+    todayPractice: "Spend part of your prayer time today simply thanking God, listening quietly, and enjoying His presence before bringing your requests to Him.",
+    closingThought: "Prayer is the privilege of children who know they are deeply loved by their Father.",
+  },
+  {
+    id: "daily-light-day-100-my-soul-thirsts-for-you",
+    slug: "day-100-my-soul-thirsts-for-you",
+    title: "My Soul Thirsts for You",
+    summary: "The deepest longing of the human soul can only be satisfied by God Himself, the true treasure and living water of His people.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Four",
+    volumeTitle: "The Heart of Worship",
+    day: 100,
+    theme: "Finding Our Deepest Satisfaction in God",
+    oldTestamentReading: "Psalm 63:1-8",
+    newTestamentReading: "John 7:37-39",
+    keyVerseReference: "Psalm 63:1",
+    keyVerseText: "O God, thou art my God; early will I seek thee: my soul thirsteth for thee.",
+    scriptureReference: "Psalm 63:1",
+    scriptureText: "O God, thou art my God; early will I seek thee: my soul thirsteth for thee.",
+    publishedOn: "2026-10-08",
+    reflection: `Every human heart is searching for something.
+
+Many seek success.
+
+Others pursue wealth, recognition, comfort, or pleasure.
+
+Yet no earthly achievement can fully satisfy the deepest longings of the soul.
+
+Only God can do that.
+
+David wrote Psalm 63 while in the wilderness.
+
+He lacked comfort.
+
+He lacked security.
+
+He was separated from the sanctuary where he loved to worship.
+
+Yet his greatest longing was not for safety or prosperity.
+
+It was for God Himself.
+
+"My soul thirsteth for thee."
+
+Jesus extended that same invitation centuries later.
+
+"If any man thirst, let him come unto me, and drink."
+
+He alone satisfies the deepest hunger of the human heart because He alone gives the living water that never runs dry.
+
+The Way of Quiet Light reminds us that worship reaches its highest expression when we seek God not merely for His gifts but for Himself.
+
+His blessings are wonderful.
+
+His provision is generous.
+
+His promises are precious.
+
+But He Himself is our greatest treasure.
+
+As we draw near to Him, we discover a peace the world cannot offer.
+
+A joy circumstances cannot remove.
+
+A hope that never fades.
+
+The more we know Him, the more we desire Him.
+
+The more we worship Him, the more we recognize that He alone is worthy.
+
+Today, examine your heart honestly.
+
+What are you truly thirsting for?
+
+Whatever cannot satisfy will eventually disappoint.
+
+The Lord never will.
+
+Come to Christ.
+
+Drink deeply.
+
+Rest completely.
+
+Your soul was created for fellowship with Him.`,
+    prayer: `Heavenly Father,
+
+You alone can satisfy the deepest longings of my heart. Guard me from seeking ultimate fulfillment in temporary things, and draw me into deeper fellowship with You through Jesus Christ. Fill my soul with Your presence, Your peace, and Your joy. May my greatest desire always be to know and love You more.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What am I looking to for satisfaction that only God can truly provide?",
+    todayPractice: "Spend time today in quiet worship without asking God for anything. Simply seek His presence and thank Him that He Himself is your greatest treasure.",
+    closingThought: "The soul finds lasting rest only when it discovers that God Himself is enough.",
+  },
 ];
