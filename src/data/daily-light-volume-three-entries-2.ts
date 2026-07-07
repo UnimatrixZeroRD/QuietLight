@@ -297,4 +297,154 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Examine your conversations today. Speak honestly, gently, and faithfully, allowing every word to honor Christ.",
     closingThought: "Integrity is the quiet testimony that our lives truly belong to the God of truth.",
   },
+  {
+    id: "daily-light-day-69-shining-in-the-darkness",
+    slug: "day-69-shining-in-the-darkness",
+    title: "Shining in the Darkness",
+    summary: "Christ's light shines through faithful endurance, allowing trials to become a testimony of hope, courage, patience, and grace.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 69,
+    theme: "Bearing Witness Through Trials",
+    oldTestamentReading: "Daniel 3:13-30",
+    newTestamentReading: "1 Peter 2:19-25",
+    keyVerseReference: "Philippians 2:15",
+    keyVerseText: "That ye may be blameless and harmless, the sons of God... among whom ye shine as lights in the world.",
+    scriptureReference: "Philippians 2:15",
+    scriptureText: "That ye may be blameless and harmless, the sons of God... among whom ye shine as lights in the world.",
+    publishedOn: "2026-09-07",
+    reflection: `It is easy to shine when the sun is already bright.
+
+The true purpose of light, however, is revealed in darkness.
+
+Followers of Christ are not promised lives free from hardship. Jesus Himself warned that His disciples would face opposition, misunderstanding, and suffering. Yet He also promised that He would never leave nor forsake them.
+
+The three Hebrew men—Shadrach, Meshach, and Abednego—understood this truth. They refused to bow before the golden image, not because they expected God to rescue them, but because they believed He was worthy of their obedience regardless of the outcome.
+
+Their faithfulness became a testimony before an entire kingdom.
+
+God did not prevent them from entering the fiery furnace.
+
+He joined them within it.
+
+The Way of Quiet Light reminds us that some of our brightest moments of witness come during our darkest seasons of trial. When others observe peace instead of panic, forgiveness instead of bitterness, hope instead of despair, they begin to see the reality of Christ within us.
+
+Peter encourages believers who suffer for doing good not to lose heart. Patient endurance for the sake of righteousness reflects the example of Jesus, who entrusted Himself completely to the Father even while enduring injustice.
+
+Perhaps you are walking through a difficult season today.
+
+Do not assume your suffering has no purpose.
+
+God often uses faithful endurance to reveal His glory in ways comfort never could.
+
+Continue trusting.
+
+Continue loving.
+
+Continue obeying.
+
+The darkness around you does not diminish the light of Christ within you.
+
+It simply makes it easier for others to see.`,
+    prayer: `Heavenly Father,
+
+When I face hardship for following You, strengthen my heart to remain faithful. Help me to reflect the patience, humility, and love of Jesus Christ even in difficult circumstances. May my life become a light that points others toward Your hope and Your faithfulness. Give me courage to trust You in every season.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "How might God be using my present difficulties to become a testimony of His grace?",
+    todayPractice: "Choose one difficult situation today and intentionally respond with Christlike patience rather than frustration.",
+    closingThought: "The brightest testimony often shines from those who remain faithful in the fire.",
+  },
+  {
+    id: "daily-light-day-70-treasures-in-heaven",
+    slug: "day-70-treasures-in-heaven",
+    title: "Treasures in Heaven",
+    summary: "Kingdom citizens invest their lives in what lasts forever, storing heavenly treasure through obedience, prayer, generosity, sacrifice, and Gospel faithfulness.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 70,
+    theme: "Living for What Lasts Forever",
+    oldTestamentReading: "Psalm 49:5-20",
+    newTestamentReading: "Matthew 6:19-24",
+    keyVerseReference: "Matthew 6:19-20",
+    keyVerseText: "Lay not up for yourselves treasures upon earth... but lay up for yourselves treasures in heaven.",
+    scriptureReference: "Matthew 6:19-20",
+    scriptureText: "Lay not up for yourselves treasures upon earth... but lay up for yourselves treasures in heaven.",
+    publishedOn: "2026-09-08",
+    reflection: `Every life is invested somewhere.
+
+Some invest themselves entirely in possessions.
+
+Others pursue reputation, comfort, influence, or success.
+
+While none of these things are inherently wrong, they become dangerous when they replace the eternal priorities of God's Kingdom.
+
+Jesus gently redirects our attention.
+
+Earthly treasures are temporary.
+
+They wear out.
+
+They are lost.
+
+They are stolen.
+
+They eventually pass away.
+
+Heavenly treasures endure forever.
+
+Every act of obedience.
+
+Every quiet prayer.
+
+Every generous gift.
+
+Every soul pointed toward Christ.
+
+Every sacrifice made for the Gospel.
+
+None of these are forgotten by God.
+
+The psalmist reminds us that wealth cannot redeem the soul nor accompany us beyond the grave. Everything we possess in this life is temporary, but the investments we make in God's Kingdom continue into eternity.
+
+The Way of Quiet Light encourages believers to evaluate success differently.
+
+A faithful parent raising children in the Lord has invested in eternity.
+
+A believer serving quietly behind the scenes has invested in eternity.
+
+Someone who forgives, encourages, teaches, gives, or prays has invested in eternity.
+
+These treasures cannot be measured by earthly standards.
+
+They are recorded by God Himself.
+
+Ask yourself today:
+
+Where is my greatest investment?
+
+Where your treasure is, Jesus says, there your heart will be also.
+
+Choose wisely.
+
+Live generously.
+
+Serve faithfully.
+
+The treasures of this world will one day fade.
+
+The treasures of Heaven never will.`,
+    prayer: `Heavenly Father,
+
+Teach me to value what You value. Guard my heart from becoming consumed by temporary things, and help me invest my life in what will last forever. Give me wisdom to use every opportunity, every resource, and every gift for the advancement of Your Kingdom and the glory of Jesus Christ.
+
+In His holy name, Amen.`,
+    reflectionQuestion: "What am I investing the greatest portion of my time, energy, and attention toward?",
+    todayPractice: "Perform one act today that has eternal value—encourage someone in their faith, share God's love, pray with another person, or quietly serve someone in Christ's name.",
+    closingThought: "The richest life is not measured by what it gathers on earth, but by what it stores in Heaven.",
+  },
 ];
