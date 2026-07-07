@@ -437,4 +437,150 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Make one intentional choice today that reflects the character of Christ, even if no one else notices.",
     closingThought: "The light of Christ is seen most clearly through ordinary lives faithfully surrendered to Him.",
   },
+  {
+    id: "daily-light-day-87-the-joy-of-obedience",
+    slug: "day-87-the-joy-of-obedience",
+    title: "The Joy of Obedience",
+    summary: "Obedience grows from love for Christ, turning God's commands from burdens into life-giving expressions of trust, gratitude, and delight.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 87,
+    theme: "Walking Gladly in God's Will",
+    oldTestamentReading: "Psalm 40:6-10",
+    newTestamentReading: "John 14:15-24",
+    keyVerseReference: "John 14:15",
+    keyVerseText: "If ye love me, keep my commandments.",
+    scriptureReference: "John 14:15",
+    scriptureText: "If ye love me, keep my commandments.",
+    publishedOn: "2026-09-25",
+    reflection: `Obedience is often misunderstood.
+
+Many people see God's commandments as restrictions designed to limit freedom. Scripture reveals something entirely different. God's commands are expressions of His wisdom, His love, and His desire for our flourishing.
+
+Jesus did not say, "If you fear Me, keep My commandments."
+
+He said,
+
+"If ye love me."
+
+Obedience grows from love.
+
+When our hearts are captivated by Christ, following Him becomes more than duty—it becomes our delight.
+
+David expressed this same joy centuries earlier when he declared, "I delight to do thy will, O my God." He understood that God's ways were not burdensome but life-giving. The Lord's commands led him toward righteousness, peace, and deeper fellowship with God.
+
+The Way of Quiet Light reminds us that joyful obedience is often revealed in ordinary decisions.
+
+Choosing honesty when dishonesty would be easier.
+
+Choosing patience instead of anger.
+
+Choosing forgiveness instead of resentment.
+
+Choosing generosity instead of selfishness.
+
+Choosing prayer instead of worry.
+
+These choices may appear small, but they shape a life that increasingly reflects the character of Christ.
+
+Every act of obedience is an opportunity to declare,
+
+"Lord, I trust Your wisdom more than my own."
+
+Far from diminishing our freedom, obedience frees us from the slavery of sin and draws us into the abundant life Christ has promised.
+
+Today, do not ask merely what God requires.
+
+Ask what response of love He deserves.
+
+When love leads, obedience follows naturally.`,
+    prayer: `Heavenly Father,
+
+Thank You for giving me Your Word as a guide for life. Help me to obey You not from fear or obligation, but from genuine love for Jesus Christ. Teach me to delight in Your will and to trust that every command You give is for my good and for Your glory. Let my obedience become an expression of my gratitude for Your grace.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is my obedience to God motivated more by duty or by love?",
+    todayPractice: "Choose one command of Scripture you have been neglecting, and intentionally obey it today as an act of love toward Christ.",
+    closingThought: "The deepest obedience grows from the deepest love for Christ.",
+  },
+  {
+    id: "daily-light-day-88-finishing-the-work",
+    slug: "day-88-finishing-the-work",
+    title: "Finishing the Work",
+    summary: "Every believer is entrusted with meaningful work, and faithfulness means completing God's calling with focus, perseverance, humility, and worship.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 88,
+    theme: "Faithfully Completing Our Calling",
+    oldTestamentReading: "Nehemiah 6:1-16",
+    newTestamentReading: "John 17:1-5",
+    keyVerseReference: "John 17:4",
+    keyVerseText: "I have glorified thee on the earth: I have finished the work which thou gavest me to do.",
+    scriptureReference: "John 17:4",
+    scriptureText: "I have glorified thee on the earth: I have finished the work which thou gavest me to do.",
+    publishedOn: "2026-09-26",
+    reflection: `Every believer has been entrusted with a unique calling.
+
+No two journeys are exactly alike.
+
+Yet every calling shares the same purpose:
+
+To glorify God by faithfully accomplishing the work He has given us.
+
+Nehemiah understood this.
+
+Despite opposition, false accusations, and repeated distractions, he refused to abandon the work of rebuilding Jerusalem's walls. When his enemies attempted to lure him away, he answered simply,
+
+"I am doing a great work, so that I cannot come down."
+
+His focus remained upon the mission God had entrusted to him.
+
+Jesus Himself demonstrated perfect faithfulness.
+
+As He prayed to the Father before His crucifixion, He declared that He had glorified God by faithfully completing the work entrusted to Him. Every miracle, every teaching, every act of compassion, and ultimately the cross itself fulfilled the Father's purpose.
+
+The Way of Quiet Light reminds us that God has entrusted each believer with work that matters.
+
+Some are called to preach.
+
+Others to teach.
+
+Some to encourage.
+
+Others to serve quietly behind the scenes.
+
+Some influence thousands.
+
+Others faithfully love a single family.
+
+The size of the assignment is never the measure of its importance.
+
+Faithfulness is.
+
+Do not compare your calling with someone else's.
+
+Do not become distracted by recognition or discouraged by hidden service.
+
+Simply ask each day,
+
+"Lord, what work have You given me today?"
+
+Then do it with all your heart.
+
+One day, when our earthly journey is complete, may we also be able to say with humble gratitude,
+
+"I have finished the work You gave me to do."`,
+    prayer: `Heavenly Father,
+
+Thank You for entrusting me with opportunities to serve Your Kingdom. Help me remain focused upon the work You have called me to do. Protect me from distraction, comparison, and discouragement. Give me perseverance to serve faithfully until every assignment You have prepared for me is complete. May my life bring glory to Jesus Christ.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What work has God entrusted to me that deserves greater faithfulness and attention?",
+    todayPractice: "Identify one responsibility God has placed before you and complete it today with excellence, offering it to Him as an act of worship.",
+    closingThought: "Success in God's Kingdom is not measured by prominence, but by faithful completion of the work He entrusts to us.",
+  },
 ];
