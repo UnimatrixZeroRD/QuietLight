@@ -157,4 +157,160 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Set aside at least thirty uninterrupted minutes today for silence, Scripture, and prayer. Resist the urge to hurry. Simply remain in God's presence.",
     closingThought: "God often speaks most clearly to hearts that have learned the sacred discipline of stillness.",
   },
+  {
+    id: "daily-light-day-97-a-song-of-praise",
+    slug: "day-97-a-song-of-praise",
+    title: "A Song of Praise",
+    summary: "Praise overflows from a heart that remembers God's goodness, faithfulness, mercy, deliverance, steadfast love, and unchanging worth.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Four",
+    volumeTitle: "The Heart of Worship",
+    day: 97,
+    theme: "Worship That Overflows with Joy",
+    oldTestamentReading: "Psalm 150",
+    newTestamentReading: "Ephesians 5:15-20",
+    keyVerseReference: "Psalm 150:6",
+    keyVerseText: "Let every thing that hath breath praise the LORD. Praise ye the LORD.",
+    scriptureReference: "Psalm 150:6",
+    scriptureText: "Let every thing that hath breath praise the LORD. Praise ye the LORD.",
+    publishedOn: "2026-10-05",
+    reflection: `Praise is the natural response of a heart that has encountered the goodness of God.
+
+Throughout Scripture, God's people lifted their voices in celebration because they remembered His mighty works. They praised Him for His creation, His faithfulness, His mercy, His deliverance, and above all His steadfast love.
+
+Psalm 150 concludes the Book of Psalms with an invitation that includes all creation.
+
+Praise Him in His sanctuary.
+
+Praise Him in the heavens.
+
+Praise Him for His mighty acts.
+
+Praise Him for His excellent greatness.
+
+Finally, the psalmist declares,
+
+"Let every thing that hath breath praise the LORD."
+
+No believer is excluded from this invitation.
+
+Paul encourages the Church to be filled with the Holy Spirit, expressing that fullness through psalms, hymns, and spiritual songs while making melody in our hearts to the Lord.
+
+Notice that worship is not limited to the voice.
+
+It begins within the heart.
+
+Even when circumstances are difficult, praise reminds us that God's character has not changed.
+
+The Way of Quiet Light reminds us that praise is more than music.
+
+It is the joyful recognition of God's worth.
+
+A whispered "thank You."
+
+A hymn sung while working.
+
+A prayer offered in gratitude.
+
+A heart filled with wonder.
+
+These become songs of worship that delight our Heavenly Father.
+
+There will be days when singing comes easily.
+
+There will be days when praise becomes an act of faith.
+
+Offer it anyway.
+
+The God who was worthy yesterday remains worthy today.
+
+His faithfulness has not diminished.
+
+Let your heart become a song that never grows silent.`,
+    prayer: `Heavenly Father,
+
+You alone are worthy of all praise. Fill my heart with joy as I remember Your goodness and faithfulness. Teach me to praise You not only when life is easy, but also in seasons of difficulty. May every breath I take become an opportunity to glorify You and to rejoice in Jesus Christ, my Savior and King.
+
+In His holy name, Amen.`,
+    reflectionQuestion: "Is my praise dependent upon my circumstances, or upon the unchanging character of God?",
+    todayPractice: "Spend time today singing a hymn or worship song, or simply read Psalm 150 aloud as your personal expression of praise.",
+    closingThought: "Praise is the language of a heart that remembers the faithfulness of God.",
+  },
+  {
+    id: "daily-light-day-98-delighting-in-gods-word",
+    slug: "day-98-delighting-in-gods-word",
+    title: "Delighting in God's Word",
+    summary: "Reading Scripture is an act of worship that teaches, corrects, strengthens, and leads willing hearts to Jesus Christ.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Four",
+    volumeTitle: "The Heart of Worship",
+    day: 98,
+    theme: "Worship Through the Scriptures",
+    oldTestamentReading: "Psalm 119:97-104",
+    newTestamentReading: "2 Timothy 3:14-17",
+    keyVerseReference: "Psalm 119:105",
+    keyVerseText: "Thy word is a lamp unto my feet, and a light unto my path.",
+    scriptureReference: "Psalm 119:105",
+    scriptureText: "Thy word is a lamp unto my feet, and a light unto my path.",
+    publishedOn: "2026-10-06",
+    reflection: `God has not left His people to walk through life without guidance.
+
+He has graciously given His Word.
+
+The Scriptures reveal His character, His promises, His wisdom, and His plan of redemption through Jesus Christ. They correct us when we wander, encourage us when we are weary, and strengthen us when our faith grows weak.
+
+The psalmist declared,
+
+"O how love I thy law!"
+
+Notice that he did not merely respect God's Word.
+
+He delighted in it.
+
+Its truth became sweeter than honey and more valuable than earthly treasure because through it he came to know the heart of God.
+
+Paul reminds Timothy that all Scripture is inspired by God and profitable for teaching, correction, instruction, and training in righteousness. The Bible does not simply increase knowledge.
+
+It transforms lives.
+
+The Way of Quiet Light teaches that reading Scripture is itself an act of worship.
+
+When we open God's Word with humble hearts, we acknowledge that His wisdom is greater than our own.
+
+We sit as students before our Heavenly Teacher.
+
+We listen before we speak.
+
+We receive before we respond.
+
+Many people search endlessly for direction while neglecting the very Book through which God has chosen to speak.
+
+Do not allow the Bible to become merely another book upon your shelf.
+
+Let it become your daily companion.
+
+Read it prayerfully.
+
+Study it carefully.
+
+Meditate upon it quietly.
+
+Obey it faithfully.
+
+As God's Word fills your mind, it will gradually shape your heart.
+
+And as your heart is transformed, your worship will deepen.
+
+The God who inspired these words still speaks through them today.`,
+    prayer: `Heavenly Father,
+
+Thank You for the gift of Your holy Word. Give me a deeper hunger to know the Scriptures and to understand Your truth. Help me not only to read Your Word but also to obey it with joy. May Your Word continually shape my thoughts, strengthen my faith, and draw me into closer fellowship with Jesus Christ.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Do I approach the Bible merely to gain information, or to know God more deeply?",
+    todayPractice: "Slowly read one chapter of Scripture today. Before you begin, ask God to reveal something about His character and something He desires to change within your own heart.",
+    closingThought: "The written Word faithfully leads every willing heart to the Living Word, Jesus Christ.",
+  },
 ];
