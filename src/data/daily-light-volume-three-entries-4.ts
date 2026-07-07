@@ -139,4 +139,154 @@ In His holy name, Amen.`,
     todayPractice: "Choose one ordinary responsibility today and complete it with exceptional care, offering it to God as an act of worship.",
     closingThought: "Every faithful task becomes sacred when it is offered wholeheartedly to the Lord.",
   },
+  {
+    id: "daily-light-day-77-blessed-to-be-a-blessing",
+    slug: "day-77-blessed-to-be-a-blessing",
+    title: "Blessed to Be a Blessing",
+    summary: "God blesses His people so they may live generously with open hands, allowing His gifts to flow outward for the good of others.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 77,
+    theme: "Living Generously for God's Kingdom",
+    oldTestamentReading: "Genesis 12:1-3",
+    newTestamentReading: "Acts 20:32-35",
+    keyVerseReference: "Acts 20:35",
+    keyVerseText: "It is more blessed to give than to receive.",
+    scriptureReference: "Acts 20:35",
+    scriptureText: "It is more blessed to give than to receive.",
+    publishedOn: "2026-09-15",
+    reflection: `From the beginning, God's blessings have always carried a purpose.
+
+When the Lord called Abraham, He did not simply promise to bless him. He declared that Abraham would become a blessing to the nations. God's gifts were never meant to stop with one person. They were meant to flow outward, bringing hope, provision, and grace to others.
+
+The same principle remains true today.
+
+Every blessing we receive becomes an opportunity to bless someone else.
+
+Sometimes that blessing is financial.
+
+Sometimes it is encouragement.
+
+Sometimes it is wisdom gained through experience.
+
+Sometimes it is simply offering our time to someone who needs a listening ear.
+
+The Kingdom of God grows whenever His people live with open hands.
+
+Jesus reminded His disciples that "it is more blessed to give than to receive." These words challenge the values of a world that often measures success by accumulation. God's Kingdom measures abundance differently.
+
+True wealth is found in generosity.
+
+The Way of Quiet Light reminds us that generosity does not depend upon the size of our resources.
+
+It depends upon the posture of our hearts.
+
+A kind word costs little.
+
+A faithful prayer costs only time.
+
+A meal shared with a lonely neighbor.
+
+A quiet gift given without recognition.
+
+A burden willingly carried alongside another believer.
+
+These offerings become treasures in Heaven because they are expressions of Christ's love.
+
+Ask yourself today:
+
+How has God blessed me?
+
+Then ask:
+
+How can those blessings become a blessing to someone else?
+
+The answer may reveal the very ministry God has placed before you today.`,
+    prayer: `Heavenly Father,
+
+Thank You for every blessing You have entrusted to me. Guard me from selfishness and help me to live with open hands. Teach me to recognize opportunities to encourage, serve, and provide for others as You have provided for me. May my life become a channel through which Your generosity flows into the world.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What blessing from God can I intentionally share with someone else today?",
+    todayPractice: "Give generously today—whether through your time, your encouragement, your resources, or your service—without expecting anything in return.",
+    closingThought: "God blesses His people not only for their joy, but so they may become a blessing to others.",
+  },
+  {
+    id: "daily-light-day-78-standing-firm-in-hope",
+    slug: "day-78-standing-firm-in-hope",
+    title: "Standing Firm in Hope",
+    summary: "Because of the resurrection, every act of service offered to Christ carries eternal significance and is never wasted in God's Kingdom.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 78,
+    theme: "Serving with Eternal Confidence",
+    oldTestamentReading: "Isaiah 40:28-31",
+    newTestamentReading: "1 Corinthians 15:50-58",
+    keyVerseReference: "1 Corinthians 15:58",
+    keyVerseText: "Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord.",
+    scriptureReference: "1 Corinthians 15:58",
+    scriptureText: "Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord.",
+    publishedOn: "2026-09-16",
+    reflection: `There are days when serving Christ feels difficult.
+
+The work may seem unnoticed.
+
+The progress may appear slow.
+
+The burdens may grow heavy.
+
+In such moments, we may quietly wonder whether our labor truly matters.
+
+Paul answers with confidence.
+
+After proclaiming the certainty of Christ's resurrection and the future victory over death, he declares that our labor in the Lord is never in vain. Every act of obedience, every quiet prayer, every sacrifice made for Christ carries eternal significance because it is rooted in the living hope of the resurrection.
+
+Isaiah reminds us that those who wait upon the Lord renew their strength. God's people are not sustained by their own endurance but by His unfailing power.
+
+The Way of Quiet Light encourages believers to remain faithful even when immediate results cannot be seen.
+
+A farmer does not harvest the day after planting.
+
+A tree does not mature in a single season.
+
+Likewise, the work of God's Kingdom often unfolds quietly over many years.
+
+Some seeds you plant today may bear fruit long after you are gone.
+
+That is not failure.
+
+It is faithfulness.
+
+The Lord is responsible for the harvest.
+
+We are responsible for faithful obedience.
+
+Today, do not measure your service by visible success.
+
+Measure it by faithfulness to Christ.
+
+Stand firm.
+
+Continue serving.
+
+Continue loving.
+
+Continue praying.
+
+Continue shining.
+
+The King sees every act performed in His name, and His reward is certain.`,
+    prayer: `Heavenly Father,
+
+Strengthen me to remain steadfast in serving You. When I become discouraged, remind me that my labor is never wasted in Your Kingdom. Fill me with fresh hope through the resurrection of Jesus Christ, and help me continue serving with joy, patience, and unwavering faithfulness until the work You have given me is complete.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Have I become discouraged because I cannot yet see the results of my faithful service?",
+    todayPractice: "Continue faithfully in one act of service you have considered giving up, trusting God with the outcome.",
+    closingThought: "Kingdom work is never wasted, because every faithful act is remembered by the King.",
+  },
 ];
