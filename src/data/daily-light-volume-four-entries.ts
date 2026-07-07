@@ -159,4 +159,170 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Set aside at least twenty minutes today to be alone with God in prayer and Scripture, free from phones, media, or other interruptions.",
     closingThought: "The greatest treasure we discover is not merely God's gifts, but God's presence.",
   },
+  {
+    id: "daily-light-day-93-a-heart-of-thanksgiving",
+    slug: "day-93-a-heart-of-thanksgiving",
+    title: "A Heart of Thanksgiving",
+    summary: "Gratitude becomes worship when the heart remembers God's faithfulness, recognizes His blessings, and responds with continual praise.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Four",
+    volumeTitle: "The Heart of Worship",
+    day: 93,
+    theme: "Worship Through Gratitude",
+    oldTestamentReading: "Psalm 100",
+    newTestamentReading: "Colossians 3:12-17",
+    keyVerseReference: "1 Thessalonians 5:18",
+    keyVerseText: "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
+    scriptureReference: "1 Thessalonians 5:18",
+    scriptureText: "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
+    publishedOn: "2026-10-01",
+    reflection: `Gratitude is one of the purest expressions of worship.
+
+A thankful heart recognizes that every good gift ultimately comes from the hand of God. It sees His provision in both extraordinary moments and ordinary blessings. It acknowledges His faithfulness even when circumstances remain difficult.
+
+The psalmist calls all the earth to "enter into his gates with thanksgiving, and into his courts with praise." Notice that thanksgiving is not merely the conclusion of worship—it is often the doorway through which worship begins.
+
+When we remember God's goodness, our hearts naturally respond with praise.
+
+Paul encourages believers to let the peace of Christ rule in their hearts and then simply adds,
+
+"And be ye thankful."
+
+Gratitude changes the atmosphere of the soul.
+
+It softens bitterness.
+
+It weakens anxiety.
+
+It quiets envy.
+
+It strengthens contentment.
+
+The Way of Quiet Light reminds us that thanksgiving does not ignore hardship.
+
+Rather, it chooses to recognize God's faithfulness even within it.
+
+The thankful believer notices the sunrise.
+
+The daily bread.
+
+The encouraging word.
+
+The forgiveness found in Christ.
+
+The quiet answer to prayer.
+
+The strength to face another day.
+
+These simple mercies become reasons for continual praise.
+
+There will always be circumstances we wish were different.
+
+Yet there will always be reasons to thank God.
+
+The cross remains.
+
+The empty tomb remains.
+
+His promises remain.
+
+His presence remains.
+
+Today, allow gratitude to become your first response instead of your last.
+
+The worshiping heart is rarely found complaining.
+
+It is most often found giving thanks.`,
+    prayer: `Heavenly Father,
+
+Thank You for Your countless blessings, both seen and unseen. Forgive me for the times I have focused more upon what I lack than upon all You have graciously provided. Fill my heart with continual gratitude, and let thanksgiving become a daily expression of my worship. May my life overflow with praise because of Your unfailing goodness.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Have I spent more time noticing my burdens or God's blessings?",
+    todayPractice: "Write down ten specific things for which you are thankful today, and thank God for each one by name.",
+    closingThought: "Gratitude opens the heart to worship because it remembers the faithfulness of God.",
+  },
+  {
+    id: "daily-light-day-94-standing-in-awe",
+    slug: "day-94-standing-in-awe",
+    title: "Standing in Awe",
+    summary: "True worship approaches God with both the confidence of beloved children and the reverent awe due to a holy King.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Four",
+    volumeTitle: "The Heart of Worship",
+    day: 94,
+    theme: "Reverence Before a Holy God",
+    oldTestamentReading: "Isaiah 6:1-8",
+    newTestamentReading: "Hebrews 12:18-29",
+    keyVerseReference: "Hebrews 12:28",
+    keyVerseText: "Let us have grace, whereby we may serve God acceptably with reverence and godly fear.",
+    scriptureReference: "Hebrews 12:28",
+    scriptureText: "Let us have grace, whereby we may serve God acceptably with reverence and godly fear.",
+    publishedOn: "2026-10-02",
+    reflection: `Love draws us near to God.
+
+Reverence reminds us who He is.
+
+The God who invites us to call Him Father is also the Creator of Heaven and earth, the Holy One whose glory fills the universe. Genuine worship holds these two truths together. We approach Him with confidence because of Christ, yet never casually or carelessly.
+
+Isaiah experienced this reality in the temple.
+
+When he saw the Lord high and lifted up, surrounded by heavenly worship, his first response was not self-confidence but humility.
+
+"Woe is me!"
+
+In the light of God's holiness, Isaiah recognized his own need for cleansing. Only after his sins were forgiven did he joyfully answer God's call,
+
+"Here am I; send me."
+
+The writer of Hebrews reminds believers that we have received a Kingdom which cannot be shaken. Therefore, we are to worship with reverence and holy awe, remembering that God's majesty has not diminished.
+
+The Way of Quiet Light teaches that reverence is not fear of rejection.
+
+It is wonder born from recognizing the greatness of God.
+
+It is bowing the heart before His holiness.
+
+It is listening carefully to His Word.
+
+It is honoring His name.
+
+It is approaching Him with humility and joyful respect.
+
+Modern life often encourages us to rush.
+
+Reverence teaches us to pause.
+
+To become still.
+
+To remember whose presence we have entered.
+
+The closer we draw to God, the greater our wonder becomes.
+
+His holiness does not drive away those who belong to Christ.
+
+It draws them into deeper worship.
+
+Today, take time to simply marvel at the greatness of your God.
+
+He is infinite in power.
+
+Perfect in wisdom.
+
+Unchanging in faithfulness.
+
+Overflowing in mercy.
+
+Worthy of endless praise.`,
+    prayer: `Heavenly Father,
+
+You are holy, righteous, and worthy of all honor. Teach me never to take Your presence for granted. Fill my heart with reverence, humility, and joyful awe as I come before You. Thank You that through Jesus Christ I may approach You with confidence while never forgetting Your infinite majesty. May my worship always honor Your holy name.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Do I approach God with both the confidence of a beloved child and the reverence due to a holy King?",
+    todayPractice: "Spend several quiet minutes simply reading Isaiah 6 slowly. Pause to reflect upon God's holiness before offering your own prayers.",
+    closingThought: "The deeper we understand God's holiness, the deeper our worship becomes.",
+  },
 ];
