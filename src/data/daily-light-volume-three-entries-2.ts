@@ -153,4 +153,148 @@ In His holy name, Amen.`,
     todayPractice: "Choose one ordinary task today and perform it with exceptional care, remembering that you are serving Christ in the process.",
     closingThought: "Faithfulness in ordinary moments prepares us for extraordinary opportunities in God's Kingdom.",
   },
+  {
+    id: "daily-light-day-67-faithful-stewards",
+    slug: "day-67-faithful-stewards",
+    title: "Faithful Stewards",
+    summary: "Faithful stewards recognize that every blessing belongs first to God and use what He has entrusted for His glory and the good of others.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 67,
+    theme: "Caring for What God Has Entrusted",
+    oldTestamentReading: "Genesis 2:15-17",
+    newTestamentReading: "1 Peter 4:7-11",
+    keyVerseReference: "1 Peter 4:10",
+    keyVerseText: "As every man hath received the gift, even so minister the same one to another, as good stewards of the manifold grace of God.",
+    scriptureReference: "1 Peter 4:10",
+    scriptureText: "As every man hath received the gift, even so minister the same one to another, as good stewards of the manifold grace of God.",
+    publishedOn: "2026-09-05",
+    reflection: `Nothing we possess truly belongs to us.
+
+From the very beginning, God placed Adam in the garden "to dress it and to keep it." Humanity was not created to exploit creation carelessly but to steward it faithfully. This principle extends far beyond the Garden of Eden.
+
+Our time.
+
+Our abilities.
+
+Our relationships.
+
+Our finances.
+
+Our opportunities.
+
+Even the Gospel itself.
+
+All have been entrusted to us by God.
+
+A steward is not an owner.
+
+A steward is a faithful caretaker.
+
+This understanding changes the way we view every part of life. Instead of asking, "What do I want to do with what I have?" we begin asking, "Lord, how would You have me use what You have entrusted to me?"
+
+Peter reminds believers that every spiritual gift has been given for the benefit of others. Whether we teach, serve, encourage, lead, show hospitality, or quietly pray for those around us, every gift becomes an opportunity to glorify God.
+
+The Way of Quiet Light reminds us that faithful stewardship is often unseen.
+
+The parent who patiently raises children in the knowledge of the Lord.
+
+The believer who quietly supports someone in need.
+
+The volunteer who faithfully serves without applause.
+
+The person who wisely manages resources so they can be generous when opportunities arise.
+
+These quiet acts of stewardship strengthen God's Kingdom in ways that may never be fully known in this life.
+
+Faithfulness is measured not by how much we have been given, but by how wisely we use what we have received.
+
+One day we will give an account, not as owners, but as stewards.
+
+May we hear our Master say,
+
+"Well done, good and faithful servant."`,
+    prayer: `Heavenly Father,
+
+Everything I have comes from You. Teach me to become a faithful steward of my time, my gifts, my resources, and every opportunity You place before me. Help me to use them wisely for Your glory and for the blessing of others. May my life reflect gratitude for every gift You have entrusted to my care.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What gift or responsibility has God entrusted to me that I could steward more faithfully?",
+    todayPractice: "Choose one resource God has given you—your time, talents, finances, or encouragement—and intentionally use it today to bless someone else.",
+    closingThought: "Stewardship begins when we recognize that every blessing is first God's before it is ours.",
+  },
+  {
+    id: "daily-light-day-68-walking-in-truth",
+    slug: "day-68-walking-in-truth",
+    title: "Walking in Truth",
+    summary: "Walking in truth means living with integrity before God and others, allowing words, actions, promises, and character to reflect Christ.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 68,
+    theme: "Living with Integrity Before God and Others",
+    oldTestamentReading: "Proverbs 12:17-22",
+    newTestamentReading: "Ephesians 4:17-32",
+    keyVerseReference: "Ephesians 4:25",
+    keyVerseText: "Wherefore putting away lying, speak every man truth with his neighbour: for we are members one of another.",
+    scriptureReference: "Ephesians 4:25",
+    scriptureText: "Wherefore putting away lying, speak every man truth with his neighbour: for we are members one of another.",
+    publishedOn: "2026-09-06",
+    reflection: `Truth is one of the foundations of God's Kingdom.
+
+God is truth.
+
+His Word is truth.
+
+Jesus declared Himself to be "the way, the truth, and the life."
+
+Because truth is rooted in God's own character, His people are called to become people of honesty and integrity.
+
+Integrity means that our private life and our public life tell the same story.
+
+It means our words match our actions.
+
+Our promises can be trusted.
+
+Our character remains consistent whether anyone is watching or not.
+
+The book of Proverbs teaches that lying lips are an abomination to the Lord, but those who deal faithfully delight Him. Honesty is not merely good advice; it is an expression of worship because it reflects the character of our Heavenly Father.
+
+Paul urges believers to put away falsehood and speak truth to one another because we belong to one body in Christ. Dishonesty damages trust, while truth spoken in love strengthens relationships and builds unity.
+
+The Way of Quiet Light encourages believers to pursue quiet integrity.
+
+Not merely avoiding obvious lies, but also refusing exaggeration, gossip, manipulation, hidden motives, and deceptive appearances.
+
+Integrity often costs something.
+
+It may cost popularity.
+
+It may cost convenience.
+
+It may even cost financial gain.
+
+Yet nothing is worth sacrificing a clear conscience before God.
+
+When we walk in truth, we experience a freedom that deception can never provide.
+
+Today, let your words be honest.
+
+Let your promises be dependable.
+
+Let your life become a reflection of the One who is Himself Truth.
+
+The Kingdom of God is strengthened whenever one believer chooses integrity over compromise.`,
+    prayer: `Heavenly Father,
+
+Thank You for revealing Yourself as the God of truth. Guard my heart from deception in every form, and help me to live with honesty and integrity. May my words always be truthful, my actions consistent, and my character pleasing in Your sight. Let my life faithfully reflect Jesus Christ, who is the Truth.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is there any area of my life where my words and my actions are not fully aligned?",
+    todayPractice: "Examine your conversations today. Speak honestly, gently, and faithfully, allowing every word to honor Christ.",
+    closingThought: "Integrity is the quiet testimony that our lives truly belong to the God of truth.",
+  },
 ];
