@@ -289,4 +289,168 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Continue faithfully in one act of service you have considered giving up, trusting God with the outcome.",
     closingThought: "Kingdom work is never wasted, because every faithful act is remembered by the King.",
   },
+  {
+    id: "daily-light-day-79-leading-like-the-king",
+    slug: "day-79-leading-like-the-king",
+    title: "Leading Like the King",
+    summary: "Kingdom leadership is measured by service, humility, compassion, patience, and sacrificial love rather than authority or recognition.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 79,
+    theme: "Servant Leadership in God's Kingdom",
+    oldTestamentReading: "1 Samuel 16:1-13",
+    newTestamentReading: "Mark 10:35-45",
+    keyVerseReference: "Mark 10:45",
+    keyVerseText: "For even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many.",
+    scriptureReference: "Mark 10:45",
+    scriptureText: "For even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many.",
+    publishedOn: "2026-09-17",
+    reflection: `The world often measures leadership by authority.
+
+God measures leadership by service.
+
+When James and John asked Jesus for places of honor in His Kingdom, they were thinking like the kingdoms of this world. Jesus responded by completely redefining greatness.
+
+"Whosoever will be great among you, shall be your minister."
+
+The King Himself became the Servant.
+
+He washed the feet of His disciples.
+
+He welcomed children.
+
+He touched lepers.
+
+He lifted the broken.
+
+He gave His own life for the salvation of the world.
+
+This is Kingdom leadership.
+
+Long before David ever sat upon Israel's throne, God saw something different from what others saw. While people looked at outward appearance, the Lord looked upon David's heart. His years faithfully tending sheep prepared him to shepherd a nation.
+
+The Way of Quiet Light reminds us that influence begins long before leadership is recognized.
+
+A parent patiently guiding children.
+
+A teacher encouraging students.
+
+A supervisor treating employees with dignity.
+
+A volunteer quietly serving without applause.
+
+Leadership is not first about position.
+
+It is about character.
+
+The greatest leaders are often those who seek neither applause nor recognition.
+
+They listen before speaking.
+
+They encourage before criticizing.
+
+They lift others rather than themselves.
+
+Ask yourself today:
+
+Who has God entrusted to my care?
+
+Whether it is one person or many, lead them as Christ has led you—with humility, compassion, patience, and sacrificial love.
+
+The greatest throne in God's Kingdom is found at the feet of those we serve.`,
+    prayer: `Heavenly Father,
+
+Thank You for the perfect example of Jesus Christ, the Servant King. Teach me to lead with humility, compassion, and wisdom wherever You have placed me. Remove pride from my heart and help me seek the good of others above my own recognition. May my influence always point people toward Christ.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "How can I become a more Christlike leader within my family, workplace, church, or community?",
+    todayPractice: "Look for one opportunity today to quietly serve someone under your care without seeking acknowledgment.",
+    closingThought: "The greatest leaders are remembered not for how many served them, but for how faithfully they served others.",
+  },
+  {
+    id: "daily-light-day-80-one-body-one-spirit",
+    slug: "day-80-one-body-one-spirit",
+    title: "One Body, One Spirit",
+    summary: "The Church reflects God's Kingdom when diverse believers walk together in humility, love, peace, truth, and unity under one Lord.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 80,
+    theme: "Living in Unity Within the Church",
+    oldTestamentReading: "Psalm 133",
+    newTestamentReading: "Ephesians 4:1-16",
+    keyVerseReference: "Ephesians 4:3",
+    keyVerseText: "Endeavouring to keep the unity of the Spirit in the bond of peace.",
+    scriptureReference: "Ephesians 4:3",
+    scriptureText: "Endeavouring to keep the unity of the Spirit in the bond of peace.",
+    publishedOn: "2026-09-18",
+    reflection: `The Church is wonderfully diverse.
+
+Different personalities.
+
+Different gifts.
+
+Different backgrounds.
+
+Different cultures.
+
+Yet God has called all believers to become one body under one Lord.
+
+Unity does not mean uniformity.
+
+The Apostle Paul compares the Church to a human body. Every member has a unique purpose, yet each depends upon the others. A hand cannot dismiss the foot, nor can the eye declare that it has no need of the ear. Each part contributes to the health of the whole.
+
+Psalm 133 celebrates this beautiful truth, declaring that it is both good and pleasant when God's people dwell together in unity. Such unity becomes a powerful testimony to the watching world.
+
+The Way of Quiet Light reminds us that unity is preserved through humility.
+
+When we insist upon having our own way, division grows.
+
+When we listen with patience, forgive freely, and extend grace generously, unity flourishes.
+
+This does not require abandoning truth.
+
+Biblical unity is built upon Christ and His Word.
+
+Within that foundation, believers learn to love one another despite differing personalities, preferences, and backgrounds.
+
+Every congregation.
+
+Every family.
+
+Every Christian community.
+
+Will eventually experience disagreement.
+
+The question is not whether conflict will arise.
+
+The question is whether Christ's love will guide our response.
+
+Today, become a builder of unity.
+
+Speak words that encourage.
+
+Refuse to spread division.
+
+Celebrate the gifts God has given to others.
+
+Pray for your church.
+
+Support your leaders.
+
+Love your brothers and sisters in Christ.
+
+A united Church shines brightly in a divided world.`,
+    prayer: `Heavenly Father,
+
+Thank You for making me part of the Body of Christ. Help me to become a source of unity, encouragement, and peace within Your Church. Guard my heart from pride, division, and selfishness. Teach me to value the gifts of others and to work together for the glory of Jesus Christ and the advancement of Your Kingdom.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Am I contributing to the unity of Christ's Church through my attitudes, words, and actions?",
+    todayPractice: "Encourage someone who faithfully serves in your church or Christian community. Thank them for their ministry and pray for them.",
+    closingThought: "When God's people walk together in humility and love, the world catches a glimpse of His Kingdom.",
+  },
 ];
