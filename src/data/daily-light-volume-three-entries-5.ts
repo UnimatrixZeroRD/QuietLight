@@ -289,4 +289,152 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Let one ordinary decision today be guided by eternal priorities rather than temporary concerns.",
     closingThought: "Kingdom hope does not distract us from today's work—it gives eternal purpose to everything we do.",
   },
+  {
+    id: "daily-light-day-85-faithful-until-the-end",
+    slug: "day-85-faithful-until-the-end",
+    title: "Faithful Until the End",
+    summary: "Believers endure with perseverance by laying aside every weight, fixing their eyes upon Jesus, and continuing faithfully in every season.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 85,
+    theme: "Enduring with Perseverance",
+    oldTestamentReading: "Habakkuk 3:17-19",
+    newTestamentReading: "Hebrews 12:1-3",
+    keyVerseReference: "Hebrews 12:1-2",
+    keyVerseText: "Let us run with patience the race that is set before us, looking unto Jesus the author and finisher of our faith.",
+    scriptureReference: "Hebrews 12:1-2",
+    scriptureText: "Let us run with patience the race that is set before us, looking unto Jesus the author and finisher of our faith.",
+    publishedOn: "2026-09-23",
+    reflection: `Every believer is running a race.
+
+Some seasons are filled with joy and visible victories.
+
+Others are marked by weariness, disappointment, and difficult climbs. Yet the goal of the Christian life is not merely to begin the race with enthusiasm. It is to finish it faithfully.
+
+The writer of Hebrews reminds us to lay aside every weight that slows our progress. Some burdens are sinful habits that entangle us. Others may be distractions that consume our attention without drawing us closer to Christ. Wisdom is learning the difference.
+
+Above all, we are called to keep our eyes fixed upon Jesus.
+
+He is both the Author of our faith and its Perfecter.
+
+He endured rejection, suffering, injustice, and the cross itself because He looked beyond present pain to the joy set before Him.
+
+Habakkuk demonstrated the same confidence.
+
+Even if the fields produced no food and the vineyards yielded no grapes, he declared that he would still rejoice in the Lord. His circumstances did not determine his faithfulness.
+
+His God did.
+
+The Way of Quiet Light reminds us that endurance is often quiet.
+
+It is choosing to pray when prayer feels difficult.
+
+To worship when the heart feels heavy.
+
+To forgive when wounds remain tender.
+
+To obey when the path is uncertain.
+
+These daily choices strengthen our faith more than dramatic moments ever could.
+
+Do not grow weary.
+
+The Lord who called you continues to walk beside you.
+
+Every step taken in faith draws you closer to the finish line He has prepared.
+
+Run faithfully.
+
+Run patiently.
+
+Run with your eyes upon Christ.`,
+    prayer: `Heavenly Father,
+
+Strengthen me to endure every trial with steadfast faith. Help me lay aside anything that keeps me from following You wholeheartedly. Fix my eyes upon Jesus, and give me perseverance to remain faithful until the race You have set before me is complete. Let my life glorify You in every season.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "What weight or distraction do I need to lay aside so I can follow Christ more faithfully?",
+    todayPractice: "Identify one habit, distraction, or unnecessary burden that has been slowing your spiritual growth, and take one practical step toward removing it.",
+    closingThought: "Faithfulness is measured not by how quickly we run, but by whether we continue following Christ.",
+  },
+  {
+    id: "daily-light-day-86-children-of-the-light",
+    slug: "day-86-children-of-the-light",
+    title: "Children of the Light",
+    summary: "Children of the light reflect Christ in a dark world through honesty, purity, compassion, forgiveness, truth, hope, and faithful surrender.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Three",
+    volumeTitle: "Living the Kingdom",
+    day: 86,
+    theme: "Reflecting Christ in a Dark World",
+    oldTestamentReading: "Isaiah 60:1-3",
+    newTestamentReading: "Ephesians 5:8-17",
+    keyVerseReference: "Ephesians 5:8",
+    keyVerseText: "For ye were sometimes darkness, but now are ye light in the Lord: walk as children of light.",
+    scriptureReference: "Ephesians 5:8",
+    scriptureText: "For ye were sometimes darkness, but now are ye light in the Lord: walk as children of light.",
+    publishedOn: "2026-09-24",
+    reflection: `The world does not simply need more opinions.
+
+It needs more light.
+
+Before coming to Christ, we all walked in spiritual darkness. Sin clouded our understanding, distorted our priorities, and separated us from the God who is Himself Light. Yet through Jesus Christ, we have been brought into a new life.
+
+Paul reminds believers that we are no longer merely people who possess light.
+
+We are children of light.
+
+This new identity calls us to live differently.
+
+Isaiah looked forward to the day when God's light would rise upon His people and draw the nations to His glory. That prophecy finds its fulfillment in Jesus Christ, the Light of the world, whose light now shines through His Church.
+
+The Way of Quiet Light reminds us that light is most noticeable where darkness is greatest.
+
+We shine when we choose honesty over deception.
+
+Purity over compromise.
+
+Compassion over indifference.
+
+Forgiveness over revenge.
+
+Truth over falsehood.
+
+Hope over despair.
+
+These choices may seem ordinary.
+
+Yet together they reveal the character of Christ to a watching world.
+
+Notice that Paul does not tell believers to create light.
+
+He tells them to walk in the light they have already received.
+
+The closer we remain to Christ, the more naturally His light is reflected through our lives.
+
+Today, remember whose light you carry.
+
+Wherever you go, you represent the King.
+
+Walk carefully.
+
+Love generously.
+
+Speak graciously.
+
+Serve faithfully.
+
+And let the light of Christ quietly shine through every part of your life.`,
+    prayer: `Heavenly Father,
+
+Thank You for bringing me out of darkness into Your marvelous light through Jesus Christ. Help me to walk as a child of light in every area of my life. Let my thoughts, words, and actions reflect Your holiness, love, and truth. May others see Christ in me and be drawn to the hope that is found in Him alone.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "In what area of my life can the light of Christ shine more clearly?",
+    todayPractice: "Make one intentional choice today that reflects the character of Christ, even if no one else notices.",
+    closingThought: "The light of Christ is seen most clearly through ordinary lives faithfully surrendered to Him.",
+  },
 ];
