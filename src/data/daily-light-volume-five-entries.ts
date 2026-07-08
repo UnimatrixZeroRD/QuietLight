@@ -165,4 +165,174 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Instead of asking God to remove a particular weakness immediately, ask Him to reveal how His grace can sustain you within it.",
     closingThought: "God's strength often shines brightest through hearts that know they need Him most.",
   },
+  {
+    id: "daily-light-day-123-when-heaven-seems-silent",
+    slug: "day-123-when-heaven-seems-silent",
+    title: "When Heaven Seems Silent",
+    summary: "Seasons of silence test faith deeply, yet God's quietness is never absence and often hides His unseen work within waiting hearts.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Five",
+    volumeTitle: "Faith Through the Storm",
+    day: 123,
+    theme: "Trusting God in Seasons of Waiting",
+    oldTestamentReading: "Psalm 13:1-6",
+    newTestamentReading: "John 11:1-44",
+    keyVerseReference: "Psalm 13:1",
+    keyVerseText: "How long wilt thou forget me, O LORD? for ever?",
+    scriptureReference: "Psalm 13:1",
+    scriptureText: "How long wilt thou forget me, O LORD? for ever?",
+    publishedOn: "2026-10-31",
+    reflection: `Few experiences test faith more deeply than silence.
+
+The prayers continue.
+
+The tears continue.
+
+The waiting continues.
+
+Yet Heaven appears quiet.
+
+David knew this feeling.
+
+Again and again he cried out,
+
+"How long, O Lord?"
+
+Scripture does not hide these questions.
+
+Instead, it gives voice to them.
+
+Faith is not pretending that waiting is easy.
+
+Faith is continuing to trust while waiting remains difficult.
+
+Mary and Martha knew this pain as well.
+
+They sent word that Lazarus was sick.
+
+Jesus loved them deeply.
+
+Yet He delayed His arrival.
+
+From their perspective, Heaven was silent.
+
+By the time Jesus arrived, Lazarus had died.
+
+But what appeared to be delay was not absence.
+
+What felt like silence was not indifference.
+
+Christ had not abandoned them.
+
+He was preparing something greater than they could yet understand.
+
+The Way of Quiet Light reminds us that God's silence is not God's absence.
+
+The roots of great trees grow deepest during seasons when little appears to happen above the surface.
+
+Likewise, God often performs His deepest work within us during seasons when we see the least evidence of His activity.
+
+If Heaven seems quiet today, continue trusting.
+
+Continue praying.
+
+Continue walking.
+
+The God who seems silent is often working in ways we cannot yet see.
+
+His timing is not always our timing.
+
+But His faithfulness never changes.`,
+    prayer: `Heavenly Father,
+
+When Your answers seem delayed and Heaven feels silent, help me continue trusting in Your goodness. Strengthen my faith during seasons of waiting and remind me that Your silence never means abandonment. Give me patience to trust Your timing and confidence that You are always working for my good and Your glory.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is there an unanswered prayer that has caused me to question God's presence or faithfulness?",
+    todayPractice: "Bring that prayer before God once again today, not demanding answers but expressing trust in His wisdom and timing.",
+    closingThought: "God's silence is never empty. Often it is the quiet sound of unseen work being done.",
+  },
+  {
+    id: "daily-light-day-124-peace-in-the-unknown",
+    slug: "day-124-peace-in-the-unknown",
+    title: "Peace in the Unknown",
+    summary: "Peace comes not from knowing tomorrow but from trusting the One who holds the future and gives grace for the next faithful step.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Five",
+    volumeTitle: "Faith Through the Storm",
+    day: 124,
+    theme: "Trusting God with Tomorrow",
+    oldTestamentReading: "Isaiah 26:1-4",
+    newTestamentReading: "Philippians 4:4-9",
+    keyVerseReference: "Isaiah 26:3",
+    keyVerseText: "Thou wilt keep him in perfect peace, whose mind is stayed on thee.",
+    scriptureReference: "Isaiah 26:3",
+    scriptureText: "Thou wilt keep him in perfect peace, whose mind is stayed on thee.",
+    publishedOn: "2026-11-01",
+    reflection: `Much of our anxiety comes from trying to live in tomorrow before tomorrow arrives.
+
+We imagine possibilities.
+
+We fear outcomes.
+
+We rehearse conversations that may never happen.
+
+We carry burdens that do not yet exist.
+
+Yet God gives grace for today.
+
+Not for next month.
+
+Not for next year.
+
+For today.
+
+Paul wrote from prison when he instructed believers not to be anxious about anything. Instead, he urged them to bring everything to God through prayer and thanksgiving.
+
+The result was remarkable:
+
+"The peace of God, which passeth all understanding."
+
+Notice that God does not always promise immediate explanations.
+
+He promises peace.
+
+Isaiah describes a perfect peace given to those whose minds remain fixed upon the Lord.
+
+Peace is not found in knowing the future.
+
+It is found in knowing the One who holds the future.
+
+The Way of Quiet Light reminds us that faith walks one day at a time.
+
+The lantern does not illuminate the entire road.
+
+It reveals the next few steps.
+
+That is often how God leads His people.
+
+Enough light for obedience.
+
+Enough grace for today.
+
+Enough strength for the next step.
+
+Tomorrow belongs to God.
+
+Today belongs to you.
+
+Walk faithfully in the light you have been given.
+
+The God who carried you through yesterday will be waiting in tomorrow long before you arrive there.`,
+    prayer: `Heavenly Father,
+
+Forgive me for the times I allow fear of the future to steal the peace You offer today. Help me trust You with what I cannot control and to rest in the knowledge that You hold every tomorrow in Your hands. Guard my heart and mind with Your peace through Jesus Christ.
+
+In His holy name, Amen.`,
+    reflectionQuestion: "What future concern am I allowing to rob me of peace in the present?",
+    todayPractice: "Each time anxiety about tomorrow arises today, pause and pray, \"Lord, tomorrow belongs to You.\"",
+    closingThought: "Peace does not come from knowing the future. It comes from knowing the One who already stands there.",
+  },
 ];
