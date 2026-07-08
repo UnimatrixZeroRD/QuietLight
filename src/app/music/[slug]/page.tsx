@@ -10,6 +10,7 @@ type AlbumPageProps = {
 const flameRemainsYouTubeMusicPlaylistId = "OLAK5uy_m9ocKx4s-vQs_r19ZUbelxR_J_kh3f14A";
 const everlastingLightYouTubeMusicPlaylistId = "OLAK5uy_nHLhPAwknd6na_2Gc3L_sYq63qm13Q8iw";
 const gloriaPatriYouTubeMusicPlaylistId = "OLAK5uy_kjZAJqwR3Fy7JzXYNUXDNyObYQkxWnJDc";
+const littleLightsPartOneYouTubeMusicPlaylistId = "OLAK5uy_kLJ4Of7DNMO491u5A4YMCk1cO7nLeAkE4";
 const littleLightsReleaseDateLabel = "July 8, 2026";
 
 const albumStreamingLinks: Record<
@@ -41,7 +42,10 @@ const albumStreamingLinks: Record<
     youtubeMusicEmbed: `https://www.youtube.com/embed/videoseries?list=${gloriaPatriYouTubeMusicPlaylistId}`,
   },
   "little-lights-part-1": {
-    releaseDateLabel: littleLightsReleaseDateLabel,
+    appleMusic: "https://music.apple.com/us/album/little-lights-pt-1/6787511213",
+    spotify: "https://open.spotify.com/album/4QTLWBAKUQMEbVKArWBfOS",
+    youtubeMusic: `https://music.youtube.com/playlist?list=${littleLightsPartOneYouTubeMusicPlaylistId}`,
+    youtubeMusicEmbed: `https://www.youtube.com/embed/videoseries?list=${littleLightsPartOneYouTubeMusicPlaylistId}`,
   },
   "little-lights-part-2": {
     releaseDateLabel: littleLightsReleaseDateLabel,
