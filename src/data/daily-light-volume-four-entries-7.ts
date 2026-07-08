@@ -157,4 +157,186 @@ In the name of Jesus Christ, Amen.`,
     todayPractice: "Spend time today reading Revelation chapter 4 slowly and imagine yourself standing before the throne of God in worship.",
     closingThought: "Every act of worship on earth is a small participation in the eternal worship of Heaven.",
   },
+  {
+    id: "daily-light-day-119-offering-the-whole-heart",
+    slug: "day-119-offering-the-whole-heart",
+    title: "Offering the Whole Heart",
+    summary: "Worship becomes a way of life when every thought, plan, responsibility, relationship, and quiet act is surrendered to God.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Four",
+    volumeTitle: "The Heart of Worship",
+    day: 119,
+    theme: "Worship as a Way of Life",
+    oldTestamentReading: "Deuteronomy 6:4-9",
+    newTestamentReading: "Romans 12:1-2",
+    keyVerseReference: "Deuteronomy 6:5",
+    keyVerseText: "Thou shalt love the Lord thy God with all thine heart, and with all thy soul, and with all thy might.",
+    scriptureReference: "Deuteronomy 6:5",
+    scriptureText: "Thou shalt love the Lord thy God with all thine heart, and with all thy soul, and with all thy might.",
+    publishedOn: "2026-10-27",
+    reflection: `As this journey through worship draws toward its conclusion, one truth stands above all others:
+
+God desires our hearts.
+
+Not merely our songs.
+
+Not merely our attendance.
+
+Not merely our rituals.
+
+He desires us.
+
+From the earliest pages of Scripture, God called His people into wholehearted devotion. He did not seek divided loyalties or occasional attention. He sought a people who loved Him with heart, soul, mind, and strength.
+
+Paul echoes this same invitation when he urges believers to present themselves as living sacrifices.
+
+Worship is not confined to a sanctuary.
+
+It follows us into kitchens and workplaces.
+
+Into conversations and decisions.
+
+Into moments of celebration and seasons of grief.
+
+Every part of life becomes holy when it is offered to God.
+
+The Way of Quiet Light has always understood this simple truth:
+
+The lantern exists only to carry the Light.
+
+Likewise, our lives exist to reflect Christ.
+
+The greatest act of worship is not what happens during a service.
+
+It is what happens when nobody is watching.
+
+Faithfulness in ordinary things.
+
+Integrity in quiet moments.
+
+Compassion toward strangers.
+
+Patience with those we love.
+
+These become songs of worship that rise before Heaven.
+
+Today, offer God more than an hour.
+
+Offer Him your day.
+
+Offer Him your plans.
+
+Offer Him your thoughts.
+
+Offer Him your life.
+
+The Lord who gave Himself completely for us deserves nothing less than our whole hearts in return.`,
+    prayer: `Heavenly Father,
+
+You are worthy of more than my occasional attention or partial devotion. Teach me to love You with all my heart, soul, mind, and strength. Let every part of my life become an offering of worship before You. May my words, my actions, and my thoughts reflect the love of Jesus Christ and bring glory to Your holy name.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "Is there any area of my life that I have kept separate from God's lordship and worship?",
+    todayPractice: "Intentionally dedicate your work, your relationships, and your responsibilities to God today as acts of worship.",
+    closingThought: "The worship God desires most is not found in a song, but in a surrendered life.",
+  },
+  {
+    id: "daily-light-day-120-forever-before-the-throne",
+    slug: "day-120-forever-before-the-throne",
+    title: "Forever Before the Throne",
+    summary: "Worship begins on earth and continues forever before the throne, where the redeemed will praise the Lamb face to face.",
+    accessLevel: "public",
+    status: "published",
+    volume: "Volume Four",
+    volumeTitle: "The Heart of Worship",
+    day: 120,
+    theme: "Worship as Our Eternal Calling",
+    oldTestamentReading: "Psalm 84:1-12",
+    newTestamentReading: "Revelation 7:9-17",
+    keyVerseReference: "Revelation 7:10",
+    keyVerseText: "Salvation to our God which sitteth upon the throne, and unto the Lamb.",
+    scriptureReference: "Revelation 7:10",
+    scriptureText: "Salvation to our God which sitteth upon the throne, and unto the Lamb.",
+    publishedOn: "2026-10-28",
+    reflection: `The story of worship does not end on earth.
+
+It begins here.
+
+John was given a vision of a great multitude from every nation, tribe, people, and language standing before the throne of God and before the Lamb.
+
+Their voices rose together in praise.
+
+Their tears had been wiped away.
+
+Their trials had ended.
+
+Their faith had become sight.
+
+At the center of Heaven stood the Lamb who was slain.
+
+The cross would never be forgotten.
+
+Grace would never lose its wonder.
+
+Redemption would never become ordinary.
+
+The worship of Heaven is not forced duty.
+
+It is joyful response.
+
+Those who have seen the King cannot help but adore Him.
+
+The Way of Quiet Light has always pointed toward this final hope.
+
+The lantern we carry today shines only because it reflects a greater Light.
+
+One day, there will be no need for lanterns.
+
+No more shadows.
+
+No more night.
+
+No more tears.
+
+The Light Himself will dwell among His people.
+
+Until that day comes, worship remains our calling.
+
+In moments of joy.
+
+In moments of sorrow.
+
+In seasons of abundance.
+
+In seasons of waiting.
+
+We continue lifting our eyes toward the throne.
+
+Every prayer whispered in faith.
+
+Every hymn sung through tears.
+
+Every quiet act of devotion.
+
+These are preparations for eternity.
+
+The day is coming when the songs of earth will join the songs of Heaven.
+
+And we will stand before our King forever.
+
+As this volume closes, carry this hope with you:
+
+Worship is not merely what believers do.
+
+It is what believers were created for.`,
+    prayer: `Heavenly Father,
+
+Thank You for the hope of eternity in Your presence through Jesus Christ. Keep my heart fixed upon the Lamb who was slain and now reigns forever. May my worship on earth prepare me for the joy of worship in Heaven. Until that day comes, let my life reflect gratitude, reverence, and love for You in all things.
+
+In the name of Jesus Christ, Amen.`,
+    reflectionQuestion: "How would my daily life change if I lived more consciously in light of eternity?",
+    todayPractice: "Spend time today reading Revelation 7:9-17 and thank God for the promise that one day faith will become sight.",
+    closingThought: "The worship that begins in faith on earth will continue forever in the presence of the King.",
+  },
 ];
