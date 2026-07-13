@@ -1,4 +1,5 @@
 import type { DailyLightEntry } from "./daily-light-entries";
+import { dailyLightVolumeSevenEntriesBatchTwo } from "./daily-light-volume-seven-entries-2";
 
 export const dailyLightVolumeSevenEntries: DailyLightEntry[] = [
   {
@@ -197,4 +198,5 @@ In His holy name, Amen.`,
     todayPractice: "Reach out to one person who may feel forgotten. Offer practical assistance, companionship, encouragement, or a listening ear while protecting their dignity.",
     closingThought: "The King often waits to receive our service through the lives of those the world has overlooked.",
   },
+  ...dailyLightVolumeSevenEntriesBatchTwo,
 ];
