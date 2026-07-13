@@ -128,7 +128,7 @@ on conflict (slug) do update set
   key_verse_reference = excluded.key_verse_reference,
   key_verse_text = excluded.key_verse_text,
   scripture_reference = excluded.scripture_reference,
-  scripture_text = excluded.script_text,
+  scripture_text = excluded.scripture_text,
   reflection = excluded.reflection,
   prayer = excluded.prayer,
   reflection_question = excluded.reflection_question,
