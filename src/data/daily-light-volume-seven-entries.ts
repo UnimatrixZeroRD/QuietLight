@@ -2,6 +2,7 @@ import type { DailyLightEntry } from "./daily-light-entries";
 import { dailyLightVolumeSevenEntriesBatchTwo } from "./daily-light-volume-seven-entries-2";
 import { dailyLightVolumeSevenEntriesBatchFive } from "./daily-light-volume-seven-entries-5";
 import { dailyLightVolumeSevenEntriesBatchSix } from "./daily-light-volume-seven-entries-6";
+import { dailyLightVolumeSevenEntriesBatchSeven } from "./daily-light-volume-seven-entries-7";
 
 export const dailyLightVolumeSevenEntries: DailyLightEntry[] = [
   {
@@ -203,4 +204,5 @@ In His holy name, Amen.`,
   ...dailyLightVolumeSevenEntriesBatchTwo,
   ...dailyLightVolumeSevenEntriesBatchFive,
   ...dailyLightVolumeSevenEntriesBatchSix,
+  ...dailyLightVolumeSevenEntriesBatchSeven,
 ];
