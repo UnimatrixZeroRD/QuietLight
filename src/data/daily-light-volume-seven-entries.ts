@@ -1,5 +1,6 @@
 import type { DailyLightEntry } from "./daily-light-entries";
 import { dailyLightVolumeSevenEntriesBatchTwo } from "./daily-light-volume-seven-entries-2";
+import { dailyLightVolumeSevenEntriesBatchFive } from "./daily-light-volume-seven-entries-5";
 
 export const dailyLightVolumeSevenEntries: DailyLightEntry[] = [
   {
@@ -199,4 +200,5 @@ In His holy name, Amen.`,
     closingThought: "The King often waits to receive our service through the lives of those the world has overlooked.",
   },
   ...dailyLightVolumeSevenEntriesBatchTwo,
+  ...dailyLightVolumeSevenEntriesBatchFive,
 ];
