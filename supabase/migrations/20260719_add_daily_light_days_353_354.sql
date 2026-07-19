@@ -45,7 +45,7 @@ Not because every dream came true.
 
 But because he remained faithful to the calling Christ had given him.
 
-The Way of Quiet Light reminds us that the lantern is carried not merely when the road is new, but until the traveller's end.
+The Way of Quiet Light reminds us that the lantern is carried not merely when the road is new, but until the traveller reaches the journey's end.
 
 Anyone can carry a light for a short distance.
 
