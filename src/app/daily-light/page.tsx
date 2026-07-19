@@ -33,6 +33,7 @@ const dailyLightVolumes = [
     days: "Days 1-30",
     theme: "Foundations of faith",
     description: "Creation, the character of God, faith, repentance, grace, and the call to follow Christ.",
+    href: "/daily-light/archive#volume-one",
   },
   {
     title: "Growing in Grace",
@@ -40,6 +41,7 @@ const dailyLightVolumes = [
     days: "Days 31-60",
     theme: "Spiritual maturity",
     description: "Prayer, humility, obedience, wisdom, and trusting God in daily life.",
+    href: "/daily-light/archive#volume-two",
   },
   {
     title: "Living the Kingdom",
@@ -47,6 +49,7 @@ const dailyLightVolumes = [
     days: "Days 61-90",
     theme: "Kingdom life",
     description: "Living under Christ’s reign through justice, mercy, prayer, obedience, and the values of God’s kingdom.",
+    href: "/daily-light/archive#volume-three",
   },
   {
     title: "The Heart of Worship",
@@ -54,6 +57,7 @@ const dailyLightVolumes = [
     days: "Days 91-120",
     theme: "Worship and devotion",
     description: "Worship, gratitude, reverence, surrender, prayer, and a heart centred upon God.",
+    href: "/daily-light/archive#volume-four",
   },
   {
     title: "Faith Through the Storm",
@@ -61,6 +65,7 @@ const dailyLightVolumes = [
     days: "Days 121-150",
     theme: "Faith through hardship",
     description: "Trials, fear, grief, endurance, courage, and trusting God through difficult seasons.",
+    href: "/daily-light/archive#volume-five",
   },
   {
     title: "The Character of Christ",
@@ -68,6 +73,7 @@ const dailyLightVolumes = [
     days: "Days 151-180",
     theme: "Becoming like Christ",
     description: "Humility, compassion, holiness, patience, truth, forgiveness, and the character of Jesus.",
+    href: "/daily-light/archive#volume-six",
   },
   {
     title: "Serving the King",
@@ -75,6 +81,7 @@ const dailyLightVolumes = [
     days: "Days 181-210",
     theme: "Faithful kingdom service",
     description: "Service, stewardship, hospitality, perseverance, compassion, and faithful work for God’s kingdom.",
+    href: "/daily-light/archive#volume-seven",
   },
   {
     title: "Hope in Every Season",
@@ -82,6 +89,7 @@ const dailyLightVolumes = [
     days: "Days 211-240",
     theme: "Hope and perseverance",
     description: "Hope, peace, courage, refuge, waiting, and trusting God through every changing season.",
+    href: "/daily-light/archive#volume-eight",
   },
   {
     title: "Walking in Wisdom",
@@ -89,6 +97,7 @@ const dailyLightVolumes = [
     days: "Days 241-270",
     theme: "Wisdom for daily life",
     description: "Discernment, speech, attention, counsel, timing, correction, and faithfully applying truth in everyday decisions.",
+    href: "/daily-light/archive#volume-nine",
   },
   {
     title: "The Life of Faith",
@@ -96,6 +105,7 @@ const dailyLightVolumes = [
     days: "Days 271-300",
     theme: "Living by faith",
     description: "Trust, obedience, courage, endurance, spiritual growth, and walking faithfully when the whole road cannot yet be seen.",
+    href: "/daily-light/archive#volume-ten",
   },
   {
     title: "The Heart of Prayer",
@@ -103,6 +113,7 @@ const dailyLightVolumes = [
     days: "Days 301-330",
     theme: "A life shaped by prayer",
     description: "Listening, gratitude, lament, intercession, weakness, anxiety, wisdom, Scripture, and carrying others before God.",
+    href: "/daily-light/archive#volume-eleven",
   },
   {
     title: "The Way of Wisdom",
@@ -110,12 +121,13 @@ const dailyLightVolumes = [
     days: "Days 331-365",
     theme: "Finishing the journey faithfully",
     description: "Mature discipleship, enduring wisdom, hope, faithfulness, and carrying the Quiet Light forward beyond the final day.",
+    href: "/daily-light/archive#volume-twelve",
   },
 ];
 
 function formatDate(value?: string) {
   if (!value) return "Daily Light";
-  return new Intl.DateTimeFormat("en-CA", { dateStyle: "medium" }).format(new Date(value));
+  return new Intl.DateTimeFormat("en-CA", { dateStyle: "medium", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
 }
 
 export default async function DailyLightPage() {
@@ -139,6 +151,11 @@ export default async function DailyLightPage() {
       <p className="mx-auto mt-8 max-w-4xl text-center text-lg leading-8 text-[var(--muted-silver)]">
         Daily Light offers a daily scripture passage, a quiet reflection, and a simple thought for prayer. It is meant to help readers return each day to stillness, humility, mercy, and faithful attention to the light entrusted to them.
       </p>
+      <div className="mt-7 flex justify-center">
+        <Link className="rounded-full border border-[var(--lantern-gold)] px-6 py-3 text-sm uppercase tracking-[0.18em] text-[var(--soft-gold)] transition hover:bg-[var(--lantern-gold)] hover:text-[var(--midnight)]" href="/daily-light/archive">
+          Browse the Complete Archive
+        </Link>
+      </div>
 
       {featuredEntry ? (
         <article className="lantern-panel mt-10 rounded-3xl p-8 md:p-12">
@@ -196,8 +213,8 @@ export default async function DailyLightPage() {
             <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
               <p className="gold-text text-xs uppercase tracking-[0.25em]">Reflection</p>
               {featuredEntry.reflectionQuestion ? <p className="mt-4 text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Question:</span> {featuredEntry.reflectionQuestion}</p> : null}
-              {featuredEntry.todayPractice ? <p className="mt-4 text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Today&apos;s Practice:</span> {featuredEntry.todayPractice}</p> : null}
-              {featuredEntry.closingThought ? <p className="mt-6 text-xl italic leading-9 text-[var(--soft-gold)]">“{featuredEntry.closingThought}”</p> : null}
+              {featuredEntry.todayPractice ? <p className="mt-4 whitespace-pre-line text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Today&apos;s Practice:</span> {featuredEntry.todayPractice}</p> : null}
+              {featuredEntry.closingThought ? <p className="mt-6 whitespace-pre-line text-xl italic leading-9 text-[var(--soft-gold)]">“{featuredEntry.closingThought}”</p> : null}
             </section>
           ) : null}
         </article>
@@ -206,18 +223,23 @@ export default async function DailyLightPage() {
           <p className="gold-text text-xs uppercase tracking-[0.25em]">Begins July 1, 2026</p>
           <h1 className="gold-text mx-auto mt-4 max-w-4xl text-5xl md:text-7xl">The Daily Light is being prepared.</h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[var(--muted-silver)]">
-            The first Daily Light reflection will appear on July 1, 2026. Each day after that, the next entry will become the current Daily Light, while the previous six days remain available in the archive below.
+            The first Daily Light reflection will appear on July 1, 2026. Each day after that, the next entry will become the current Daily Light.
           </p>
         </section>
       )}
 
       <section className="mt-12">
-        <p className="gold-text uppercase tracking-[0.3em]">Archive</p>
-        <p className="mt-3 max-w-3xl leading-8 text-[var(--muted-silver)]">The six most recent Daily Light entries before today&apos;s reflection.</p>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="gold-text uppercase tracking-[0.3em]">Recent Entries</p>
+            <p className="mt-3 max-w-3xl leading-8 text-[var(--muted-silver)]">The six most recent Daily Light reflections before today&apos;s entry.</p>
+          </div>
+          <Link className="gold-text text-sm uppercase tracking-[0.18em]" href="/daily-light/archive">View all published entries →</Link>
+        </div>
         <div className="mt-6 grid gap-6 md:grid-cols-3" aria-label="Previous six Daily Light reflections">
           {previousEntries.map((entry) => (
             <Link className="lantern-panel block rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)]" href={`/daily-light/${entry.slug}`} key={entry.slug}>
-              <p className="gold-text text-xs uppercase tracking-[0.25em]">{formatDate(entry.publishedOn)}</p>
+              <p className="gold-text text-xs uppercase tracking-[0.25em]">Day {entry.day} · {formatDate(entry.publishedOn)}</p>
               <h2 className="mt-4 text-2xl">{entry.title}</h2>
               <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{entry.summary}</p>
             </Link>
@@ -233,15 +255,13 @@ export default async function DailyLightPage() {
         </p>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {dailyLightVolumes.map((volume) => (
-            <div className="lantern-panel rounded-3xl p-6" key={volume.title}>
+            <Link className="lantern-panel block rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)] hover:-translate-y-0.5" href={volume.href} key={volume.title}>
               <p className="gold-text text-xs uppercase tracking-[0.25em]">{volume.volume} · {volume.days}</p>
               <h3 className="mt-4 text-2xl">{volume.title}</h3>
               <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--soft-gold)]">Theme: {volume.theme}</p>
               <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{volume.description}</p>
-              <p className="mt-6 inline-block rounded-full border border-[rgba(216,168,79,0.4)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--soft-gold)]">
-                Coming Soon
-              </p>
-            </div>
+              <p className="gold-text mt-6 text-xs uppercase tracking-[0.18em]">Browse published entries →</p>
+            </Link>
           ))}
         </div>
       </section>
