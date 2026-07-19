@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPublicDailyLightEntryBySlug } from "../../../lib/supabase/daily-light";
+import { getPublicDailyLightEntries, getPublicDailyLightEntryBySlug } from "../../../lib/supabase/daily-light";
 
 type DailyLightEntryPageProps = {
   params: Promise<{ slug: string }>;
@@ -9,7 +9,7 @@ type DailyLightEntryPageProps = {
 
 function formatDate(value?: string) {
   if (!value) return "Daily Light";
-  return new Intl.DateTimeFormat("en-CA", { dateStyle: "long" }).format(new Date(value));
+  return new Intl.DateTimeFormat("en-CA", { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
 }
 
 export async function generateMetadata({ params }: DailyLightEntryPageProps): Promise<Metadata> {
@@ -44,17 +44,30 @@ export async function generateMetadata({ params }: DailyLightEntryPageProps): Pr
 
 export default async function DailyLightEntryPage({ params }: DailyLightEntryPageProps) {
   const { slug } = await params;
-  const entry = await getPublicDailyLightEntryBySlug(slug);
+  const [entry, entries] = await Promise.all([
+    getPublicDailyLightEntryBySlug(slug),
+    getPublicDailyLightEntries(),
+  ]);
 
   if (!entry) {
     notFound();
   }
 
+  const chronologicalEntries = [...entries].sort((first, second) => (first.day ?? 0) - (second.day ?? 0));
+  const currentIndex = chronologicalEntries.findIndex((item) => item.slug === entry.slug);
+  const previousEntry = currentIndex > 0 ? chronologicalEntries[currentIndex - 1] : null;
+  const nextEntry = currentIndex >= 0 && currentIndex < chronologicalEntries.length - 1 ? chronologicalEntries[currentIndex + 1] : null;
+
   return (
     <main className="mx-auto max-w-4xl px-6 py-24">
-      <Link className="gold-text text-sm uppercase tracking-[0.18em]" href="/daily-light">
-        Back to Daily Light
-      </Link>
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <Link className="gold-text text-sm uppercase tracking-[0.18em]" href="/daily-light">
+          Back to Daily Light
+        </Link>
+        <Link className="gold-text text-sm uppercase tracking-[0.18em]" href="/daily-light/archive">
+          Complete Archive
+        </Link>
+      </div>
 
       <article className="lantern-panel mt-10 rounded-3xl p-8 md:p-10">
         <p className="gold-text uppercase tracking-[0.3em]">{formatDate(entry.publishedOn)}</p>
@@ -110,11 +123,31 @@ export default async function DailyLightEntryPage({ params }: DailyLightEntryPag
           <section className="mt-10 rounded-2xl border border-[rgba(216,168,79,0.25)] p-6">
             <p className="gold-text text-xs uppercase tracking-[0.25em]">Reflection</p>
             {entry.reflectionQuestion ? <p className="mt-4 text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Question:</span> {entry.reflectionQuestion}</p> : null}
-            {entry.todayPractice ? <p className="mt-4 text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Today&apos;s Practice:</span> {entry.todayPractice}</p> : null}
-            {entry.closingThought ? <p className="mt-6 text-xl italic leading-9 text-[var(--soft-gold)]">“{entry.closingThought}”</p> : null}
+            {entry.todayPractice ? <p className="mt-4 whitespace-pre-line text-lg leading-8 text-[var(--muted-silver)]"><span className="text-[var(--soft-gold)]">Today&apos;s Practice:</span> {entry.todayPractice}</p> : null}
+            {entry.closingThought ? <p className="mt-6 whitespace-pre-line text-xl italic leading-9 text-[var(--soft-gold)]">“{entry.closingThought}”</p> : null}
           </section>
         ) : null}
       </article>
+
+      <nav className="mt-10 grid gap-5 md:grid-cols-2" aria-label="Daily Light reading navigation">
+        {previousEntry ? (
+          <Link className="lantern-panel rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.6)]" href={`/daily-light/${previousEntry.slug}`}>
+            <p className="gold-text text-xs uppercase tracking-[0.22em]">← Previous · Day {previousEntry.day}</p>
+            <p className="mt-3 text-2xl">{previousEntry.title}</p>
+          </Link>
+        ) : <div />}
+        {nextEntry ? (
+          <Link className="lantern-panel rounded-3xl p-6 text-right transition hover:border-[rgba(216,168,79,0.6)]" href={`/daily-light/${nextEntry.slug}`}>
+            <p className="gold-text text-xs uppercase tracking-[0.22em]">Next · Day {nextEntry.day} →</p>
+            <p className="mt-3 text-2xl">{nextEntry.title}</p>
+          </Link>
+        ) : (
+          <Link className="lantern-panel rounded-3xl p-6 text-right transition hover:border-[rgba(216,168,79,0.6)]" href="/daily-light/archive">
+            <p className="gold-text text-xs uppercase tracking-[0.22em]">End of published entries</p>
+            <p className="mt-3 text-2xl">Return to the archive</p>
+          </Link>
+        )}
+      </nav>
     </main>
   );
 }
