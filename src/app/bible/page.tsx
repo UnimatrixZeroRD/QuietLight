@@ -25,91 +25,78 @@ const scriptureLinks = [
   },
 ];
 
-const bibleDownloads: Record<string, string> = {
-  Genesis: "/downloads/bible/geneva-1599/enggnv_GEN.pdf",
-  Exodus: "/downloads/bible/geneva-1599/enggnv_EXO.pdf",
-  Leviticus: "/downloads/bible/geneva-1599/enggnv_LEV.pdf",
-  Numbers: "/downloads/bible/geneva-1599/enggnv_NUM.pdf",
-  Deuteronomy: "/downloads/bible/geneva-1599/enggnv_DEU.pdf",
-  Joshua: "/downloads/bible/geneva-1599/enggnv_JOS.pdf",
-  Judges: "/downloads/bible/geneva-1599/enggnv_JDG.pdf",
-  Ruth: "/downloads/bible/geneva-1599/enggnv_RUT.pdf",
-  "1 Samuel": "/downloads/bible/geneva-1599/enggnv_1SA.pdf",
-  "2 Samuel": "/downloads/bible/geneva-1599/enggnv_2SA.pdf",
-  "1 Kings": "/downloads/bible/geneva-1599/enggnv_1KI.pdf",
-  "2 Kings": "/downloads/bible/geneva-1599/enggnv_2KI.pdf",
-  "1 Chronicles": "/downloads/bible/geneva-1599/enggnv_1CH.pdf",
-  "2 Chronicles": "/downloads/bible/geneva-1599/enggnv_2CH.pdf",
-  Ezra: "/downloads/bible/geneva-1599/enggnv_EZR.pdf",
-  Nehemiah: "/downloads/bible/geneva-1599/enggnv_NEH.pdf",
-  Esther: "/downloads/bible/geneva-1599/enggnv_EST.pdf",
-  Job: "/downloads/bible/geneva-1599/enggnv_JOB.pdf",
-  Psalms: "/downloads/bible/geneva-1599/enggnv_PSA.pdf",
-  Proverbs: "/downloads/bible/geneva-1599/enggnv_PRO.pdf",
-  Ecclesiastes: "/downloads/bible/geneva-1599/enggnv_ECC.pdf",
-  "Song of Solomon": "/downloads/bible/geneva-1599/enggnv_SNG.pdf",
-  Isaiah: "/downloads/bible/geneva-1599/enggnv_ISA.pdf",
-  Jeremiah: "/downloads/bible/geneva-1599/enggnv_JER.pdf",
-  Lamentations: "/downloads/bible/geneva-1599/enggnv_LAM.pdf",
-  Ezekiel: "/downloads/bible/geneva-1599/enggnv_EZK.pdf",
-  Daniel: "/downloads/bible/geneva-1599/enggnv_DAN.pdf",
-  Hosea: "/downloads/bible/geneva-1599/enggnv_HOS.pdf",
-  Joel: "/downloads/bible/geneva-1599/enggnv_JOL.pdf",
-  Amos: "/downloads/bible/geneva-1599/enggnv_AMO.pdf",
-  Obadiah: "/downloads/bible/geneva-1599/enggnv_OBA.pdf",
-  Jonah: "/downloads/bible/geneva-1599/enggnv_JON.pdf",
-  Micah: "/downloads/bible/geneva-1599/enggnv_MIC.pdf",
-  Nahum: "/downloads/bible/geneva-1599/enggnv_NAM.pdf",
-  Habakkuk: "/downloads/bible/geneva-1599/enggnv_HAB.pdf",
-  Zephaniah: "/downloads/bible/geneva-1599/enggnv_ZEP.pdf",
-  Haggai: "/downloads/bible/geneva-1599/enggnv_HAG.pdf",
-  Zechariah: "/downloads/bible/geneva-1599/enggnv_ZEC.pdf",
-  Malachi: "/downloads/bible/geneva-1599/enggnv_MAL.pdf",
-  Matthew: "/downloads/bible/geneva-1599/enggnv_MAT.pdf",
-  Mark: "/downloads/bible/geneva-1599/enggnv_MRK.pdf",
-  Luke: "/downloads/bible/geneva-1599/enggnv_LUK.pdf",
-  John: "/downloads/bible/geneva-1599/enggnv_JHN.pdf",
-  Acts: "/downloads/bible/geneva-1599/enggnv_ACT.pdf",
-  Romans: "/downloads/bible/geneva-1599/enggnv_ROM.pdf",
-  "1 Corinthians": "/downloads/bible/geneva-1599/enggnv_1CO.pdf",
-  "2 Corinthians": "/downloads/bible/geneva-1599/enggnv_2CO.pdf",
-  Galatians: "/downloads/bible/geneva-1599/enggnv_GAL.pdf",
-  Ephesians: "/downloads/bible/geneva-1599/enggnv_EPH.pdf",
-  Philippians: "/downloads/bible/geneva-1599/enggnv_PHP.pdf",
-  Colossians: "/downloads/bible/geneva-1599/enggnv_COL.pdf",
-  "1 Thessalonians": "/downloads/bible/geneva-1599/enggnv_1TH.pdf",
-  "2 Thessalonians": "/downloads/bible/geneva-1599/enggnv_2TH.pdf",
-  "1 Timothy": "/downloads/bible/geneva-1599/enggnv_1TI.pdf",
-  "2 Timothy": "/downloads/bible/geneva-1599/enggnv_2TI.pdf",
-  Titus: "/downloads/bible/geneva-1599/enggnv_TIT.pdf",
-  Philemon: "/downloads/bible/geneva-1599/enggnv_PHM.pdf",
-  Hebrews: "/downloads/bible/geneva-1599/enggnv_HEB.pdf",
-  James: "/downloads/bible/geneva-1599/enggnv_JAS.pdf",
-  "1 Peter": "/downloads/bible/geneva-1599/enggnv_1PE.pdf",
-  "2 Peter": "/downloads/bible/geneva-1599/enggnv_2PE.pdf",
-  "1 John": "/downloads/bible/geneva-1599/enggnv_1JN.pdf",
-  "2 John": "/downloads/bible/geneva-1599/enggnv_2JN.pdf",
-  "3 John": "/downloads/bible/geneva-1599/enggnv_3JN.pdf",
-  Jude: "/downloads/bible/geneva-1599/enggnv_JUD.pdf",
-  Revelation: "/downloads/bible/geneva-1599/enggnv_REV.pdf",
-};
+type BibleBook = [name: string, code: string];
 
-const directiveCategories = [
-  {
-    title: "Doctrinal Positions",
-    description:
-      "Formal Quiet Light positions on questions of faith, scripture, morality, worship, humility, service, and the keeping of the inner flame.",
-  },
-  {
-    title: "Pastoral Directives",
-    description:
-      "Practical guidance for members and readers when a topic calls for a clear response rooted in scripture, conscience, and quiet wisdom.",
-  },
-  {
-    title: "Public Statements",
-    description:
-      "Official reflections on public matters, cultural questions, and spiritual concerns where Quiet Light needs to speak plainly and carefully.",
-  },
+const oldTestamentBooks: BibleBook[] = [
+  ["Genesis", "GEN"],
+  ["Exodus", "EXO"],
+  ["Leviticus", "LEV"],
+  ["Numbers", "NUM"],
+  ["Deuteronomy", "DEU"],
+  ["Joshua", "JOS"],
+  ["Judges", "JDG"],
+  ["Ruth", "RUT"],
+  ["1 Samuel", "1SA"],
+  ["2 Samuel", "2SA"],
+  ["1 Kings", "1KI"],
+  ["2 Kings", "2KI"],
+  ["1 Chronicles", "1CH"],
+  ["2 Chronicles", "2CH"],
+  ["Ezra", "EZR"],
+  ["Nehemiah", "NEH"],
+  ["Esther", "EST"],
+  ["Job", "JOB"],
+  ["Psalms", "PSA"],
+  ["Proverbs", "PRO"],
+  ["Ecclesiastes", "ECC"],
+  ["Song of Solomon", "SNG"],
+  ["Isaiah", "ISA"],
+  ["Jeremiah", "JER"],
+  ["Lamentations", "LAM"],
+  ["Ezekiel", "EZK"],
+  ["Daniel", "DAN"],
+  ["Hosea", "HOS"],
+  ["Joel", "JOL"],
+  ["Amos", "AMO"],
+  ["Obadiah", "OBA"],
+  ["Jonah", "JON"],
+  ["Micah", "MIC"],
+  ["Nahum", "NAM"],
+  ["Habakkuk", "HAB"],
+  ["Zephaniah", "ZEP"],
+  ["Haggai", "HAG"],
+  ["Zechariah", "ZEC"],
+  ["Malachi", "MAL"],
+];
+
+const newTestamentBooks: BibleBook[] = [
+  ["Matthew", "MAT"],
+  ["Mark", "MRK"],
+  ["Luke", "LUK"],
+  ["John", "JHN"],
+  ["Acts", "ACT"],
+  ["Romans", "ROM"],
+  ["1 Corinthians", "1CO"],
+  ["2 Corinthians", "2CO"],
+  ["Galatians", "GAL"],
+  ["Ephesians", "EPH"],
+  ["Philippians", "PHP"],
+  ["Colossians", "COL"],
+  ["1 Thessalonians", "1TH"],
+  ["2 Thessalonians", "2TH"],
+  ["1 Timothy", "1TI"],
+  ["2 Timothy", "2TI"],
+  ["Titus", "TIT"],
+  ["Philemon", "PHM"],
+  ["Hebrews", "HEB"],
+  ["James", "JAS"],
+  ["1 Peter", "1PE"],
+  ["2 Peter", "2PE"],
+  ["1 John", "1JN"],
+  ["2 John", "2JN"],
+  ["3 John", "3JN"],
+  ["Jude", "JUD"],
+  ["Revelation", "REV"],
 ];
 
 const genevaBibleProjectFeatures = [
@@ -135,112 +122,34 @@ const genevaBibleProjectFeatures = [
   },
 ];
 
-const oldTestamentBooks = [
-  "Genesis",
-  "Exodus",
-  "Leviticus",
-  "Numbers",
-  "Deuteronomy",
-  "Joshua",
-  "Judges",
-  "Ruth",
-  "1 Samuel",
-  "2 Samuel",
-  "1 Kings",
-  "2 Kings",
-  "1 Chronicles",
-  "2 Chronicles",
-  "Ezra",
-  "Nehemiah",
-  "Esther",
-  "Job",
-  "Psalms",
-  "Proverbs",
-  "Ecclesiastes",
-  "Song of Solomon",
-  "Isaiah",
-  "Jeremiah",
-  "Lamentations",
-  "Ezekiel",
-  "Daniel",
-  "Hosea",
-  "Joel",
-  "Amos",
-  "Obadiah",
-  "Jonah",
-  "Micah",
-  "Nahum",
-  "Habakkuk",
-  "Zephaniah",
-  "Haggai",
-  "Zechariah",
-  "Malachi",
-];
+function getBookDownload(code: string) {
+  return `/downloads/bible/geneva-1599/enggnv_${code}.pdf`;
+}
 
-const newTestamentBooks = [
-  "Matthew",
-  "Mark",
-  "Luke",
-  "John",
-  "Acts",
-  "Romans",
-  "1 Corinthians",
-  "2 Corinthians",
-  "Galatians",
-  "Ephesians",
-  "Philippians",
-  "Colossians",
-  "1 Thessalonians",
-  "2 Thessalonians",
-  "1 Timothy",
-  "2 Timothy",
-  "Titus",
-  "Philemon",
-  "Hebrews",
-  "James",
-  "1 Peter",
-  "2 Peter",
-  "1 John",
-  "2 John",
-  "3 John",
-  "Jude",
-  "Revelation",
-];
-
-function BookList({ books }: { books: string[] }) {
+function BookList({ books }: { books: BibleBook[] }) {
   return (
     <ol className="mt-6 grid gap-3 sm:grid-cols-2">
-      {books.map((book, index) => {
-        const downloadHref = bibleDownloads[book];
-
-        return (
-          <li
-            className="flex items-center gap-3 rounded-2xl border border-[rgba(216,168,79,0.18)] bg-[rgba(10,20,36,0.45)] px-4 py-3 text-[var(--muted-silver)]"
-            key={book}
+      {books.map(([book, code], index) => (
+        <li
+          className="flex items-center gap-3 rounded-2xl border border-[rgba(216,168,79,0.18)] bg-[rgba(10,20,36,0.45)] px-4 py-3 text-[var(--muted-silver)]"
+          key={book}
+        >
+          <span className="gold-text min-w-8 text-sm tracking-[0.16em]">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <a
+            className="gold-text underline-offset-4 transition hover:underline"
+            href={getBookDownload(code)}
+            rel="noreferrer"
+            target="_blank"
           >
-            <span className="gold-text min-w-8 text-sm tracking-[0.16em]">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            {downloadHref ? (
-              <a
-                className="gold-text underline-offset-4 transition hover:underline"
-                href={downloadHref}
-                rel="noreferrer"
-                target="_blank"
-              >
-                {book}
-              </a>
-            ) : (
-              <span>{book}</span>
-            )}
-            {downloadHref ? (
-              <span className="ml-auto rounded-full border border-[rgba(216,168,79,0.28)] px-2 py-1 text-xs uppercase tracking-[0.16em] text-[var(--muted-silver)]">
-                PDF
-              </span>
-            ) : null}
-          </li>
-        );
-      })}
+            {book}
+          </a>
+          <span className="ml-auto rounded-full border border-[rgba(216,168,79,0.28)] px-2 py-1 text-xs uppercase tracking-[0.16em] text-[var(--muted-silver)]">
+            PDF
+          </span>
+        </li>
+      ))}
     </ol>
   );
 }
@@ -402,54 +311,6 @@ export default function BiblePage() {
                 <BookList books={newTestamentBooks} />
               </div>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-14" id="official-positions" aria-labelledby="official-positions-title">
-        <div className="lantern-panel rounded-3xl p-6 md:p-12">
-          <p className="gold-text uppercase tracking-[0.3em]">Official Positions</p>
-          <h2 className="gold-text mt-4 text-4xl md:text-6xl" id="official-positions-title">
-            Quiet Light Positions &amp; Directives
-          </h2>
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--muted-silver)]">
-            This section will gather formal Quiet Light positions on different subjects: official statements,
-            scripture-based opinions, pastoral guidance, and directives issued when a topic requires a clear and
-            thoughtful response.
-          </p>
-          <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--muted-silver)]">
-            In older church language, documents like these might be called encyclicals, decrees, pastoral letters,
-            or official declarations. Quiet Light will use its own voice here: calm, scriptural, direct, and rooted
-            in conscience rather than noise.
-          </p>
-
-          <SectionGraphic
-            src="/images/bible/official-positions.webp"
-            alt="Artwork for Quiet Light official positions and directives."
-            width={1400}
-            height={900}
-          />
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {directiveCategories.map((category) => (
-              <article
-                className="rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(5,13,28,0.55)] p-6"
-                key={category.title}
-              >
-                <p className="gold-text uppercase tracking-[0.22em]">Directive Type</p>
-                <h3 className="mt-3 text-2xl text-white">{category.title}</h3>
-                <p className="mt-4 leading-7 text-[var(--muted-silver)]">{category.description}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-10 rounded-3xl border border-[rgba(216,168,79,0.22)] bg-[rgba(216,168,79,0.08)] p-6 md:p-8">
-            <p className="gold-text uppercase tracking-[0.22em]">Coming Archive</p>
-            <h3 className="mt-3 text-3xl text-white">A place for future official documents</h3>
-            <p className="mt-4 max-w-3xl leading-8 text-[var(--muted-silver)]">
-              Future entries can be organized by title, subject, date, scripture foundation, summary, and full text,
-              giving Quiet Light a structured home for formal teachings and public positions.
-            </p>
           </div>
         </div>
       </section>
