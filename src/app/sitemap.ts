@@ -11,6 +11,7 @@ const staticRoutes = [
   "",
   "/about",
   "/the-way",
+  "/positions",
   "/keepers-lantern",
   "/music",
   "/video",
