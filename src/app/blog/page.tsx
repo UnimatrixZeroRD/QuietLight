@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { BlogArchive, type BlogArchivePost } from "../../components/blog-archive";
 import { getPublicPosts } from "../../lib/supabase/public-content";
 
 export const metadata: Metadata = {
@@ -13,34 +13,33 @@ export const metadata: Metadata = {
   },
 };
 
-function formatDate(value?: string | null) {
-  if (!value) return "Quiet Light";
-  return new Intl.DateTimeFormat("en-CA", { dateStyle: "medium" }).format(new Date(value));
-}
-
 export default async function BlogPage() {
   const posts = await getPublicPosts();
+  const normalizedPosts: BlogArchivePost[] = posts.map((post) => ({
+    title: post.title,
+    category: post.category,
+    summary: post.summary,
+    href: post.href,
+    featuredImageUrl: "featuredImageUrl" in post ? post.featuredImageUrl : undefined,
+    publishedAt: "publishedAt" in post ? post.publishedAt : null,
+  }));
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-24">
-      <p className="gold-text uppercase tracking-[0.3em]">Blog</p>
-      <h1 className="gold-text mt-4 text-5xl md:text-7xl">Reflections and Updates</h1>
-      <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">
-        This section hosts reflections, announcements, devotional writing, and long-form articles.
-      </p>
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {posts.map((post) => (
-          <Link className="lantern-panel block rounded-3xl p-6 transition hover:border-[rgba(216,168,79,0.55)]" href={post.href} key={post.title}>
-            {"featuredImageUrl" in post && post.featuredImageUrl ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img className="mb-5 aspect-[16/10] w-full rounded-2xl object-cover" src={post.featuredImageUrl} alt="" />
-            ) : null}
-            <p className="gold-text text-xs uppercase tracking-[0.25em]">{post.category} - {"publishedAt" in post ? formatDate(post.publishedAt) : "Quiet Light"}</p>
-            <h2 className="mt-4 text-2xl">{post.title}</h2>
-            <p className="mt-4 text-sm leading-6 text-[var(--muted-silver)]">{post.summary}</p>
-          </Link>
-        ))}
-      </div>
+      <section className="max-w-4xl">
+        <p className="gold-text uppercase tracking-[0.3em]">The Quiet Light Journal</p>
+        <h1 className="gold-text mt-4 text-5xl leading-tight md:text-7xl">Reflections, Ministry News, and the Keeping of the Flame</h1>
+        <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted-silver)]">
+          A growing archive of devotional writing, scriptural reflection, announcements, project updates, and longer thoughts from Quiet Light Ministries.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.2em] text-[var(--muted-silver)]">
+          <span className="rounded-full border border-[rgba(216,168,79,0.32)] px-4 py-2">Devotional reflections</span>
+          <span className="rounded-full border border-[rgba(216,168,79,0.32)] px-4 py-2">Ministry updates</span>
+          <span className="rounded-full border border-[rgba(216,168,79,0.32)] px-4 py-2">Announcements</span>
+        </div>
+      </section>
+
+      <BlogArchive posts={normalizedPosts} />
     </main>
   );
 }
