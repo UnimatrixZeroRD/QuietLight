@@ -13,6 +13,7 @@ export const primaryNavigation: NavItem[] = [
     href: "/the-way",
     children: [
       { label: "The Way Overview", href: "/the-way" },
+      { label: "Positions & Directives", href: "/positions" },
       { label: "Blog", href: "/blog" },
       { label: "Geneva Bible", href: "/bible" },
     ],
@@ -53,6 +54,7 @@ export const footerNavigation = {
     { label: "Store", href: externalStoreUrl },
     { label: "Order of the Lantern", href: "/membership" },
     { label: "Quiet Works", href: "/quiet-works" },
+    { label: "Official Positions", href: "/positions" },
     { label: "Bible", href: "/bible" },
     { label: "Blog", href: "/blog" },
     { label: "Account", href: "/account" },
