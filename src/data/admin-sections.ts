@@ -7,9 +7,9 @@ export type AdminSection = {
 
 export const adminSections: AdminSection[] = [
   {
-    title: "Posts",
-    description: "Create and manage reflections, updates, announcements, and long-form writing.",
-    href: "/admin/content",
+    title: "Blog Studio",
+    description: "Write visually formatted articles, add media embeds, save drafts, preview pages, and manage published posts.",
+    href: "/admin/blog",
     status: "ready",
   },
   {
