@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "../../../components/article-body";
+import { richTextValueToPlainText } from "../../../lib/rich-text-document";
 import { getPublicPostBySlug } from "../../../lib/supabase/public-content";
 
 type BlogPostPageProps = {
@@ -10,15 +11,13 @@ type BlogPostPageProps = {
 
 function formatDate(value?: string | null) {
   if (!value) return "Quiet Light";
-
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "Quiet Light";
-
   return new Intl.DateTimeFormat("en-CA", { dateStyle: "long" }).format(date);
 }
 
 function estimateReadingMinutes(body?: string | null) {
-  const words = String(body ?? "").trim().split(/\s+/).filter(Boolean).length;
+  const words = richTextValueToPlainText(body).trim().split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.ceil(words / 200));
 }
 
@@ -27,10 +26,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = await getPublicPostBySlug(slug);
 
   if (!post) {
-    return {
-      title: "Post Not Found",
-      robots: { index: false, follow: false },
-    };
+    return { title: "Post Not Found", robots: { index: false, follow: false } };
   }
 
   return {
@@ -57,10 +53,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getPublicPostBySlug(slug);
-
-  if (!post) {
-    notFound();
-  }
+  if (!post) notFound();
 
   const readingMinutes = estimateReadingMinutes(post.body);
   const structuredData = {
@@ -70,14 +63,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     description: post.excerpt,
     datePublished: post.publishedAt ?? undefined,
     image: post.featuredImageUrl ? [post.featuredImageUrl] : undefined,
-    author: {
-      "@type": "Organization",
-      name: "Quiet Light Ministries",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Quiet Light Ministries",
-    },
+    author: { "@type": "Organization", name: "Quiet Light Ministries" },
+    publisher: { "@type": "Organization", name: "Quiet Light Ministries" },
     mainEntityOfPage: `/blog/${post.slug}`,
   };
 
@@ -86,9 +73,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       <nav aria-label="Blog breadcrumb" className="flex flex-wrap items-center gap-3 text-sm uppercase tracking-[0.18em]">
-        <Link className="gold-text" href="/blog">
-          Journal
-        </Link>
+        <Link className="gold-text" href="/blog">Journal</Link>
         <span aria-hidden="true" className="text-[var(--muted-silver)]">/</span>
         <span className="text-[var(--muted-silver)]">{post.category}</span>
       </nav>
@@ -122,9 +107,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <p className="gold-text text-xs uppercase tracking-[0.24em]">Continue reading</p>
             <p className="mt-3 text-[var(--muted-silver)]">Return to the journal for more reflections, announcements, and ministry updates.</p>
           </div>
-          <Link className="gold-text shrink-0 text-sm uppercase tracking-[0.2em]" href="/blog">
-            Explore the journal <span aria-hidden="true">→</span>
-          </Link>
+          <Link className="gold-text shrink-0 text-sm uppercase tracking-[0.2em]" href="/blog">Explore the journal <span aria-hidden="true">→</span></Link>
         </footer>
       </article>
     </main>
